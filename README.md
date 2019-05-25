@@ -1,7 +1,7 @@
 avotecado
 ===
 **Table of Contents**
-* Project Requirements
+* [Project Requirements](#Project-Requirements--avotecado)
     * [Who is it for?](#Who-is-it-for)
     * [What will it do?](#What-will-it-do-What-“human-activity”-will-it-support)
     * [What type of data will it store?](#What-type-of-data-will-it-store)
