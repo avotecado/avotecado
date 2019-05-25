@@ -18,6 +18,8 @@ avotecado
     * [USER-Centered Design](#USER-Centered-Design)
     * [Problem-Solving Orientation](#Problem-Solving-Orientation)
 
+----
+
 ## Project Requirements @ avotecado
 ### Who is it for?
 avotecado is for people in a certain geographic location who want to learn more about local politics. In our demo case, it'll be for Vancouverites who want to learn about Vancouver politics.
