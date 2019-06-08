@@ -1,0 +1,61 @@
+**aVoteCado React/Redux/Meteor**
+June  8, 2019
+## Presentational Components
+### CSS:
+```
+.body {
+    background-color: black;
+    font-family: Arial /*for now, ill add in source sans etc later*/
+    color: white /* this is for the text on dark mode*/
+}
+
+.politicianCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+```
+
+![](https://i.imgur.com/AGxBdk5.png)
+The main green is `#009245`, the accent green is `#004923`.
+
+### Mobile:
+
+* **NavBar**
+    * Menu - Button - drop down - links to other pages
+    * Logo
+    
+**PoliticianCardList**
+* Cards: Array of politician cards
+
+* **Politican Card**: 
+    * Politican Bar
+        * Bio - page
+            * text: string: Current Party
+            * text: string: Years with Party
+            * text: string: Total years
+            * text: string: Phone Number
+            * text: string: Address
+            * text: string: Election result
+        * Voting Record - page
+
+### Container Components
+![](https://i.imgur.com/u81gQpA.png)
+
+## Desktop Design
+![](https://i.imgur.com/eWQaaLX.png)
+* Drawing 1: (PROBABLY) A scrollable list of politiicans on the side
+* Drawing 2: (POTENTIALLY) A thing that pops out to show name/party
+
+## Progress Towards Goals
+### Restatement of minimal requirements
+1. Vote history information is loaded into database
+2. **Profile page for each councillor, with contact data**
+3. **Councillor profile page has their recent voting history**
+4. Vote history page by date, with all councillor votes
+
+    We made progress towards goals 2 & 3 for this week's requirements. The profile page for a councillor is a work in progress. The dark mode mobile page was first developed AdobeXD and the basic react/meteor structure has been established. A good amount of the styling was built, with refinements to come.
+
+    
+    
+
