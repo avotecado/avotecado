@@ -3,15 +3,15 @@ import PolBar from './PolBar'
 import { connect } from 'react-redux';
 
 class PolList extends Component {
-	// constructor(props) {
-	// 	super(props);
-	// }
+	constructor(props) {
+		super(props);
+	}
 
 	render() {
 		return (
 			<div id="polSelector">
-			{this.props.polList.map((politician, name) => (
-				<PolBar key={name} />
+			{this.props.politicians.map((politician, index) => (
+				<PolBar key={index} firstname={politician.firstname} lastname={politician.lastname} party={politician.party}/>
 			))}
 			</div>
 		);
@@ -19,6 +19,6 @@ class PolList extends Component {
 }
 
 const mapStateToProps = (state) => {
-	return { polList: state.politicians}
+	return { politicians: state.politicians}
 }
 export default connect(mapStateToProps)(PolList);

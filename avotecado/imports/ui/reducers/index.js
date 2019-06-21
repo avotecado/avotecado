@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux';
+import {FETCH_POLITICIANS, FETCH_POLITICIANS_BEGIN, FETCH_POLITICIANS_SUCCESS, FETCH_POLITICIANS_FAILURE} from '../actions'
+
 
 const politicians = [
     {
         "title": "Mayor",
-        "name": "Kennedy Stewart",
-        "party": "",
+        "firstname": "Kennedy",
+        "lastname": "Stewart",
+        "party": "Independent",
         "votes": 49705,
         "totalVotes": 176450,
         "profileURL": "https://vancouver.ca/your-government/mayor-kennedy-stewart.aspx",
@@ -20,7 +23,8 @@ const politicians = [
     },
     {
         "title": "City Councillor",
-        "name": "Rebecca Bligh",
+        "firstname": "Rebecca",
+        "lastname": "Bligh",
         "party": "NPA",
         "votes": 44053,
         "totalVotes": 176450,
@@ -37,7 +41,8 @@ const politicians = [
     },
     {
         "title": "City Councillor",
-        "name": "Christine Boyle",
+        "firstname": "Christine",
+        "lastname": "Boyle",
         "party": "OneCity",
         "votes": 45455,
         "totalVotes": 176450,
@@ -54,7 +59,8 @@ const politicians = [
     },
     {
         "title": "City Councillor",
-        "name": "Adriane Carr",
+        "firstname": "Adriane",
+        "lastname": "Carr",
         "party": "Green",
         "votes": 69730,
         "totalVotes": 176450,
@@ -71,7 +77,8 @@ const politicians = [
     },
     {
         "title": "City Councillor",
-        "name": "Melissa De Genova",
+        "firstname": "Melissa",
+        "lastname": "De Genova",
         "party": "NPA",
         "votes": 53251,
         "totalVotes": 176450,
@@ -88,7 +95,8 @@ const politicians = [
     },
     {
         "title": "City Councillor",
-        "name": "Lisa Dominato",
+        "firstname": "Lisa",
+        "lastname": "Dominato",
         "party": "NPA",
         "votes": 44689,
         "totalVotes": 176450,
@@ -105,7 +113,8 @@ const politicians = [
     },
     {
         "title": "City Councillor",
-        "name": "Pete Fry",
+        "firstname": "Pete",
+        "lastname": "Fry",
         "party": "Green",
         "votes": 61806,
         "totalVotes": 176450,
@@ -122,7 +131,8 @@ const politicians = [
     },
     {
         "title": "City Councillor",
-        "name": "Colleen Hardwick",
+        "firstname": "Colleen",
+        "lastname": "Hardwick",
         "party": "NPA",
         "votes": 47747,
         "totalVotes": 176450,
@@ -139,7 +149,8 @@ const politicians = [
     },
     {
         "title": "City Councillor",
-        "name": "Sarah Kirby-Yung",
+        "firstname": "Sarah",
+        "lastname": "Kirby-Yung",
         "party": "NPA",
         "votes": 43581,
         "totalVotes": 176450,
@@ -156,7 +167,8 @@ const politicians = [
     },
     {
         "title": "City Councillor",
-        "name": "Jean Swanson",
+        "firstname": "Jean",
+        "lastname": "Swanson",
         "party": "COPE",
         "votes": 48865,
         "totalVotes": 176450,
@@ -173,7 +185,8 @@ const politicians = [
     },
     {
         "title": "City Councillor",
-        "name": "Michael Wiebe",
+        "firstname": "Michael",
+        "lastname": "Wiebe",
         "party": "Green",
         "votes": 45593,
         "totalVotes": 176450,
@@ -190,11 +203,12 @@ const politicians = [
     }
 ];
 
-const politicianListReducer = (politicians = [], action) => {
+const politicianListReducer = (politicianList = politicians, action) => {
 
-    let mutablePoliList = politicians.slice(0)
+    let mutablePoliList = politicianList.slice(0)
 
     console.log("Action: ", action);
+
     switch (action.type) {
 
         case FETCH_POLITICIANS_BEGIN:
@@ -226,7 +240,7 @@ const politicianListReducer = (politicians = [], action) => {
         //   };
 
         default:
-            return politicians;
+            return politicianList;
     }
 };
 
