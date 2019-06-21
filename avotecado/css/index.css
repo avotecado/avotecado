@@ -1,26 +1,24 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans|Source+Sans+Pro&display=swap');
-
-body {
+/* body {
   margin-top: 1em;
   background-color: black;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+} */
 
-}
-
-#main {
+/* #main {
   display: flex;
   justify-content: center;
   width: 95vw;
   height: 95vh;
-  /* background: darkslateblue; */
   overflow: hidden;
-}
+} */
 
 /* Navbar.jsx */
-#navbar {
+
+/* #navbar {
   background-color:rgb(0,0,0,1);
   padding: 1.75em;
   display: flex;
@@ -28,113 +26,112 @@ body {
   position: absolute;
   width: 50vw;
   margin-top: 0;
-  /* margin-bottom: 1em; */
   overflow: visible;
   z-index: 2;
+} */
+
+/* #menu_button{
 }
-
-#menu_button{
-
-}
-
 #header_text {
   font-family: Fira Sans, sans-serif;
-}
+} */
 
 /* Navbar.jsx END */
 
 /* Content.jsx */
-.content {
-  /* background-color: green; */
-}
+
+/* .content { */
+
+/* background-color: green; */
+
+/* } */
 
 /* Card.jsx (nested in Content.jsx) */
-.card {
+
+/* .card {
   display: flex;
   align-content: center;
   justify-content: center;
   margin-top: 5em;
   flex-flow: column;
-  /* width: 90vw; */
   height: 60vh;
   background-color: black;
-  /* background-color: pink; */
   z-index: -1;
-}
+} */
 
 /* PolBar.jsx (nested in Card.jsx) */
 
 /* PolBar features */
-#polBar {
+
+/* #polBar {
   border-radius: 4px;
   background-color: rgba(36,36,36,1);
   overflow: visible;
   display:flex;
   justify-content: space-evenly;
   flex-flow: row;
-  padding: 1.25em;
+  padding: 0em;
   margin-bottom: 1em;
-}
+} */
 
 /* Text features */
-#polText {
+
+/* #polText {
   font-family: Source Sans Pro, sans-serif;
-  font-size: 1em;
+  font-size: 2em;
   color: rgba(255,255,255,1);
-}
+} */
 
 /* Set text weight only */
-.name {
+
+/* .name {
   font-style: normal;
   font-weight: bold;
-}
+} */
 
 /* Set text weight only */
-.party {
+
+/* .party {
 	font-style: normal;
 	font-weight: lighter;
+} */
 
-}
-
-.ic_menu_48px_A2_Path_23 {
+/* .ic_menu_48px_A2_Path_23 {
   padding-left: 12em;
-}
+} */
 
-.pfp {
+/* .pfp {
   padding-right: 12em;
-}
+} */
 
 /* PolBar.jsx END */
 
 /* BioPage.jsx (nested in Card.jsx) */
 
-.bioPage {
+/* .bioPage {
   width: 50vw;
-}
+} */
 
-.bioNav{
-  /* margin-top: 100em; */
+/* .bioNav{
   display: flex;
   align-items: center;
   justify-content: center;
   align-self: center;
-}
+} */
 
-#BIO {
+/* #BIO {
   flex: 1;
   background-color: rgba(0,146,69,1);
   padding-left: 8.15vw;
   padding-right: 8.15vw;
   margin-right: 3.5em;
 }
-
 #VOTING_RECORD {
   margin-left:3.25em;
   background-color: rgb(11,11,11);
   padding-left: 8.15vw;
   padding-right: 8.15vw;
 }
-
 #InfoText {
   font-family: Source Sans Pro, sans-serif;
   font-style: normal;
@@ -145,6 +142,4 @@ body {
   flex-direction: column;
   padding: 1em;
   z-index: 3;
-
-
-}
+} */

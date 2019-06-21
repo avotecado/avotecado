@@ -6,8 +6,8 @@ import PolSelector from './PolSelector.jsx';
 const App = () => (
   <div id='main'>
     <Navbar />
-    <PolSelector />
     <Content />
+    <PolSelector />
   </div>
 );
 
