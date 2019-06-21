@@ -1,23 +1,31 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+const photoName = (firstname, lastname) => {
+  let output = 'photos/' + firstname + '_' + lastname + '_40.png';
+  return output.replace(' ', '_');
+}
 
 class PolBar extends Component {
   render () {
     return (
-      <div id='polBar'>
+      <div id={this.props.key} className='polBar'>
         <span className='pfp'>
-          <img src='photos/mayor_kennedy_stewart_200px_A2_Rectangle_21_pattern@2x.png' width='64' />
+          <img src={photoName(this.props.firstname, this.props.lastname)} width='40' />
         </span>
-        <div id='polText'>
-          <span className='name'>Kennedy Stewart<br /></span>
-          <span className='party'>Independent</span>
+        <div className='polText'>
+          <span className='name'>{this.props.firstname} {this.props.lastname}</span><br />
+          <span className='party'>{this.props.party}</span>
         </div>
         <span className='ic_menu_48px_A2_Path_23'>
-          <img src='icons/ic_menu_48px.png' width='64' />
+          <img src='icons/ic_menu_48px.png' width='48' />
         </span>
-
       </div>
     );
   }
 }
 
-export default PolBar;
+const mapStateToProps = (state) => {
+	return { politician: state.politician}
+}
+export default connect(mapStateToProps)(PolBar);
