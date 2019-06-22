@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { AppBar, Toolbar, Button, IconButton } from '@material-ui/core';
 import TypoGraphy from '@material-ui/core/Typography'
 import MenuIcon from '@material-ui/icons/Menu';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 //New imports from mui sample Dashboard
 import clsx from 'clsx';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,14 +16,9 @@ import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Link from '@material-ui/core/Link';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
+import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import NotificationsIcon from '@material-ui/icons/Notifications';
-
 import { PolListSideBarItems } from './PolListSideBar';
-
-//Will need to import the poli list like below:
-//import { mainListItems, secondaryListItems } from './listItems';
-
-
 
 // const useStyles = makeStyles(theme => ({
 // 	root: {
@@ -37,7 +32,7 @@ import { PolListSideBarItems } from './PolListSideBar';
 // 	},
 // }));
 
-const drawerWidth = 240;
+const drawerWidth = 200;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -71,12 +66,24 @@ const useStyles = makeStyles(theme => ({
   menuButton: {
     marginRight: 36,
   },
-  menuButtonHidden: {
-    display: 'none',
-  },
+
+//   hide: {
+//     display: 'none',
+//   },
+
+//   menuButtonHidden: {
+//     display: 'none',
+//   },
+
   title: {
     flexGrow: 1,
   },
+
+  drawer: {
+    width: drawerWidth,
+    flexShrink: 0,
+  },
+
   drawerPaper: {
     position: 'relative',
     whiteSpace: 'nowrap',
@@ -123,7 +130,9 @@ const useStyles = makeStyles(theme => ({
 export default function NavBar() {
 	const classes = useStyles();
 	//New imports from mui sample Dashboard
-	const [open, setOpen] = React.useState(true);
+	const [open, setOpen] = React.useState(false);
+	const theme = useTheme();
+	
 	const handleDrawerOpen = () => {
 	  setOpen(true);
 	};
@@ -134,15 +143,18 @@ export default function NavBar() {
 
 	return (
 		<div className={classes.root}>
-			<AppBar color="primary" position="static" 
-				className={clsx(classes.appBar, open && classes.appBarShift)}>
+		<CssBaseline />
+			<AppBar color="primary" position="fixed" 
+				className={clsx(classes.appBar, {
+					[classes.appBarShift]: open,	
+				})}
+			>
 			
 			{/* // New imports from mui sample Dashboard: */}
 
 				<Toolbar className={classes.toolbar}>
 					<IconButton
 						edge="start" 
-						className={classes.menuButton} 
 						color="inherit" 
 						aria-label="Open drawer"
 						onClick={handleDrawerOpen}
@@ -152,13 +164,13 @@ export default function NavBar() {
 					</IconButton>
 					<TypoGraphy variant="h5" color="inherit">
 						avotecado
-			   </TypoGraphy>
+			   		</TypoGraphy>
 				</Toolbar>
 			</ AppBar>
 
 			{/* // New imports from mui sample Dashboard: */}
 
-			<Drawer
+			{/* <Drawer
         		variant="permanent"
         		classes={{
           		paper: clsx(classes.drawerPaper, !open && classes.drawerPaperClose),
@@ -170,18 +182,35 @@ export default function NavBar() {
           		<IconButton onClick={handleDrawerClose}>
             		<ChevronLeftIcon />
           		</IconButton>
-			  </div>
+			</div> */}
+
+			<Drawer
+        className={classes.drawer}
+        variant="persistent"
+        anchor="left"
+        open={open}
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+      >
+        <div className={classes.drawerHeader}>
+          <IconButton onClick={handleDrawerClose}>
+            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+          </IconButton>
+        </div>
+
 			  <Divider />
-			  {/*  // TODO: Need to adjust below with PoliList */}
-			  	<List>
-					  
-					  { PolListSideBarItems }
-					  
-				</List> }
+			<List>{ PolListSideBarItems }</List>
         		<Divider />
 
 
 			</Drawer>
+			<main className={classes.content}>
+        	
+			<div className={classes.appBarSpacer} />
+
+
+			</main>
 		</div>
 	);
 }
