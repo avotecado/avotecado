@@ -1,10 +1,9 @@
 import React from 'react';
-import Navbar from './Navbar.jsx';
-import Content from './Content.jsx';
-import PolSelector from './PolSelector.jsx';
+import Navbar from './components/Navbar.jsx';
+import Content from './components/Content.jsx';
 
 const App = () => (
-  <div id='main'style={{ overflowX: 'hidden' }}>
+  <div style={{ overflowX: 'hidden' }}>
     <Navbar />
     <Content />
     {/* <PolSelector /> */}
