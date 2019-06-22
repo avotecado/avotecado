@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logIn } from '../actions';
+import { logOut } from '../actions';
 import Button from '@material-ui/core/Button';
 
 class Login extends React.Component {
@@ -47,11 +47,17 @@ class Login extends React.Component {
           <textarea name='userInput' placeholder='username' required value={this.state.user} onChange={this.handleUser} /> <p />
 
           <textarea name='passInput' placeholder='password' required value={this.state.pass} onChange={this.handlePass} /> <p />
-          <Button color='secondary' type='submit'>LOGIN</Button> <p />
+          <Button color='secondary' type='submit'>submit</Button> <p />
         </form>
       </div>
     );
   }
 }
 
-export default connect(null, { logIn })(Login);
+const mapState = (state) => {
+  return {
+    messageArray: state.messageArray
+  };
+};
+
+export default connect(mapState, { logOut })(Login);

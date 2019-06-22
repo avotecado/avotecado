@@ -48,7 +48,7 @@ class Register extends React.Component {
           <textarea name='userInput' placeholder='username' required value={this.state.user} onChange={this.handleUser} /> <p />
 
           <textarea name='passInput' placeholder='password' required value={this.state.pass} onChange={this.handlePass} /> <p />
-          <Button color='secondary' type='submit'>submit</Button> <p />
+          <Button color='secondary' type='submit'>REGISTER</Button> <p />
         </form>
       </div>
     );

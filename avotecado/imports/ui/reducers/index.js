@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { FETCH_POLITICIANS, FETCH_POLITICIANS_BEGIN, FETCH_POLITICIANS_SUCCESS, FETCH_POLITICIANS_FAILURE, REG_USER } from '../actions';
+import { FETCH_POLITICIANS, FETCH_POLITICIANS_BEGIN, FETCH_POLITICIANS_SUCCESS, FETCH_POLITICIANS_FAILURE, REG_USER, LOG_IN } from '../actions';
 
 const politicians = [
   {
@@ -206,18 +206,29 @@ const users = [
   {
     user: 'admin',
     pass: '123',
-    uuid: 0
+    uuid: 0,
+    following: ['KennedyStewart', 'RebeccaBligh']
+  },
+  {
+    user: 'user1',
+    pass: '123',
+    uuid: 1,
+    following: ['KennedyStewart']
   }
 ];
 
+const userStatus = { loggedIn: false, uuid: '' };
+
 // const initState = { polits: politicians, users: users };
-const initState = [politicians, users];
+const initState = [politicians, users, userStatus];
+// const initState = [politicians, users];
 
 // const politicianListReducer = (politicianList = politicians, action) => {
 const politicianListReducer = (state = initState, action) => {
   let mutableState = state.slice(0);
-  let mutableUsers = state[1].slice(0);
   let mutablePoliList = state[0].slice(0);
+  let mutableUsers = state[1].slice(0);
+  let mutableUserStatus = state[2];
   // let mutablePoliList = politicianList.slice(0);
 
   console.log('Action: ', action);
@@ -226,8 +237,25 @@ const politicianListReducer = (state = initState, action) => {
     case REG_USER:
       mutableUsers.push(action.data);
       mutableState[1] = mutableUsers;
-      console.log(mutableState);
+      console.log('mutableState is:', mutableState);
       return mutableState;
+
+    case LOG_IN:
+      if (mutableUserStatus.loggedIn === false) {
+        console.log(action.data);
+        let exists = mutableUsers.findIndex(function (elem) { return (elem.user == action.data.user && elem.pass == action.data.pass); });
+        console.log(exists);
+        if (exists >= 0) {
+          let uuidToSet = users[exists];
+          mutableUserStatus.loggedIn = true;
+          uuidToSet = uuidToSet.uuid;
+          mutableUserStatus.uuid = uuidToSet;
+          console.log('mutableState @login:', mutableState);
+          return mutableState;
+        } else return state;
+      } else {
+        return state;
+      }
 
     case FETCH_POLITICIANS_BEGIN:
       return mutablePoliList;
@@ -263,6 +291,6 @@ const politicianListReducer = (state = initState, action) => {
 };
 
 export default combineReducers({
-  politicians: politicianListReducer //, 
+  politicians: politicianListReducer //,
   // anotherKey: anotherReducer
 });
