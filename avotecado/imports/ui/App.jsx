@@ -4,10 +4,10 @@ import Content from './Content.jsx';
 import PolSelector from './PolSelector.jsx';
 
 const App = () => (
-  <div id='main'>
+  <div id='main'style={{ overflowX: 'hidden' }}>
     <Navbar />
     <Content />
-    <PolSelector />
+    {/* <PolSelector /> */}
   </div>
 );
 

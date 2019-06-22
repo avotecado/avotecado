@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Content from './Content';
 //added from material UI for a top nav bar
 import { AppBar, Toolbar, Button, IconButton } from '@material-ui/core';
 import TypoGraphy from '@material-ui/core/Typography'
@@ -105,10 +106,22 @@ const useStyles = makeStyles(theme => ({
     },
   },
   appBarSpacer: theme.mixins.toolbar,
+
   content: {
     flexGrow: 1,
-    height: '100vh',
-    overflow: 'auto',
+    padding: theme.spacing(3),
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    marginLeft: -drawerWidth,
+  },
+  contentShift: {
+    transition: theme.transitions.create('margin', {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginLeft: 0,
   },
   container: {
     paddingTop: theme.spacing(4),
@@ -202,14 +215,14 @@ export default function NavBar() {
 			  <Divider />
 			<List>{ PolListSideBarItems }</List>
         		<Divider />
-
-
 			</Drawer>
-			<main className={classes.content}>
-        	
-			<div className={classes.appBarSpacer} />
-
-
+			<main  
+				className={clsx(classes.content, {
+          			[classes.contentShift]: open,
+        		})}
+      		>
+        		<div className={classes.drawerHeader} />
+				<Content />
 			</main>
 		</div>
 	);

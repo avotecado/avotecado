@@ -9,8 +9,8 @@ function Card() {
   return (
     <React.Fragment>
       <CssBaseline />
-      <Container maxWidth="sm" >
-        <Typography component="div" style={{ backgroundColor: '#cfe8fc', height: '100vh' }}>
+      <Container maxWidth="lg" >
+        <Typography component="div" style={{ backgroundColor: '#cfe8fc'}}>
           {/* <div className="card"> */}
           <PolBar />
           {/* <PolBar key={index} firstname={politician.firstname} lastname={politician.lastname} party={politician.party} /> */}
