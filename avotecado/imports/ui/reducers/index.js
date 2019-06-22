@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { FETCH_POLITICIANS, FETCH_POLITICIANS_BEGIN, FETCH_POLITICIANS_SUCCESS, FETCH_POLITICIANS_FAILURE } from '../actions';
+import { FETCH_POLITICIANS, FETCH_POLITICIANS_BEGIN, FETCH_POLITICIANS_SUCCESS, FETCH_POLITICIANS_FAILURE, REG_USER } from '../actions';
 
 const politicians = [
   {
@@ -205,7 +205,8 @@ const politicians = [
 const users = [
   {
     user: 'admin',
-    pass: '123'
+    pass: '123',
+    uuid: 0
   }
 ];
 
@@ -214,13 +215,20 @@ const initState = [politicians, users];
 
 // const politicianListReducer = (politicianList = politicians, action) => {
 const politicianListReducer = (state = initState, action) => {
-  
+  let mutableState = state.slice(0);
+  let mutableUsers = state[1].slice(0);
   let mutablePoliList = state[0].slice(0);
   // let mutablePoliList = politicianList.slice(0);
 
   console.log('Action: ', action);
 
   switch (action.type) {
+    case REG_USER:
+      mutableUsers.push(action.data);
+      mutableState[1] = mutableUsers;
+      console.log(mutableState);
+      return mutableState;
+
     case FETCH_POLITICIANS_BEGIN:
       return mutablePoliList;
       //   return {
@@ -255,6 +263,6 @@ const politicianListReducer = (state = initState, action) => {
 };
 
 export default combineReducers({
-  politicians: politicianListReducer //,
+  politicians: politicianListReducer //, 
   // anotherKey: anotherReducer
 });
