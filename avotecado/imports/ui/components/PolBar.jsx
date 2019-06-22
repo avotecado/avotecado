@@ -39,7 +39,6 @@ function PolBar (props) {
           <Grid item>
             <ButtonBase className={classes.image}>
               <img className={classes.img} alt='complex' src={photoName(props.firstname, props.lastname)} width='40' />
-              {/* <img className={classes.img} alt='complex' src={photoName(props.firstname, props.lastname)} width='40' /> */}
             </ButtonBase>
           </Grid>
           <Grid item xs={12} sm container>

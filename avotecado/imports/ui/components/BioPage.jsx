@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -22,10 +22,13 @@ const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper
+  },
+  color: {
+    color: 'black'
   }
 }));
 
-export default function SimpleTabs () {
+export default function PoliTabs () {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -36,7 +39,10 @@ export default function SimpleTabs () {
   return (
     <div className={classes.root}>
       <AppBar position='static'>
-        <Tabs value={value} onChange={handleChange} variant='fullWidth'>
+        <Tabs
+          style={{ background: 'black' }}
+          value={value} onChange={handleChange} variant='fullWidth'
+          TabIndicatorProps={{ style: { backgroundColor: '#009245', height: '0.5em' } }}>
           <Tab label='Biography' />
           <Tab label='Voting Record' />
         </Tabs>
@@ -44,14 +50,17 @@ export default function SimpleTabs () {
 
       {value === 0 && <TabContainer>
         <div id='InfoText'>
-          <span>Current Party: </span>
+          <span><strong>Current Party:</strong> </span>
           <span className='party'>Independent</span>
-          <p><span>Years with Party: 1 </span></p>
-          <p><span>Total Years Active: 1</span></p>
-          <p><span>Phone Number: </span><br />
+
+          <p><span><strong>Years with Party:</strong> 1 </span></p>
+
+          <p><span><strong>Total Years Active:</strong> 1</span></p>
+
+          <p><span><strong>Phone Number:</strong> </span><br />
             <span className='party'>Unavailable.</span></p>
           <br />
-          <span>Address:</span><br />
+          <span><strong>Address:</strong></span><br />
           <span className='party'>
             Kennedy Stewart, Mayor <br />
             3rd Floor, <br />
@@ -70,34 +79,3 @@ export default function SimpleTabs () {
     </div>
   );
 }
-
-// class BioPage extends Component {
-//   render () {
-//     return (
-//       <div className='bioPage'>
-//         <div id='bioNav' >
-//           <span id='BIO'>BIOGRAPHY</span> <span id='VOTING_RECORD'>VOTING RECORD</span>
-//         </div>
-//         <div id='InfoText'>
-//           <span>Current Party: </span>
-//           <span className='party'>Independent</span>
-//           <p><span>Years with Party: 1 </span></p>
-//           <p><span>Total Years Active: 1</span></p>
-//           <p><span>Phone Number: </span><br />
-//             <span className='party'>Unavailable.</span></p>
-//           <br />
-//           <span>Address:</span><br />
-//           <span className='party'>
-//             Kennedy Stewart, Mayor <br />
-//             3rd Floor, <br />
-//             City Hall <br />
-//             453 West 12th Ave <br />
-//             Vancouver, BC V5Y 1V4
-//           </span>
-//         </div>
-//       </div>
-//     );
-//   }
-// }
-
-// export default BioPage;

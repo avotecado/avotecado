@@ -27,6 +27,9 @@ const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex'
   },
+  header: {
+    alignItems: 'center'
+  },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.sharp,
@@ -34,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     })
   },
   appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
+    width: '100%',
     marginLeft: drawerWidth,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.easeOut,
@@ -100,7 +103,7 @@ export default function PersistentDrawerLeft () {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open
         })}
-        position='fixed'
+        position='relative'
       >
         <Toolbar>
           <IconButton
@@ -112,7 +115,11 @@ export default function PersistentDrawerLeft () {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant='h6' noWrap >
+          <Typography
+            className={clsx(classes.header)}
+            variant='h6'
+            noWrap
+          >
             avotecado
           </Typography>
         </Toolbar>

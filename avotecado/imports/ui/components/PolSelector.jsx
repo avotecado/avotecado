@@ -3,9 +3,9 @@ import PolBar from './PolBar';
 import { connect } from 'react-redux';
 
 class PolList extends Component {
-  constructor (props) {
-    super(props);
-  }
+  // constructor (props) {
+  //   super (props);
+  // }
 
   render () {
     return (
