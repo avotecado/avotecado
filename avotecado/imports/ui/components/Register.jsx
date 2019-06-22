@@ -43,6 +43,7 @@ class Register extends React.Component {
   render () {
     return (
       <div>
+        <h6>Register</h6>
         <form className='textInputArea' onSubmit={this.handleSubmit}>
           <textarea name='userInput' placeholder='username' required value={this.state.user} onChange={this.handleUser} /> <p />
 
