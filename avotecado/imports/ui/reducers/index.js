@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { FETCH_POLITICIANS, FETCH_POLITICIANS_BEGIN, FETCH_POLITICIANS_SUCCESS, FETCH_POLITICIANS_FAILURE, REG_USER, LOG_IN } from '../actions';
+import { FETCH_POLITICIANS, FETCH_POLITICIANS_BEGIN, FETCH_POLITICIANS_SUCCESS, FETCH_POLITICIANS_FAILURE, REG_USER, LOG_IN, LOGOUT } from '../actions';
 
 const politicians = [
   {
@@ -253,6 +253,15 @@ const politicianListReducer = (state = initState, action) => {
           console.log('mutableState @login:', mutableState);
           return mutableState;
         } else return state;
+      } else {
+        return state;
+      }
+    
+    case LOGOUT:
+      if (mutableUserStatus.loggedIn === true) {
+        mutableUserStatus.loggedIn = false;
+        mutableUserStatus.uuid = '';
+        return (mutableState[2] = mutableUserStatus);
       } else {
         return state;
       }
