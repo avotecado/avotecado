@@ -9,7 +9,7 @@ import politicianListReducer from '/imports/ui/reducers';
 const store = createStore(
   politicianListReducer,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+);
 
 Meteor.startup(() => {
   render(

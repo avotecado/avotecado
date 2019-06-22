@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { PolListSideBarItems } from './PolListSideBar';
 
@@ -21,7 +22,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 
-const drawerWidth = 240;
+const drawerWidth = 360;
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -140,15 +141,18 @@ export default function PersistentDrawerLeft () {
         </div>
         <Divider />
         <List>
-          {['Home', 'About', 'Contact'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button component={Link}>
+            <ListItemText primary='Home' />
+          </ListItem>
+          <ListItem button component={Link}>
+            <ListItemText primary='Profile' />
+          </ListItem>
+          <ListItem button component={Link}>
+            <ListItemText primary='Login' />
+          </ListItem>
         </List>
         <Divider />
-        <List>{ PolListSideBarItems }</List>
+        <List>{PolListSideBarItems}</List>
       </Drawer>
     </div>
   );
