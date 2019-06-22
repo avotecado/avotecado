@@ -19,6 +19,6 @@ class PolList extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { politicians: state.politicians };
+  return { politicians: state.politicians[0] };
 };
 export default connect(mapStateToProps)(PolList);
