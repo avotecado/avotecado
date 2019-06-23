@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux';
-import { FETCH_POLITICIANS, FETCH_POLITICIANS_BEGIN, FETCH_POLITICIANS_SUCCESS, FETCH_POLITICIANS_FAILURE, REG_USER, LOG_IN, LOGOUT } from '../actions';
+import { FETCH_POLITICIANS_BEGIN, FETCH_POLITICIANS_SUCCESS, FETCH_POLITICIANS_FAILURE, REG_USER, LOG_IN, LOGOUT } from '../actions';
+// FETCH_POLITICIANS
+import { SELECT_POLITICIAN } from '../actions'
 
 const politicians = [
   {
@@ -223,6 +225,13 @@ const userStatus = { loggedIn: false, uuid: '' };
 const initState = [politicians, users, userStatus];
 // const initState = [politicians, users];
 
+
+// export default function politicianListReducer(politicianList = politicians, action) {
+
+//   let mutablePoliList = politicianList.slice(0)
+// };
+
+
 // const politicianListReducer = (politicianList = politicians, action) => {
 const politicianListReducer = (state = initState, action) => {
   let mutableState = state.slice(0);
@@ -256,7 +265,7 @@ const politicianListReducer = (state = initState, action) => {
       } else {
         return state;
       }
-    
+
     case LOGOUT:
       if (mutableUserStatus.loggedIn === true) {
         mutableUserStatus.loggedIn = false;
@@ -268,38 +277,64 @@ const politicianListReducer = (state = initState, action) => {
 
     case FETCH_POLITICIANS_BEGIN:
       return mutablePoliList;
-      //   return {
-      // 	...mutablePoliList,
-      // 	loading: true,
-      //   };
+    //   return {
+    // 	...mutablePoliList,
+    // 	loading: true,
+    //   };
 
     case FETCH_POLITICIANS_SUCCESS:
       // Done: set loading to "false"
       // Replace the items with the ones from the server
       mutablePoliList = action.data;
       return mutablePoliList;
-      //   return {
-      // 	politicians: mutablePoliList,
-      // 	loading: false
-      //   };
+    //   return {
+    // 	politicians: mutablePoliList,
+    // 	loading: false
+    //   };
 
     case FETCH_POLITICIANS_FAILURE:
       // Request failed. Set loading to "false"
       // Save the error for display
       // Failed, so no items to display -> set to empty
       return politicians;
-      //   return {
-      // 	...mutablePoliList,
-      // 	loading: false,
-      // 	error: action.payload.error,
-      //   };
+    //   return {
+    // 	...mutablePoliList,
+    // 	loading: false,
+    // 	error: action.payload.error,
+    //   };
 
     default:
       return state;
   }
 };
 
+const selectPoliticianReducer = (selectedInitial = null, action) => {
+
+  let mutableSelection = selectedInitial;
+
+  console.log("Action in SPR: ", action);
+  console.log("SP in SPR: ", selectedInitial);
+
+  switch (action.type) {
+
+    case SELECT_POLITICIAN:
+      return mutableSelection;
+
+    default:
+      return selectedInitial;
+  }
+};
+
+
 export default combineReducers({
-  politicians: politicianListReducer //,
-  // anotherKey: anotherReducer
+  politicians: politicianListReducer,
+  selectPolitician: selectPoliticianReducer
 });
+
+// import politicianListReducer from './politicianListReducer';
+// import selectPoliticianReducer from './selectPoliticianReducer';
+
+// export default combineReducers({
+//     politicianListReducer,
+//     selectPoliticianReducer
+// });
