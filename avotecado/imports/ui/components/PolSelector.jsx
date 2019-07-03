@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PolBar from './PolBar';
 import { connect } from 'react-redux';
-import { selectPolitician } from '../actions'
+import { selectPolitician } from '../actions';
 
 class PolList extends Component {
   // constructor(props) {
@@ -17,7 +17,8 @@ class PolList extends Component {
   //   console.log("Selected from list: ", politician);
   // }
 
-  render() {
+  render () {
+    console.log(this.props.politicians);
     return (
       <div id='polSelector'>
         {this.props.politicians.map((politician, index) => (
@@ -31,14 +32,15 @@ class PolList extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log('state: ', state);
   return {
-    politicians: state.politicianListReducer,
+    politicians: state.politicians,
     selectedPolitician: state.selectedPoliticianReducer
-  }
+  };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  selectPolitician: (politician) => dispatch(Actions.selectPolitician(politician))
-});
+// const mapDispatchToProps = (dispatch) => ({
+//   selectPolitician: (politician) => dispatch(Actions.selectPolitician(politician))
+// });
 
-export default connect(mapStateToProps, mapDispatchToProps)(PolList);
+export default connect(mapStateToProps, { selectPolitician })(PolList);
