@@ -208,8 +208,8 @@ const initState = [politicians, selectedPolitician];
 // const politicianListReducer = (politicianList = politicians, action) => {
 const politicianListReducer = (state = initState, action) => {
   let mutableState = state.slice(0);
-  let mutablePoliList = state[0].slice(0);
-  let mutablePolitician = state[1].slice(0);
+  let mutablePoliList = mutableState[0].slice(0);
+  let mutablePolitician = mutableState[1].slice(0);
   console.log('\n', 'stateArray: ', state);
   console.log('Action: ', action);
   console.log('mutableState:', mutableState);
@@ -218,8 +218,11 @@ const politicianListReducer = (state = initState, action) => {
 
   switch (action.type) {
     case SELECT_POLITICIAN:
-      console.log('e');
-      return state;
+      console.log('\nin SELECT_POLITICIAN');
+      mutablePolitician = action.payload;
+      mutableState[1] = mutablePolitician;
+      console.log('new state: ', mutableState, '\n');
+      return mutableState;
 
     default:
       return state;
