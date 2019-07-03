@@ -17,10 +17,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 
 const drawerWidth = 360;
 
@@ -141,13 +138,13 @@ export default function PersistentDrawerLeft () {
         </div>
         <Divider />
         <List>
-          <ListItem button component={Link}>
+          <ListItem button component={Link} to='/'>
             <ListItemText primary='Home' />
           </ListItem>
-          <ListItem button component={Link}>
+          <ListItem button component={Link} to='/'>
             <ListItemText primary='Profile' />
           </ListItem>
-          <ListItem button component={Link}>
+          <ListItem button component={Link} to='/'>
             <ListItemText primary='Login' />
           </ListItem>
         </List>

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { SELECT_POLITICIAN, FETCH_POLITICIANS_BEGIN, FETCH_POLITICIANS_SUCCESS, FETCH_POLITICIANS_FAILURE } from '../actions';
+import { SELECT_POLITICIAN } from '../actions';
 
 const politicians = [
   {
@@ -202,87 +202,30 @@ const politicians = [
   }
 ];
 
-// const users = [
-//   {
-//     user: 'admin',
-//     pass: '123',
-//     uuid: 0,
-//     following: ['KennedyStewart', 'RebeccaBligh']
-//   },
-//   {
-//     user: 'user1',
-//     pass: '123',
-//     uuid: 1,
-//     following: ['KennedyStewart']
-//   }
-// ];
-
-// const userStatus = { loggedIn: false, uuid: '' };
-
-// const initState = { polits: politicians, users: users };
-const initState = [politicians];
-// const initState = [politicians, users];
+let selectedPolitician = '';
+const initState = [politicians, selectedPolitician];
 
 // const politicianListReducer = (politicianList = politicians, action) => {
 const politicianListReducer = (state = initState, action) => {
-  // let mutableState = state.slice(0);
+  let mutableState = state.slice(0);
   let mutablePoliList = state[0].slice(0);
-  // let mutableUsers = state[1].slice(0);
-  // let mutableUserStatus = state[2];
-  // let mutablePoliList = politicianList.slice(0);
-  console.log('stateArray: ', state);
+  let mutablePolitician = state[1].slice(0);
+  console.log('\n', 'stateArray: ', state);
   console.log('Action: ', action);
+  console.log('mutableState:', mutableState);
+  console.log('mutablePoliList:', mutablePoliList);
+  console.log('mutablePolitician:', mutablePolitician, '\n');
 
   switch (action.type) {
-    case FETCH_POLITICIANS_BEGIN:
-      return mutablePoliList;
-      //   return {
-      // 	...mutablePoliList,
-      // 	loading: true,
-      //   };
-
-    case FETCH_POLITICIANS_SUCCESS:
-      // Done: set loading to "false"
-      // Replace the items with the ones from the server
-      mutablePoliList = action.data;
-      return mutablePoliList;
-      //   return {
-      // 	politicians: mutablePoliList,
-      // 	loading: false
-      //   };
-
-    case FETCH_POLITICIANS_FAILURE:
-      // Request failed. Set loading to "false"
-      // Save the error for display
-      // Failed, so no items to display -> set to empty
-      return politicians;
-      //   return {
-      // 	...mutablePoliList,
-      // 	loading: false,
-      // 	error: action.payload.error,
-      //   };
+    case SELECT_POLITICIAN:
+      console.log('e');
+      return state;
 
     default:
       return state;
   }
 };
 
-const selectPoliticianReducer = (selectedInitial = null, action) => {
-  let mutableSelection = selectedInitial;
-
-  console.log('Action in SPR: ', action);
-  console.log('SP in SPR: ', selectedInitial);
-
-  switch (action.type) {
-    case SELECT_POLITICIAN:
-      return mutableSelection;
-
-    default:
-      return selectedInitial;
-  }
-};
-
 export default combineReducers({
-  politicians: politicianListReducer,
-  selectPolitician: selectPoliticianReducer
+  politicians: politicianListReducer
 });
