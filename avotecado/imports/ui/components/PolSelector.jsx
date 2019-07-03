@@ -4,11 +4,13 @@ import { connect } from 'react-redux';
 import { selectPolitician } from '../actions';
 
 class PolList extends Component {
-  // constructor(props) {
-  //   super(props);
-
-  //   this.selectPolitician = this.selectPolitician.bind(this);
-  // }
+  constructor (props) {
+    super(props);
+    this.state = {
+      politiciansArray: this.props.politiicans
+    };
+    // this.selectPolitician = this.selectPolitician.bind(this);
+  }
 
   // selectPolitician = (politician) => {
   //   this.setState({
@@ -18,7 +20,8 @@ class PolList extends Component {
   // }
 
   render () {
-    console.log(this.props.politicians);
+    console.log('this.props.politicians: ', this.props.politicians);
+    // console.log('politicians: ', this.state.politicians);
     return (
       <div id='polSelector'>
         {this.props.politicians.map((politician, index) => (
@@ -33,8 +36,9 @@ class PolList extends Component {
 
 const mapStateToProps = (state) => {
   console.log('state: ', state);
+  console.log('state.politicians[0]: ', state.politicians[0]);
   return {
-    politicians: state.politicians,
+    politicians: state.politicians[0],
     selectedPolitician: state.selectedPoliticianReducer
   };
 };

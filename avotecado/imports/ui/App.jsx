@@ -15,8 +15,6 @@ class App extends Component {
           <Navbar />
           {/* <Route path='/' component={Hello} /> */}
           <Content />
-          <Register />
-          <Login />
           {/* <Logout /> */}
         </div>
       </BrowserRouter>

@@ -202,33 +202,33 @@ const politicians = [
   }
 ];
 
-const users = [
-  {
-    user: 'admin',
-    pass: '123',
-    uuid: 0,
-    following: ['KennedyStewart', 'RebeccaBligh']
-  },
-  {
-    user: 'user1',
-    pass: '123',
-    uuid: 1,
-    following: ['KennedyStewart']
-  }
-];
+// const users = [
+//   {
+//     user: 'admin',
+//     pass: '123',
+//     uuid: 0,
+//     following: ['KennedyStewart', 'RebeccaBligh']
+//   },
+//   {
+//     user: 'user1',
+//     pass: '123',
+//     uuid: 1,
+//     following: ['KennedyStewart']
+//   }
+// ];
 
-const userStatus = { loggedIn: false, uuid: '' };
+// const userStatus = { loggedIn: false, uuid: '' };
 
 // const initState = { polits: politicians, users: users };
-const initState = [politicians, users, userStatus];
+const initState = [politicians];
 // const initState = [politicians, users];
 
 // const politicianListReducer = (politicianList = politicians, action) => {
 const politicianListReducer = (state = initState, action) => {
-  let mutableState = state.slice(0);
+  // let mutableState = state.slice(0);
   let mutablePoliList = state[0].slice(0);
-  let mutableUsers = state[1].slice(0);
-  let mutableUserStatus = state[2];
+  // let mutableUsers = state[1].slice(0);
+  // let mutableUserStatus = state[2];
   // let mutablePoliList = politicianList.slice(0);
   console.log('stateArray: ', state);
   console.log('Action: ', action);
