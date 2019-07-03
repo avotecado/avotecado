@@ -205,16 +205,15 @@ const politicians = [
 let selectedPolitician = '';
 const initState = [politicians, selectedPolitician];
 
-// const politicianListReducer = (politicianList = politicians, action) => {
 const politicianListReducer = (state = initState, action) => {
   let mutableState = state.slice(0);
   let mutablePoliList = mutableState[0].slice(0);
-  let mutablePolitician = mutableState[1].slice(0);
+  let mutablePolitician = mutableState[1];
   console.log('\n', 'stateArray: ', state);
   console.log('Action: ', action);
-  console.log('mutableState:', mutableState);
-  console.log('mutablePoliList:', mutablePoliList);
-  console.log('mutablePolitician:', mutablePolitician, '\n');
+  console.log('previous mutableState:', mutableState);
+  console.log('previous mutablePoliList:', mutablePoliList);
+  console.log('previous mutablePolitician:', mutablePolitician, '\n');
 
   switch (action.type) {
     case SELECT_POLITICIAN:
