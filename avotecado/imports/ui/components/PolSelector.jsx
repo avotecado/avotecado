@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PolBar from './PolBar';
 import { connect } from 'react-redux';
 import { selectPolitician } from '../actions';
+import { Link } from 'react-router-dom';
 
 class PolList extends Component {
   constructor (props) {
@@ -10,15 +11,12 @@ class PolList extends Component {
       politiciansArray: this.props.politiicans,
       selectedPolitician: this.props.selectedPolitician
     };
-    // this.selectPolitician = this.selectPolitician.bind(this);
+    this.doAlert = this.doAlert.bind(this);
   }
 
-  // selectPolitician = (politician) => {
-  //   this.setState({
-  //     selectedPolitician: politician
-  //   });
-  //   console.log("Selected from list: ", politician);
-  // }
+  doAlert () {
+    alert('e');
+  }
 
   render () {
     console.log('\n');
@@ -29,9 +27,11 @@ class PolList extends Component {
     return (
       <div id='polSelector'>
         {this.props.politicians.map((politician, index) => (
-          <span key={index} onClick={() => this.props.selectPolitician(politician)}>
-            <PolBar key={index} firstname={politician.firstname} lastname={politician.lastname} party={politician.party} />
-          </span>
+          <Link to='/' onClick={this.doAlert}>
+            <span key={index} onClick={() => this.props.selectPolitician(politician)}>
+              <PolBar key={index} firstname={politician.firstname} lastname={politician.lastname} party={politician.party} />
+            </span>
+          </Link>
         ))}
       </div>
     );
