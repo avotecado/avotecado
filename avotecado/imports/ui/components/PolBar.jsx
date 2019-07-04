@@ -34,7 +34,7 @@ function PolBar (props) {
 
   return (
     <div className={classes.root}>
-      <Paper className={classes.paper}>
+      <Paper width={1 / 4} className={classes.paper}>
         <Grid container spacing={2}>
           <Grid item>
             <ButtonBase className={classes.image}>

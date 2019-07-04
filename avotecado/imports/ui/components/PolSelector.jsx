@@ -22,7 +22,7 @@ class PolList extends Component {
 
   render () {
     console.log('\n');
-    console.log('this.props.politicians: ', this.props.politicians);
+    // console.log('this.props.politicians: ', this.props.politicians);
     console.log('this.props.selectedPolitician: ', this.props.selectedPolitician);
     console.log('\n');
     // console.log('politicians: ', this.state.politicians);
