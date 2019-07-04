@@ -27,10 +27,10 @@ class PolList extends Component {
     return (
       <div id='polSelector'>
         {this.props.politicians.map((politician, index) => (
-          <Link to='/' onClick={this.doAlert}>
-            <span key={index} onClick={() => this.props.selectPolitician(politician)}>
-              <PolBar key={index} firstname={politician.firstname} lastname={politician.lastname} party={politician.party} />
-            </span>
+
+          <Link to={'/Content'} key={index} onClick={() => this.props.selectPolitician(politician)}>
+            <PolBar key={index} firstname={politician.firstname} lastname={politician.lastname} party={politician.party} />
+
           </Link>
         ))}
       </div>

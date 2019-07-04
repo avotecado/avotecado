@@ -24,24 +24,11 @@ function Card (props) {
   );
 }
 
-// class Card extends Component {
-//   render() {
-//     return (
-//       <div className="card">
-//         <PolBar />
-//         <BioPage />
-//       </div>
-//     );
-//   }
-// }
-
-// export default Card;
-
 const mapStateToProps = (state) => {
   return {
     politicians: state.politicianListReducer,
     selectedPolitician: state.selectPoliticianReducer
   };
 };
-// export default Card;
+
 export default connect(mapStateToProps)(Card);
