@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PolBar from './PolBar';
 import { connect } from 'react-redux';
 import { selectPolitician } from '../actions';
+import Politicians from '/imports/api/politicians';
 
 class PolList extends Component {
   constructor (props) {
@@ -26,6 +27,10 @@ class PolList extends Component {
     console.log('this.props.selectedPolitician: ', this.props.selectedPolitician);
     console.log('\n');
     // console.log('politicians: ', this.state.politicians);
+    
+    var polDBListCount = Politicians.find().count();
+    console.log("PoliCount: ", polDBListCount);
+    
     return (
       <div id='polSelector'>
         {this.props.politicians.map((politician, index) => (
