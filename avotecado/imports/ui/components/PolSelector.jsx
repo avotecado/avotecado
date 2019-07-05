@@ -3,6 +3,7 @@ import PolBar from './PolBar';
 import { connect } from 'react-redux';
 import { selectPolitician } from '../actions';
 import Politicians from '/imports/api/politicians';
+import { Link } from 'react-router-dom';
 
 class PolList extends Component {
   constructor (props) {
@@ -11,19 +12,16 @@ class PolList extends Component {
       politiciansArray: this.props.politiicans,
       selectedPolitician: this.props.selectedPolitician
     };
-    // this.selectPolitician = this.selectPolitician.bind(this);
+    this.doAlert = this.doAlert.bind(this);
   }
 
-  // selectPolitician = (politician) => {
-  //   this.setState({
-  //     selectedPolitician: politician
-  //   });
-  //   console.log("Selected from list: ", politician);
-  // }
+  doAlert () {
+    alert('e');
+  }
 
   render () {
     console.log('\n');
-    console.log('this.props.politicians: ', this.props.politicians);
+    // console.log('this.props.politicians: ', this.props.politicians);
     console.log('this.props.selectedPolitician: ', this.props.selectedPolitician);
     console.log('\n');
     // console.log('politicians: ', this.state.politicians);
@@ -34,9 +32,11 @@ class PolList extends Component {
     return (
       <div id='polSelector'>
         {this.props.politicians.map((politician, index) => (
-          <span key={index} onClick={() => this.props.selectPolitician(politician)}>
+
+          <Link to={'/Content'} key={index} onClick={() => this.props.selectPolitician(politician)}>
             <PolBar key={index} firstname={politician.firstname} lastname={politician.lastname} party={politician.party} />
-          </span>
+
+          </Link>
         ))}
       </div>
     );

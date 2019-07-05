@@ -35,7 +35,9 @@ const useStyles = makeStyles(theme => ({
     })
   },
   appBarShift: {
-    width: '100%',
+    width: `calc(100% - ${drawerWidth}px)`,
+    height: '100%',
+    overflow: 'auto',
     marginLeft: drawerWidth,
     transition: theme.transitions.create(['margin', 'width'], {
       easing: theme.transitions.easing.easeOut,
@@ -141,10 +143,10 @@ export default function PersistentDrawerLeft () {
           <ListItem button component={Link} to='/'>
             <ListItemText primary='Home' />
           </ListItem>
-          <ListItem button component={Link} to='/'>
+          <ListItem button component={Link} to='/Hello'>
             <ListItemText primary='Profile' />
           </ListItem>
-          <ListItem button component={Link} to='/'>
+          <ListItem button component={Link} to='/Content'>
             <ListItemText primary='Login' />
           </ListItem>
         </List>
