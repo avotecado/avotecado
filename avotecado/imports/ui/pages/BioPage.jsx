@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -40,9 +40,10 @@ export default function PoliTabs () {
     <div className={classes.root}>
       <AppBar position='static'>
         <Tabs
-          style={{ background: 'black' }}
+          // style={{ background: 'black' }}
           value={value} onChange={handleChange} variant='fullWidth'
-          TabIndicatorProps={{ style: { backgroundColor: '#009245', height: '0.5em' } }}>
+          // TabIndicatorProps={{ style: { backgroundColor: '#009245', height: '0.5em' } }}
+        >
           <Tab label='Biography' />
           <Tab label='Voting Record' />
         </Tabs>

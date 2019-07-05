@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
 
@@ -12,7 +12,8 @@ const useStyles = makeStyles(theme => ({
     // margin: theme.spacing(2)
   },
   paper: {
-    margin: 'auto'
+    margin: 'auto',
+    backgroundColor: 'white'
   },
   image: {
     width: 128,
@@ -34,7 +35,7 @@ function PolBar (props) {
 
   return (
     <div className={classes.root}>
-      <Paper width={1 / 4} className={classes.paper}>
+      <Container width={1 / 4} className={classes.paper}>
         <Grid container spacing={2}>
           <Grid item>
             <ButtonBase className={classes.image}>
@@ -54,7 +55,7 @@ function PolBar (props) {
             </Grid>
           </Grid>
         </Grid>
-      </Paper>
+      </Container>
     </div>
   );
 }

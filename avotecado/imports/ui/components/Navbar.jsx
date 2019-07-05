@@ -99,7 +99,6 @@ export default function PersistentDrawerLeft () {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar
-        style={{ background: 'black' }}
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open
         })}
@@ -143,10 +142,13 @@ export default function PersistentDrawerLeft () {
           <ListItem button component={Link} to='/'>
             <ListItemText primary='Home' />
           </ListItem>
-          <ListItem button component={Link} to='/Hello'>
+          <ListItem button component={Link} to='/Content'>
+            <ListItemText primary='Content (TEMPORARY)' />
+          </ListItem>
+          <ListItem button component={Link} to='/Profile'>
             <ListItemText primary='Profile' />
           </ListItem>
-          <ListItem button component={Link} to='/Content'>
+          <ListItem button component={Link} to='/Login'>
             <ListItemText primary='Login' />
           </ListItem>
         </List>

@@ -15,7 +15,7 @@ class PolList extends Component {
   }
 
   doAlert () {
-    alert('e');
+    // alert ('e');
   }
 
   render () {
@@ -28,7 +28,7 @@ class PolList extends Component {
       <div id='polSelector'>
         {this.props.politicians.map((politician, index) => (
 
-          <Link to={'/Content'} key={index} onClick={() => this.props.selectPolitician(politician)}>
+          <Link to={'/Content?' + index} key={index} onClick={() => this.props.selectPolitician(politician)}>
             <PolBar key={index} firstname={politician.firstname} lastname={politician.lastname} party={politician.party} />
 
           </Link>
@@ -40,12 +40,12 @@ class PolList extends Component {
 
 const mapStateToProps = (state) => {
   console.log('\n');
-  console.log('state: ', state);
+  console.log('PolSelector, state: ', state);
   console.log('\n');
   return {
     politicians: state.politicians[0],
     selectedPolitician: state.selectedPoliticianReducer
   };
 };
-
+// export default withTracker(() => { return { user: Meteor.user() }; })(LoginComponent);
 export default connect(mapStateToProps, { selectPolitician })(PolList);
