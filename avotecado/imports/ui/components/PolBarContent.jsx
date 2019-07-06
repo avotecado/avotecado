@@ -38,7 +38,6 @@ export default function PolBarContent (props) {
   let politician = props.selectedPolitician;
   let Followed = props.followedCollection;
   let userID = props.userID;
-  let Following = Followed.findOne(userID).following;
   let alreadyFollows = (Followed.findOne(userID).following.includes(politician._id));
   const classes = useStyles();
 
