@@ -28,7 +28,9 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function PoliTabs () {
+export default function PoliTabs (props) {
+  let politician = props.selectedPolitician;
+  console.log(politician);
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -40,9 +42,7 @@ export default function PoliTabs () {
     <div className={classes.root}>
       <AppBar position='static'>
         <Tabs
-          // style={{ background: 'black' }}
           value={value} onChange={handleChange} variant='fullWidth'
-          // TabIndicatorProps={{ style: { backgroundColor: '#009245', height: '0.5em' } }}
         >
           <Tab label='Biography' />
           <Tab label='Voting Record' />
@@ -51,24 +51,10 @@ export default function PoliTabs () {
 
       {value === 0 && <TabContainer>
         <div id='InfoText'>
-          <span><strong>Current Party:</strong> </span>
-          <span className='party'>Independent</span>
-
-          <p><span><strong>Years with Party:</strong> 1 </span></p>
-
-          <p><span><strong>Total Years Active:</strong> 1</span></p>
-
-          <p><span><strong>Phone Number:</strong> </span><br />
-            <span className='party'>Unavailable.</span></p>
+          <span><strong>Current Party:</strong> {politician.party} </span>
+          <p><span><strong>Phone Number:</strong> {politician.phone} </span><br /></p>
           <br />
-          <span><strong>Address:</strong></span><br />
-          <span className='party'>
-            Kennedy Stewart, Mayor <br />
-            3rd Floor, <br />
-            City Hall <br />
-            453 West 12th Ave <br />
-            Vancouver, BC V5Y 1V4
-          </span>
+          <span><strong>Address:</strong> {politician.address} </span><br />
         </div>
 
       </TabContainer>}

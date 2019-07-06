@@ -139,18 +139,9 @@ export default function PersistentDrawerLeft () {
         </div>
         <Divider />
         <List>
-          <ListItem button component={Link} to='/'>
-            <ListItemText primary='Home' />
-          </ListItem>
-          <ListItem button component={Link} to='/HelloPage'>
-            <ListItemText primary='HelloPage (TEMPORARY)' />
-          </ListItem>
-          <ListItem button component={Link} to='/Profile'>
-            <ListItemText primary='Profile' />
-          </ListItem>
-          <ListItem button component={Link} to='/Login'>
-            <ListItemText primary='Login' />
-          </ListItem>
+          <ListItem button component={Link} to='/'> <ListItemText primary='Home' /> </ListItem>
+          <ListItem button component={Link} to='/Profile'> <ListItemText primary='Profile' /> </ListItem>
+          <ListItem button component={Link} to='/Login'> <ListItemText primary='Login' /> </ListItem>
         </List>
         <Divider />
         <List>{PolListSideBarItems}</List>

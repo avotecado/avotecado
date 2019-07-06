@@ -7,8 +7,8 @@ import { withTracker } from 'meteor/react-meteor-data';
 
 class PolList extends Component {
   render () {
-    console.log('\n');
-    console.log('this.props: ', this.props);
+    // console.log('\n');
+    // console.log('this.props: ', this.props);
 
     return (
       <div id='polSelector'>
