@@ -13,14 +13,14 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
 class Card extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
   }
 
-  render () {
+  render() {
     // console.log('Selected passed to card: ', this.props.selectedPolitician);
     console.log('this.props at card: ', this.props);
-    
+
     return (
       <React.Fragment>
         <CssBaseline />
@@ -40,12 +40,17 @@ export default InfoContainer = withTracker(() => {
     onReady: function () { console.log('card infoContainer: ', Followed.find().fetch()); },
     onError: function () { console.log('onError'); }
   });
-  let userID = Meteor.user()._id;
-  if (userID && !Followed.findOne(userID)) {
-    Followed.insert({
-      _id: userID,
-      following: []
-    });
+  let userID;
+  console.log('user: ', userID);
+  if (Meteor.user()) {
+    userID = Meteor.user()._id;
+    console.log('user: ', userID);
+    if (userID && !Followed.findOne(userID)) {
+      Followed.insert({
+        _id: userID,
+        following: []
+      });
+    }
   }
   return {
     followedCollection: Followed,

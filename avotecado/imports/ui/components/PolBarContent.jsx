@@ -9,7 +9,7 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
   button: {
-    margin: theme.spacing(1),
+    margin: theme.spacing(1)
   },
   root: {
     flexGrow: 1
@@ -36,9 +36,13 @@ const photoName = (firstname, lastname) => {
 
 export default function PolBarContent (props) {
   let politician = props.selectedPolitician;
-  let Followed = props.followedCollection;
   let userID = props.userID;
-  let alreadyFollows = (Followed.findOne(userID).following.includes(politician._id));
+  let Followed;
+  let alreadyFollows;
+  if (userID) {
+    Followed = props.followedCollection;
+    alreadyFollows = (Followed.findOne(userID).following.includes(politician._id));
+  }
   const classes = useStyles();
 
   return (
