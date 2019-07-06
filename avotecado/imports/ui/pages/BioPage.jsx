@@ -52,8 +52,10 @@ export default function PoliTabs (props) {
       {value === 0 && <TabContainer>
         <div id='InfoText'>
           <span><strong>Current Party:</strong> {politician.party} </span>
+          <p><span><strong>COV Profile:</strong> {politician.profileURL} </span><br /></p>
           <p><span><strong>Phone Number:</strong> {politician.phone} </span><br /></p>
-          <br />
+          <p><span><strong>Mobile Number:</strong> {politician.mobile} </span><br /></p>
+          <span><strong>Email:</strong> {politician.email} </span><br />
           <span><strong>Address:</strong> {politician.address} </span><br />
         </div>
 

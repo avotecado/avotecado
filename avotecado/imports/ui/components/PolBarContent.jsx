@@ -46,12 +46,13 @@ export default function PolBarContent (props) {
           <Grid item xs={12} sm container>
             <Grid item xs container direction='column' spacing={2}>
               <Grid item xs>
-                <Typography gutterBottom variant='subtitle1'>
+                <Typography variant='h3'>
                   {politician.firstname} {politician.lastname}
                 </Typography>
-                <Typography variant='body2' gutterBottom>
+                <Typography gutterBottom variant='h5'>
                   {politician.party}
                 </Typography>
+                <Typography variant='body2'>{politician.twitter} {politician.website} {politician.facebook} {politician.linkedin} {politician.instagram}</Typography>
               </Grid>
             </Grid>
           </Grid>
