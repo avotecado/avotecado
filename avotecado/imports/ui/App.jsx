@@ -3,7 +3,6 @@ import Navbar from './components/Navbar.jsx';
 import Footer from './components/Footer.jsx';
 import Content from './pages/Content.jsx';
 import Home from './pages/Home.jsx';
-import HelloPage from './components/HelloPage.jsx';
 import Login from './pages/Login.jsx';
 import Profile from './pages/Profile.jsx';
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -20,7 +19,6 @@ class App extends Component {
         <div style={{ overflowX: 'hidden' }}>
           <Navbar />
           <Route exact path='/' component={Home} />
-          <Route exact path='/HelloPage' component={HelloPage} />
           <Route exact path='/Content' component={Content} />
           <Route exact path='/Login' component={Login} />
           <Route exact path='/Profile' component={Profile} />

@@ -6,13 +6,6 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 
 class PolList extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      politiciansArray: [1, 2, 3]
-    };
-  }
-
   render () {
     console.log('\n');
     console.log('this.props: ', this.props);
@@ -32,10 +25,7 @@ class PolList extends Component {
 
 export default InfoContainer = withTracker(() => {
   Meteor.subscribe('Politicians', {
-    onReady: function () {
-      let polArray = Politicians.find().fetch();
-      return polArray;
-    },
+    onReady: function () { console.log(Politicians.find().fetch()); },
     onError: function () { console.log('onError'); }
   });
   return {
