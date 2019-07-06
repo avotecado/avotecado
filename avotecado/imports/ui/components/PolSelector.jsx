@@ -1,36 +1,28 @@
 import React, { Component } from 'react';
 import PolBar from './PolBar';
-import { connect } from 'react-redux';
-import { selectPolitician } from '../actions';
 import { Link } from 'react-router-dom';
+import Politicians from '/imports/api/politicians';
+import { Meteor } from 'meteor/meteor';
+import { withTracker } from 'meteor/react-meteor-data';
 
 class PolList extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      politiciansArray: this.props.politiicans,
-      selectedPolitician: this.props.selectedPolitician
+      politiciansArray: [1, 2, 3]
     };
-    this.doAlert = this.doAlert.bind(this);
-  }
-
-  doAlert () {
-    // alert ('e');
   }
 
   render () {
     console.log('\n');
-    // console.log('this.props.politicians: ', this.props.politicians);
-    console.log('this.props.selectedPolitician: ', this.props.selectedPolitician);
-    console.log('\n');
-    // console.log('politicians: ', this.state.politicians);
+    console.log('this.props: ', this.props);
+
     return (
       <div id='polSelector'>
         {this.props.politicians.map((politician, index) => (
 
-          <Link to={'/Content?' + index} key={index} onClick={() => this.props.selectPolitician(politician)}>
+          <Link to={'/Content?' + index} key={index}>
             <PolBar key={index} firstname={politician.firstname} lastname={politician.lastname} party={politician.party} />
-
           </Link>
         ))}
       </div>
@@ -38,14 +30,15 @@ class PolList extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  console.log('\n');
-  console.log('PolSelector, state: ', state);
-  console.log('\n');
+export default InfoContainer = withTracker(() => {
+  Meteor.subscribe('Politicians', {
+    onReady: function () {
+      let polArray = Politicians.find().fetch();
+      return polArray;
+    },
+    onError: function () { console.log('onError'); }
+  });
   return {
-    politicians: state.politicians[0],
-    selectedPolitician: state.selectedPoliticianReducer
+    politicians: Politicians.find().fetch()
   };
-};
-// export default withTracker(() => { return { user: Meteor.user() }; })(LoginComponent);
-export default connect(mapStateToProps, { selectPolitician })(PolList);
+})(PolList);
