@@ -13,11 +13,11 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 
 class Card extends Component {
-  constructor(props) {
+  constructor (props) {
     super(props);
   }
 
-  render() {
+  render () {
     // console.log('Selected passed to card: ', this.props.selectedPolitician);
     console.log('this.props at card: ', this.props);
 
@@ -46,6 +46,7 @@ export default InfoContainer = withTracker(() => {
     userID = Meteor.user()._id;
     console.log('user: ', userID);
     if (userID && !Followed.findOne(userID)) {
+      console.log('why');
       Followed.insert({
         _id: userID,
         following: []

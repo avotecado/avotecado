@@ -64,7 +64,7 @@ export default function PolBarContent (props) {
                   {politician.party}
                 </Typography>
                 <Typography variant='body2'>{politician.twitter} {politician.website} {politician.facebook} {politician.linkedin} {politician.instagram}</Typography>
-                <Button variant='contained' className={classes.button} onClick={() => alreadyFollows ? null : Followed.update({ _id: userID }, { $push: { following: politician._id } })}>
+                <Button variant='contained' className={classes.button} onClick={() => alreadyFollows ? null : Followed.upsert({ _id: userID }, { $push: { following: politician._id } })}>
                   Follow
                 </Button>
 

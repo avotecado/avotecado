@@ -22,7 +22,7 @@ class Profile extends React.Component {
               Following:
               <List>
                 {filteredArray.map((politician, index) => (
-                  <ListItemText>{politician.firstname} {politician.lastname}</ListItemText>
+                  <ListItemText key={index} >{politician.firstname} {politician.lastname}</ListItemText>
                 ))}
               </List>
             </CardContent>

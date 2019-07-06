@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Followed from '/imports/api/followed';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
@@ -16,4 +17,24 @@ class LoginComponent extends Component {
   }
 }
 
-export default withTracker(() => { return { user: Meteor.user() }; })(LoginComponent);
+export default withTracker(() => {
+  Meteor.subscribe('Followed', {
+    onReady: function () { console.log('card infoContainer: ', Followed.find().fetch()); },
+    onError: function () { console.log('onError'); }
+  });
+  let userID;
+  console.log('user: ', userID);
+  if (Meteor.user()) {
+    userID = Meteor.user()._id;
+    console.log('user: ', userID);
+    if (userID && !Followed.findOne(userID)) {
+      Followed.insert({
+        _id: userID,
+        following: []
+      });
+    }
+  }
+  return {
+    user: Meteor.user()
+  };
+})(LoginComponent);
