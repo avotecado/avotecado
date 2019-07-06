@@ -9,7 +9,7 @@ class Content extends Component {
     super(props);
   }
   render () {
-    console.log('content.jsx, this.props:', this.props);
+    // console.log('content.jsx, this.props:', this.props);
     let index = this.props.location.search.replace('?', '');
     let politician = this.props.politicians[index];
     return (

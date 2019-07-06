@@ -25,7 +25,7 @@ class PolList extends Component {
 
 export default InfoContainer = withTracker(() => {
   Meteor.subscribe('Politicians', {
-    onReady: function () { console.log(Politicians.find().fetch()); },
+    onReady: function () { console.log('\n')},
     onError: function () { console.log('onError'); }
   });
   return {

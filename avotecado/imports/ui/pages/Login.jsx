@@ -8,6 +8,7 @@ import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import LoginComponent from '../components/LoginComponent';
 import '../../startup/accounts-config';
+import { Accounts } from 'meteor/accounts-base';
 
 const styles = theme => ({
   root: {

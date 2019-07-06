@@ -1,5 +1,7 @@
 import { Meteor } from 'meteor/meteor';
+import { Accounts } from 'meteor/accounts-base';
 import Politicians from '/imports/api/politicians';
+import Followed from '/imports/api/followed';
 
 Meteor.startup(() => {
   // If the Politicians collection is empty, add some data.
@@ -233,5 +235,8 @@ Meteor.startup(() => {
       instagram: ''
     });
   }
+
   Meteor.publish('Politicians', function () { console.log('publishing Politicians'); return Politicians.find(); });
+  Meteor.publish('Followed', function () { console.log('publishing Followed'); return Followed.find(); });
+  Meteor.publish('PoliticiansAndFollowed', function () { console.log('publishing PoliticiansAndFollowed'); return [Politicians.find(), Followed.find()]; });
 });

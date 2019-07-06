@@ -5,8 +5,12 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import ButtonBase from '@material-ui/core/ButtonBase';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+  },
   root: {
     flexGrow: 1
     // margin: theme.spacing(2)
@@ -32,6 +36,10 @@ const photoName = (firstname, lastname) => {
 
 export default function PolBarContent (props) {
   let politician = props.selectedPolitician;
+  let Followed = props.followedCollection;
+  let userID = props.userID;
+  let Following = Followed.findOne(userID).following;
+  let alreadyFollows = (Followed.findOne(userID).following.includes(politician._id));
   const classes = useStyles();
 
   return (
@@ -53,6 +61,11 @@ export default function PolBarContent (props) {
                   {politician.party}
                 </Typography>
                 <Typography variant='body2'>{politician.twitter} {politician.website} {politician.facebook} {politician.linkedin} {politician.instagram}</Typography>
+                <Button variant='contained' className={classes.button} onClick={() => alreadyFollows ? null : Followed.update({ _id: userID }, { $push: { following: politician._id } })}>
+                  Follow
+                </Button>
+
+                <span>Unfollow</span>
               </Grid>
             </Grid>
           </Grid>

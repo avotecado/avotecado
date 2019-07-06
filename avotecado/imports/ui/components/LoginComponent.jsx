@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { withTracker } from 'meteor/react-meteor-data';
-import { connect } from 'react-redux';
 import { Meteor } from 'meteor/meteor';
 
-class LoginComponent extends React.Component {
+class LoginComponent extends Component {
   render () {
     console.log(this.props.user);
+    console.log(this.props);
     return (
       <div>
         { this.props.user ? this.props.user._id : 'no user id available' }

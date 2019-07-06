@@ -30,7 +30,7 @@ const useStyles = makeStyles(theme => ({
 
 export default function PoliTabs (props) {
   let politician = props.selectedPolitician;
-  console.log(politician);
+  // console.log(politician);
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
