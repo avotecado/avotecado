@@ -233,4 +233,5 @@ Meteor.startup(() => {
       instagram: ''
     });
   }
+  Meteor.publish('Politicians', function () { console.log('publishing Politicians'); return Politicians.find(); });
 });
