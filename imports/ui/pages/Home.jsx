@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
+import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
@@ -33,8 +34,7 @@ export default function Home () {
 
   return (
     <div>
-      <Paper className={classes.root} elevation='0'>
-
+      <Container display='flex' maxWidth='md'>
         <Typography className={classes.title} variant='h5'>
           Who are we? 🥑
         </Typography>
@@ -67,7 +67,7 @@ export default function Home () {
           </Card>
 
         </Grid>
-      </Paper>
+      </Container>
     </div>
   );
 }

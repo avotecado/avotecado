@@ -71,8 +71,8 @@ export default function ButtonAppBar () {
     <div className={classes.root}>
       {/* <Paper elevation='0' > */}
       {/* <AppBar className={classes.appBar} position='static' elevation='0'> */}
-      <Container display='flex' maxWidth="xl">
-        <Toolbar>
+      <Container display='flex' maxWidth='lg'>
+        <Toolbar variant='dense' disableGutters='true'>
           <Typography className={classes.title}>
             <NavLink to='/' activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'none' }}>avotecado</NavLink>
           </Typography>
