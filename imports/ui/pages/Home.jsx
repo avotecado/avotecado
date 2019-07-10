@@ -36,10 +36,10 @@ export default function Home () {
       <Paper className={classes.root} elevation='0'>
 
         <Typography className={classes.title} variant='h5'>
-          Who are we?
+          Who are we? 🥑
         </Typography>
 
-        <Typography component='p'>
+        <Typography>
           We make political data understandable by...
         </Typography>
 
@@ -53,14 +53,14 @@ export default function Home () {
           </Card>
 
           <Card className={classes.card}>
-            <Typography component='p'>
+            <Typography className={classes.cardText}>
               <p />
               We have <i>n</i> votes on record.
             </Typography>
           </Card>
 
           <Card className={classes.card}>
-            <Typography component='p'>
+            <Typography className={classes.cardText}>
               <p />
               We have <i>n</i> something.
             </Typography>

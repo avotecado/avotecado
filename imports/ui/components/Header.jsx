@@ -1,10 +1,11 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Paper from '@material-ui/core/Paper';
+// import Paper from '@material-ui/core/Paper';
+import Container from '@material-ui/core/Container';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,6 +25,8 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1
   },
   links: {
+    fontFamily: 'DM Serif Display',
+    fontWeight: 'bold',
     textDecoration: 'none',
     color: 'black'
   }
@@ -32,13 +35,21 @@ const useStyles = makeStyles(theme => ({
 export default function ButtonAppBar () {
   const classes = useStyles();
 
-  function displayLoginOrLogoutLink() {
+  function displayLoginOrLogoutLink () {
     let isLoggedIn = true; // DEBUG_ONLY
     let linkToReturn;
     if (isLoggedIn) {
-      linkToReturn = <Link component={Link} to='/logout'>logout</Link>;
+      linkToReturn = <NavLink to='/logout'
+        style={{ color: 'black', textDecorationLine: 'none' }}
+        activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
+        logout
+      </NavLink>;
     } else {
-      linkToReturn = <Link component={Link} to='/login'>login</Link>
+      linkToReturn = <NavLink to='/login'
+        style={{ color: 'black', textDecorationLine: 'none' }}
+        activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
+        login
+      </NavLink>;
     }
     return linkToReturn;
   }
@@ -47,7 +58,11 @@ export default function ButtonAppBar () {
     let isLoggedIn = true; // DEBUG_ONLY
     let linkToReturn;
     if (isLoggedIn) {
-      linkToReturn = <Link component={Link} to='/profile'>profile</Link>;
+      linkToReturn = <NavLink to='/profile'
+        style={{ color: 'black', textDecorationLine: 'none' }}
+        activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
+        profile
+      </NavLink>;
     }
     return linkToReturn;
   }
@@ -55,21 +70,38 @@ export default function ButtonAppBar () {
   return (
     <div className={classes.root}>
       {/* <Paper elevation='0' > */}
-        <AppBar className={classes.appBar} position='static' elevation='0' width='60'>
-          <Toolbar>
-            <Typography className={classes.title}>
-            <Link component={Link} to='/'>avotecado</Link>
-            </Typography>
-            <span classNAme={classes.links}>
-              <Link component={Link} to='/'>home</Link>
-              {' '} <Link component={Link} to='/politicians'>politicians</Link>
-              {' '} <Link component={Link} to='/parties'>parties</Link>
-              {' '} <Link component={Link} to='/votes'>votes</Link>
-              {' '} { displayLoginOrLogoutLink() }
-              {' '} { displayProfileButton() }
-              </span>
-          </Toolbar>
-        </AppBar>
+      {/* <AppBar className={classes.appBar} position='static' elevation='0'> */}
+      <Container display='flex' maxWidth="xl">
+        <Toolbar>
+          <Typography className={classes.title}>
+            <NavLink to='/' activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'none' }}>avotecado</NavLink>
+          </Typography>
+          <span className={classes.links} wordSpacing='4em'>
+            <NavLink to='/Politicians'
+              style={{ color: 'black', textDecorationLine: 'none' }}
+              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
+                politicians
+            </NavLink>
+            { ' ' }
+            <NavLink to='/parties'
+              style={{ color: 'black', textDecorationLine: 'none' }}
+              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
+                parties
+            </NavLink>
+            { ' ' }
+            <NavLink to='/votes'
+              style={{ color: 'black', textDecorationLine: 'none' }}
+              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
+                votes
+            </NavLink>
+            { ' ' }
+            {displayProfileButton()}
+            { ' ' }
+            {displayLoginOrLogoutLink()}
+          </span>
+        </Toolbar>
+      </Container>
+      {/* </AppBar> */}
       {/* </Paper> */}
     </div>
   );

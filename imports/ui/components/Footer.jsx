@@ -16,7 +16,7 @@ export default class Footer extends Component {
   render() {
     return (
       <div>
-        <Container display='flex' flexFlow='center' maxWidth="sm">
+        <Container display='flex' maxWidth="xl">
           {/* <button onClick={() => this.increment()}>Click Me</button>
           You've pressed the button {this.state.counter} times. */}
           about / <a href='https://github.com/avotecado/avotecado'>contact</a>
