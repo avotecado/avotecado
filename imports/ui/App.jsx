@@ -13,7 +13,7 @@ class App extends React.Component {
   render () {
     return (
       <BrowserRouter>
-        <div style={{ overflowX: 'hidden' }}>
+        <div style={{overflowX: 'hidden' }}>
           <Header />
           <Route exact path='/' component={Home} />
           {/* <Route exact path='/Content' component={Content} />
