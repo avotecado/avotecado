@@ -58,7 +58,7 @@ export default function ButtonAppBar () {
         <AppBar className={classes.appBar} position='static' elevation='0' width='60'>
           <Toolbar>
             <Typography className={classes.title}>
-              avotecado
+            <Link component={Link} to='/'>avotecado</Link>
             </Typography>
             <span classNAme={classes.links}>
               <Link component={Link} to='/'>home</Link>

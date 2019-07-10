@@ -2,6 +2,7 @@ import React from 'react';
 
 import Header from './components/Header.jsx';
 import Home from './pages/Home';
+import Login from './pages/Login';
 import Footer from './components/Footer.jsx';
 
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -16,8 +17,8 @@ class App extends React.Component {
         <div style={{overflowX: 'hidden' }}>
           <Header />
           <Route exact path='/' component={Home} />
+          <Route exact path='/Login' component={Login} />
           {/* <Route exact path='/Content' component={Content} />
-            <Route exact path='/Login' component={Login} />
             <Route exact path='/Profile' component={Profile} /> */}
           <Info />
           {/* <Logout /> */}
