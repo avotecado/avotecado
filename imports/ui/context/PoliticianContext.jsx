@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
+import Politicians from '../../api/Politicians'
 
 const PoliticianContext = React.createContext();
 
@@ -12,7 +13,7 @@ class PoliticianContextProvider extends Component {
   render () {
     this.state.politicians = this.props.politicians;
     console.log('context state in render: ', this.state);
-    console.log('context props in render: ', this.props);
+    // console.log('context props in render: ', this.props);
     return (
       <PoliticianContext.Provider value={{ ...this.state }}>
         {this.props.children}
@@ -23,10 +24,7 @@ class PoliticianContextProvider extends Component {
 
 export default InfoContainer = withTracker(() => {
   Meteor.subscribe('Politicians', {
-    onReady: function () { console.log('PoliticianContext infoContainer: ', Politicians.find().fetch()); },
+    onReady: function () { console.log('onReady'); },
     onError: function () { console.log('onError'); }
   });
-  return {
-    politicians: Politicians.find().fetch()
-  };
-})(PoliticianContextProvider);
+  return { politicians: Politicians.find().fetch() }; })(PoliticianContextProvider);

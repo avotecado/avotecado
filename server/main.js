@@ -241,30 +241,3 @@ Meteor.startup(() => {
   Meteor.publish('Politicians', function () { console.log('publishing Politicians'); return Politicians.find(); });
 
 });
-
-// {
-//   insertLink(
-//     'Do the Tutorial',
-//     'https://www.meteor.com/tutorials/react/creating-an-app'
-//   );
-
-//   insertLink(
-//     'Follow the Guide',
-//     'http://guide.meteor.com'
-//   );
-
-//   insertLink(
-//     'Read the Docs',
-//     'https://docs.meteor.com'
-//   );
-
-//   insertLink(
-//     'Discussions',
-//     'https://forums.meteor.com'
-//   );
-
-//   insertLink(
-//     'Test',
-//     'https://something.com'
-//   );
-// }

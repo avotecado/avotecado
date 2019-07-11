@@ -1,9 +1,9 @@
 import React from 'react';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     padding: theme.spacing(3, 2)
   },
   gridClass: {
-    marginTop: '10vw'
+    marginTop: '5vw'
   },
   card: {
     marginLeft: '1em',
