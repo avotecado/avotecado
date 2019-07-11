@@ -18,7 +18,7 @@ class App extends Component {
           {/* <PoliticianContextProvider> */}
           <Header />
           <Route exact path='/' component={Home} />
-          <Route path='/Politicians' component={Politicians} />
+          <Route exact path='/Politicians' component={Politicians} />
           <Route exact path='/Login' component={Login} />
           {/* <Route exact path='/Content' component={Content} /> <Route exact path='/Profile' component={Profile} /> */}
           <Footer />

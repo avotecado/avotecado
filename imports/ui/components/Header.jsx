@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
+// import BalanceIcon from 'material-ui/svg-icons/action/account-balance';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -68,7 +69,7 @@ export default function ButtonAppBar () {
   return (
     <div className={classes.root}>
       <Container display='flex' maxWidth='xl'>
-        <Toolbar disableGutters={ true } >
+        <Toolbar disableGutters >
 
           <Typography className={classes.title}>
             <NavLink to='/' activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'none' }}>avotecado</NavLink>
@@ -77,24 +78,24 @@ export default function ButtonAppBar () {
           <span className={classes.links} wordSpacing='4em'>
 
             <NavLink to='/Politicians'
-              style={{ color: 'black', textDecorationLine: 'none' }}
-              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
+              style={{ color: 'black', textDecorationLine: 'none', marginLeft: '2em', marginRight: '2em' }}
+              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'none', borderBottom: '4px solid #009245', paddingBottom: '0.75em', marginLeft: '2em', marginRight: '2em' }}>
                 politicians
             </NavLink>
 
             { ' ' }
 
             <NavLink to='/parties'
-              style={{ color: 'black', textDecorationLine: 'none' }}
-              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
+              style={{ color: 'black', textDecorationLine: 'none', marginLeft: '2em', marginRight: '2em' }}
+              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'none', borderBottom: '4px solid #009245', paddingBottom: '0.75em', marginLeft: '2em', marginRight: '2em' }}>
                 parties
             </NavLink>
 
             { ' ' }
 
             <NavLink to='/votes'
-              style={{ color: 'black', textDecorationLine: 'none' }}
-              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
+              style={{ color: 'black', textDecorationLine: 'none', marginLeft: '2em', marginRight: '2em' }}
+              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'none', borderBottom: '4px solid #009245', paddingBottom: '0.75em', marginLeft: '2em', marginRight: '2em' }}>
                 votes
             </NavLink>
 
@@ -104,6 +105,8 @@ export default function ButtonAppBar () {
             { ' ' }
 
             {displayLoginOrLogoutLink()}
+
+            {/* <BalanceIcon /> */}
 
           </span>
         </Toolbar>
