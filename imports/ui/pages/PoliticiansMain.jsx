@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import Politicians from '../../api/Politicians';
-import { Link } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 
 // import { PoliticianContext } from '../context/PoliticianContext';
 // import Async from 'react-async';
@@ -19,7 +17,6 @@ import PoliticianContact from '../components/PoliticianContact';
 import { Container } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Divider from '@material-ui/core/Divider';
 
 class PoliticiansMain extends Component {
   constructor (props) {
@@ -94,6 +91,7 @@ class PoliticiansMain extends Component {
               <Grid item xs={6}>
                 <PoliticianContact politician={politician} />
               </Grid>
+              
               <Grid item xs={3}>
                 <Paper>xs=3</Paper>
               </Grid>
