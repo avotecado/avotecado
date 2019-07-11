@@ -68,7 +68,7 @@ export default function ButtonAppBar () {
   return (
     <div className={classes.root}>
       <Container display='flex' maxWidth='xl'>
-        <Toolbar disableGutters={ true } >
+        <Toolbar disableGutters >
 
           <Typography className={classes.title}>
             <NavLink to='/' activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'none' }}>avotecado</NavLink>
@@ -77,24 +77,24 @@ export default function ButtonAppBar () {
           <span className={classes.links} wordSpacing='4em'>
 
             <NavLink to='/Politicians'
-              style={{ color: 'black', textDecorationLine: 'none' }}
-              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
+              style={{ color: 'black', textDecorationLine: 'none', marginLeft: '1em', marginRight: '1em' }}
+              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'none', borderBottom: '4px solid #009245', paddingBottom: '0.75em', marginLeft: '1em', marginRight: '1em' }}>
                 politicians
             </NavLink>
 
             { ' ' }
 
             <NavLink to='/parties'
-              style={{ color: 'black', textDecorationLine: 'none' }}
-              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
+              style={{ color: 'black', textDecorationLine: 'none', marginLeft: '1em', marginRight: '1em' }}
+              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'none', borderBottom: '4px solid #009245', paddingBottom: '0.75em', marginLeft: '1em', marginRight: '1em' }}>
                 parties
             </NavLink>
 
             { ' ' }
 
             <NavLink to='/votes'
-              style={{ color: 'black', textDecorationLine: 'none' }}
-              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
+              style={{ color: 'black', textDecorationLine: 'none', marginLeft: '1em', marginRight: '1em' }}
+              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'none', borderBottom: '4px solid #009245', paddingBottom: '0.75em', marginLeft: '1em', marginRight: '1em' }}>
                 votes
             </NavLink>
 
