@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
   title: {
     fontFamily: 'DM Serif Display',
     fontWeight: 'bold',
-    fontSize: '2rem',
+    fontSize: '4em',
     color: '#009245',
     flexGrow: 1
   },
@@ -69,40 +69,47 @@ export default function ButtonAppBar () {
 
   return (
     <div className={classes.root}>
-      {/* <Paper elevation='0' > */}
-      {/* <AppBar className={classes.appBar} position='static' elevation='0'> */}
-      <Container display='flex' maxWidth='lg'>
-        <Toolbar variant='dense' disableGutters='true'>
+      <Container display='flex' maxWidth='xl'>
+        <Toolbar disableGutters={ true } >
+
           <Typography className={classes.title}>
             <NavLink to='/' activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'none' }}>avotecado</NavLink>
           </Typography>
+
           <span className={classes.links} wordSpacing='4em'>
+
             <NavLink to='/Politicians'
               style={{ color: 'black', textDecorationLine: 'none' }}
               activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
                 politicians
             </NavLink>
+
             { ' ' }
+
             <NavLink to='/parties'
               style={{ color: 'black', textDecorationLine: 'none' }}
               activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
                 parties
             </NavLink>
+
             { ' ' }
+
             <NavLink to='/votes'
               style={{ color: 'black', textDecorationLine: 'none' }}
               activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
                 votes
             </NavLink>
+
             { ' ' }
+
             {displayProfileButton()}
             { ' ' }
+
             {displayLoginOrLogoutLink()}
+
           </span>
         </Toolbar>
       </Container>
-      {/* </AppBar> */}
-      {/* </Paper> */}
     </div>
   );
 }

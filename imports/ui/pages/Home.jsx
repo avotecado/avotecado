@@ -59,13 +59,6 @@ export default function Home () {
             </Typography>
           </Card>
 
-          <Card className={classes.card}>
-            <Typography className={classes.cardText}>
-              <p />
-              We have <i>n</i> something.
-            </Typography>
-          </Card>
-
         </Grid>
       </Container>
     </div>

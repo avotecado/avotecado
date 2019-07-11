@@ -15,16 +15,14 @@ export default class Footer extends Component {
 
   render() {
     return (
-      <div>
-        <Container display='flex' maxWidth='lg'>
-          {/* <button onClick={() => this.increment()}>Click Me</button>
-          You've pressed the button {this.state.counter} times. */}
+      <>
+        <Container display='flex' maxWidth='lg' component='div' style={{ backgroundColor: '#f2f2f2', marginTop:'3em' , paddingTop: '3em'}}>
           about / <a href='https://github.com/avotecado/avotecado'>contact</a>
-          <Typography style={{ fontFamily: 'DM Serif Display', fontWeight: 'bold', fontSize: '2rem', }}>
+          <Typography component='div' style={{ fontFamily: 'DM Serif Display', fontWeight: 'bold', fontSize: '2rem', }}>
             avotecado
           </Typography>
         </Container>
-      </div>
+      </>
     );
   }
 }
