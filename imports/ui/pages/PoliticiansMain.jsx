@@ -8,8 +8,10 @@ import Button from '@material-ui/core/Button';
 // import { PoliticianContext } from '../context/PoliticianContext';
 // import Async from 'react-async';
 
+import PoliticianHeaderText from '../components/PoliticianHeaderText';
 import PoliticiansSelect from '../components/PoliticiansSelect';
-// import PoliticiansPFPContact from '../components/PoliticiansPFPContact';
+import PoliticiansPFP from '../components/PoliticiansPFP';
+import PoliticianContact from '../components/PoliticianContact';
 // import PoliticianCommentsMade from '../components/PoliticianCommentsMade';
 // import PoliticianVoteHistory from '../components/PoliticianVoteHistory';
 // import PoliticianMakeAComment from '../components/PoliticianMakeAComment';
@@ -39,53 +41,76 @@ class PoliticiansMain extends Component {
     if (prevProps.politiciansArray !== this.props.politiciansArray) {
       this.setState({ politiciansArray: this.props.politiciansArray });
     }
+    if ((prevProps !== this.props) && (this.props.location !== '')) {
+      let selectedPolitician = this.props.location.search.replace('?', '');
+      console.log('selectedPolitician: ', selectedPolitician);
+      this.setState({ selectedPolitician: selectedPolitician });
+    }
   }
 
   render () {
-    return (
-      <div>
-        <Container display='flex' maxWidth='lg' style={{ marginTop: '10em' }}>
+    let politiciansArray = this.props.politiciansArray;
+    console.log(politiciansArray);
+    let selectedPolitician = this.state.selectedPolitician;
+    let politician = politiciansArray.find(function (element) { return (element._id === selectedPolitician); });
+    console.log(politician);
+    if (!this.state.selectedPolitician) {
+      // no selection yet
+      return (
+      <>
+        <Container display='flex' maxWidth='lg' style={{ marginTop: '2vw' }}>
           <Grid container spacing={3}>
-
             <Grid item xs={12}>
-              <Container style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
-                <span style={{ fontFamily: 'DM Serif Display', fontSize: '6em', fontColor: 'rgba(0,0,0,0)', textAlign: 'center' }}>
-                  2019
-                  <br />
-                  Councillors
-                </span>
-                <span >Take a look at your Vancouver City Council members, see how they vote, and maybe leave a comment.</span>
-              </Container>
+              <PoliticianHeaderText />
             </Grid>
-
             <Grid item xs={12}>
               <Container maxWidth='md' style={{ display: 'flex', flexFlow: 'row wrap' }}>
-                <PoliticiansSelect politiciansArray={this.props.politiciansArray} />
+                <PoliticiansSelect politiciansArray={politiciansArray} />
               </Container>
-            </Grid>
-
-            <Grid item xs={6}>
-              <Paper>xs=6</Paper>
-            </Grid>
-            <Grid item xs={6}>
-              <Paper>xs=6</Paper>
-            </Grid>
-            <Grid item xs={3}>
-              <Paper>xs=3</Paper>
-            </Grid>
-            <Grid item xs={3}>
-              <Paper>xs=3</Paper>
-            </Grid>
-            <Grid item xs={3}>
-              <Paper>xs=3</Paper>
-            </Grid>
-            <Grid item xs={3}>
-              <Paper>xs=3</Paper>
             </Grid>
           </Grid>
         </Container>
-      </div>
-    );
+      </>);
+    } else {
+      // selected
+      return (
+        <>
+          <Container display='flex' maxWidth='lg' style={{ marginTop: '2vw' }}>
+            <Grid container spacing={3}>
+
+              <Grid item xs={12}>
+                <PoliticianHeaderText />
+              </Grid>
+
+              <Grid item xs={12}>
+                <Container maxWidth='md' style={{ display: 'flex', flexFlow: 'row wrap' }}>
+                  <PoliticiansSelect politiciansArray={politiciansArray} />
+                </Container>
+              </Grid>
+
+              <Grid item xs={6}>
+                <PoliticiansPFP politician={politician} />
+              </Grid>
+              <Grid item xs={6}>
+                <PoliticianContact politician={politician} />
+              </Grid>
+              <Grid item xs={3}>
+                <Paper>xs=3</Paper>
+              </Grid>
+              <Grid item xs={3}>
+                <Paper>xs=3</Paper>
+              </Grid>
+              <Grid item xs={3}>
+                <Paper>xs=3</Paper>
+              </Grid>
+              <Grid item xs={3}>
+                <Paper>xs=3</Paper>
+              </Grid>
+            </Grid>
+          </Container>
+        </>
+      );
+    }
   }
 }
 
