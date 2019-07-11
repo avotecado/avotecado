@@ -1,5 +1,7 @@
 import React from 'react';
 
+import HomeSpotlight from '../components/HomeSpotlight';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container';
@@ -42,23 +44,28 @@ export default function Home () {
         <Typography>
           We make political data understandable by...
         </Typography>
+        <Grid container spacing={3}>
+          <Grid className={classes.gridClass} container direction='row' justify='center' alignItems='center'>
+            <Card className={classes.card}>
+              <Typography className={classes.cardText}>
+                <p />
+                We have <i>n</i> politicians.
+              </Typography>
+            </Card>
 
-        <Grid className={classes.gridClass} container direction='row' justify='center' alignItems='center'>
+            <Card className={classes.card}>
+              <Typography className={classes.cardText}>
+                <p />
+                We have <i>n</i> votes on record.
+              </Typography>
+            </Card>
+          </Grid>
 
-          <Card className={classes.card}>
-            <Typography className={classes.cardText}>
-              <p />
-              We have <i>n</i> politicians.
-            </Typography>
-          </Card>
+          <Grid item xs={12}>
+            Spotlight Politician
+            <HomeSpotlight />
 
-          <Card className={classes.card}>
-            <Typography className={classes.cardText}>
-              <p />
-              We have <i>n</i> votes on record.
-            </Typography>
-          </Card>
-
+          </Grid>
         </Grid>
       </Container>
     </div>
