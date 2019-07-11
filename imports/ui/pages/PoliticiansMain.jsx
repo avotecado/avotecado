@@ -14,7 +14,7 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 // PoliticiansMain will be where all the components go
-function PoliticiansMain (props) {
+export default function PoliticiansMain (props) {
 
   // render () {
   const classes = makeStyles(theme => ({
@@ -64,12 +64,12 @@ function PoliticiansMain (props) {
   // }
 }
 
-export default InfoContainer = withTracker(() => {
-  Meteor.subscribe('Politicians', {
-    onReady: function () { console.log('content infoContainer: ', Politicians.find().fetch()); },
-    onError: function () { console.log('onError'); }
-  });
-  return {
-    politicians: Politicians.find().fetch()
-  };
-})(PoliticiansMain);
+// export default InfoContainer = withTracker(() => {
+//   Meteor.subscribe('Politicians', {
+//     onReady: function () { console.log('content infoContainer: ', Politicians.find().fetch()); },
+//     onError: function () { console.log('onError'); }
+//   });
+//   return {
+//     politicians: Politicians.find().fetch()
+//   };
+// })(PoliticiansMain);

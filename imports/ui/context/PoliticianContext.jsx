@@ -10,6 +10,9 @@ class PoliticianContextProvider extends Component {
   }
 
   render () {
+    this.state.politicians = this.props.politicians;
+    console.log('context state in render: ', this.state);
+    console.log('context props in render: ', this.props);
     return (
       <PoliticianContext.Provider value={{ ...this.state }}>
         {this.props.children}
@@ -20,7 +23,7 @@ class PoliticianContextProvider extends Component {
 
 export default InfoContainer = withTracker(() => {
   Meteor.subscribe('Politicians', {
-    onReady: function () { console.log('content infoContainer: ', Politicians.find().fetch()); },
+    onReady: function () { console.log('PoliticianContext infoContainer: ', Politicians.find().fetch()); },
     onError: function () { console.log('onError'); }
   });
   return {
