@@ -9,13 +9,13 @@ class PoliticianContact extends Component {
   }
 
   componentDidMount () {
-    console.log('polContact cdm: ', this.props.politician);
+    // console.log('polContact cdm: ', this.props.politician);
     this.setState({ politician: this.props.politician });
   }
 
   componentDidUpdate (prevProps, prevState) {
     if (prevProps.politician !== this.props.politician) {
-      console.log('polContact cdu: ', this.props.politician);
+      // console.log('polContact cdu: ', this.props.politician);
       this.setState({ politician: this.props.politician });
     }
   }
@@ -27,7 +27,7 @@ class PoliticianContact extends Component {
   render () {
     if (this.state.politician) {
       // const addressIcon = '../../../public/icons/address.svg';
-      console.log('polContact: ', this.state.politician);
+      // console.log('polContact: ', this.state.politician);
       return (
         <>
           <div style={{ fontFamily: 'DM Serif Display', fontSize: '2em', fontWeight: 'bold' }}>
@@ -40,7 +40,7 @@ class PoliticianContact extends Component {
           </div>
           <div style={{ fontFamily: 'Source Sans Pro' }}>
             {Object.entries(this.props.politician.contact).map((entry, index) => (
-              <span style={{ display: 'flex', alignContent: 'center', marginBottom: '1vw' }} key={index} >
+              <span style={{ display: 'flex', alignContent: 'center', marginBottom: '0.3em' }} key={index} >
                 <span style={{ marginRight: '0.5em' }}><img src={`../../../icons/${entry[0]}.svg`} /></span>
                 {entry[1]}
               </span>

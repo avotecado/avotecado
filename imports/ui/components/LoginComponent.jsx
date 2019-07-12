@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Followed from '/imports/api/Followed';
+import Comments from '/imports/api/Comments';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 
@@ -18,7 +19,7 @@ class LoginComponent extends Component {
 }
 
 export default withTracker(() => {
-  Meteor.subscribe('Followed', {
+  Meteor.subscribe('FollowedAndComments', {
     onReady: function () { console.log('card infoContainer: ', Followed.find().fetch()); },
     onError: function () { console.log('onError'); }
   });
