@@ -8,6 +8,7 @@ import List from '@material-ui/core/List';
 import ListItemText from '@material-ui/core/ListItemText';
 import Politicians from '/imports/api/Politicians';
 import Followed from '/imports/api/Followed';
+import Comments from '/imports/api/Comments';
 
 class Profile extends React.Component {
   render () {
@@ -38,7 +39,7 @@ class Profile extends React.Component {
 }
 
 export default withTracker(() => {
-  Meteor.subscribe('Followed', {
+  Meteor.subscribe('FollowedAndComments', {
     onReady: function () { console.log('onReady'); },
     onError: function () { console.log('onError'); }
   });

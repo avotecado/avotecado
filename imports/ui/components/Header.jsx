@@ -37,38 +37,6 @@ const useStyles = makeStyles(theme => ({
 export default function ButtonAppBar () {
   const classes = useStyles();
 
-  function displayLoginOrLogoutLink () {
-    let isLoggedIn = true; // DEBUG_ONLY
-    let linkToReturn;
-    if (isLoggedIn) {
-      linkToReturn = <NavLink to='/logout'
-        style={{ color: 'black', textDecorationLine: 'none' }}
-        activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
-        logout
-      </NavLink>;
-    } else {
-      linkToReturn = <NavLink to='/login'
-        style={{ color: 'black', textDecorationLine: 'none' }}
-        activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
-        login
-      </NavLink>;
-    }
-    return linkToReturn;
-  }
-
-  function displayProfileButton () {
-    let isLoggedIn = true; // DEBUG_ONLY
-    let linkToReturn;
-    if (isLoggedIn) {
-      linkToReturn = <NavLink to='/profile'
-        style={{ color: 'black', textDecorationLine: 'none' }}
-        activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'underline' }}>
-        profile
-      </NavLink>;
-    }
-    return linkToReturn;
-  }
-
   let linkNotActiveStyle = {
     fontSize: '1.15em',
     color: 'black',

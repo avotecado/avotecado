@@ -19,7 +19,8 @@
     "react": "^16.8.6",
     "react-async": "^7.0.3",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.1"
+    "react-router-dom": "^5.0.1",
+    "simpl-schema": "^1.5.5"
   },
   "meteor": {
     "mainModule": {

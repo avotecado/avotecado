@@ -6,16 +6,15 @@ import Politicians from '../../api/Politicians';
 // import { PoliticianContext } from '../context/PoliticianContext';
 // import Async from 'react-async';
 
-import PoliticianHeaderText from '../components/PoliticianHeaderText';
-import PoliticiansSelect from '../components/PoliticiansSelect';
-import PoliticiansPFP from '../components/PoliticiansPFP';
-import PoliticianContact from '../components/PoliticianContact';
-// import PoliticianCommentsMade from '../components/PoliticianCommentsMade';
-// import PoliticianVoteHistory from '../components/PoliticianVoteHistory';
-import PoliticianMakeAComment from '../components/PoliticianMakeAComment';
+import PoliticianHeaderText from '../components/politicians/PoliticianHeaderText';
+import PoliticiansSelect from '../components/politicians/PoliticiansSelect';
+import PoliticiansPFP from '../components/politicians/PoliticiansPFP';
+import PoliticianContact from '../components/politicians/PoliticianContact';
+// import PoliticianComments from '../components/politicians/PoliticianComments';
+// import PoliticianVoteHistory from '../components/politicians/PoliticianVoteHistory';
+import PoliticianMakeAComment from '../components/politicians/PoliticianMakeAComment';
 
 import { Container } from '@material-ui/core';
-import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 
 class PoliticiansMain extends Component {
@@ -50,6 +49,8 @@ class PoliticiansMain extends Component {
     console.log(politiciansArray);
     let selectedPolitician = this.state.selectedPolitician;
     let politician = politiciansArray.find(function (element) { return (element._id === selectedPolitician); });
+    let PFPStyle = { display: 'flex', alignItems: 'center', flexFlow: 'column wrap' };
+    let ContactStyle = { display: 'flex', justifyContent: 'center', flexFlow: 'column wrap' };
     console.log(politician);
     if (!this.state.selectedPolitician) {
       return (
@@ -66,7 +67,8 @@ class PoliticiansMain extends Component {
             </Grid>
           </Grid>
         </Container>
-      </>);
+      </>
+      );
     } else {
       return (
         <>
@@ -83,31 +85,31 @@ class PoliticiansMain extends Component {
                 </Container>
               </Grid>
 
-              <Grid item xs={6}>
+              <Grid item xs={6} style={PFPStyle}>
                 <PoliticiansPFP politician={politician} />
+                Follow
               </Grid>
-              <Grid item xs={6}>
+
+              <Grid item xs={6} style={ContactStyle}>
                 <PoliticianContact politician={politician} />
               </Grid>
 
-              <Grid item xs={3}>
-                <Paper>xs=3</Paper>
+              <Grid item xs={12} style={{ marginTop: '1em' }} />
+
+              <Grid item xs={12} >
+                <span style={{ fontFamily: 'DM Serif Display', fontSize: '1.25em', fontWeight: 'bold', fontColor: '#009245', textAlign: 'center', marginBottom: '-0.2em' }}>
+                  Here's what others have had to say about {politician.firstname} {politician.lastname}.
+                </span>
+                {/* <PoliticianComments /> */}
               </Grid>
-              <Grid item xs={3}>
-                <Paper>xs=3</Paper>
-              </Grid>
-              <Grid item xs={3}>
-                <Paper>xs=3</Paper>
-              </Grid>
-              <Grid item xs={3}>
-                <Paper>xs=3</Paper>
-              </Grid>
-              <Grid alignItems='center' item xs={12} >
-                <span style={{ fontFamily: 'DM Serif Display', fontSize: '1.25em', fontColor: '#009245', textAlign: 'center', marginBottom: '-0.2em' }}>
+
+              <Grid item xs={12} >
+                <span style={{ fontFamily: 'DM Serif Display', fontSize: '1.25em', fontWeight: 'bold', fontColor: '#009245', textAlign: 'center', marginBottom: '-0.2em' }}>
                   Have something to say about {politician.firstname} {politician.lastname}?
                 </span>
-                <PoliticianMakeAComment />
+                <PoliticianMakeAComment politician={politician} />
               </Grid>
+
             </Grid>
           </Container>
         </>
