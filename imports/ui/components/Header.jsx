@@ -1,10 +1,13 @@
 import React from 'react';
+import { Meteor } from 'meteor/meteor';
+
 import { makeStyles } from '@material-ui/core/styles';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-// import BalanceIcon from 'material-ui/svg-icons/action/account-balance';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import IconButton from '@material-ui/core/IconButton';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -66,48 +69,77 @@ export default function ButtonAppBar () {
     return linkToReturn;
   }
 
+  let linkNotActiveStyle = {
+    fontSize: '1.15em',
+    color: 'black',
+    textDecorationLine: 'none',
+    marginLeft: '2vw',
+    marginRight: '2vw'
+  };
+  let linkActiveStyle = {
+    fontSize: '1.15em',
+    fontWeight: 'bold',
+    color: '#009245',
+    textDecorationLine: 'none',
+    borderBottom: '4px solid #009245',
+    paddingBottom: '0.75em',
+    marginLeft: '2vw',
+    marginRight: '2vw'
+  };
+
   return (
     <div className={classes.root}>
-      <Container display='flex' maxWidth='xl'>
+      <Container maxWidth='xl' >
         <Toolbar disableGutters >
 
           <Typography className={classes.title}>
-            <NavLink to='/' activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'none' }}>avotecado</NavLink>
+            <NavLink to='/' activeStyle={{ fontSize: '1.15em', fontWeight: 'bold', color: '#009245', textDecorationLine: 'none' }}>avotecado</NavLink>
           </Typography>
 
-          <span className={classes.links} wordSpacing='4em'>
+          <span className={classes.links}>
 
-            <NavLink to='/Politicians'
-              style={{ color: 'black', textDecorationLine: 'none', marginLeft: '2em', marginRight: '2em' }}
-              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'none', borderBottom: '4px solid #009245', paddingBottom: '0.75em', marginLeft: '2em', marginRight: '2em' }}>
+            <NavLink to='/politicians'
+              style={linkNotActiveStyle}
+              activeStyle={linkActiveStyle}
+            >
                 politicians
             </NavLink>
 
-            { ' ' }
-
             <NavLink to='/parties'
-              style={{ color: 'black', textDecorationLine: 'none', marginLeft: '2em', marginRight: '2em' }}
-              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'none', borderBottom: '4px solid #009245', paddingBottom: '0.75em', marginLeft: '2em', marginRight: '2em' }}>
+              style={linkNotActiveStyle}
+              activeStyle={linkActiveStyle}
+            >
                 parties
             </NavLink>
 
-            { ' ' }
-
             <NavLink to='/votes'
-              style={{ color: 'black', textDecorationLine: 'none', marginLeft: '2em', marginRight: '2em' }}
-              activeStyle={{ fontWeight: 'bold', color: '#009245', textDecorationLine: 'none', borderBottom: '4px solid #009245', paddingBottom: '0.75em', marginLeft: '2em', marginRight: '2em' }}>
+              style={linkNotActiveStyle}
+              activeStyle={linkActiveStyle}
+            >
                 votes
             </NavLink>
 
-            { ' ' }
-
-            {displayProfileButton()}
-            { ' ' }
-
-            {displayLoginOrLogoutLink()}
-
-            {/* <BalanceIcon /> */}
-
+            {
+              (Meteor.userId()) ? (
+                <Link to='/profile' >
+                  <IconButton
+                    aria-label='Account of current user' aria-controls='primary-search-account-menu'
+                    aria-haspopup='true' color='inherit' style={{ color: '#009245' }}
+                  >
+                    <AccountCircle style={{ fontSize: '2em' }} />
+                  </IconButton>
+                </Link>
+              ) : (
+                <Link to='/login' >
+                  <IconButton
+                    aria-label='Account of current user' aria-controls='primary-search-account-menu'
+                    aria-haspopup='true' color='inherit' style={{ color: 'black' }}
+                  >
+                    <AccountCircle style={{ fontSize: '2em' }} />
+                  </IconButton>
+                </Link>
+              )
+            }
           </span>
         </Toolbar>
       </Container>

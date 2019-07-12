@@ -38,7 +38,7 @@ export default function Home () {
     <div>
       <Container display='flex' maxWidth='md'>
         <Typography className={classes.title} variant='h5'>
-          Who are we? 🥑
+          Who are we?
         </Typography>
 
         <Typography>
@@ -49,7 +49,7 @@ export default function Home () {
             <Card className={classes.card}>
               <Typography className={classes.cardText}>
                 <p />
-                We have <i>n</i> politicians.
+                We have <i>11</i> politicians.
               </Typography>
             </Card>
 

@@ -29,7 +29,7 @@ export default class PoliticiansSelect extends Component {
     return (
       <div>
         {this.state.politiciansArray.map((politician, index) => (
-          <Link to={'/Politicians?' + index} key={index}>
+          <Link to={'/politicians?' + index} key={index}>
             {politician.firstname} {politician.lastname}
           </Link>
         ))}

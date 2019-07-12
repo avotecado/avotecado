@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import Politicians from '/imports/api/Politicians';
+import Followed from '/imports/api/Followed';
 
 // function insertLink(title, url) {
 //   Politicians.insert({ title, url, createdAt: new Date() });
@@ -239,5 +240,6 @@ Meteor.startup(() => {
   }
 
   Meteor.publish('Politicians', function () { console.log('publishing Politicians'); return Politicians.find(); });
+  Meteor.publish('Followed', function () { console.log('publishing Followed'); return Followed.find(); });
   // Meteor.publish('SpotlightPolitician', function () { console.log('publishing SpotlightPolitician'); return Politicians.findOne(Math.floor(Math.random() * Politicians.find().count())); });
 });
