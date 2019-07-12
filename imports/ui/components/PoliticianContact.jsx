@@ -32,7 +32,7 @@ class PoliticianContact extends Component {
         <>
           <div style={{ fontFamily: 'DM Serif Display', fontSize: '2em', fontWeight: 'bold' }}>
             {this.state.politician.firstname} {this.state.politician.lastname}
-            <div style={{ fontFamily: 'Source Sans Pro', fontSize: '0.65em', marginTop: '-0.5em', marginBottom: '0.5em' }}>
+            <div style={{ fontFamily: 'Source Sans Pro', fontSize: '0.65em', marginTop: '-0.5em', marginBottom: '1em' }}>
               <a href={this.state.politician.profileURL} style={{ textDecoration: 'none', color: '#009245' }}>
                 {this.state.politician.title}
               </a>
