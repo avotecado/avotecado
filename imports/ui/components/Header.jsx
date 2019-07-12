@@ -12,7 +12,7 @@ import IconButton from '@material-ui/core/IconButton';
 const useStyles = makeStyles(theme => ({
   root: {
     marginTop: '-1em',
-    marginBottom: '8vw',
+    marginBottom: '6em',
     height: '2em',
     flexGrow: 1
   },
@@ -89,7 +89,7 @@ export default function ButtonAppBar () {
 
   return (
     <div className={classes.root}>
-      <Container maxWidth='xl' >
+      <Container maxWidth='lg' >
         <Toolbar disableGutters >
 
           <Typography className={classes.title}>

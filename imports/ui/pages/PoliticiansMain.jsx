@@ -52,10 +52,9 @@ class PoliticiansMain extends Component {
     let politician = politiciansArray.find(function (element) { return (element._id === selectedPolitician); });
     console.log(politician);
     if (!this.state.selectedPolitician) {
-      // no selection yet
       return (
       <>
-        <Container display='flex' maxWidth='lg' style={{ marginTop: '2vw' }}>
+        <Container display='flex' maxWidth='lg' style={{ marginTop: '0em' }}>
           <Grid container spacing={3}>
             <Grid item xs={12}>
               <PoliticianHeaderText />
@@ -69,10 +68,9 @@ class PoliticiansMain extends Component {
         </Container>
       </>);
     } else {
-      // selected
       return (
         <>
-          <Container display='flex' maxWidth='lg' style={{ marginTop: '2vw' }}>
+          <Container display='flex' maxWidth='lg' style={{ marginTop: '0em' }}>
             <Grid container spacing={3}>
 
               <Grid item xs={12}>

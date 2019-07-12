@@ -10,27 +10,6 @@ Meteor.startup(() => {
   // If the Politicians collection is empty, add some data.
   if (Politicians.find().count() === 0) {
     Politicians.insert({
-      _id: '11',
-      title: 'No Title',
-      firstname: 'Test',
-      lastname: 'Politician',
-      party: 'Test Party',
-      votes: 11111,
-      totalVotes: 11111,
-      profileURL: 'https://google.com',
-      contact: {
-        address: '123 Fake Street',
-        phone: '123-456-7890',
-        mobile: '123-456-7890',
-        email: 'test@test.com',
-        twitter: '@test',
-        website: 'test.com',
-        facebook: '@test',
-        linkedin: 'test',
-        instagram: '@test'
-      }
-    });
-    Politicians.insert({
       _id: '0',
       title: 'Mayor',
       firstname: 'Kennedy',

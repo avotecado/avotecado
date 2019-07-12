@@ -4,4 +4,5 @@ body {
   padding: 1em;
   font-family: sans-serif;
   color: 'black';
+  margin-left: calc(100vw - 100%);
 }
