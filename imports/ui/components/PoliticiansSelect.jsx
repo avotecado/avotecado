@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 export default class PoliticiansSelect extends Component {
   constructor (props) {
@@ -26,12 +27,15 @@ export default class PoliticiansSelect extends Component {
   }
 
   render () {
+    let buttonTextStyle = { fontFamily: 'DM Serif Display', fontWeight: 'bold', fontSize: '1.15em', color: 'black', textTransform: 'none' };
     return (
-      <div>
+      <div style={{ display: 'flex', flexFlow: 'row wrap', justifyContent: 'center' }}>
         {this.state.politiciansArray.map((politician, index) => (
-          <Link to={'/politicians?' + index} key={index}>
-            {politician.firstname} {politician.lastname}
-          </Link>
+          <NavLink to={'/politicians?' + index} key={index} style={{ textDecorationLine: 'none' }}>
+            <Button style={buttonTextStyle}>
+              {politician.firstname} {politician.lastname}
+            </Button>
+          </NavLink>
         ))}
       </div>
     );
