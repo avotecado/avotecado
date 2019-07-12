@@ -80,7 +80,7 @@ class PoliticiansMain extends Component {
               </Grid>
 
               <Grid item xs={12}>
-                <Container maxWidth='md' style={{ display: 'flex', flexFlow: 'row wrap' }}>
+                <Container maxWidth='md'>
                   <PoliticiansSelect politiciansArray={politiciansArray} />
                 </Container>
               </Grid>

@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-import Grid from '@material-ui/core/Grid';
-
-export default class PoliticianContact extends Component {
+class PoliticianContact extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -28,23 +26,32 @@ export default class PoliticianContact extends Component {
 
   render () {
     if (this.state.politician) {
+      // const addressIcon = '../../../public/icons/address.svg';
       console.log('polContact: ', this.state.politician);
       return (
-        <div>
-          {this.state.politician.profileURL}
-          {this.state.politician.address}
-          {this.state.politician.phone}
-          {this.state.politician.mobile}
-          {this.state.politician.email}
-          {this.state.politician.twitter}
-          {this.state.politician.website}
-          {this.state.politician.facebook}
-          {this.state.politician.linkedin}
-          {this.state.politician.instagram}
-        </div>
+        <>
+          <div style={{ fontFamily: 'DM Serif Display', fontSize: '2em', fontWeight: 'bold' }}>
+            {this.state.politician.firstname} {this.state.politician.lastname}
+            <div style={{ fontFamily: 'Source Sans Pro', fontSize: '0.65em', marginTop: '-0.5em', marginBottom: '0.5em' }}>
+              <a href={this.state.politician.profileURL} style={{ textDecoration: 'none', color: '#009245' }}>
+                {this.state.politician.title}
+              </a>
+            </div>
+          </div>
+          <div style={{ fontFamily: 'Source Sans Pro' }}>
+            {Object.entries(this.props.politician.contact).map((entry, index) => (
+              <span style={{ display: 'flex', alignContent: 'center', marginBottom: '1vw' }} key={index} >
+                <span style={{ marginRight: '0.5em' }}><img src={`../../../icons/${entry[0]}.svg`} /></span>
+                {entry[1]}
+              </span>
+            ))}
+          </div>
+        </>
       );
     } else {
       return (<> Loading Contact Info </>);
     }
   }
 }
+
+export default PoliticianContact;
