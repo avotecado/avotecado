@@ -15,13 +15,11 @@ class HomeSpotlight extends Component {
   }
 
   componentDidMount () {
-    // console.log('polContact cdm: ', this.props.politician);
     this.setState({ politician: this.props.politician });
   }
 
   componentDidUpdate (prevProps, prevState) {
     if (prevProps.politician !== this.props.politician) {
-      // console.log('polContact cdu: ', this.props.politician);
       this.setState({ politician: this.props.politician });
     }
   }

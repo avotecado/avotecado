@@ -12,7 +12,7 @@ import PoliticiansPFP from '../components/PoliticiansPFP';
 import PoliticianContact from '../components/PoliticianContact';
 // import PoliticianCommentsMade from '../components/PoliticianCommentsMade';
 // import PoliticianVoteHistory from '../components/PoliticianVoteHistory';
-// import PoliticianMakeAComment from '../components/PoliticianMakeAComment';
+import PoliticianMakeAComment from '../components/PoliticianMakeAComment';
 
 import { Container } from '@material-ui/core';
 import Paper from '@material-ui/core/Paper';
@@ -91,7 +91,7 @@ class PoliticiansMain extends Component {
               <Grid item xs={6}>
                 <PoliticianContact politician={politician} />
               </Grid>
-              
+
               <Grid item xs={3}>
                 <Paper>xs=3</Paper>
               </Grid>
@@ -103,6 +103,12 @@ class PoliticiansMain extends Component {
               </Grid>
               <Grid item xs={3}>
                 <Paper>xs=3</Paper>
+              </Grid>
+              <Grid alignItems='center' item xs={12} >
+                <span style={{ fontFamily: 'DM Serif Display', fontSize: '1.25em', fontColor: '#009245', textAlign: 'center', marginBottom: '-0.2em' }}>
+                  Have something to say about {politician.firstname} {politician.lastname}?
+                </span>
+                <PoliticianMakeAComment />
               </Grid>
             </Grid>
           </Container>
