@@ -48,14 +48,12 @@ export default function Home () {
           <Grid className={classes.gridClass} container direction='row' justify='center' alignItems='center'>
             <Card className={classes.card}>
               <Typography className={classes.cardText}>
-                <p />
                 We have <i>11</i> politicians.
               </Typography>
             </Card>
 
             <Card className={classes.card}>
               <Typography className={classes.cardText}>
-                <p />
                 We have <i>n</i> votes on record.
               </Typography>
             </Card>

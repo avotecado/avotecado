@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
+
 import Politicians from '../../api/Politicians';
+import Followed from '../../api/Followed';
+import Comments from '../../api/Comments';
 
 // import { PoliticianContext } from '../context/PoliticianContext';
 // import Async from 'react-async';
@@ -9,10 +12,10 @@ import Politicians from '../../api/Politicians';
 import PoliticianHeaderText from '../components/politicians/PoliticianHeaderText';
 import PoliticiansSelect from '../components/politicians/PoliticiansSelect';
 import PoliticiansPFP from '../components/politicians/PoliticiansPFP';
+import PoliticianFollow from '../components/politicians/PoliticianFollow';
 import PoliticianContact from '../components/politicians/PoliticianContact';
-// import PoliticianComments from '../components/politicians/PoliticianComments';
 // import PoliticianVoteHistory from '../components/politicians/PoliticianVoteHistory';
-import PoliticianMakeAComment from '../components/politicians/PoliticianMakeAComment';
+import PoliticianCommentSystem from '../components/politicians/PoliticianCommentSystem';
 
 import { Container } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
@@ -22,6 +25,7 @@ class PoliticiansMain extends Component {
     super(props);
     this.state = {
       politiciansArray: [],
+      followedArray: [],
       selectedPolitician: ''
     };
   }
@@ -29,29 +33,36 @@ class PoliticiansMain extends Component {
   // static contextType = PoliticianContext;
 
   componentDidMount () {
-    console.log('cdm:', this.props);
+    // console.log('cdm:', this.props);
   }
 
   componentDidUpdate (prevProps, prevState) {
-    console.log('cdu:', this.props);
+    // console.log('cdu @ politiciansMain.jsx:', this.props);
     if (prevProps.politiciansArray !== this.props.politiciansArray) {
       this.setState({ politiciansArray: this.props.politiciansArray });
     }
+    if (prevProps.followedArray !== this.props.followedArray) {
+      this.setState({ followedArray: this.props.followedArray });
+    }
     if ((prevProps !== this.props) && (this.props.location !== '')) {
       let selectedPolitician = this.props.location.search.replace('?', '');
-      console.log('selectedPolitician: ', selectedPolitician);
+      // console.log('selectedPolitician: ', selectedPolitician);
       this.setState({ selectedPolitician: selectedPolitician });
     }
   }
 
   render () {
+    let PFPStyle = { display: 'flex', alignItems: 'center', flexFlow: 'column wrap' };
+    let contactStyle = { display: 'flex', justifyContent: 'center', flexFlow: 'column wrap' };
+    // let subHeaderStyle = { fontFamily: 'DM Serif Display', fontSize: '1.25em', fontWeight: 'bold', fontColor: '#009245', textAlign: 'center', marginBottom: '-0.2em' };
     let politiciansArray = this.props.politiciansArray;
-    console.log(politiciansArray);
+    let followedArray = this.props.followedArray;
+
+    let userID = Meteor.userId();
+
     let selectedPolitician = this.state.selectedPolitician;
     let politician = politiciansArray.find(function (element) { return (element._id === selectedPolitician); });
-    let PFPStyle = { display: 'flex', alignItems: 'center', flexFlow: 'column wrap' };
-    let ContactStyle = { display: 'flex', justifyContent: 'center', flexFlow: 'column wrap' };
-    console.log(politician);
+
     if (!this.state.selectedPolitician) {
       return (
       <>
@@ -70,50 +81,42 @@ class PoliticiansMain extends Component {
       </>
       );
     } else {
-      return (
-        <>
-          <Container display='flex' maxWidth='lg' style={{ marginTop: '0em' }}>
-            <Grid container spacing={3}>
+      if (this.state.followedArray) {
+        return (
+          <>
+            <Container display='flex' maxWidth='lg' style={{ marginTop: '0em' }}>
+              <Grid container spacing={3}>
 
-              <Grid item xs={12}>
-                <PoliticianHeaderText />
+                <Grid item xs={12}>
+                  <PoliticianHeaderText />
+                </Grid>
+
+                <Grid item xs={12}>
+                  <Container maxWidth='md'>
+                    <PoliticiansSelect politiciansArray={politiciansArray} />
+                  </Container>
+                </Grid>
+
+                <Grid item xs={6} style={PFPStyle}>
+                  <PoliticiansPFP politician={politician} />
+                  {Meteor.user() && this.props.followedArray ? <PoliticianFollow politician={politician} followedArray={followedArray} userID={userID} /> : null }
+                </Grid>
+
+                <Grid item xs={6} style={contactStyle}>
+                  <PoliticianContact politician={politician} />
+                </Grid>
+
+                <Grid item xs={12} style={{ marginTop: '1em' }} />
+
+                <Grid item xs={12} >
+                  <PoliticianCommentSystem politician={politician} />
+                </Grid>
+
               </Grid>
-
-              <Grid item xs={12}>
-                <Container maxWidth='md'>
-                  <PoliticiansSelect politiciansArray={politiciansArray} />
-                </Container>
-              </Grid>
-
-              <Grid item xs={6} style={PFPStyle}>
-                <PoliticiansPFP politician={politician} />
-                Follow
-              </Grid>
-
-              <Grid item xs={6} style={ContactStyle}>
-                <PoliticianContact politician={politician} />
-              </Grid>
-
-              <Grid item xs={12} style={{ marginTop: '1em' }} />
-
-              <Grid item xs={12} >
-                <span style={{ fontFamily: 'DM Serif Display', fontSize: '1.25em', fontWeight: 'bold', fontColor: '#009245', textAlign: 'center', marginBottom: '-0.2em' }}>
-                  Here's what others have had to say about {politician.firstname} {politician.lastname}.
-                </span>
-                {/* <PoliticianComments /> */}
-              </Grid>
-
-              <Grid item xs={12} >
-                <span style={{ fontFamily: 'DM Serif Display', fontSize: '1.25em', fontWeight: 'bold', fontColor: '#009245', textAlign: 'center', marginBottom: '-0.2em' }}>
-                  Have something to say about {politician.firstname} {politician.lastname}?
-                </span>
-                <PoliticianMakeAComment politician={politician} />
-              </Grid>
-
-            </Grid>
-          </Container>
-        </>
-      );
+            </Container>
+          </>
+        );
+      }
     }
   }
 }
@@ -121,8 +124,19 @@ class PoliticiansMain extends Component {
 // export default PoliticiansMain;
 export default withTracker(() => {
   Meteor.subscribe('Politicians', {
-    onReady: function () { console.log('onReady'); },
-    onError: function () { console.log('onError'); }
+    onReady: function () { console.log('onReady Politicians'); },
+    onError: function () { console.log('onError Politicians'); }
   });
-  return { politiciansArray: Politicians.find().fetch() };
+  Meteor.subscribe('Followed', {
+    onReady: function () { console.log('onReady Followed'); },
+    onError: function () { console.log('onError Followed'); }
+  });
+  Meteor.subscribe('Comments', {
+    onReady: function () { console.log('onReady Comments'); },
+    onError: function () { console.log('onError Comments'); }
+  });
+  return {
+    politiciansArray: Politicians.find().fetch(),
+    followedArray: Followed.find({ _id: Meteor.userId() }).fetch(),
+    commentsArray: Comments };
 })(PoliticiansMain);
