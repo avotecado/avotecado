@@ -2,7 +2,6 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
-// import Typography from '@material-ui/core/Typography';
 import AccountsUIWrapper from '../AccountsUIWrapper';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';

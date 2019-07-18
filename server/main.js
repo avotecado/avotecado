@@ -244,7 +244,7 @@ Meteor.startup(() => {
   }
 
   Meteor.publish('Politicians', function () { console.log('publishing Politicians'); return Politicians.find(); });
-  Meteor.publish('FollowedAndComments', function () { console.log('publishing Followed and Comments'); return [Followed.find(), Comments.find()]; });
+  // Meteor.publish('FollowedAndComments', function () { console.log('publishing Followed and Comments'); return [Followed.find(), Comments.find()]; });
 
   // Meteor.publish('SpotlightPolitician', function () { console.log('publishing SpotlightPolitician'); return Politicians.findOne(Math.floor(Math.random() * Politicians.find().count())); });
 });
