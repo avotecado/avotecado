@@ -19,7 +19,13 @@ export class Parties extends Component {
   }
 
   componentDidUpdate (prevProps, prevState) {
-    if (prevProps !== this.props) {
+    if (prevProps !== this.props && this.state.loading) {
+      console.log('in cdu true props');
+      console.log('prevProps', prevProps);
+      console.log('this.props', this.props);
+      console.log('prevState', prevState);
+      console.log('this.state', this.state);
+      console.log('--');
       this.setState({ parties: this.props.parties });
       this.props.parties.forEach((party, index) => {
         Meteor.call('politicians.findByParty', party._id, (error, politicianResultArray) => {
