@@ -36,7 +36,7 @@ Meteor.methods({
   },
   'comments.findByID' (politicianID) {
     check(politicianID, String);
-    console.log('in findByID');
+    // console.log('in findByID');
     return Comments.find({ politician: politicianID }).fetch();
   }
 });

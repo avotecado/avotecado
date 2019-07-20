@@ -26,21 +26,15 @@ export class PoliticianFollow extends Component {
 
   render () {
     if (this.state.loaded) {
-      // console.log('this.props.followedCollection: ', this.props.followedCollection);
       let politician = this.props.politician;
-      // let userID = this.props.userID;
-      // console.log('userID: ', userID.toString());
-
       let followedArray = this.props.followedArray.flatMap(x => (x.following));
-      // console.log('Followed:', this.props.followedArray);
-      // console.log('FollowedVar: ', followedArray);
-      // console.log((Followed.findOne(userID).following.includes(politician._id)));
       let alreadyFollows = (followedArray.includes(politician._id));
-      // console.log('alreadyFollows?:', alreadyFollows);
+      let buttonTextStyle = { fontFamily: 'Fact-ExpandedMedium', fontWeight: 'bold', fontSize: '1.15em', color: 'black', margin: '0.15em' };
+
       if (alreadyFollows) {
         return (
           <div>
-            <Button variant='contained' onClick={() => Meteor.call('followed.remove', politician._id)}>
+            <Button variant='outlined' style={buttonTextStyle} onClick={() => Meteor.call('followed.remove', politician._id)}>
               Unfollow
             </Button>
           </div>
@@ -48,7 +42,7 @@ export class PoliticianFollow extends Component {
       } else {
         return (
           <div>
-            <Button variant='contained' onClick={() => Meteor.call('followed.add', politician._id)}>
+            <Button variant='outlined' style={buttonTextStyle} onClick={() => Meteor.call('followed.add', politician._id)}>
               Follow
             </Button>
           </div>

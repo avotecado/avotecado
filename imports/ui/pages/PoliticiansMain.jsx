@@ -54,7 +54,7 @@ class PoliticiansMain extends Component {
   render () {
     let PFPStyle = { display: 'flex', alignItems: 'center', flexFlow: 'column wrap' };
     let contactStyle = { display: 'flex', justifyContent: 'center', flexFlow: 'column wrap' };
-    // let subHeaderStyle = { fontFamily: 'DM Serif Display', fontSize: '1.25em', fontWeight: 'bold', fontColor: '#009245', textAlign: 'center', marginBottom: '-0.2em' };
+    // let subHeaderStyle = { fontFamily: 'Fact-ExpandedBlack', fontSize: '1.25em', fontWeight: 'bold', fontColor: '#009245', textAlign: 'center', marginBottom: '-0.2em' };
     let politiciansArray = this.props.politiciansArray;
     let followedArray = this.props.followedArray;
 
@@ -96,7 +96,6 @@ class PoliticiansMain extends Component {
                     <PoliticiansSelect politiciansArray={politiciansArray} />
                   </Container>
                 </Grid>
-
                 <Grid item xs={6} style={PFPStyle}>
                   <PoliticiansPFP politician={politician} />
                   {Meteor.user() && this.props.followedArray ? <PoliticianFollow politician={politician} followedArray={followedArray} userID={userID} /> : null }

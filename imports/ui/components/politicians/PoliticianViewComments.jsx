@@ -6,7 +6,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-export class PoliticianViewComments extends Component {
+export default class PoliticianViewComments extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -37,23 +37,38 @@ export class PoliticianViewComments extends Component {
   }
 
   render () {
-    console.log(this.state);
-    return (
-      <>
-        <Container>
-          <List style={{ maxHeight: '100%', overflowY: 'auto' }}>
-            <div>
-              {this.state.commentsArray.map((message, index) => (
-                <ListItem key={index}>
-                  {message.username}: {message.message}
+    if (this.state.commentsArray.length > 0) {
+      return (
+        <>
+          <Container>
+            <List style={{ height: '12em', overflowY: 'auto' }}>
+              <div>
+                {this.state.commentsArray.map((message, index) => (
+                  <ListItem key={index}>
+                    <div style={{ fontFamily: 'Fact-ExpandedMedium' }}>{message.username}:{' '}</div>
+                    
+                    {message.message}
+                  </ListItem>
+                ))}
+              </div>
+            </List>
+          </Container>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Container>
+            <List style={{ height: '12em', overflowY: 'auto' }}>
+              <div>
+                <ListItem>
+                  No comments, why not make one?
                 </ListItem>
-              ))}
-            </div>
-          </List>
-        </Container>
-      </>
-    );
+              </div>
+            </List>
+          </Container>
+        </>
+      );
+    }
   }
 }
-
-export default PoliticianViewComments;

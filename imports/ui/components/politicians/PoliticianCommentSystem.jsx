@@ -11,7 +11,7 @@ import Button from '@material-ui/core/Button';
 
 const CustomTextField = withStyles({
   root: {
-    '& label.Mui-focused': { color: '#009245' },
+    '& label.Mui-focused': { fontFamily:'Fact-ExpandedMedium', color: '#009245' },
     '& .MuiInput-underline:after': { borderBottomColor: '#009245' }
   }
 })(TextField);
@@ -33,9 +33,6 @@ export default class PoliticianMakeAComment extends Component {
       _id: '',
       commentsArray: null
     };
-    this.clearInputs = this.clearInputs.bind(this);
-    this.handleMessage = this.handleMessage.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount () {
@@ -45,9 +42,7 @@ export default class PoliticianMakeAComment extends Component {
       if (err) {
         console.log(err.reason);
       } else {
-        // console.log(res);
         that.setState({ commentsArray: res });
-        console.log(that.state.commentsArray);
       }
     });
   }
@@ -56,25 +51,22 @@ export default class PoliticianMakeAComment extends Component {
     if (prevProps !== this.props) {
       let that = this;
       let politician = this.props.politician;
-      console.log('politician: ', politician);
       this.setState({ politician: politician, commentsArray: [] });
       Meteor.call('comments.findByID', this.props.politician._id, function (err, res) {
         if (err) {
           console.log(err.reason);
         } else {
-          // console.log(res);
           that.setState({ commentsArray: res });
-          console.log(that.state.commentsArray);
         }
       });
     }
   }
 
-  clearInputs () { this.setState({ messageInput: '' }); }
+  clearInputs = () => { this.setState({ messageInput: '' }); }
 
-  handleMessage (event) { /* console.log('handleMessage:', this.state.messageInput); */ this.setState({ messageInput: event.target.value }); }
+  handleMessage = (event) => { this.setState({ messageInput: event.target.value }); }
 
-  handleSubmit (event) {
+  handleSubmit = (event) => {
     event.preventDefault();
 
     if (inputValidation(this.state.messageInput)) {
@@ -93,9 +85,9 @@ export default class PoliticianMakeAComment extends Component {
   }
 
   render () {
-    let subHeaderStyle = { fontFamily: 'DM Serif Display', fontSize: '1.25em', fontWeight: 'bold', fontColor: '#009245', textAlign: 'center', marginBottom: '-0.2em' };
+    let subHeaderStyle = { fontFamily: 'Fact-ExpandedBlack', fontSize: '2.0em', color: 'white', textAlign: 'center', backgroundColor:'black', marginBottom: '-0.2em' };
     let politician = this.state.politician;
-    console.log(politician._id);
+    // console.log(politician._id);
     if (this.state.commentsArray) {
       return (
         <div>
@@ -115,7 +107,7 @@ export default class PoliticianMakeAComment extends Component {
                 name='message_Input' fullWidth label='Share your thoughts.' style={{ marginBottom: '0.1em' }}
                 value={this.state.messageInput} onChange={this.handleMessage}
               />
-              <Button type='submit' variant='contained' style={{ fontFamily: 'Source Sans Pro', fontWeight: 'bold', color: 'white', backgroundColor: '#009245' }}>
+              <Button type='submit' variant='contained' style={{ fontFamily: 'Fact-ExpandedBlack', color: 'white', fontSize: '1.25em', backgroundColor: '#009245', textTransform: 'none' }}>
                 Post
               </Button>
 

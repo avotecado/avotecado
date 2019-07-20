@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import Politicians from '/imports/api/Politicians';
+import PartyCollection from '/imports/api/Party';
 import Followed from '/imports/api/Followed';
 import Comments from '/imports/api/Comments';
 
@@ -130,7 +131,7 @@ Meteor.startup(() => {
         mobile: '604-754-7290',
         email: 'CLRdominato@vancouver.ca',
         twitter: '@LisaDominato',
-        website: ' ',
+        website: 'http://lisadominato.ca/',
         facebook: 'lisadominato',
         linkedin: ' ',
         instagram: '@lisadominato'
@@ -241,10 +242,39 @@ Meteor.startup(() => {
         instagram: ' '
       }
     });
+    if (PartyCollection.find().count() === 0) {
+      PartyCollection.insert({
+        _id: 'NPA',
+        founded: '1937',
+        ideology: 'Conservatism',
+        politicianPosition: 'Centre-right'
+      });
+      PartyCollection.insert({
+        _id: 'Green',
+        founded: '1984',
+        ideology: 'Green politics',
+        politicianPosition: 'Centre-left'
+      });
+      PartyCollection.insert({
+        _id: 'OneCity',
+        founded: '2014',
+        ideology: 'Social democracy',
+        politicianPosition: 'Centre-left'
+      });
+      PartyCollection.insert({
+        _id: 'COPE',
+        founded: '1968',
+        ideology: 'Social democracy',
+        politicianPosition: 'Left-wing'
+      });
+      PartyCollection.insert({
+        _id: 'Independent',
+        founded: '-',
+        ideology: '-',
+        politicianPosition: '-'
+      });
+    }
   }
 
   Meteor.publish('Politicians', function () { console.log('publishing Politicians'); return Politicians.find(); });
-  // Meteor.publish('FollowedAndComments', function () { console.log('publishing Followed and Comments'); return [Followed.find(), Comments.find()]; });
-
-  // Meteor.publish('SpotlightPolitician', function () { console.log('publishing SpotlightPolitician'); return Politicians.findOne(Math.floor(Math.random() * Politicians.find().count())); });
 });
