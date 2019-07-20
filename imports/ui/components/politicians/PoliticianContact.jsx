@@ -26,22 +26,20 @@ class PoliticianContact extends Component {
 
   render () {
     if (this.state.politician) {
-      // const addressIcon = '../../../public/icons/address.svg';
-      // console.log('polContact: ', this.state.politician);
       return (
         <>
-          <div style={{ fontFamily: 'DM Serif Display', fontSize: '2em', fontWeight: 'bold' }}>
-            {this.state.politician.firstname} {this.state.politician.lastname}
-            <div style={{ fontFamily: 'Source Sans Pro', fontSize: '0.65em', marginTop: '-0.55em' }}>
-              <a href={this.state.politician.profileURL} style={{ textDecoration: 'none', color: '#009245' }}>
+          <div style={{ fontFamily: 'Fact-ExpandedBlack', fontSize: '2em', fontWeight: 'bold' }}>
+            <span style={{ color: 'white', backgroundColor: 'black' }}>{this.state.politician.firstname} {this.state.politician.lastname}</span>
+            <div style={{ fontFamily: 'Fact-Expanded', fontSize: '0.65em' }}>
+              <a href={this.state.politician.profileURL} style={{ color: 'black', textDecorationColor: 'rgb(0, 146, 69)', textDecorationStyle: 'wavy' }}>
                 {this.state.politician.title}
               </a>
             </div>
-            <div style={{ fontFamily: 'Source Sans Pro', fontSize: '0.65em', marginTop: '-0.2em', marginBottom: '1em' }}>
+            <div style={{ fontFamily: 'Fact-Expanded', fontSize: '0.65em', marginBottom: '1em' }}>
               {this.state.politician.party}
             </div>
           </div>
-          <div style={{ fontFamily: 'Source Sans Pro' }}>
+          <div style={{ fontFamily: 'Fact-Expanded' }}>
             {Object.entries(this.props.politician.contact).map((entry, index) => (
               <span style={{ display: 'flex', alignContent: 'center', marginBottom: '0.3em' }} key={index} >
                 <span style={{ marginRight: '0.5em' }}><img src={`../../../icons/${entry[0]}.svg`} /></span>

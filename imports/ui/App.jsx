@@ -5,6 +5,8 @@ import React, { Component } from 'react';
 import Header from './components/Header.jsx';
 import Home from './pages/Home';
 import Politicians from './pages/PoliticiansMain';
+import Parties from './pages/Parties';
+import Votes from './pages/Votes';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Footer from './components/Footer.jsx';
@@ -21,10 +23,11 @@ class App extends Component {
           <Header />
           <Route exact path='/' component={Home} />
           <Route exact path='/politicians' component={Politicians} />
+          <Route exact path='/parties' component={Parties} />
+          <Route exact path='/votes' component={Votes} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/profile' component={Profile} />
           <Route exact path='/legal' component={Legal} />
-          {/* <Route exact path='/Content' component={Content} /> <Route exact path='/Profile' component={Profile} /> */}
           <Footer />
           {/* </PoliticianContextProvider> */}
         </div>

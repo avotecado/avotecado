@@ -20,14 +20,14 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: 'white'
   },
   title: {
-    fontFamily: 'DM Serif Display',
+    fontFamily: 'Fact-ExpandedBlack',
     fontWeight: 'bold',
     fontSize: '4em',
-    color: '#009245',
+    color: 'black',
     flexGrow: 1
   },
   links: {
-    fontFamily: 'DM Serif Display',
+    fontFamily: 'Fact-ExpandedBlack',
     fontWeight: 'bold',
     textDecoration: 'none',
     color: 'black'
@@ -38,6 +38,7 @@ export default function ButtonAppBar () {
   const classes = useStyles();
 
   let linkNotActiveStyle = {
+    fontFamily: 'Fact-Expanded',
     fontSize: '1.15em',
     color: 'black',
     textDecorationLine: 'none',
@@ -45,8 +46,8 @@ export default function ButtonAppBar () {
     marginRight: '2vw'
   };
   let linkActiveStyle = {
+    fontFamily: 'Fact-ExpandedBlack',
     fontSize: '1.15em',
-    fontWeight: 'bold',
     color: '#009245',
     textDecorationLine: 'none',
     borderBottom: '4px solid #009245',
@@ -61,7 +62,7 @@ export default function ButtonAppBar () {
         <Toolbar disableGutters >
 
           <Typography className={classes.title}>
-            <NavLink to='/' activeStyle={{ fontSize: '1.15em', fontWeight: 'bold', color: '#009245', textDecorationLine: 'none' }}>avotecado</NavLink>
+            <NavLink to='/' activeStyle={{ fontSize: '1.15em', fontWeight: 'bold', color: 'black', textDecorationLine: 'none' }}>avotecado</NavLink>
           </Typography>
 
           <span className={classes.links}>

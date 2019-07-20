@@ -1,51 +1,57 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
-import { withTracker } from 'meteor/react-meteor-data';
-import Politicians from '../../api/Politicians';
 
-import Container from '@material-ui/core/Container';
+import PoliticiansPFP from './politicians/PoliticiansPFP';
+import PoliticianCommentSystem from '../components/politicians/PoliticianCommentSystem';
+
+import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 
-class HomeSpotlight extends Component {
+export default class HomeSpotlight extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      politician: []
+      politician: null
     };
   }
 
   componentDidMount () {
-    this.setState({ politician: this.props.politician });
-  }
-
-  componentDidUpdate (prevProps, prevState) {
-    if (prevProps.politician !== this.props.politician) {
-      this.setState({ politician: this.props.politician });
-    }
-  }
-
-  componentWillReceiveProps (nextProps) {
-    this.setState({ politician: nextProps.politician });
+    let politicianID = (Math.floor((Math.random() * 11))).toString();
+    console.log('politicianID: ', politicianID);
+    Meteor.call('politicians.findByID', politicianID, (err, res) => {
+      if (err) {
+        console.log(err.reason);
+      } else {
+        this.setState({ politician: res[0] });
+        console.log(this.state);
+      }
+    });
   }
 
   render () {
-    console.log(this.props);
-    // let spotlightPolitician;
-    // spotlightPolitician = this.state.politician[Math.floor(Math.random() * this.state.politician.length)];
-    // console.log(spotlightPolitician);
-    return (
-      <div>
-        <Grid item xs={4} />
-        <Grid item xs={8} />
-      </div>
-    );
+    let subHeaderStyle = { fontFamily: 'Fact-ExpandedBlack', fontSize: '2.0em' };
+    let contactStyle = { display: 'flex', alignItems: 'center', justifyContent: 'center', flexFlow: 'column wrap' };
+
+    if (this.state.politician) {
+      let politician = this.state.politician;
+      return (
+        <>
+          <Grid item xs={6} style={contactStyle}>
+            <PoliticiansPFP politician={politician} />
+            <Link to={`/politicians?${politician._id}`} style={{ color: 'black', textDecorationColor: 'rgb(0, 146, 69)', textDecorationStyle: 'wavy' }}>
+              <Typography align='center' style={subHeaderStyle}>
+                {politician.firstname} {politician.lastname}
+              </Typography>
+            </Link>
+          </Grid>
+          <Grid item xs={6} style={contactStyle}>
+            <PoliticianCommentSystem politician={politician} />
+          </Grid>
+        </>
+      );
+    } else {
+      return (<> Loading... </>);
+    }
   }
 }
-
-export default withTracker(() => {
-  Meteor.subscribe('Politicians', {
-    onReady: function () { console.log('onReady'); },
-    onError: function () { console.log('onError'); }
-  });
-  return { politician: Politicians.find().fetch() };
-})(HomeSpotlight);

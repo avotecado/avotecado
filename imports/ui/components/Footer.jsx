@@ -17,9 +17,9 @@ export default class Footer extends Component {
   render() {
     return (
       <>
-        <Container display='flex' maxWidth='lg' component='div' style={{  fontFamily: 'Source Sans Pro', fontWeight:'bold', backgroundColor: '#f2f2f2', marginTop:'3em' , paddingTop: '3em'}}>
+        <Container display='flex' maxWidth='lg' component='div' style={{ fontWeight:'bold', backgroundColor: '#f2f2f2', marginTop:'3em' , paddingTop: '3em' }}>
           about / <a href='https://github.com/avotecado/avotecado'>contact</a> / <Link to='/legal'>legal</Link>
-          <Typography component='div' style={{ fontFamily: 'DM Serif Display', fontWeight: 'bold', fontSize: '2rem', }}>
+          <Typography component='div' style={{ fontFamily: 'Fact-ExpandedBlack', fontWeight: 'bold', fontSize: '2rem', }}>
             avotecado
           </Typography>
         </Container>

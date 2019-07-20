@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
-export default class PoliticiansSelect extends Component {
+export default class PartiesSelect extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -27,12 +27,12 @@ export default class PoliticiansSelect extends Component {
   }
 
   render () {
-    let buttonTextStyle = { fontFamily: 'Fact-ExpandedMedium', fontWeight: 'bold', fontSize: '1.15em', color: 'black', margin: '0.15em' };
+    let buttonTextStyle = { fontFamily: 'Fact-ExpandedBlack', fontWeight: 'bold', fontSize: '1.15em', color: 'black', textTransform: 'none' };
     return (
       <div style={{ display: 'flex', flexFlow: 'row wrap', justifyContent: 'center' }}>
         {this.state.politiciansArray.map((politician, index) => (
-          <NavLink to={'/politicians?' + index} key={index} style={{ textDecorationLine: 'none' }}>
-            <Button variant='outlined' style={buttonTextStyle}>
+          <NavLink to={'/politicians?' + politician._id} key={index} style={{ textDecorationLine: 'none' }}>
+            <Button style={buttonTextStyle}>
               {politician.firstname} {politician.lastname}
             </Button>
           </NavLink>
