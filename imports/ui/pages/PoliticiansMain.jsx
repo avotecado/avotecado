@@ -30,12 +30,6 @@ class PoliticiansMain extends Component {
     };
   }
 
-  // static contextType = PoliticianContext;
-
-  componentDidMount () {
-    // console.log('cdm:', this.props);
-  }
-
   componentDidUpdate (prevProps, prevState) {
     // console.log('cdu @ politiciansMain.jsx:', this.props);
     if (prevProps.politiciansArray !== this.props.politiciansArray) {

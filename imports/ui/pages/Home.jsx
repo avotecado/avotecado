@@ -1,35 +1,12 @@
 import React from 'react';
 
+import ChartPartyMakeUp from '../components/ChartPartyMakeUp';
 import HomeSpotlight from '../components/HomeSpotlight';
 
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-// import Typography from '@material-ui/core/Typography';
-
-// const useStyles = makeStyles(theme => ({
-//   root: {
-//     padding: theme.spacing(3, 2)
-//   },
-//   gridClass: {
-//     marginTop: '5vw'
-//   },
-//   card: {
-//     marginLeft: '1em',
-//     marginRight: '1em',
-//     backgroundColor: '#f2f2f2',
-//     textAlign: 'center',
-//     minWidth: 275
-//   },
-//   cardText: {
-//     fontFamily: 'Fact-Expanded',
-//     fontWeight: '600'
-//   },
-//   title: {
-//     textAlign: 'center'
-//   }
-// }));
 
 export default function Home () {
   // const classes = useStyles();
@@ -38,6 +15,14 @@ export default function Home () {
   return (
     <>
       <Container display='flex' maxWidth='lg'>
+        <div style={{ marginBottom: '2.5em' }}>
+          <span style={subHeaderStyle}> At a Glance </span>
+          <Grid container spacing={3}>
+            <Grid item xs={6}>
+              <ChartPartyMakeUp />
+            </Grid>
+          </Grid>
+        </div>
         <span style={subHeaderStyle}> Spotlight Politician </span>
         <Grid container spacing={3}>
           <HomeSpotlight />
