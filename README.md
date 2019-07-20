@@ -1,6 +1,13 @@
 avotecado
 ===
-**Table of Contents**
+## Quick 2 Sentence Summary:
+avotecado is a webapp that keeps track of *municipal* politics (through vote, bill tracking). We're attempting to make data more understandable to the average voter, who generally doesn't have the time to follow every single thing that goes on in each level of politics.
+
+For more higher level information, checkout the [problem solving orientation section.](#problem-solving-orientation)
+
+---
+
+## Table of Contents
 * [Project Requirements](#Project-Requirements--avotecado)
     * [Who is it for?](#Who-is-it-for)
     * [What will it do?](#What-will-it-do-What-“human-activity”-will-it-support)
@@ -181,4 +188,3 @@ For the average voter, following the news is the best way that we can “track�
 ### 3. Why municipal first?
 * **High degree of apathy**: This level of government has the lowest percentages of people voting (vs. provincial or federal).
 * **Party Discipline**: Due to the pariliamentary-style (whipped votes) of provincial and federal politics, elected officials tend to vote with their party - thus tracking bills and polticians at these levels of government may require a different set of metrics to track how well polticians reflect their ridings views vs. following the party.
-
