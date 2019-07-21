@@ -20,12 +20,6 @@ export class Parties extends Component {
 
   componentDidUpdate (prevProps, prevState) {
     if (prevProps !== this.props && this.state.loading) {
-      console.log('in cdu true props');
-      console.log('prevProps', prevProps);
-      console.log('this.props', this.props);
-      console.log('prevState', prevState);
-      console.log('this.state', this.state);
-      console.log('--');
       this.setState({ parties: this.props.parties });
       this.props.parties.forEach((party, index) => {
         Meteor.call('politicians.findByParty', party._id, (error, politicianResultArray) => {
@@ -34,7 +28,6 @@ export class Parties extends Component {
           } else {
             this.setState({ politicianArray: [...this.state.politicianArray, { party: party._id, politicians: politicianResultArray }] });
             if (this.state.parties.length === this.state.politicianArray.length) {
-              // console.log('cdu state.polarray in === state', this.state.politicianArray);
               this.setState({ loading: false });
             }
           }
@@ -56,8 +49,6 @@ export class Parties extends Component {
       let subHeaderStyle = { fontFamily: 'Fact-ExpandedBlack', fontSize: '2.0em', color: 'white', textAlign: 'center', backgroundColor: 'black' };
       let parties = this.props.parties;
       let politicianArray = this.state.politicianArray;
-      // console.log(this.props.parties);
-      // console.log(this.state.politicianArray);
       return (
         <div>
           <Container display='flex' maxWidth='lg'>

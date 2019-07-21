@@ -5,6 +5,9 @@ import { check } from 'meteor/check';
 export default Politicians = new Mongo.Collection('Politicians');
 
 Meteor.methods({
+  'politicians.getAll'() {
+    return Politicians.find({}).fetch();
+  },
   'politicians.getParties'() {
     return Politicians.rawCollection().distinct('party');
   },

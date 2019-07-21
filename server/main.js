@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import Politicians from '/imports/api/Politicians';
 import PartyCollection from '/imports/api/Party';
+import VoteCollection from '/imports/api/VoteCollection';
 import Followed from '/imports/api/Followed';
 import Comments from '/imports/api/Comments';
 
@@ -242,6 +243,7 @@ Meteor.startup(() => {
         instagram: ' '
       }
     });
+
     if (PartyCollection.find().count() === 0) {
       PartyCollection.insert({
         _id: 'NPA',
@@ -272,6 +274,29 @@ Meteor.startup(() => {
         founded: '-',
         ideology: '-',
         politicianPosition: '-'
+      });
+    }
+
+    if (VoteCollection.find().count() === 0) {
+      VoteCollection.insert({
+        _id: '3438',
+        voteDate: '2018-11-05',
+        voteStartDateTime: '2018-11-05 17:12',
+        meetingType: 'Regular Council',
+        agendaDescription: 'Deputy Mayor and Roster of Councillors to Represent Council',
+        tags: ['scheduling'],
+        decision: 'Carried Unanimously',
+        votes: ['IF', 'IF', 'IF', 'IF', 'IF', 'IF', 'IF', 'IF', 'IF', 'IF', 'IF']
+      });
+      VoteCollection.insert({
+        _id: '3439',
+        voteDate: '2018-11-05',
+        voteStartDateTime: '2018-11-05 17:13',
+        meetingType: 'Regular Council',
+        agendaDescription: 'Standing Committee Chairs and Vice-Chairs, and Nomination Sub-Committee - November 5, 2018, to October 31, 2019',
+        tags: [],
+        decision: 'Carried Unanimously',
+        votes: ['IF', 'IF', 'IF', 'IF', 'IF', 'IF', 'IF', 'IF', 'IF', 'IF', 'IF']
       });
     }
   }
