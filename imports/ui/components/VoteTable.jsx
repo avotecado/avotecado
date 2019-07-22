@@ -7,7 +7,7 @@ export class VoteTable extends Component {
   }
 
   componentDidMount() {
-    console.log('votetable', this.props);
+    console.log('voteTable', this.props);
   }
 
   render() {
@@ -17,17 +17,17 @@ export class VoteTable extends Component {
           title='Vote History'
           columns={[
             { title: 'Vote Number', field: '_id' },
-            { title: 'Vote Date', field: 'voteDate' },
-            { title: 'Meeting Type', field: 'meetingType' },
             { title: 'Description of Agenda', field: 'agendaDescription' },
             { title: 'Decision', field: 'decision' },
             { title: 'Votes', field: 'votes' },
+            { title: 'Vote Date', field: 'voteDate' },
+            { title: 'Meeting Type', field: 'meetingType' },
             { title: 'Tags', field: 'tags' }
           ]}
           data={this.props.votes}
-          options={{
-            filtering: true
-          }}
+          options={{ filtering: true }}
+          parentChildData={(row, rows) => rows.find(a => a.party === row._id)}
+
         />
       </div>
     );

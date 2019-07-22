@@ -27,7 +27,7 @@ export default class PartiesSelect extends Component {
   }
 
   render () {
-    let buttonTextStyle = { fontFamily: 'Fact-ExpandedBlack', fontWeight: 'bold', fontSize: '1.15em', color: 'black', textTransform: 'none' };
+    let buttonTextStyle = { fontFamily: 'Helvetica Black Extended', fontWeight: 'bold', fontSize: '1.15em', color: 'black', textTransform: 'none' };
     return (
       <div style={{ display: 'flex', flexFlow: 'row wrap', justifyContent: 'center' }}>
         {this.state.politiciansArray.map((politician, index) => (

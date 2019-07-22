@@ -36,7 +36,6 @@ export class Votes extends Component {
       return (
         <div>
           <Container>
-            nada
             <VoteTable politicians={this.state.politicianArray} votes={this.props.votes} />
           </Container>
         </div>

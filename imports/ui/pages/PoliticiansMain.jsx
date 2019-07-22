@@ -11,11 +11,11 @@ import Comments from '../../api/Comments';
 
 import PoliticianHeaderText from '../components/politicians/PoliticianHeaderText';
 import PoliticiansSelect from '../components/politicians/PoliticiansSelect';
-import PoliticiansPFP from '../components/politicians/PoliticiansPFP';
+import PoliticiansPic from '../components/politicians/PoliticiansPic';
 import PoliticianFollow from '../components/politicians/PoliticianFollow';
 import PoliticianContact from '../components/politicians/PoliticianContact';
 // import PoliticianVoteHistory from '../components/politicians/PoliticianVoteHistory';
-import PoliticianCommentSystem from '../components/politicians/PoliticianCommentSystem';
+import CommentSystem from '../components/CommentSystem';
 
 import { Container } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
@@ -31,7 +31,6 @@ class PoliticiansMain extends Component {
   }
 
   componentDidUpdate (prevProps, prevState) {
-    // console.log('cdu @ politiciansMain.jsx:', this.props);
     if (prevProps.politiciansArray !== this.props.politiciansArray) {
       this.setState({ politiciansArray: this.props.politiciansArray });
     }
@@ -40,7 +39,6 @@ class PoliticiansMain extends Component {
     }
     if ((prevProps !== this.props) && (this.props.location !== '')) {
       let selectedPolitician = this.props.location.search.replace('?', '');
-      // console.log('selectedPolitician: ', selectedPolitician);
       this.setState({ selectedPolitician: selectedPolitician });
     }
   }
@@ -48,15 +46,12 @@ class PoliticiansMain extends Component {
   render () {
     let PFPStyle = { display: 'flex', alignItems: 'center', flexFlow: 'column wrap' };
     let contactStyle = { display: 'flex', justifyContent: 'center', flexFlow: 'column wrap' };
-    // let subHeaderStyle = { fontFamily: 'Fact-ExpandedBlack', fontSize: '1.25em', fontWeight: 'bold', fontColor: '#009245', textAlign: 'center', marginBottom: '-0.2em' };
     let politiciansArray = this.props.politiciansArray;
     let followedArray = this.props.followedArray;
-
-    let userID = Meteor.userId();
-
     let selectedPolitician = this.state.selectedPolitician;
     let politician = politiciansArray.find(function (element) { return (element._id === selectedPolitician); });
-
+    let userID = Meteor.userId();
+    
     if (!this.state.selectedPolitician) {
       return (
       <>
@@ -91,7 +86,7 @@ class PoliticiansMain extends Component {
                   </Container>
                 </Grid>
                 <Grid item xs={6} style={PFPStyle}>
-                  <PoliticiansPFP politician={politician} />
+                  <PoliticiansPic politician={politician} />
                   {Meteor.user() && this.props.followedArray ? <PoliticianFollow politician={politician} followedArray={followedArray} userID={userID} /> : null }
                 </Grid>
 
@@ -102,7 +97,7 @@ class PoliticiansMain extends Component {
                 <Grid item xs={12} style={{ marginTop: '1em' }} />
 
                 <Grid item xs={12} >
-                  <PoliticianCommentSystem politician={politician} />
+                  <CommentSystem politician={politician} />
                 </Grid>
 
               </Grid>
@@ -114,19 +109,18 @@ class PoliticiansMain extends Component {
   }
 }
 
-// export default PoliticiansMain;
 export default withTracker(() => {
   Meteor.subscribe('Politicians', {
-    onReady: function () { console.log('onReady Politicians'); },
-    onError: function () { console.log('onError Politicians'); }
+    onReady: function () { },
+    onError: function () { }
   });
   Meteor.subscribe('Followed', {
-    onReady: function () { console.log('onReady Followed'); },
-    onError: function () { console.log('onError Followed'); }
+    onReady: function () { },
+    onError: function () { }
   });
   Meteor.subscribe('Comments', {
-    onReady: function () { console.log('onReady Comments'); },
-    onError: function () { console.log('onError Comments'); }
+    onReady: function () { },
+    onError: function () { }
   });
   return {
     politiciansArray: Politicians.find().fetch(),

@@ -46,7 +46,7 @@ export class Parties extends Component {
         </div>
       );
     } else {
-      let subHeaderStyle = { fontFamily: 'Fact-ExpandedBlack', fontSize: '2.0em', color: 'white', textAlign: 'center', backgroundColor: 'black' };
+      let subHeaderStyle = { fontFamily: 'Helvetica Black Extended', fontSize: '2.0em', color: 'white', textAlign: 'center', backgroundColor: 'black' };
       let parties = this.props.parties;
       let politicianArray = this.state.politicianArray;
       return (

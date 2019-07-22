@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import { Meteor } from 'meteor/meteor';
 
 import Container from '@material-ui/core/Container';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 
 export default class PoliticianViewComments extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       commentsArray: []
@@ -16,14 +14,11 @@ export default class PoliticianViewComments extends Component {
 
   componentDidMount () {
     this.setState({ commentsArray: this.props.commentsArray });
-    // console.log(this.state.commentsArray);
   }
 
   componentDidUpdate (prevProps, prevState) {
     if (prevState.commentsArray !== this.state.commentsArray) {
-      // console.log('polContact cdu: ', this.props.commentsArray);
       this.setState({ commentsArray: this.state.commentsArray });
-      // console.log(this.state);
     }
   }
 
@@ -46,7 +41,6 @@ export default class PoliticianViewComments extends Component {
                 {this.state.commentsArray.map((message, index) => (
                   <ListItem key={index}>
                     <div style={{ fontFamily: 'Fact-ExpandedMedium' }}>{message.username}:{' '}</div>
-                    
                     {message.message}
                   </ListItem>
                 ))}
@@ -59,7 +53,7 @@ export default class PoliticianViewComments extends Component {
       return (
         <>
           <Container>
-            <List style={{ height: '12em', overflowY: 'auto' }}>
+            <List style={{ height: '12em', overflowY: 'auto', overflowX: 'hidden' }}>
               <div>
                 <ListItem>
                   No comments, why not make one?

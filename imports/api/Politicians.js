@@ -4,6 +4,10 @@ import { check } from 'meteor/check';
 
 export default Politicians = new Mongo.Collection('Politicians');
 
+if (Meteor.isServer) {
+  Meteor.publish('Politicians', function () { console.log('publishing Politicians'); return Politicians.find(); });
+}
+
 Meteor.methods({
   'politicians.getAll'() {
     return Politicians.find({}).fetch();
