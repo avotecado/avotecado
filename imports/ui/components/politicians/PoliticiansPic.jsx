@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class PoliticianPFP extends Component {
+export default class PoliticianPic extends Component {
   constructor (props) {
     super(props);
     this.state = {
@@ -9,13 +9,11 @@ export default class PoliticianPFP extends Component {
   }
 
   componentDidMount () {
-    // console.log('polPFP cdm: ', this.props.politician);
     this.setState({ politician: this.props.politician });
   }
 
   componentDidUpdate (prevProps, prevState) {
     if (prevProps.politician !== this.props.politician) {
-      // console.log('polPFP cdu: ', this.props.politician);
       this.setState({ politician: this.props.politician });
     }
   }

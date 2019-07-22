@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-// import PoliticianContextProvider from './context/PoliticianContext';
-
+import Title from './components/Title.jsx';
 import Header from './components/Header.jsx';
+import Header2 from './components/Header2.jsx';
 import Home from './pages/Home';
 import Politicians from './pages/PoliticiansMain';
 import Parties from './pages/Parties';
@@ -19,7 +19,6 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div style={{ overflowX: 'hidden' }}>
-          {/* <PoliticianContextProvider> */}
           <Header />
           <Route exact path='/' component={Home} />
           <Route exact path='/politicians' component={Politicians} />
@@ -29,7 +28,6 @@ class App extends Component {
           <Route exact path='/profile' component={Profile} />
           <Route exact path='/legal' component={Legal} />
           <Footer />
-          {/* </PoliticianContextProvider> */}
         </div>
       </BrowserRouter>
     );

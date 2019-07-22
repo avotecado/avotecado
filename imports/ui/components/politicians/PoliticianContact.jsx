@@ -28,7 +28,7 @@ class PoliticianContact extends Component {
     if (this.state.politician) {
       return (
         <>
-          <div style={{ fontFamily: 'Fact-ExpandedBlack', fontSize: '2em', fontWeight: 'bold' }}>
+          <div style={{ fontFamily: 'Helvetica Black Extended', fontSize: '2em', fontWeight: 'bold' }}>
             <span style={{ color: 'white', backgroundColor: 'black' }}>{this.state.politician.firstname} {this.state.politician.lastname}</span>
             <div style={{ fontFamily: 'Fact-Expanded', fontSize: '0.65em' }}>
               <a href={this.state.politician.profileURL} style={{ color: 'black', textDecorationColor: 'rgb(0, 146, 69)', textDecorationStyle: 'wavy' }}>

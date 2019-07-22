@@ -10,7 +10,7 @@ import Grid from '@material-ui/core/Grid';
 
 export default function Home () {
   // const classes = useStyles();
-  let subHeaderStyle = { fontFamily: 'Fact-ExpandedBlack', fontSize: '2.0em', color: 'white', textAlign: 'center', backgroundColor: 'black' };
+  let subHeaderStyle = { fontFamily: 'Helvetica Black Extended', fontSize: '2.0em', color: 'white', textAlign: 'center', backgroundColor: 'black' };
 
   return (
     <>

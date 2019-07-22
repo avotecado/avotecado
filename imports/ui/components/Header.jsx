@@ -20,14 +20,12 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: 'white'
   },
   title: {
-    fontFamily: 'Fact-ExpandedBlack',
+    fontFamily: 'Helvetica Black Extended',
     fontWeight: 'bold',
-    fontSize: '4em',
-    color: 'black',
     flexGrow: 1
   },
   links: {
-    fontFamily: 'Fact-ExpandedBlack',
+    fontFamily: 'Helvetica Black Extended',
     fontWeight: 'bold',
     textDecoration: 'none',
     color: 'black'
@@ -46,7 +44,7 @@ export default function ButtonAppBar () {
     marginRight: '2vw'
   };
   let linkActiveStyle = {
-    fontFamily: 'Fact-ExpandedBlack',
+    fontFamily: 'Helvetica Black Extended',
     fontSize: '1.15em',
     color: '#009245',
     textDecorationLine: 'none',
@@ -62,7 +60,7 @@ export default function ButtonAppBar () {
         <Toolbar disableGutters >
 
           <Typography className={classes.title}>
-            <NavLink to='/' activeStyle={{ fontSize: '1.15em', fontWeight: 'bold', color: 'black', textDecorationLine: 'none' }}>avotecado</NavLink>
+            <NavLink to='/' activeStyle={{ fontSize: '3em', fontWeight: 'bold', backgroundColor: 'rgb(0, 146, 69)', color: 'white', textDecorationLine: 'none' }}>avotecado</NavLink>
           </Typography>
 
           <span className={classes.links}>
