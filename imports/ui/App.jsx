@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import Title from './components/Title.jsx';
 import Header from './components/Header.jsx';
 import Header2 from './components/Header2.jsx';
 import Home from './pages/Home';
