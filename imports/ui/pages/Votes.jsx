@@ -20,22 +20,29 @@ export class Votes extends Component {
 
   componentDidMount () {
     Meteor.call('politicians.getAll', null, (err, res) => { return err ? console.log(err.reason) : this.setState({ politicianArray: res }); });
-    console.log('cdm votes:', this.props.votes);
+    // console.log('cdm votes:', this.props.votes);
   }
 
   componentDidUpdate (prevProps, prevState) {
     if (prevProps !== this.props) {
-      console.log('cdu this.props', this.props);
+      // console.log('cdu this.props', this.props);
       this.setState({ loading: false, votes: this.props.votes });
     }
   }
 
   render () {
     if (!this.state.loading && this.state.votes) {
-      console.log('render this.props.votes', this.props.votes);
+      // console.log('render this.props.votes', this.props.votes);
       return (
         <div>
           <Container>
+            Legend: <br />
+            AT - Absent - ⬛<br />
+            AN - Abstain - 〰️ <br />
+            DC - Declared Conflict - ⚠️<br />
+            IF - In Favour - ✔️<br />
+            IO - In Opposition - ❌<br />
+            NV - No Vote - ➖<br />
             <VoteTable politicians={this.state.politicianArray} votes={this.props.votes} />
           </Container>
         </div>
@@ -54,7 +61,7 @@ export class Votes extends Component {
 
 export default withTracker(() => {
   Meteor.subscribe('VoteCollection', {
-    onReady: function () { console.log('onReady', VoteCollection.find().fetch()); },
+    onReady: function () { console.log('onReady'); },
     onError: function () { console.log('onError'); }
   });
   return { votes: VoteCollection.find().fetch() };
