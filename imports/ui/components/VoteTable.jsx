@@ -29,9 +29,13 @@ export class VoteTable extends Component {
           options={{
             filtering: true,
             sorting: true,
-            exportButton: true
+            exportButton: true,
+            headerStyle: {
+              backgroundColor: '#009245',
+              color: '#FFF'
+            }
           }}
-          parentChildData={(row, rows) => rows.find(a => a.party === row._id)}
+          parentChildData={(row, rows) => row.votes === rows.votes}
         />
       </div>
     );
