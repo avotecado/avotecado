@@ -60,30 +60,21 @@ export default function ButtonAppBar () {
         <Toolbar disableGutters >
 
           <Typography className={classes.title}>
-            <NavLink to='/' activeStyle={{ fontSize: '3em', fontWeight: 'bold', backgroundColor: 'rgb(0, 146, 69)', color: 'white', textDecorationLine: 'none' }}>avotecado</NavLink>
+            <NavLink to='/' activeStyle={{ fontSize: '3em', fontWeight: 'bold', color: 'black', textDecorationLine: 'none' }}>avotecado</NavLink>
           </Typography>
 
           <span className={classes.links}>
 
-            <NavLink to='/politicians'
-              style={linkNotActiveStyle}
-              activeStyle={linkActiveStyle}
-            >
-                politicians
+            <NavLink to='/politicians' style={linkNotActiveStyle} activeStyle={linkActiveStyle}>
+              politicians
             </NavLink>
 
-            <NavLink to='/parties'
-              style={linkNotActiveStyle}
-              activeStyle={linkActiveStyle}
-            >
-                parties
+            <NavLink to='/parties' style={linkNotActiveStyle} activeStyle={linkActiveStyle}>
+              parties
             </NavLink>
 
-            <NavLink to='/votes'
-              style={linkNotActiveStyle}
-              activeStyle={linkActiveStyle}
-            >
-                votes
+            <NavLink to='/votes' style={linkNotActiveStyle} activeStyle={linkActiveStyle}>
+              votes
             </NavLink>
 
             {

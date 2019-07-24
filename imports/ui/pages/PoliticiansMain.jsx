@@ -51,7 +51,7 @@ class PoliticiansMain extends Component {
     let selectedPolitician = this.state.selectedPolitician;
     let politician = politiciansArray.find(function (element) { return (element._id === selectedPolitician); });
     let userID = Meteor.userId();
-    
+
     if (!this.state.selectedPolitician) {
       return (
       <>
