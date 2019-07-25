@@ -1,5 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
+import { withTracker } from 'meteor/react-meteor-data';
 
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -7,9 +8,15 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItemText from '@material-ui/core/ListItemText';
 
-export default class Profile extends React.Component {
+class UserProfile extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps !== this.props) {
+      console.log(this.props);
+    }
   }
 
   render () {
@@ -38,3 +45,12 @@ export default class Profile extends React.Component {
     // }
   }
 }
+
+
+export default withTracker(() => {
+  Meteor.subscribe('UsersList', {
+    onReady: function () {},
+    onError: function () {}
+  });
+  return { users: Meteor.users.find({}).fetch() };
+})(UserProfile);

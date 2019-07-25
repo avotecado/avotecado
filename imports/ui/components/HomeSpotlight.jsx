@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Meteor } from 'meteor/meteor';
 
 import PoliticiansPFP from './politicians/PoliticiansPic';
-import CommentSystem from '../components/CommentSystem';
+import CommentSystem from '../components/comments/CommentSystem';
 
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';

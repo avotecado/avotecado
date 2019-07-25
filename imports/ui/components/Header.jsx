@@ -79,7 +79,7 @@ export default function ButtonAppBar () {
 
             {
               (Meteor.userId()) ? (
-                <Link to='/profile' >
+                <Link to='/userprofile' >
                   <IconButton
                     aria-label='Account of current user' aria-controls='primary-search-account-menu'
                     aria-haspopup='true' color='inherit' style={{ color: '#009245' }}

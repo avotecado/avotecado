@@ -26,4 +26,12 @@ Meteor.startup(() => {
     const data = Assets.getText('votingHistoryData.json');
     JSON.parse(data).voteHistory.forEach((entry) => { VoteCollection.insert(entry); });
   }
+
+  Meteor.users.deny({
+    update: function () {
+      return true;
+    }
+  });
+
+  Meteor.publish('UsersList', function () { console.log('publishing UsersList'); return Meteor.users.find({}, { fields: { username: 1 } }); });
 });

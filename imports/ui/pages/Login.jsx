@@ -5,7 +5,7 @@ import Paper from '@material-ui/core/Paper';
 import AccountsUIWrapper from '../AccountsUIWrapper';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
-import LoginComponent from '../components/LoginComponent';
+import LoginComponent from '../components/users/LoginComponent';
 import '../../startup/accounts-config';
 
 const styles = theme => ({

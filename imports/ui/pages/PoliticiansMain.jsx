@@ -15,7 +15,7 @@ import PoliticiansPic from '../components/politicians/PoliticiansPic';
 import PoliticianFollow from '../components/politicians/PoliticianFollow';
 import PoliticianContact from '../components/politicians/PoliticianContact';
 // import PoliticianVoteHistory from '../components/politicians/PoliticianVoteHistory';
-import CommentSystem from '../components/CommentSystem';
+import CommentSystem from '../components/comments/CommentSystem';
 
 import { Container } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
