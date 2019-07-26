@@ -20,7 +20,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div style={{ overflowX: 'hidden' }}>
-          <Header2 />
+          <Header />
           <Route exact path='/' component={Home} />
           <Route exact path='/politicians' component={Politicians} />
           <Route exact path='/parties' component={Parties} />

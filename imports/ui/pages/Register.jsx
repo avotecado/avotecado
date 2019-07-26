@@ -19,7 +19,7 @@ const CustomTextField = withStyles({
 })(TextField);
 
 export class Register extends Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
     this.state = {
       username: '',
@@ -34,19 +34,19 @@ export class Register extends Component {
     };
   }
 
-  handleChange (e) {
+  handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
     console.log(e.target.name, e.target.value, (typeof e.target.value));
   }
 
-  handleSubmit (e) {
+  handleSubmit(e) {
     e.preventDefault();
     let u = this.state;
     console.log(u);
     Accounts.createUser(u, (error) => { if (error) { console.log(error.reason); } });
   }
 
-  render () {
+  render() {
     return (
       <>
         <Container>
@@ -60,11 +60,11 @@ export class Register extends Component {
               </Grid>
             </Grid>
           </div>
-          <span style={{ fontFamily: 'Helvetica Black Extended', fontSize: '2em' }}>
-                  Register an account
-          </span>
-          <Grid container spacing={2}>
-            <form onSubmit={this.handleSubmit.bind(this)}>
+          <form onSubmit={this.handleSubmit.bind(this)}>
+            <span style={{ fontFamily: 'Helvetica Black Extended', fontSize: '2em' }}>
+              Register an account
+            </span>
+            <Grid container spacing={2}>
               <Grid item xs>
                 <span style={{ fontFamily: 'Fact-ExpandedMedium', fontSize: '1.25em' }}> Required: </span>
                 <CustomTextField name='username' label='Pick a name. (REQUIRED!)' style={{ marginBottom: '0.1em' }}
@@ -96,11 +96,11 @@ export class Register extends Component {
                   <MenuItem value={'Independent'}>Independent</MenuItem>
                 </Select>
               </Grid>
-            </form>
-          </Grid>
-          <Button type='submit' variant='contained' style={{ fontFamily: 'Helvetica Black Extended', color: 'white', fontSize: '1.25em', backgroundColor: '#009245', textTransform: 'none' }}>
-                Register
-          </Button>
+            </Grid>
+            <Button type='submit' variant='contained' style={{ fontFamily: 'Helvetica Black Extended', color: 'white', fontSize: '1.25em', backgroundColor: '#009245', textTransform: 'none' }}>
+              Register
+            </Button>
+          </form>
         </Container>
       </>
     );
