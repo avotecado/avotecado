@@ -37,7 +37,7 @@ class UserDirectory extends React.Component {
             {usersList.map((userEntry, index) => {
               return (
                 <ul>
-                  <li><NavLink key={index} to='/'>{userEntry.username}</NavLink></li>
+                  <li key={index}><NavLink to='/'>{userEntry.username}</NavLink></li>
                   <br />
                 </ul>
               );

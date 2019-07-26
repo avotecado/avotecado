@@ -9,6 +9,8 @@ import Followed from '/imports/api/Followed';
  * Refs:
  *   https://docs.meteor.com/api/assets.html
  *   https://eureka.ykyuen.info/2015/02/19/meteor-insert-sample-data-if-the-mongodb-is-empty/
+ *   https://docs.meteor.com/api/accounts-multi.html#AccountsServer-onCreateUser
+ *   https://forums.meteor.com/t/i-dont-still-understand-how-accounts-createuser-accouncts-oncreateuser-works/28908/3
 **/
 
 Meteor.startup(() => {
@@ -28,10 +30,25 @@ Meteor.startup(() => {
   }
 
   Meteor.users.deny({
-    update: function () {
+    update () {
       return true;
     }
   });
 
-  Meteor.publish('UsersList', function () { console.log('publishing UsersList'); return Meteor.users.find({}, { fields: { username: 1 } }); });
+  Accounts.onCreateUser((options, user) => {
+    const customizedUser = Object.assign({
+      name: options.name,
+      dob: options.dob,
+      occupation: options.occupation,
+      prefParty: options.prefParty,
+      politicalLeaning: options.politicalLeaning,
+      userBio: options.bio
+    }, user);
+    if (options.profile) {
+      customizedUser.profile = options.profile;
+    }
+    return customizedUser;
+  });
+
+  Meteor.publish('UsersList', function () { console.log('publishing UsersList'); return Meteor.users.find({}, { fields: { username: 1, dexterity: 1, createdAt: 1 } }); });
 });

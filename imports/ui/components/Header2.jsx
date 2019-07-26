@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-
+import { withTracker } from 'meteor/react-meteor-data';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link, NavLink } from 'react-router-dom';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -9,8 +9,18 @@ import Container from '@material-ui/core/Container';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import IconButton from '@material-ui/core/IconButton';
 
-export default class Header2 extends React.Component {
+export class Header2 extends React.Component {
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      login: Meteor.userId() 
+    };
+    console.log(this);
+  }
+
   render() {
+    console.log(this.state);
     const classes = {
       root: {
         marginTop: '-1em',
@@ -77,14 +87,12 @@ export default class Header2 extends React.Component {
               >
                 parties
               </NavLink>
-
               <NavLink to='/votes'
                 style={linkNotActiveStyle}
                 activeStyle={linkActiveStyle}
               >
                 votes
               </NavLink>
-
               {
                 (Meteor.userId()) ? (
                   <Link to='/profile' >
@@ -113,3 +121,11 @@ export default class Header2 extends React.Component {
     )
   }
 }
+
+const mapMeteorToProps = (props) => {
+  return {
+    userId: Meteor.userId()
+  };
+};
+
+export default withTracker ( mapMeteorToProps )(Header2);
