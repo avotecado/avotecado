@@ -18,77 +18,92 @@ export class Parties extends Component {
     };
   }
 
-  componentDidUpdate (prevProps, prevState) {
-    if (prevProps !== this.props && this.state.loading) {
-      this.setState({ parties: this.props.parties });
-      this.props.parties.forEach((party, index) => {
-        Meteor.call('politicians.findByParty', party._id, (error, politicianResultArray) => {
-          if (error) {
-            console.log(error.reason);
-          } else {
-            this.setState({ politicianArray: [...this.state.politicianArray, { party: party._id, politicians: politicianResultArray }] });
-            if (this.state.parties.length === this.state.politicianArray.length) {
-              this.setState({ loading: false });
-            }
-          }
-        });
-      });
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps !== this.props && this.state.loading) {
+            this.setState({parties: this.props.parties});
+            this.props.parties.forEach((party, index) => {
+                Meteor.call('politicians.findByParty', party._id, (error, politicianResultArray) => {
+                    if (error) {
+                        console.log(error.reason);
+                    } else {
+                        this.setState({
+                            politicianArray: [...this.state.politicianArray, {
+                                party: party._id,
+                                politicians: politicianResultArray
+                            }]
+                        });
+                        if (this.state.parties.length === this.state.politicianArray.length) {
+                            this.setState({loading: false});
+                        }
+                    }
+                });
+            });
+        }
     }
-  }
 
   render () {
     if (this.state.loading) {
       return (
-        <div>
-          <Container>
-            Loading...
-          </Container>
-        </div>
+          <div>
+            <Container>
+              Loading...
+            </Container>
+          </div>
       );
     } else {
-      let subHeaderStyle = { fontFamily: 'Helvetica Black Extended', fontSize: '2.0em', color: 'white', textAlign: 'center', backgroundColor: 'black' };
+        let subHeaderStyle = {
+            fontFamily: 'Helvetica Black Extended',
+            fontSize: '2.0em',
+            color: 'white',
+            textAlign: 'center',
+            backgroundColor: 'black'
+        };
       let parties = this.props.parties;
       let politicianArray = this.state.politicianArray;
       return (
-        <div>
-          <Container display='flex' maxWidth='lg'>
-            {
-              parties.map((party, index) => {
-                return <div key={index} style={{ marginBottom: '1em' }}>
-                  <div>
-                    <span style={subHeaderStyle}>{party._id}</span> <br />
-                    <span>
-                      <a href={`https://wikipedia.org/wiki/${party.ideology}`}><img src='/icons/wiki_w.svg' width='16px' />
+          <div>
+            <Container display='flex' maxWidth='lg'>
+              {
+                parties.map((party, index) => {
+                  return <div key={index} style={{ marginBottom: '1em' }}>
+                    <div>
+                      <span style={subHeaderStyle}>{party._id}</span> <br />
+                      <span>
+                      <a href={`https://wikipedia.org/wiki/${party.ideology}`}>
+                          <img src='/icons/wiki_w.svg' width='16px' />
                         {party.ideology}
                       </a>
                     </span> <br />
-                    <span>
-                      <a href={`https://wikipedia.org/wiki/${party.politicianPosition}`}><img src='/icons/wiki_w.svg' width='16px' />
+                      <span>
+                      <a href={`https://wikipedia.org/wiki/${party.politicianPosition}`}>
+                          <img src='/icons/wiki_w.svg' width='16px' />
                         {party.politicianPosition}
                       </a>
                     </span>
-                  </div>
-                  <span style={{ fontFamily: 'Fact-ExpandedMedium' }}>Councillors in {party._id}:</span>
-                  <br />
-                  {politicianArray.map(arrayItem => {
-                    return arrayItem.politicians.map((individualPolitician, index) => {
-                      if (arrayItem.party === party._id) {
-                        return <span key={individualPolitician.party + index}>
-                          <Link to={`/politicians?${individualPolitician._id}`}>{individualPolitician.firstname} {individualPolitician.lastname}</Link> <br />
-                        </span>;
-                      }
-                    });
-                  }
-                  )}
-                </div>;
-              })
-            }
-          </Container>
-        </div>
+                    </div>
+                    <span style={{ fontFamily: 'Fact-ExpandedMedium' }}>Councillors in {party._id}:</span>
+                    <br />
+                    {politicianArray.map(arrayItem => {
+                          return arrayItem.politicians.map((individualPolitician, index) => {
+                            if (arrayItem.party === party._id) {
+                              return (
+                                  <span key={individualPolitician.party + index}>
+                                      <Link to={`/politicians?${individualPolitician._id}`}>
+                                          {individualPolitician.firstname} {individualPolitician.lastname}
+                                      </Link>
+                                      <br />
+                                  </span>
+                              );
+                            }
+                          });
+                        }
+                    )}
+                  </div>;
+                })}
+            </Container>
+          </div>
       );
-    }
-  }
-}
+    }}}
 
 export default withTracker(() => {
   Meteor.subscribe('Party', {
