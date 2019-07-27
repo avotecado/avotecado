@@ -45,7 +45,7 @@ export class Register extends Component {
 
   handleChange (e) {
     this.setState({ [e.target.name]: e.target.value });
-    console.log(e.target.name, e.target.value, (typeof e.target.value));
+    // console.log(e.target.name, e.target.value, (typeof e.target.value));
   }
 
   handleSubmit (e) {
@@ -61,7 +61,7 @@ export class Register extends Component {
       politicalLeaning: this.state.politicalLeaning,
       userBio: this.state.userBio
     };
-    console.log(u);
+    // console.log(u);
     Accounts.createUser(u, (error) => {
       if (error) {
         console.log(error.reason);
@@ -86,11 +86,11 @@ export class Register extends Component {
                 <Grid item xs style={{ display: 'flex', flexDirection: 'column' }}>
                   <span style={{ fontFamily: 'Fact-ExpandedMedium', fontSize: '1.25em' }}> Required: </span>
                   <CustomTextField name='username' label='Pick a name. (REQUIRED!)' style={{ marginBottom: '0.1em' }}
-                    required value={this.state.username} onChange={this.handleChange.bind(this)} />
+                    required autoComplete='username' value={this.state.username} onChange={this.handleChange.bind(this)} />
                   <CustomTextField name='password' label='Pick a password. (REQUIRED!)' type='password' style={{ marginBottom: '0.1em' }}
-                    required value={this.state.password} onChange={this.handleChange.bind(this)} />
+                    required autoComplete='current-password' value={this.state.password} onChange={this.handleChange.bind(this)} />
                   <CustomTextField name='email' label='Input your email. (REQUIRED!)' type='email' style={{ marginBottom: '0.1em' }}
-                    required value={this.state.email} onChange={this.handleChange.bind(this)} />
+                    required autoComplete='email' value={this.state.email} onChange={this.handleChange.bind(this)} />
                 </Grid>
 
                 <Grid item xs style={{ display: 'flex', flexDirection: 'column' }}>
@@ -105,7 +105,7 @@ export class Register extends Component {
                     value={this.state.occupation} onChange={this.handleChange.bind(this)} />
 
                   <InputLabel htmlFor='prefParty-simple'>Preferred Party:</InputLabel>
-                  <Select value={this.state.prefParty} onChange={this.handleChange.bind(this)} inputProps={{ name: 'prefParty', id: 'prefParty-simple' }} >
+                  <Select value={this.state.prefParty} onChange={this.handleChange.bind(this)} inputProps={{ name: 'prefParty', id: 'prefParty-simple' }}>
                     <MenuItem value={'None'}>None</MenuItem>
                     <MenuItem value={'NPA'}>NPA</MenuItem>
                     <MenuItem value={'Green'}>Green</MenuItem>

@@ -29,14 +29,6 @@ export class Votes extends Component {
     }
   }
 
-  // Legend: <br />
-  // AT - Absent - ⬛<br />
-  // AN - Abstain - 〰️ <br />
-  // DC - Declared Conflict - ⚠️<br />
-  // IF - In Favour - ✔️<br />
-  // IO - In Opposition - ❌<br />
-  // NV - No Vote - ➖<br />
-
   render () {
     if (!this.state.loading && this.state.votes) {
       return (

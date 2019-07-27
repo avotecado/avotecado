@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
+
+import VisualizationCharts from './votes/VisualizationCharts';
+
 import MaterialTable from 'material-table';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+import { Container } from '@material-ui/core';
+
+const emptyStyle = {
+  height: '100%',
+  fontFamily: 'Helvetica Black Extended',
+  fontSize: '2em',
+  backgroundColor: 'black',
+  color: 'white',
+  textAlign: 'center'
+};
 
 export class VoteTable extends Component {
   constructor (props) {
     super(props);
     this.state = {
-      selectedForDataViz: null,
+      selectedForDataViz: [],
       selectedMoreDetails: null
     };
     this.tableDisplay = this.tableDisplay.bind(this);
@@ -19,7 +31,7 @@ export class VoteTable extends Component {
     console.log('voteTable', this.props);
   }
 
-  componentDidUpdate (prevProps, prevState) {
+  componentDidUpdate (prevState) {
     if (prevState !== this.state) {
       console.log('cdu voteTable', this.state);
     }
@@ -67,29 +79,19 @@ export class VoteTable extends Component {
         {this.state.selectedMoreDetails._id}
       </div>
     ) : (
-      <div style={{ height: '100%',
-        fontFamily: 'Helvetica Black Extended',
-        fontSize: '4em',
-        backgroundColor: 'black',
-        color: 'white',
-        textAlign: 'center' }}>
+      <div style={emptyStyle}>
         Select a row to display info.
       </div>
     );
   }
 
   visualizationDisplay () {
-    return this.state.selectedForDataViz ? (
+    return (this.state.selectedForDataViz.length > 0) ? (
       <div>
-        {JSON.stringify(this.state.selectedForDataViz)}
+        <VisualizationCharts selectedForDataViz={this.state.selectedForDataViz} />
       </div>
     ) : (
-      <div style={{ height: '100%',
-        fontFamily: 'Helvetica Black Extended',
-        fontSize: '3.35em',
-        backgroundColor: 'black',
-        color: 'white',
-        textAlign: 'center' }}>
+      <div style={emptyStyle}>
         Select rows to visualize info.
       </div>
     );
@@ -99,21 +101,21 @@ export class VoteTable extends Component {
     return (
       <div>
         <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons' />
-        <Grid container style={{ height: '100%', display: 'flex', alignItems: 'center' }} spacing={2} alignItems='stretch'>
-          <Grid item xs={9}>
-            {this.tableDisplay()}
-          </Grid>
-          <Grid container xs={3}>
-            <Grid item xs>
-              <Paper>
+        <Grid container>
+          <Grid container>
+            <Grid item xs={6}>
+              <Container>
                 {this.detailDisplay()}
-              </Paper>
+              </Container>
             </Grid>
-            <Grid item xs>
-              <Paper>
+            <Grid item xs={6}>
+              <Container>
                 {this.visualizationDisplay()}
-              </Paper>
+              </Container>
             </Grid>
+          </Grid>
+          <Grid item xs={12}>
+            {this.tableDisplay()}
           </Grid>
         </Grid>
       </div>
