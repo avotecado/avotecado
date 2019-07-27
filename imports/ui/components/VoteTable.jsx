@@ -99,11 +99,11 @@ export class VoteTable extends Component {
     return (
       <div>
         <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons' />
-        <Grid container style={{ height: '100%', display: 'flex', alignItems: 'center' }} spacing={3} alignItems='stretch'>
-          <Grid item xs={8}>
+        <Grid container style={{ height: '100%', display: 'flex', alignItems: 'center' }} spacing={2} alignItems='stretch'>
+          <Grid item xs={9}>
             {this.tableDisplay()}
           </Grid>
-          <Grid container xs={4}>
+          <Grid container xs={3}>
             <Grid item xs>
               <Paper>
                 {this.detailDisplay()}

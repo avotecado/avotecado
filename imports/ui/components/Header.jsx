@@ -36,7 +36,7 @@ export default function ButtonAppBar () {
   const classes = useStyles();
 
   let linkNotActiveStyle = {
-    fontFamily: 'Fact-Expanded',
+    fontFamily: 'Helvetica Black Extended',
     fontSize: '1.15em',
     color: 'black',
     textDecorationLine: 'none',
@@ -60,7 +60,12 @@ export default function ButtonAppBar () {
         <Toolbar disableGutters >
 
           <Typography className={classes.title}>
-            <NavLink to='/' activeStyle={{ fontSize: '3em', fontWeight: 'bold', color: 'black', textDecorationLine: 'none' }}>avotecado</NavLink>
+            <NavLink to='/' activeStyle={{ fontSize: '4em', fontWeight: 'bold', color: 'black', textDecorationLine: 'none' }}>
+              a
+              <span>vote</span>
+              {/* <span style={{ fontFamily: 'Helvetica Black Extended', WebkitTextFillColor: 'rgba(255,255,255,0.001)', WebkitTextStrokeWidth: '0.1rem', WebkitTextStrokeColor: 'rgb(0, 146, 69)' }}>vote</span> */}
+              cado
+            </NavLink>
           </Typography>
 
           <span className={classes.links}>

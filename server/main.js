@@ -50,5 +50,18 @@ Meteor.startup(() => {
     return customizedUser;
   });
 
-  Meteor.publish('UsersList', function () { console.log('publishing UsersList'); return Meteor.users.find({}, { fields: { username: 1, dexterity: 1, createdAt: 1 } }); });
+  Meteor.publish('UsersList', function () {
+    console.log('publishing UsersList'); return Meteor.users.find({}, {
+      fields: {
+        username: 1,
+        name: 1,
+        dob: 1,
+        occupation: 1,
+        prefParty: 1,
+        politicalLeaning: 1,
+        userBio: 1,
+        createdAt: 1
+      }
+    });
+  });
 });
