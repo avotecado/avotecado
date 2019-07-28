@@ -38,11 +38,9 @@ function setupCharts() {
     dataToAggregate.forEach(entry => {
         entry.tags.forEach(value => {
             getData(count, value, tagData);
-            console.log('tags');
         });
         entry.votes.forEach(value => {
             getData(count, value, voteData);
-            console.log('votes');
         });
     });
     this.setState({count: count, loading: false, tagData: tagData, voteData: voteData});
@@ -60,13 +58,11 @@ export class VisualizationCharts extends Component {
     }
 
     componentDidMount() {
-        console.log('props cdm', this.props);
         setupCharts.call(this);
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
-            console.log('props cdu', this.props);
             this.setState({loading: true});
             setupCharts.call(this);
         }
@@ -74,7 +70,6 @@ export class VisualizationCharts extends Component {
 
     render() {
         if (!this.state.loading) {
-            console.log(this.state);
             let tagData = this.state.tagData;
             let voteData = this.state.voteData;
             return (
