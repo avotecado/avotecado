@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import VisualizationCharts from './votes/VisualizationCharts';
+import VisualizationCharts from './VisualizationCharts';
 
 import MaterialTable from 'material-table';
 import Grid from '@material-ui/core/Grid';

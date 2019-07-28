@@ -1,7 +1,7 @@
 import React from 'react';
 
-import ChartPartyMakeUp from '../components/ChartPartyMakeUp';
-import HomeSpotlight from '../components/HomeSpotlight';
+import ChartPartyMakeUp from '../components/home/ChartPartyMakeUp';
+import HomeSpotlight from '../components/home/HomeSpotlight';
 
 import {makeStyles} from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';

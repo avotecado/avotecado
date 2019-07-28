@@ -4,7 +4,7 @@ import {withTracker} from 'meteor/react-meteor-data';
 
 import VoteCollection from '/imports/api/VoteCollection';
 
-import VoteTable from '../components/VoteTable';
+import VoteTable from '../components/votes/VoteTable';
 
 // import Grid from '@material-ui/core/Grid';
 import {Container} from '@material-ui/core';

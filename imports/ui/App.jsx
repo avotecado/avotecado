@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Header from './components/Header.jsx';
+import Header from './components/include/Header.jsx';
 import Header2 from './components/Header2.jsx';
 import Home from './pages/Home';
 import Politicians from './pages/PoliticiansMain';
@@ -8,9 +8,9 @@ import Parties from './pages/Parties';
 import Votes from './pages/Votes';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import UserProfile from './pages/UserProfile';
+import UserProfile from './pages/UserSettings';
 import UserDirectory from './pages/UserDirectory';
-import Footer from './components/Footer.jsx';
+import Footer from './components/include/Footer.jsx';
 import Legal from './pages/Legal';
 
 import { BrowserRouter, Route } from 'react-router-dom';

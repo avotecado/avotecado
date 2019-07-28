@@ -8,7 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import List from '@material-ui/core/List';
 import ListItemText from '@material-ui/core/ListItemText';
 
-class UserProfile extends React.Component {
+class UserSettings extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -55,4 +55,4 @@ export default withTracker(() => {
         }
     });
     return {users: Meteor.users.find({}).fetch()};
-})(UserProfile);
+})(UserSettings);
