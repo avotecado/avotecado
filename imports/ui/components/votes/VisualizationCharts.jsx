@@ -9,8 +9,8 @@ const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, perc
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
     return (
-        <Text style={{fontFamily: 'Fact-ExpandedMedium', backgroundColor: 'black'}} width='1em' x={x} y={y} fill='white'
-              textAnchor='middle' dominantBaseline='central' scaleToFit angle='90'>
+        <Text style={{fontFamily: 'Fact-ExpandedMedium', backgroundColor: 'black'}} x={x} y={y} fill='white'
+              textAnchor='middle' dominantBaseline='central'>
             {
                 `${name}:` +
                 `${(percent * 100).toFixed(0)}%`
@@ -27,8 +27,8 @@ function getData(count, value, data) {
     } else {
         data.push({name: value, value: count[value]});
     }
-    console.log(count);
-    console.log(data);
+    // console.log(count);
+    // console.log(data);
 }
 
 export class VisualizationCharts extends Component {
@@ -44,7 +44,7 @@ export class VisualizationCharts extends Component {
 
     componentDidMount() {
         let dataToAggregate = this.props.selectedForDataViz;
-        let count = [];
+        let count = this.state.count;
         let tagData = this.state.tagData;
         let voteData = this.state.voteData;
         // works for tags/votes -- need to change 'entry.tags', and anything else in an array i guess
@@ -56,11 +56,29 @@ export class VisualizationCharts extends Component {
                 getData(count, value, voteData);
             });
         });
-        this.setState({loading: false, tagData: tagData, voteData: voteData});
+        this.setState({count: count, loading: false, tagData: tagData, voteData: voteData});
     }
 
     componentDidUpdate(prevProps, prevState) {
-
+        if (prevProps !== this.props) {
+            this.setState({ loading: true });
+            console.log(this.state);
+            let dataToAggregate = this.props.selectedForDataViz;
+            console.log(dataToAggregate);
+            let count = this.state.count;
+            let tagData = this.state.tagData;
+            let voteData = this.state.voteData;
+            dataToAggregate.forEach(entry => {
+                entry.tags.forEach(value => {
+                    getData(count, value, tagData);
+                });
+                entry.votes.forEach(value => {
+                    getData(count, value, voteData);
+                });
+            });
+            this.setState({count: count, loading: false, tagData: tagData, voteData: voteData});
+            console.log(this.state);
+        }
     }
 
     render() {
