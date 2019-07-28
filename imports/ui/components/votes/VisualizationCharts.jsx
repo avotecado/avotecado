@@ -21,14 +21,31 @@ const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, perc
 
 function getData(count, value, data) {
     count[value] = (count[value] || 0) + 1;
+    console.log(count);
     let dataToUpdate = data.find(element => element.name === value);
     if (dataToUpdate) {
         dataToUpdate.value = count[value];
     } else {
         data.push({name: value, value: count[value]});
     }
-    // console.log(count);
-    // console.log(data);
+}
+
+function setupCharts() {
+    let dataToAggregate = this.props.selectedForDataViz;
+    let count = this.state.count;
+    let tagData = this.state.tagData;
+    let voteData = this.state.voteData;
+    dataToAggregate.forEach(entry => {
+        entry.tags.forEach(value => {
+            getData(count, value, tagData);
+            console.log('tags');
+        });
+        entry.votes.forEach(value => {
+            getData(count, value, voteData);
+            console.log('votes');
+        });
+    });
+    this.setState({count: count, loading: false, tagData: tagData, voteData: voteData});
 }
 
 export class VisualizationCharts extends Component {
@@ -43,46 +60,21 @@ export class VisualizationCharts extends Component {
     }
 
     componentDidMount() {
-        let dataToAggregate = this.props.selectedForDataViz;
-        let count = this.state.count;
-        let tagData = this.state.tagData;
-        let voteData = this.state.voteData;
-        // works for tags/votes -- need to change 'entry.tags', and anything else in an array i guess
-        dataToAggregate.forEach(entry => {
-            entry.tags.forEach(value => {
-                getData(count, value, tagData);
-            });
-            entry.votes.forEach(value => {
-                getData(count, value, voteData);
-            });
-        });
-        this.setState({count: count, loading: false, tagData: tagData, voteData: voteData});
+        console.log('props cdm', this.props);
+        setupCharts.call(this);
     }
 
     componentDidUpdate(prevProps, prevState) {
         if (prevProps !== this.props) {
-            this.setState({ loading: true });
-            console.log(this.state);
-            let dataToAggregate = this.props.selectedForDataViz;
-            console.log(dataToAggregate);
-            let count = this.state.count;
-            let tagData = this.state.tagData;
-            let voteData = this.state.voteData;
-            dataToAggregate.forEach(entry => {
-                entry.tags.forEach(value => {
-                    getData(count, value, tagData);
-                });
-                entry.votes.forEach(value => {
-                    getData(count, value, voteData);
-                });
-            });
-            this.setState({count: count, loading: false, tagData: tagData, voteData: voteData});
-            console.log(this.state);
+            console.log('props cdu', this.props);
+            this.setState({loading: true});
+            setupCharts.call(this);
         }
     }
 
     render() {
         if (!this.state.loading) {
+            console.log(this.state);
             let tagData = this.state.tagData;
             let voteData = this.state.voteData;
             return (
