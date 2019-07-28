@@ -42,12 +42,13 @@ export class Login extends Component {
     }
 
     handleSubmit(e) {
+        let that = this;
         e.preventDefault();
         Meteor.loginWithPassword(this.state.username, this.state.password, function (error) {
             if (error) {
                 console.log('There was an error:' + error.reason);
             } else {
-                this.setState({ loggedIn: true });
+                that.setState({ loggedIn: true });
             }
         });
     }
@@ -58,12 +59,12 @@ export class Login extends Component {
         } else {
             return (
                 <div>
-                    <Container>
+                    <Container style={{ display: 'flex', flexDirection: 'column' }}>
                         <form onSubmit={this.handleSubmit}>
                             <CustomTextField name='username' label='Username' style={{marginBottom: '0.1em'}}
                                              required autoComplete='username' value={this.state.username}
                                              onChange={this.handleChange}/>
-                            <p/>
+
                             <CustomTextField name='password' label='Password' type='password'
                                              style={{marginBottom: '0.1em'}}
                                              required autoComplete='current-password' value={this.state.password}

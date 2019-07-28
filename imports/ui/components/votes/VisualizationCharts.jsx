@@ -44,9 +44,7 @@ export class VisualizationCharts extends Component {
 
     componentDidMount() {
         let dataToAggregate = this.props.selectedForDataViz;
-        let count = this.state.count;
-        let tagData = this.state.tagData;
-        let voteData = this.state.voteData;
+        let count, tagData, voteData = [];
         // works for tags/votes -- need to change 'entry.tags', and anything else in an array i guess
         dataToAggregate.forEach(entry => {
             entry.tags.forEach(value => {
