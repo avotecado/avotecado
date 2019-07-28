@@ -26,16 +26,13 @@ Meteor.methods({
             postedAt: new Date()
         });
     },
-    'comments.edit'() {
-        console.log('edit fn');
-    },
     'comments.remove'(messageID) {
         check(messageID, String);
         if (!this.userId) {
             throw new Meteor.Error('not-authorized');
         }
-        let messagetoRemove = Comments.findOne({_id: messageID});
-        if (messagetoRemove._id === this.userId) {
+        let messageToRemove = Comments.findOne({_id: messageID});
+        if (messageToRemove._id === this.userId) {
             Comments.remove(messageID);
         } else {
             throw new Meteor.Error('not-authorized');
@@ -43,7 +40,6 @@ Meteor.methods({
     },
     'comments.findByID'(politicianID) {
         check(politicianID, String);
-        // console.log('in findByID');
         return Comments.find({politician: politicianID}).fetch();
     }
 });
