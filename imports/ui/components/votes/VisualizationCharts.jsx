@@ -32,9 +32,9 @@ function getData(count, value, data) {
 
 function setupCharts() {
     let dataToAggregate = this.props.selectedForDataViz;
-    let count = this.state.count;
-    let tagData = this.state.tagData;
-    let voteData = this.state.voteData;
+    let count = [];
+    let tagData = [];
+    let voteData = [];
     dataToAggregate.forEach(entry => {
         entry.tags.forEach(value => {
             getData(count, value, tagData);
