@@ -98,6 +98,20 @@ export default class PoliticianMakeAComment extends Component {
         };
         let politician = this.state.politician;
         if (this.state.commentsArray) {
+            let buttonStyle = {
+                fontFamily: 'Helvetica Black Extended',
+                color: 'white',
+                fontSize: '1.25em',
+                backgroundColor: '#009245',
+                textTransform: 'none'
+            };
+            let disabledButtonStyle = {
+                fontFamily: 'Helvetica Black Extended',
+                color: 'white',
+                fontSize: '1.25em',
+                backgroundColor: '#828282',
+                textTransform: 'none'
+            };
             return (
                 <div>
           <span style={subHeaderStyle}>
@@ -115,15 +129,16 @@ export default class PoliticianMakeAComment extends Component {
                                 style={{marginBottom: '0.1em'}}
                                 value={this.state.messageInput} onChange={this.handleMessage}
                             />
-                            <Button type='submit' variant='contained' style={{
-                                fontFamily: 'Helvetica Black Extended',
-                                color: 'white',
-                                fontSize: '1.25em',
-                                backgroundColor: '#009245',
-                                textTransform: 'none'
-                            }}>
-                                Post
-                            </Button>
+                            {
+                                Meteor.user() ?
+                                    <Button type='submit' variant='contained' style={buttonStyle}>
+                                        Post
+                                    </Button>
+                                    :
+                                    <Button type='submit' variant='contained' disabled style={disabledButtonStyle}>
+                                        Post
+                                    </Button>
+                            }
                         </Container>
                     </form>
                     <Grid item xs={12}>
