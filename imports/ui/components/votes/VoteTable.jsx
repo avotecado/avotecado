@@ -42,12 +42,15 @@ export class VoteTable extends Component {
             <>
                 <MaterialTable
                     elevation='0'
-                    title={<span style={{
-                        fontFamily: 'Helvetica Black Extended',
-                        fontSize: '1.5em',
-                        color: 'white',
-                        backgroundColor: 'black'
-                    }}>Vote History</span>}
+                    title={
+                        <span style={{
+                            fontFamily: 'Helvetica Black Extended',
+                            fontSize: '1.5em',
+                            color: 'black'
+                        }}>
+                        Vote History
+                    </span>
+                    }
                     columns={[
                         {
                             title: 'Vote Number',
@@ -77,6 +80,7 @@ export class VoteTable extends Component {
                     ]}
                     data={this.props.votes}
                     options={{
+                        pageSizeOptions: [5, 10, 20, 50, 100],
                         selection: true,
                         filtering: true,
                         sorting: true,
@@ -128,12 +132,12 @@ export class VoteTable extends Component {
                 <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'/>
                 <Grid container>
                     <Grid container>
-                        <Grid item xs={6}>
+                        <Grid item xs={12}>
                             <Container>
                                 {this.detailDisplay()}
                             </Container>
                         </Grid>
-                        <Grid item xs={6}>
+                        <Grid item xs={12}>
                             <Container>
                                 {this.visualizationDisplay()}
                             </Container>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {PieChart, Pie, Sector, Cell, Text} from 'recharts';
+import {BarChart, Bar, PieChart, Pie, Sector, Cell, Text, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
 
 const RADIAN = Math.PI / 180;
 
@@ -21,7 +21,6 @@ const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, perc
 
 function getData(count, value, data) {
     count[value] = (count[value] || 0) + 1;
-    console.log(count);
     let dataToUpdate = data.find(element => element.name === value);
     if (dataToUpdate) {
         dataToUpdate.value = count[value];
@@ -72,24 +71,27 @@ export class VisualizationCharts extends Component {
         if (!this.state.loading) {
             let tagData = this.state.tagData;
             let voteData = this.state.voteData;
+            console.log(this.state);
             return (
-                <div>
-                    <PieChart width={400} height={200}>
-                        <Pie animationDuration={800} data={tagData} cx={'25%'} cy={'25%'} outerRadius={50}
+                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                    <PieChart width={400} height={400}>
+                        <Pie animationDuration={800} data={tagData} cx={'50%'} cy={'50%'} outerRadius={190}
                              fill='black' dataKey='value' nameKey='name' labelLine={false}
                              label={renderCustomizedLabel}>
                             {
                                 tagData.map((entry, index) => <Cell key={`cell-${index}`} fill='rgb(0, 146, 69)'/>)
                             }
                         </Pie>
-                        <Pie animationDuration={800} data={voteData} cx={'50%'} cy={'50%'} outerRadius={50}
-                             fill='black' dataKey='value' nameKey='name' labelLine={false}
-                             label={renderCustomizedLabel}>
-                            {
-                                voteData.map((entry, index) => <Cell key={`cell-${index}`} fill='rgb(0, 146, 69)'/>)
-                            }
-                        </Pie>
                     </PieChart>
+                    <BarChart width={500} height={300} data={voteData}
+                              margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+                        <CartesianGrid strokeDasharray='3 3'/>
+                        <XAxis dataKey='name'/>
+                        <YAxis/>
+                        <Tooltip/>
+                        <Legend/>
+                        <Bar dataKey='value' fill='rgb(0, 146, 69)'/>
+                    </BarChart>
                 </div>
             );
         } else {
