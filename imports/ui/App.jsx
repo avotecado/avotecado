@@ -8,7 +8,7 @@ import Parties from './pages/Parties';
 import Votes from './pages/Votes';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import UserProfile from './pages/UserSettings';
+import UserSettings from './pages/UserSettings';
 import UserDirectory from './pages/UserDirectory';
 import Footer from './components/include/Footer.jsx';
 import Legal from './pages/Legal';
@@ -27,7 +27,7 @@ class App extends Component {
           <Route exact path='/votes' component={Votes} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
-          <Route exact path='/userprofile' component={UserProfile} />
+          <Route exact path='/usersettings' component={UserSettings} />
           <Route exact path='/userdirectory' component={UserDirectory} />
           <Route exact path='/legal' component={Legal} />
           <Footer />

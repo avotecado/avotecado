@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-import VisualizationCharts from './VisualizationCharts';
+import VoteCharts from './VoteCharts';
 
 import MaterialTable from 'material-table';
 import Grid from '@material-ui/core/Grid';
@@ -15,7 +15,7 @@ const emptyStyle = {
     textAlign: 'center'
 };
 
-export class VoteTable extends Component {
+export class VoteDisplay extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -43,39 +43,15 @@ export class VoteTable extends Component {
                 <MaterialTable
                     elevation='0'
                     title={
-                        <span style={{
-                            fontFamily: 'Helvetica Black Extended',
-                            fontSize: '1.5em',
-                            color: 'black'
-                        }}>
+                        <span style={{ fontFamily: 'Helvetica Black Extended', fontSize: '1.5em', color: 'black' }}>
                         Vote History
                     </span>
                     }
                     columns={[
-                        {
-                            title: 'Vote Number',
-                            field: '_id',
-                            headerStyle: {padding: '1px'},
-                            cellStyle: {fontFamily: 'Fact-Expanded'}
-                        },
-                        {
-                            title: 'Description of Agenda',
-                            field: 'agendaDescription',
-                            cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'}
-                        },
-                        {
-                            title: 'Decision',
-                            field: 'decision',
-                            headerStyle: {padding: '1px'},
-                            cellStyle: {fontFamily: 'Fact-Expanded'}
-                        },
-                        {
-                            title: 'Vote Date',
-                            field: 'voteDate',
-                            type: 'date',
-                            defaultSort: 'desc',
-                            cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'}
-                        },
+                        { title: 'Vote Number', field: '_id', headerStyle: {padding: '1px'}, cellStyle: {fontFamily: 'Fact-Expanded'} },
+                        { title: 'Description of Agenda', field: 'agendaDescription', cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'} },
+                        { title: 'Decision', field: 'decision', headerStyle: {padding: '1px'}, cellStyle: {fontFamily: 'Fact-Expanded'} },
+                        { title: 'Vote Date', field: 'voteDate', type: 'date', defaultSort: 'desc', cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'} },
                         {title: 'Tags', field: 'tags', cellStyle: {fontFamily: 'Fact-Expanded'}}
                     ]}
                     data={this.props.votes}
@@ -117,7 +93,7 @@ export class VoteTable extends Component {
     visualizationDisplay() {
         return (this.state.selectedForDataViz.length > 0) ? (
             <div>
-                <VisualizationCharts selectedForDataViz={this.state.selectedForDataViz}/>
+                <VoteCharts selectedForDataViz={this.state.selectedForDataViz}/>
             </div>
         ) : (
             <div style={emptyStyle}>
@@ -152,4 +128,4 @@ export class VoteTable extends Component {
     }
 }
 
-export default VoteTable;
+export default VoteDisplay;

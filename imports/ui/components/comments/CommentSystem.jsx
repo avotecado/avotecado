@@ -91,9 +91,8 @@ export default class PoliticianMakeAComment extends Component {
         let subHeaderStyle = {
             fontFamily: 'Helvetica Black Extended',
             fontSize: '1.8em',
-            color: 'white',
+            color: 'black',
             textAlign: 'center',
-            backgroundColor: 'black',
             marginBottom: '-0.2em'
         };
         let politician = this.state.politician;

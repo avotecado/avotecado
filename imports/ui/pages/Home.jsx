@@ -13,9 +13,8 @@ export default function Home() {
     let subHeaderStyle = {
         fontFamily: 'Helvetica Black Extended',
         fontSize: '2.0em',
-        color: 'white',
+        color: 'black',
         textAlign: 'center',
-        backgroundColor: 'black'
     };
 
     return (
