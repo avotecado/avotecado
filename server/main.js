@@ -48,7 +48,7 @@ Meteor.startup(() => {
             occupation: options.occupation,
             prefParty: options.prefParty,
             politicalLeaning: options.politicalLeaning,
-            userBio: options.bio
+            userBio: options.userBio
         }, user);
         if (options.profile) {
             customizedUser.profile = options.profile;
