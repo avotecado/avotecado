@@ -141,9 +141,9 @@ export default class PoliticianMakeAComment extends Component {
                         </Container>
                     </form>
                     <Grid item xs={12}>
-            <span style={subHeaderStyle}>
-              Here's what others have had to say about {politician.firstname} {politician.lastname}.
-            </span>
+                        <span style={subHeaderStyle}>
+                          Here's what others have had to say about {politician.firstname} {politician.lastname}.
+                        </span>
                         <CommentViewer commentsArray={this.state.commentsArray}/>
                     </Grid>
                 </div>

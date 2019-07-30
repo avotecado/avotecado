@@ -1,4 +1,6 @@
 import React from 'react';
+import {Redirect} from 'react-router-dom';
+
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 
@@ -19,7 +21,7 @@ const CustomTextField = withStyles({
     }
 })(TextField);
 
-class UserSettings extends React.Component {
+export default class UserSettings extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -49,50 +51,50 @@ class UserSettings extends React.Component {
     }
 
     render() {
-        return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <Container style={{display: 'flex', flexDirection: 'column'}}>
-                        <CustomTextField name='name' label='Name' style={{marginBottom: '0.1em'}}
-                                         required autoComplete='name' value={this.state.name}
-                                         onChange={this.handleChange}/>
-                        <CustomTextField name='occupation' label='Occupation' style={{marginBottom: '0.1em'}}
-                                         required autoComplete='occupation' value={this.state.occupation}
-                                         onChange={this.handleChange}/>
-                        <CustomTextField name='politicalLeaning' label='Political Leaning'
-                                         style={{marginBottom: '0.1em'}}
-                                         required autoComplete='politicalLeaning' value={this.state.politicalLeaning}
-                                         onChange={this.handleChange}/>
-                        <CustomTextField name='userBio' label='User Bio' style={{marginBottom: '0.1em'}}
-                                         required autoComplete='bio' value={this.state.userBio}
-                                         onChange={this.handleChange}/>
-                        <CustomTextField name='password' label='Password' type='password'
-                                         style={{marginBottom: '0.1em'}}
-                                         required autoComplete='current-password' value={this.state.password}
-                                         onChange={this.handleChange}/>
-                        <Button type='submit' variant='contained' style={{
-                            fontFamily: 'Helvetica Black Extended',
-                            color: 'white',
-                            fontSize: '1.25em',
-                            backgroundColor: '#009245',
-                            textTransform: 'none'
-                        }}>
-                            Update Profile
-                        </Button>
-                    </Container>
-                </form>
-            </div>
-        );
-        // }
+        if (Meteor.userId()) {
+            return (
+                <div>
+                    <form onSubmit={this.handleSubmit}>
+                        <Container style={{display: 'flex', flexDirection: 'column'}}>
+                            <CustomTextField name='name' label='Name' style={{marginBottom: '0.1em'}}
+                                             required autoComplete='name' value={this.state.name}
+                                             onChange={this.handleChange}/>
+                            <CustomTextField name='occupation' label='Occupation' style={{marginBottom: '0.1em'}}
+                                             required autoComplete='occupation' value={this.state.occupation}
+                                             onChange={this.handleChange}/>
+                            <CustomTextField name='politicalLeaning' label='Political Leaning'
+                                             style={{marginBottom: '0.1em'}}
+                                             required autoComplete='politicalLeaning'
+                                             value={this.state.politicalLeaning}
+                                             onChange={this.handleChange}/>
+                            <CustomTextField name='userBio' label='User Bio' style={{marginBottom: '0.1em'}}
+                                             required autoComplete='bio' value={this.state.userBio}
+                                             onChange={this.handleChange}/>
+                            <Button type='submit' variant='contained' style={{
+                                fontFamily: 'Helvetica Black Extended',
+                                color: 'white',
+                                fontSize: '1.25em',
+                                backgroundColor: '#009245',
+                                textTransform: 'none'
+                            }}>
+                                Update Profile
+                            </Button>
+                        </Container>
+                    </form>
+                </div>
+            );
+        } else {
+            return <Redirect to='/login'/>
+        }
     }
 }
-
-export default withTracker(() => {
-    Meteor.subscribe('UsersList', {
-        onReady: function () {
-        },
-        onError: function () {
-        }
-    });
-    return {users: Meteor.users.find({}).fetch()};
-})(UserSettings);
+//
+// export default withTracker(() => {
+//     Meteor.subscribe('UsersList', {
+//         onReady: function () {
+//         },
+//         onError: function () {
+//         }
+//     });
+//     return {users: Meteor.users.find({}).fetch()};
+// })(UserSettings);
