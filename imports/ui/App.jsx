@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import Header from './components/include/Header.jsx';
-import Header2 from './components/Header2.jsx';
+import Header2 from './components/include/Header2.jsx';
 import Home from './pages/Home';
 import Politicians from './pages/PoliticiansMain';
 import Parties from './pages/Parties';
@@ -20,7 +20,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div style={{ overflowX: 'hidden' }}>
-          <Header />
+          <Header2 />
           <Route exact path='/' component={Home} />
           <Route exact path='/politicians' component={Politicians} />
           <Route exact path='/parties' component={Parties} />

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
-import {withTracker} from 'meteor/react-meteor-data';
 
-import VoteCollection from '/imports/api/VoteCollection';
 import MaterialTable from "material-table";
 
 function getVotesForPolitician(that) {
@@ -128,13 +126,4 @@ class PoliticianVoteHistory extends Component {
     }
 }
 
-export default // withTracker(() => {
-//     Meteor.subscribe('VoteCollection', {
-//         onReady: function () {},
-//         onError: function () { console.log('error'); }
-//     });
-//     return {
-//         votes: VoteCollection.find().fetch()
-//     };
-// })
-(PoliticianVoteHistory);
+export default PoliticianVoteHistory;
