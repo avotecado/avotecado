@@ -15,7 +15,7 @@ const emptyStyle = {
     textAlign: 'center'
 };
 
-export class VoteDisplay extends Component {
+export class VoteTable extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -51,7 +51,7 @@ export class VoteDisplay extends Component {
                         { title: 'Vote Number', field: '_id', headerStyle: {padding: '1px'}, cellStyle: {fontFamily: 'Fact-Expanded'} },
                         { title: 'Description of Agenda', field: 'agendaDescription', cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'} },
                         { title: 'Decision', field: 'decision', headerStyle: {padding: '1px'}, cellStyle: {fontFamily: 'Fact-Expanded'} },
-                        { title: 'Vote Date', field: 'voteDate', type: 'date', defaultSort: 'desc', cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'} },
+                        { title: 'Date', field: 'voteDate', type: 'date', defaultSort: 'desc', cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'} },
                         { title: 'Tags', field: 'tags', cellStyle: {fontFamily: 'Fact-Expanded'}}
                     ]}
                     data={this.props.votes}
@@ -128,4 +128,4 @@ export class VoteDisplay extends Component {
     }
 }
 
-export default VoteDisplay;
+export default VoteTable;

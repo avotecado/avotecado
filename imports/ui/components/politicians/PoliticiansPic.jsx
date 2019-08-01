@@ -29,7 +29,7 @@ export default class PoliticianPic extends Component {
                 <div style={{display: 'flex', backgroundColor: 'rgba(0,146,69, 1)'}}>
                     <img alt='image'
                          style={{
-                             mixBlendMode: 'screen', filter: 'grayscale(100%) brightness(120%) contrast(200%)'
+                             mixBlendMode: 'screen', filter: 'grayscale(100%) brightness(100%) contrast(200%)'
                          }}
                          src={'photos/' + this.state.politician.firstname + '-' + this.state.politician.lastname + '.jpg'}/>
                 </div>

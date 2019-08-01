@@ -14,7 +14,10 @@ if (Meteor.isServer) {
 Meteor.methods({
     'vote.getByID'(id) {
         check(id, String);
-        VoteCollection.find({_id: id}).fetch();
+        return VoteCollection.find({_id: id}).fetch();
+    },
+    'vote.getAll'() {
+        return VoteCollection.find().fetch();
     },
     'vote.voteByPolitician'(voteByPoliticianObject) {
         let politicianID = voteByPoliticianObject.politicianID;

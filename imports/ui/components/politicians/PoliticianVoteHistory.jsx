@@ -5,8 +5,23 @@ import {withTracker} from 'meteor/react-meteor-data';
 import VoteCollection from '/imports/api/VoteCollection';
 import MaterialTable from "material-table";
 
+function getVotesForPolitician(that) {
+    Meteor.call('vote.getAll', null, (err, res) => {
+        let politician = that.props.politician._id;
+        let votesArray = res;
+        let voteByPoliticianObject = {politicianID: politician, votesArray: votesArray};
+        Meteor.call('vote.voteByPolitician', voteByPoliticianObject, (err, res) => {
+            if (err) {
+                console.log(err);
+            } else {
+                that.setState({loading: false, votes: res});
+            }
+        });
+    });
+}
+
 class PoliticianVoteHistory extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             loading: true,
@@ -15,27 +30,34 @@ class PoliticianVoteHistory extends Component {
     }
 
     componentDidMount() {
-        this.setState({ votes: null});
+        this.setState({loading: true});
+        // for (let i = votesArray.length; i-- > 0;) {
+        //     votesArray[i].votes = votesArray[i].votes[politician];
+        // }
+        let that = this;
+        getVotesForPolitician.call(this, that);
+        // this.setState({loading: false, votes: votesArray});
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
-            let politician = this.props.politician._id;
-            let votesArray = this.props.votes;
-            let voteByPoliticianObject = { politicianID: politician, votesArray: votesArray };
+            this.setState({loading: true});
+            // let politician = this.props.politician._id;
+            // let votesArray = this.props.votes;
+            // let voteByPoliticianObject = {politicianID: politician, votesArray: votesArray};
             // for (let i = votesArray.length; i-- > 0;) {
             //     votesArray[i].votes = votesArray[i].votes[politician];
             // }
-            Meteor.call('vote.voteByPolitician', voteByPoliticianObject, (err, res) => {
-                if (err) {
-                    console.log(err);
-                } else {
-                    this.setState({loading: false, votes: res});
-                }
-            });
+            let that = this;
+            getVotesForPolitician.call(this, that);
             // this.setState({loading: false, votes: votesArray});
         }
     }
+
+    componentWillUnmount() {
+        Meteor.unSubscribe();
+    }
+
 
     render() {
         if (this.state.loading) {
@@ -47,17 +69,43 @@ class PoliticianVoteHistory extends Component {
                     <MaterialTable
                         elevation='0'
                         title={
-                            <span style={{ fontFamily: 'Helvetica Black Extended', fontSize: '1.5em', color: 'black' }}>
+                            <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '1.5em', color: 'black'}}>
                                 Vote History of {this.props.politician.firstname} {this.props.politician.lastname}
                             </span>
                         }
                         columns={[
-                            { title: 'Vote Number', field: '_id', headerStyle: {padding: '1px'}, cellStyle: {fontFamily: 'Fact-Expanded'} },
-                            { title: 'Description of Agenda', field: 'agendaDescription', cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'} },
-                            { title: 'Decision', field: 'decision', headerStyle: {padding: '1px'}, cellStyle: {fontFamily: 'Fact-Expanded'} },
-                            { title: 'Vote', field: 'votes', type: 'string'},
-                            { title: 'Tags', field: 'tags', cellStyle: {fontFamily: 'Fact-Expanded'}},
-                            { title: 'Vote Date', field: 'voteDate', type: 'date', defaultSort: 'desc', cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'} }
+                            {
+                                title: 'Vote Number',
+                                field: '_id',
+                                headerStyle: {padding: '1px'},
+                                cellStyle: {fontFamily: 'Fact-Expanded'}
+                            },
+                            {
+                                title: 'Description of Agenda',
+                                field: 'agendaDescription',
+                                cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'}
+                            },
+                            {
+                                title: 'Decision',
+                                field: 'decision',
+                                headerStyle: {padding: '1px'},
+                                cellStyle: {fontFamily: 'Fact-Expanded'}
+                            },
+                            {
+                                title: 'Vote',
+                                field: 'votes',
+                                type: 'string',
+                                headerStyle: {padding: '1px'},
+                                cellStyle: {fontFamily: 'Fact-Expanded'}
+                            },
+                            {title: 'Tags', field: 'tags', cellStyle: {fontFamily: 'Fact-Expanded'}},
+                            {
+                                title: 'Date',
+                                field: 'voteDate',
+                                type: 'date',
+                                defaultSort: 'desc',
+                                cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'}
+                            }
                         ]}
                         data={this.state.votes}
                         options={{
@@ -85,13 +133,13 @@ class PoliticianVoteHistory extends Component {
     }
 }
 
-export default
-withTracker(() => {
-    Meteor.subscribe('VoteCollection', {
-        onReady: function () {},
-        onError: function () { console.log('error'); }
-    });
-    return {
-        votes: VoteCollection.find().fetch()
-    };
-}) (PoliticianVoteHistory);
+export default // withTracker(() => {
+//     Meteor.subscribe('VoteCollection', {
+//         onReady: function () {},
+//         onError: function () { console.log('error'); }
+//     });
+//     return {
+//         votes: VoteCollection.find().fetch()
+//     };
+// })
+(PoliticianVoteHistory);
