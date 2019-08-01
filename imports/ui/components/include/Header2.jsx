@@ -98,7 +98,7 @@ class Header2 extends React.Component {
                                 }}>
                                     a
                                     <span>vote</span>
-                                    {/* <span style={{ fontFamily: 'Helvetica Black Extended', WebkitTextFillColor: 'rgba(255,255,255,0.001)', WebkitTextStrokeWidth: '0.1rem', WebkitTextStrokeColor: 'rgb(0, 146, 69)' }}>vote</span> */}
+                                    {/* <span style={{ fontFamily: 'Helvetica Black Extended', WebkitTextFillColor: 'rgba(255,255,255,0.001)', WebkitTextStrokeWidth: '0.1rem', WebkitTextStrokeColor: 'rgb(0, 146, 69)' }}>vote</span>*/}
                                     cado
                                 </NavLink>
                             </Typography>
@@ -122,29 +122,27 @@ class Header2 extends React.Component {
                                     votes
                                 </NavLink>
 
-                                {
-                                    (this.state.loggedIn) ? (
-                                        <Link to='/usersettings'>
-                                            <IconButton
-                                                aria-label='Account of current user'
-                                                aria-controls='primary-search-account-menu'
-                                                aria-haspopup='true' color='inherit' style={{color: '#009245'}}
-                                            >
-                                                <AccountCircle style={{fontSize: '2em'}}/>
-                                            </IconButton>
-                                        </Link>
-                                    ) : (
-                                        <Link to='/login'>
-                                            <IconButton
-                                                aria-label='Account of current user'
-                                                aria-controls='primary-search-account-menu'
-                                                aria-haspopup='true' color='inherit' style={{color: 'black'}}
-                                            >
-                                                <AccountCircle style={{fontSize: '2em'}}/>
-                                            </IconButton>
-                                        </Link>
-                                    )
-                                }
+                                {(this.state.loggedIn) ? (
+                                    <Link to='/usersettings'>
+                                        <IconButton
+                                            aria-label='Account of current user'
+                                            aria-controls='primary-search-account-menu'
+                                            aria-haspopup='true' color='inherit' style={{color: '#009245'}}
+                                        >
+                                            <AccountCircle style={{fontSize: '2em'}}/>
+                                        </IconButton>
+                                    </Link>
+                                ) : (
+                                    <Link to='/login'>
+                                        <IconButton
+                                            aria-label='Account of current user'
+                                            aria-controls='primary-search-account-menu'
+                                            aria-haspopup='true' color='inherit' style={{color: 'black'}}
+                                        >
+                                            <AccountCircle style={{fontSize: '2em'}}/>
+                                        </IconButton>
+                                    </Link>
+                                )}
                             </span>
                         </Toolbar>
                     </Container>
