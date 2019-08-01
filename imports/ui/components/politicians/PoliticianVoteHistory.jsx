@@ -54,11 +54,6 @@ class PoliticianVoteHistory extends Component {
         }
     }
 
-    componentWillUnmount() {
-        Meteor.unSubscribe();
-    }
-
-
     render() {
         if (this.state.loading) {
             return (<> Loading... </>);
