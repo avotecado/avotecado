@@ -15,7 +15,7 @@ import PoliticiansSelect from '../components/politicians/PoliticiansSelect';
 import PoliticiansPic from '../components/politicians/PoliticiansPic';
 import PoliticianFollow from '../components/politicians/PoliticianFollow';
 import PoliticianContact from '../components/politicians/PoliticianContact';
-// import PoliticianVoteHistory from '../components/politicians/PoliticianVoteHistory';
+import PoliticianVoteHistory from '../components/politicians/PoliticianVoteHistory';
 import CommentSystem from '../components/comments/CommentSystem';
 
 import {Container} from '@material-ui/core';
@@ -111,6 +111,9 @@ class PoliticiansMain extends Component {
                                     <CommentSystem politician={politician}/>
                                 </Grid>
 
+                                <Grid item xs={12}>
+                                    <PoliticianVoteHistory politician={politician}/>
+                                </Grid>
                             </Grid>
                         </Container>
                     </>

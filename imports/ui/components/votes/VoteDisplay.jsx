@@ -52,7 +52,7 @@ export class VoteDisplay extends Component {
                         { title: 'Description of Agenda', field: 'agendaDescription', cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'} },
                         { title: 'Decision', field: 'decision', headerStyle: {padding: '1px'}, cellStyle: {fontFamily: 'Fact-Expanded'} },
                         { title: 'Vote Date', field: 'voteDate', type: 'date', defaultSort: 'desc', cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'} },
-                        {title: 'Tags', field: 'tags', cellStyle: {fontFamily: 'Fact-Expanded'}}
+                        { title: 'Tags', field: 'tags', cellStyle: {fontFamily: 'Fact-Expanded'}}
                     ]}
                     data={this.props.votes}
                     options={{

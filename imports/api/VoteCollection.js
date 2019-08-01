@@ -15,5 +15,14 @@ Meteor.methods({
     'vote.getByID'(id) {
         check(id, String);
         VoteCollection.find({_id: id}).fetch();
+    },
+    'vote.voteByPolitician'(voteByPoliticianObject) {
+        let politicianID = voteByPoliticianObject.politicianID;
+        let votesArray = voteByPoliticianObject.votesArray;
+        check(politicianID, String);
+        for (let i = votesArray.length; i-- > 0;) {
+            votesArray[i].votes = votesArray[i].votes[politicianID];
+        }
+        return votesArray;
     }
 });
