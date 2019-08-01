@@ -45,7 +45,6 @@ export class Register extends Component {
 
     handleChange(e) {
         this.setState({[e.target.name]: e.target.value});
-        // console.log(e.target.name, e.target.value, (typeof e.target.value));
     }
 
     handleSubmit(e) {

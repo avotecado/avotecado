@@ -1,9 +1,10 @@
 import {Meteor} from 'meteor/meteor';
-import Politicians from '/imports/api/Politicians';
-import PartyCollection from '/imports/api/Party';
-import VoteCollection from '/imports/api/VoteCollection';
 import Comments from '/imports/api/Comments';
 import Followed from '/imports/api/Followed';
+import Politicians from '/imports/api/Politicians';
+import PartyCollection from '/imports/api/Party';
+import Ratings from '/imports/api/Ratings';
+import VoteCollection from '/imports/api/VoteCollection';
 
 /**
  * Refs:
@@ -25,6 +26,13 @@ Meteor.startup(() => {
         const data = Assets.getText('partyData.json');
         JSON.parse(data).party.forEach((entry) => {
             PartyCollection.insert(entry);
+        });
+    }
+
+    if (Ratings.find().count() === 0) {
+        const data = Assets.getText('ratings.json');
+        JSON.parse(data).ratings.forEach((entry) => {
+            Ratings.insert(entry);
         });
     }
 

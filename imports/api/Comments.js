@@ -6,7 +6,6 @@ export default Comments = new Mongo.Collection('Comments');
 
 if (Meteor.isServer) {
     Meteor.publish('Comments', function commentsPublication() {
-        console.log('publishing Comments');
         return Comments.find();
     });
 }

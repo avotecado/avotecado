@@ -10,6 +10,7 @@ import Comments from '../../api/Comments';
 // import Async from 'react-async';
 
 import PoliticianHeaderText from '../components/politicians/PoliticianHeaderText';
+import PoliticianRatingSystem from '../components/politicians/PoliticianRatingSystem';
 import PoliticiansSelect from '../components/politicians/PoliticiansSelect';
 import PoliticiansPic from '../components/politicians/PoliticiansPic';
 import PoliticianFollow from '../components/politicians/PoliticianFollow';
@@ -96,6 +97,12 @@ class PoliticiansMain extends Component {
 
                                 <Grid item xs={6} style={contactStyle}>
                                     <PoliticianContact politician={politician}/>
+                                </Grid>
+
+                                <Grid item xs={12} style={{marginTop: '1em'}}/>
+
+                                <Grid item xs={12}>
+                                    <PoliticianRatingSystem politician={politician._id} />
                                 </Grid>
 
                                 <Grid item xs={12} style={{marginTop: '1em'}}/>
