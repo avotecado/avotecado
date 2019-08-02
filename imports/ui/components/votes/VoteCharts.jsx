@@ -64,7 +64,8 @@ export class VoteCharts extends Component {
             return (
                 <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                     <PieChart width={400} height={400}>
-                        <Pie animationDuration={800} data={tagData} cx={'50%'} cy={'50%'} outerRadius={190}
+                        <Pie data={tagData}
+                             animationDuration={800} cx={'50%'} cy={'50%'} outerRadius={190}
                              fill='black' dataKey='value' nameKey='name' labelLine={false}
                              label={renderCustomizedLabel}>
                             {
@@ -72,7 +73,8 @@ export class VoteCharts extends Component {
                             }
                         </Pie>
                     </PieChart>
-                    <BarChart width={500} height={300} data={voteData}
+                    <BarChart data={voteData}
+                              width={500} height={300}
                               margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                         <CartesianGrid strokeDasharray='3 3'/>
                         <XAxis dataKey='name'/>

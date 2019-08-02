@@ -99,7 +99,9 @@ class PoliticiansMain extends Component {
                                     <PoliticianContact politician={politician}/>
                                 </Grid>
 
-                                <Grid item xs={12} style={{marginTop: '1em'}}/>
+                                <Grid item xs={12}>
+                                    <PoliticianVoteHistory politician={politician}/>
+                                </Grid>
 
                                 <Grid item xs={12}>
                                     <PoliticianRatingSystem politician={politician._id} />
@@ -111,9 +113,7 @@ class PoliticiansMain extends Component {
                                     <CommentSystem politician={politician}/>
                                 </Grid>
 
-                                <Grid item xs={12}>
-                                    <PoliticianVoteHistory politician={politician}/>
-                                </Grid>
+
                             </Grid>
                         </Container>
                     </>
