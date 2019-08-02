@@ -25,16 +25,6 @@ export class VoteTable extends Component {
         this.visualizationDisplay = this.visualizationDisplay.bind(this);
     }
 
-    componentDidMount() {
-        // console.log('voteTable', this.props);
-    }
-
-    componentDidUpdate(prevState) {
-        if (prevState !== this.state) {
-            // console.log('cdu voteTable', this.state);
-        }
-    }
-
     tableDisplay() {
         let politician = this.props.politicians;
         return (
@@ -71,7 +61,6 @@ export class VoteTable extends Component {
                         for (let i = 0; i < length; i++) {
                             voteResult.push(<p key={i}>{politician[i].firstname} {politician[i].lastname}: {rowData.votes[i]}</p>);
                         }
-                        console.log(voteResult);
                         return (
                             <>
                                 {voteResult}
