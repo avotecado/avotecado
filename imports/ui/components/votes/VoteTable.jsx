@@ -19,11 +19,9 @@ export class VoteTable extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedForDataViz: [],
-            selectedMoreDetails: null
+            selectedForDataViz: []
         };
         this.tableDisplay = this.tableDisplay.bind(this);
-        this.detailDisplay = this.detailDisplay.bind(this);
         this.visualizationDisplay = this.visualizationDisplay.bind(this);
     }
 
@@ -38,6 +36,7 @@ export class VoteTable extends Component {
     }
 
     tableDisplay() {
+        let politician = this.props.politicians;
         return (
             <>
                 <MaterialTable
@@ -66,35 +65,21 @@ export class VoteTable extends Component {
                     }}
                     parentChildData={(row, rows) => row.votes === rows.votes}
                     onSelectionChange={(rows) => this.setState({selectedForDataViz: rows})}
-                    onRowClick={((evt, selectedRow) => {
-                        if (!(selectedRow === this.state.selectedMoreDetails)) {
-                            this.setState({selectedMoreDetails: selectedRow});
-                        } else {
-                            this.setState({selectedMoreDetails: null});
-                        }
-                    })}
                     detailPanel={rowData => {
-                        let json = JSON.stringify(rowData);
+                        let voteResult = [];
+                        let length = rowData.votes.length;
+                        for (let i = 0; i < length; i++) {
+                            voteResult.push(<p key={i}>{politician[i].firstname} {politician[i].lastname}: {rowData.votes[i]}</p>);
+                        }
+                        console.log(voteResult);
                         return (
                             <>
-                            {json}
+                                {voteResult}
                             </>
                         );
                     }}
                 />
             </>
-        );
-    }
-
-    detailDisplay() {
-        return this.state.selectedMoreDetails ? (
-            <div>
-                {this.state.selectedMoreDetails._id}
-            </div>
-        ) : (
-            <div style={emptyStyle}>
-                Select a row to display info.
-            </div>
         );
     }
 
@@ -116,11 +101,6 @@ export class VoteTable extends Component {
                 <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'/>
                 <Grid container>
                     <Grid container>
-                        <Grid item xs={12}>
-                            <Container>
-                                {this.detailDisplay()}
-                            </Container>
-                        </Grid>
                         <Grid item xs={12}>
                             <Container>
                                 {this.visualizationDisplay()}
