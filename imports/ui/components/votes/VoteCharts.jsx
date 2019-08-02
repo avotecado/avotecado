@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {BarChart, Bar, PieChart, Pie, Sector, Cell, Text, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import {setupArrayForReCharts} from "../../functions/setupArrayForReCharts";
 
 const RADIAN = Math.PI / 180;
 
@@ -19,16 +20,6 @@ const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, perc
     );
 };
 
-function getData(count, value, data) {
-    count[value] = (count[value] || 0) + 1;
-    let dataToUpdate = data.find(element => element.name === value);
-    if (dataToUpdate) {
-        dataToUpdate.value = count[value];
-    } else {
-        data.push({name: value, value: count[value]});
-    }
-}
-
 function setupCharts() {
     let dataToAggregate = this.props.selectedForDataViz;
     let count = [];
@@ -36,13 +27,13 @@ function setupCharts() {
     let voteData = [];
     dataToAggregate.forEach(entry => {
         entry.tags.forEach(value => {
-            getData(count, value, tagData);
+            setupArrayForReCharts(count, value, tagData);
         });
         entry.votes.forEach(value => {
-            getData(count, value, voteData);
+            setupArrayForReCharts(count, value, voteData);
         });
     });
-    this.setState({count: count, loading: false, tagData: tagData, voteData: voteData});
+    this.setState({loading: false, tagData: tagData, voteData: voteData});
 }
 
 export class VoteCharts extends Component {
@@ -50,7 +41,6 @@ export class VoteCharts extends Component {
         super(props);
         this.state = {
             loading: true,
-            count: [],
             tagData: [],
             voteData: []
         };
@@ -71,7 +61,6 @@ export class VoteCharts extends Component {
         if (!this.state.loading) {
             let tagData = this.state.tagData;
             let voteData = this.state.voteData;
-            console.log(this.state);
             return (
                 <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
                     <PieChart width={400} height={400}>

@@ -3,6 +3,7 @@ import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 
 import PoliticianRatingDisplay from './PoliticianRatingDisplay';
+import PoliticianRatingChart from "./PoliticianRatingChart";
 
 import Ratings from '../../../api/Ratings';
 
@@ -41,7 +42,7 @@ class PoliticianRatingSystem extends Component {
         }
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             this.setState({loading: false})
         }
@@ -69,6 +70,7 @@ class PoliticianRatingSystem extends Component {
             return (<> Loading </>)
         } else {
             let ratingArray = this.props.ratingArray;
+            // console.log(ratingArray);
             let buttonStyle = {
                 fontFamily: 'Helvetica Black Extended',
                 color: 'white',
@@ -80,7 +82,7 @@ class PoliticianRatingSystem extends Component {
                 <div>
                     <Grid container spacing={3}>
                         <Grid item xs={4}>
-                            hey
+                            <PoliticianRatingChart ratingArray={ratingArray}/>
                         </Grid>
                         <Grid item xs={4}>
                             <PoliticianRatingDisplay ratingArray={ratingArray}/>

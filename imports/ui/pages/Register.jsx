@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Meteor} from 'meteor/meteor';
 import {Redirect} from 'react-router-dom';
 import {withStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -9,8 +10,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 
-import Paper from '@material-ui/core/Paper';
-import {Meteor} from 'meteor/meteor';
+import FormControl from "@material-ui/core/FormControl";
 
 const CustomTextField = withStyles({
     root: {
@@ -35,6 +35,7 @@ export class Register extends Component {
             politicalLeaning: '',
             userBio: ''
         };
+        this.handleChange = this.handleChange.bind(this);
     }
 
     componentDidMount() {
@@ -49,7 +50,7 @@ export class Register extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let u = {
+        let userToCreate = {
             username: this.state.username,
             email: this.state.email,
             password: this.state.password,
@@ -60,8 +61,7 @@ export class Register extends Component {
             politicalLeaning: this.state.politicalLeaning,
             userBio: this.state.userBio
         };
-        // console.log(u);
-        Accounts.createUser(u, (error) => {
+        Accounts.createUser(userToCreate, (error) => {
             if (error) {
                 console.log(error.reason);
             } else {
@@ -87,49 +87,61 @@ export class Register extends Component {
                                         fontFamily: 'Fact-ExpandedMedium',
                                         fontSize: '1.25em'
                                     }}> Required: </span>
+
                                     <CustomTextField name='username' label='Pick a name. (REQUIRED!)'
                                                      style={{marginBottom: '0.1em'}}
                                                      required autoComplete='username' value={this.state.username}
-                                                     onChange={this.handleChange.bind(this)}/>
+                                                     onChange={this.handleChange}/>
+
                                     <CustomTextField name='password' label='Pick a password. (REQUIRED!)'
                                                      type='password' style={{marginBottom: '0.1em'}}
                                                      required autoComplete='current-password'
                                                      value={this.state.password}
-                                                     onChange={this.handleChange.bind(this)}/>
+                                                     onChange={this.handleChange}/>
+
                                     <CustomTextField name='email' label='Input your email. (REQUIRED!)' type='email'
                                                      style={{marginBottom: '0.1em'}}
                                                      required autoComplete='email' value={this.state.email}
-                                                     onChange={this.handleChange.bind(this)}/>
-                                </Grid>
+                                                     onChange={this.handleChange}/>
 
-                                <Grid item xs style={{display: 'flex', flexDirection: 'column'}}>
-                  <span style={{fontFamily: 'Fact-ExpandedMedium', fontSize: '1.25em'}}>
-                    Optional:
-                  </span>
+                                    <span style={{fontFamily: 'Fact-ExpandedMedium', fontSize: '1.25em'}}>
+                                        Optional:
+                                    </span>
+
                                     <CustomTextField name='name' label="What's your name?"
                                                      style={{marginBottom: '0.1em'}}
-                                                     value={this.state.name} onChange={this.handleChange.bind(this)}/>
+                                                     value={this.state.name}
+                                                     onChange={this.handleChange}/>
+
                                     <CustomTextField id='date' name='dob' label="What's your birth date? (YYY-MM-DD)"
                                                      type='date' style={{marginBottom: '0.1em'}}
                                                      defaultValue='1818-05-05' InputLabelProps={{shrink: true}}
-                                                     onChange={this.handleChange.bind(this)}/>
+                                                     onChange={this.handleChange}/>
+
                                     <CustomTextField name='occupation' label="What's your occupation?"
                                                      style={{marginBottom: '0.1em'}}
                                                      value={this.state.occupation}
-                                                     onChange={this.handleChange.bind(this)}/>
+                                                     onChange={this.handleChange}/>
 
-                                    <InputLabel htmlFor='prefParty-simple'>Preferred Party:</InputLabel>
-                                    <Select value={this.state.prefParty} onChange={this.handleChange.bind(this)}
-                                            inputProps={{name: 'prefParty', id: 'prefParty-simple'}}>
-                                        <MenuItem value={'None'}>None</MenuItem>
-                                        <MenuItem value={'NPA'}>NPA</MenuItem>
-                                        <MenuItem value={'Green'}>Green</MenuItem>
-                                        <MenuItem value={'OneCity'}>OneCity</MenuItem>
-                                        <MenuItem value={'COPE'}>COPE</MenuItem>
-                                        <MenuItem value={'Independent'}>Independent</MenuItem>
-                                    </Select>
+                                    <FormControl>
+                                        <InputLabel>Preferred Party</InputLabel>
+                                        <Select
+                                            value={this.state.prefParty}
+                                            onChange={this.handleChange}
+                                            inputProps={{name: 'prefParty', id: 'prefParty'}}>
+                                            <MenuItem disabled value={'None'}>Preferred Party</MenuItem>
+                                            <MenuItem value={'None'}>None</MenuItem>
+                                            <MenuItem value={'NPA'}>NPA</MenuItem>
+                                            <MenuItem value={'Green'}>Green</MenuItem>
+                                            <MenuItem value={'OneCity'}>OneCity</MenuItem>
+                                            <MenuItem value={'COPE'}>COPE</MenuItem>
+                                            <MenuItem value={'Independent'}>Independent</MenuItem>
+                                        </Select>
+                                    </FormControl>
+
                                 </Grid>
                             </Grid>
+
                             <Button type='submit' variant='contained' style={{
                                 fontFamily: 'Helvetica Black Extended',
                                 color: 'white',
