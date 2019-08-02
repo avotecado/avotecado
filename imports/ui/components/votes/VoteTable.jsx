@@ -73,6 +73,14 @@ export class VoteTable extends Component {
                             this.setState({selectedMoreDetails: null});
                         }
                     })}
+                    detailPanel={rowData => {
+                        let json = JSON.stringify(rowData);
+                        return (
+                            <>
+                            {json}
+                            </>
+                        );
+                    }}
                 />
             </>
         );

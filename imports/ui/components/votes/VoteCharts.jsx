@@ -62,10 +62,10 @@ export class VoteCharts extends Component {
             let tagData = this.state.tagData;
             let voteData = this.state.voteData;
             return (
-                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
                     <PieChart width={400} height={400}>
                         <Pie data={tagData}
-                             animationDuration={800} cx={'50%'} cy={'50%'} outerRadius={190}
+                             animationDuration={800} cx={'50%'} cy={'50%'} outerRadius={170}
                              fill='black' dataKey='value' nameKey='name' labelLine={false}
                              label={renderCustomizedLabel}>
                             {
@@ -81,7 +81,7 @@ export class VoteCharts extends Component {
                         <YAxis/>
                         <Tooltip/>
                         <Legend/>
-                        <Bar dataKey='value' fill='rgb(0, 146, 69)'/>
+                        <Bar name='How Politicians Voted' dataKey='value' fill='rgb(0, 146, 69)'/>
                     </BarChart>
                 </div>
             );
