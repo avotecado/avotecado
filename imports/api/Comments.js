@@ -16,7 +16,6 @@ Meteor.methods({
         if (!this.userId) {
             throw new Meteor.Error('not-authorized');
         }
-        console.log('inside comments.add');
         Comments.insert({
             politician: politicianID,
             user: this.userId,

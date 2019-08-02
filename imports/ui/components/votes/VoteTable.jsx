@@ -15,6 +15,14 @@ const emptyStyle = {
     textAlign: 'center'
 };
 
+const COLUMNS = [
+    { title: 'Vote Number', field: '_id', defaultSort: 'desc', headerStyle: {padding: '1px'}, cellStyle: {fontFamily: 'Fact-Expanded'} },
+    { title: 'Date', field: 'voteDate', type: 'date', cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'} },
+    { title: 'Agenda', field: 'agendaDescription', cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'} },
+    { title: 'Decision', field: 'decision', headerStyle: {padding: '1px'}, cellStyle: {fontFamily: 'Fact-Expanded'} },
+    { title: 'Tags', field: 'tags', cellStyle: {fontFamily: 'Fact-Expanded'}}
+];
+
 export class VoteTable extends Component {
     constructor(props) {
         super(props);
@@ -32,17 +40,11 @@ export class VoteTable extends Component {
                 <MaterialTable
                     elevation='0'
                     title={
-                        <span style={{ fontFamily: 'Helvetica Black Extended', fontSize: '1.5em', color: 'black' }}>
-                        Vote History
-                    </span>
+                        <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '1.5em', color: 'black'}}>
+                            Vote History
+                        </span>
                     }
-                    columns={[
-                        { title: 'Vote Number', field: '_id', defaultSort: 'desc', headerStyle: {padding: '1px'}, cellStyle: {fontFamily: 'Fact-Expanded'} },
-                        { title: 'Date', field: 'voteDate', type: 'date', cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'} },
-                        { title: 'Agenda', field: 'agendaDescription', cellStyle: {fontFamily: 'Fact-Expanded', fontSize: '0.65em'} },
-                        { title: 'Decision', field: 'decision', headerStyle: {padding: '1px'}, cellStyle: {fontFamily: 'Fact-Expanded'} },
-                        { title: 'Tags', field: 'tags', cellStyle: {fontFamily: 'Fact-Expanded'}}
-                    ]}
+                    columns={COLUMNS}
                     data={this.props.votes}
                     options={{
                         pageSizeOptions: [5, 10, 20, 50, 100],
@@ -51,7 +53,9 @@ export class VoteTable extends Component {
                         sorting: true,
                         exportButton: true,
                         headerStyle: {fontFamily: 'Fact-ExpandedMedium', backgroundColor: '#009245', color: '#FFF'},
-                        rowStyle: rowData => ({backgroundColor: (this.state.selectedMoreDetails && this.state.selectedMoreDetails._id === rowData._id) ? 'rgba(0, 146, 69, 0.25)' : '#FFF'})
+                        rowStyle: rowData => (
+                            {backgroundColor: (this.state.selectedMoreDetails && this.state.selectedMoreDetails._id === rowData._id)
+                                    ? 'rgba(0, 146, 69, 0.25)' : '#FFF'})
                     }}
                     parentChildData={(row, rows) => row.votes === rows.votes}
                     onSelectionChange={(rows) => this.setState({selectedForDataViz: rows})}
@@ -59,12 +63,14 @@ export class VoteTable extends Component {
                         let voteResult = [];
                         let length = rowData.votes.length;
                         for (let i = 0; i < length; i++) {
-                            voteResult.push(<p key={i}>{politician[i].firstname} {politician[i].lastname}: {rowData.votes[i]}</p>);
+                            voteResult.push(
+                                <span key={i}>{politician[i].firstname} {politician[i].lastname}: {rowData.votes[i]}<p/></span>
+                            );
                         }
                         return (
-                            <>
+                            <Container style={{fontFamily: 'Fact-Expanded'}}>
                                 {voteResult}
-                            </>
+                            </Container>
                         );
                     }}
                 />
