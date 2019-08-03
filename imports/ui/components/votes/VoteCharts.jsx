@@ -33,9 +33,6 @@ function setupCharts() {
             setupArrayForReCharts(count, value, voteData);
         });
     });
-    console.log('count', count);
-    console.log('tag', tagData);
-    console.log('vote', voteData);
     this.setState({loading: false, tagData: tagData, voteData: voteData});
 }
 

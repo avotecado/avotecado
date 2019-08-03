@@ -10,7 +10,7 @@ import Register from './pages/Register';
 import UserSettings from './pages/UserSettings';
 import UserDirectory from './pages/UserDirectory';
 import Footer from './components/include/Footer.jsx';
-import Legal from './pages/Legal';
+import PublicProfile from "./pages/PublicProfile";
 
 import { BrowserRouter, Route } from 'react-router-dom';
 
@@ -28,7 +28,7 @@ class App extends Component {
           <Route exact path='/register' component={Register} />
           <Route exact path='/usersettings' component={UserSettings} />
           <Route exact path='/userdirectory' component={UserDirectory} />
-          <Route exact path='/legal' component={Legal} />
+          <Route exact path='/publicprofile' component={PublicProfile} />
           <Footer />
         </div>
       </BrowserRouter>
