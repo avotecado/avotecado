@@ -90,7 +90,7 @@ export default class PoliticianMakeAComment extends Component {
     render() {
         let subHeaderStyle = {
             fontFamily: 'Helvetica Black Extended',
-            fontSize: '1.8em',
+            fontSize: '1.85em',
             color: 'black',
             textAlign: 'center',
             marginBottom: '-0.2em'

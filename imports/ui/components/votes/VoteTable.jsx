@@ -54,8 +54,11 @@ export class VoteTable extends Component {
                         exportButton: true,
                         headerStyle: {fontFamily: 'Fact-ExpandedMedium', backgroundColor: '#009245', color: '#FFF'},
                         rowStyle: rowData => (
-                            {backgroundColor: (this.state.selectedMoreDetails && this.state.selectedMoreDetails._id === rowData._id)
-                                    ? 'rgba(0, 146, 69, 0.25)' : '#FFF'})
+                            {
+                                backgroundColor:
+                                    (this.state.selectedMoreDetails && this.state.selectedMoreDetails._id === rowData._id)
+                                        ? 'rgba(0, 146, 69, 0.25)' : '#FFF'
+                            })
                     }}
                     parentChildData={(row, rows) => row.votes === rows.votes}
                     onSelectionChange={(rows) => this.setState({selectedForDataViz: rows})}
@@ -64,7 +67,9 @@ export class VoteTable extends Component {
                         let length = rowData.votes.length;
                         for (let i = 0; i < length; i++) {
                             voteResult.push(
-                                <span key={i}>{politician[i].firstname} {politician[i].lastname}: {rowData.votes[i]}<p/></span>
+                                <span key={i}>
+                                    {politician[i].firstname} {politician[i].lastname}: {rowData.votes[i]}<p/>
+                                </span>
                             );
                         }
                         return (

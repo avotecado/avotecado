@@ -78,7 +78,7 @@ class PoliticianRatingSystem extends Component {
             return (<> Loading... </>)
         } else {
             let ratingArray = this.props.ratingArray;
-            let subHeaderStyle = { fontFamily: 'Helvetica Black Extended', fontSize: '1.8em', color: 'black', textAlign: 'center', marginBottom: '-0.2em' };
+            let subHeaderStyle = { fontFamily: 'Helvetica Black Extended', fontSize: '1.85em', color: 'black', textAlign: 'center', marginBottom: '-0.2em' };
             return (
                 <div>
                     <Grid container spacing={3}>
@@ -95,7 +95,10 @@ class PoliticianRatingSystem extends Component {
                             <PoliticianRatingDisplay ratingArray={ratingArray}/>
                             <p />
                             Why not rate them yourself?
-                            {!Meteor.user() ? ratingForm.call(this) : <>Login, or make an account first!</>}
+                            {Meteor.user() ?
+                                ratingForm.call(this)
+                                :
+                                <> <p/>Login, or make an account first!</>}
                         </Grid>
                     </Grid>
                 </div>

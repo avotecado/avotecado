@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 
 import MaterialTable from "material-table";
+import PoliticianRadarChart from "./PoliticianRadarChart";
 
 const cellStyleRegularText = {fontFamily: 'Fact-Expanded'};
 const cellStyleSmallText = {fontFamily: 'Fact-Expanded', fontSize: '0.65em'};
@@ -14,6 +15,7 @@ const COLUMNS = [
     { title: 'Tags', field: 'tags', cellStyle: cellStyleRegularText },
     { title: 'Date', field: 'voteDate', type: 'date', defaultSort: 'desc', cellStyle: cellStyleSmallText }
 ];
+
 function getVotesForPolitician(that) {
     Meteor.call('vote.getAll', null, (err, res) => {
         let politician = that.props.politician._id;
@@ -40,26 +42,15 @@ class PoliticianVoteHistory extends Component {
 
     componentDidMount() {
         this.setState({loading: true});
-        // for (let i = votesArray.length; i-- > 0;) {
-        //     votesArray[i].votes = votesArray[i].votes[politician];
-        // }
         let that = this;
         getVotesForPolitician.call(this, that);
-        // this.setState({loading: false, votes: votesArray});
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             this.setState({loading: true});
-            // let politician = this.props.politician._id;
-            // let votesArray = this.props.votes;
-            // let voteByPoliticianObject = {politicianID: politician, votesArray: votesArray};
-            // for (let i = votesArray.length; i-- > 0;) {
-            //     votesArray[i].votes = votesArray[i].votes[politician];
-            // }
             let that = this;
             getVotesForPolitician.call(this, that);
-            // this.setState({loading: false, votes: votesArray});
         }
     }
 
@@ -69,6 +60,7 @@ class PoliticianVoteHistory extends Component {
         } else {
             return (
                 <div>
+                    <PoliticianRadarChart votes={this.state.votes}/>
                     <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'/>
                     <MaterialTable
                         elevation='0'
@@ -85,18 +77,9 @@ class PoliticianVoteHistory extends Component {
                             filtering: true,
                             sorting: true,
                             exportButton: true,
-                            headerStyle: {fontFamily: 'Fact-ExpandedMedium', backgroundColor: '#009245', color: '#FFF'},
-                            rowStyle: rowData => ({backgroundColor: (this.state.selectedMoreDetails && this.state.selectedMoreDetails._id === rowData._id) ? 'rgba(0, 146, 69, 0.25)' : '#FFF'})
+                            headerStyle: {fontFamily: 'Fact-ExpandedMedium', backgroundColor: '#009245', color: '#FFF'}
                         }}
-                        // parentChildData={(row, rows) => row.votes === rows.votes}
                         onSelectionChange={(rows) => this.setState({selectedForDataViz: rows})}
-                        onRowClick={((evt, selectedRow) => {
-                            if (!(selectedRow === this.state.selectedMoreDetails)) {
-                                this.setState({selectedMoreDetails: selectedRow});
-                            } else {
-                                this.setState({selectedMoreDetails: null});
-                            }
-                        })}
                     />
                 </div>
             );
