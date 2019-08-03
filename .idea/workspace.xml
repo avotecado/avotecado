@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87ba5101-4793-42c9-b350-e7fe1406aa45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRadarChart.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/comments/CommentSystem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/comments/CommentSystem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRatingSystem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRatingSystem.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianVoteHistory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianVoteHistory.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/votes/VoteCharts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/votes/VoteCharts.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRadarChart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRadarChart.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianVoteHistory.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="765">
+              <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -33,32 +27,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRadarChart.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-              <folding>
-                <element signature="e#0#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRatingDisplay.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="12" column="48" selection-start-line="12" selection-start-column="48" selection-end-line="12" selection-end-column="48" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRatingSystem.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="87">
-              <caret line="69" column="18" lean-forward="true" selection-start-line="69" selection-start-column="18" selection-end-line="69" selection-end-column="18" />
+            <state relative-caret-position="561">
+              <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -147,9 +120,9 @@
         <option value="$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/votes/VoteCharts.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/comments/CommentSystem.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRadarChart.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRatingSystem.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianVoteHistory.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRadarChart.jsx" />
       </list>
     </option>
   </component>
@@ -276,15 +249,16 @@
       <updated>1564260380026</updated>
       <workItem from="1564260382976" duration="10803000" />
       <workItem from="1564333539570" duration="21096000" />
-      <workItem from="1564591113621" duration="71978000" />
+      <workItem from="1564591113621" duration="73205000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103877000" />
+    <option name="totallyTimeSpent" value="105104000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="1715" height="1417" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16875373" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -730,16 +704,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRadarChart.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRatingDisplay.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="87">
@@ -759,8 +723,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianVoteHistory.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+        <state relative-caret-position="765">
+          <caret line="45" column="33" selection-start-line="45" selection-start-column="33" selection-end-line="45" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRadarChart.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

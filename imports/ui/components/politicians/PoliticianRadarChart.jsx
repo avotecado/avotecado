@@ -3,10 +3,11 @@ import {Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis,} from 're
 
 const voteOptionsArray = ['In Favour', 'In Opposition', 'Absent', 'Abstain', 'No Vote', 'Declared Conflict'];
 
-function setupRadarChartData(that, politicianVoteResult) {
+function setupRadarChartData(that, politicianVoteData) {
     let voteCountPerTag = [];
     let outputData = [];
-    politicianVoteResult.forEach(voteObjectEntry => {
+
+    politicianVoteData.forEach(voteObjectEntry => {
         voteObjectEntry.tags.forEach(tagEntry => {
             voteCountPerTag[tagEntry] = voteCountPerTag[tagEntry] || [tagEntry];
 
@@ -31,8 +32,6 @@ function setupRadarChartData(that, politicianVoteResult) {
         };
         outputData.push(entryForOutputData);
     }
-    console.log(voteCountPerTag);
-    console.log(outputData);
     return outputData;
 }
 
@@ -47,7 +46,8 @@ class PoliticianRadarChart extends Component {
 
     componentDidMount() {
         let that = this;
-        let radarChartData = setupRadarChartData(that, this.props.votes);
+        let politicianVoteData = this.props.votes;
+        let radarChartData = setupRadarChartData(that, politicianVoteData);
         this.setState({loading: false, data: radarChartData});
     }
 
@@ -66,6 +66,9 @@ class PoliticianRadarChart extends Component {
                         <Radar name="In Favor" dataKey="inFavour" stroke="green" fill="green" fillOpacity={0.4}/>
                         <Radar name="In Opposition" dataKey="inOpposition" stroke="red" fill="red" fillOpacity={0.4}/>
                         <Radar name="Declared Conflict" dataKey="declaredConflict" stroke="yellow" fill="yellow" fillOpacity={0.4}/>
+                        <Radar name="No Vote" dataKey="noVote" stroke="black" fill="black" fillOpacity={0.4}/>
+                        <Radar name="Abstain" dataKey="abstain" stroke="grey" fill="grey" fillOpacity={0.4}/>
+                        <Radar name="Absent" dataKey="absent" stroke="blue" fill="blue" fillOpacity={0.4}/>
                     </RadarChart>
                 </div>
             );
