@@ -25,10 +25,8 @@ Meteor.methods({
         }
         Followed.update({_id: this.userId}, {$pull: {following: politicianID}});
     },
-    'followed.findByUser'() {
-        if (!this.userId) {
-            throw new Meteor.Error('not-authorized');
-        }
-        return Followed.find({_id: this.userId}).fetch();
+    'followed.findByUser'(id) {
+        check(id, String);
+        return Followed.find({_id: id}).fetch();
     }
 });

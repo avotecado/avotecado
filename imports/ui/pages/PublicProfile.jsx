@@ -2,6 +2,21 @@ import React, {Component} from 'react';
 import {withTracker} from "meteor/react-meteor-data";
 import {Meteor} from "meteor/meteor";
 
+function extracted() {
+    console.log(this.props);
+    let userId = this.props.location.search.replace('?', '');
+    console.log(userId);
+    let user = (Meteor.users.find({_id: userId}).fetch());
+    this.setState({loading: false, user: user});
+    Meteor.call('followed.findByUser', userId, (err,res) => {
+        if (err) {
+            console.log(err.reason);
+        } else {
+            console.log(res);
+        }
+    });
+}
+
 class PublicProfile extends Component {
     constructor(props) {
         super(props);
@@ -11,20 +26,12 @@ class PublicProfile extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
-        let userId = this.props.location.search.replace('?', '');
-        console.log(userId);
-        let user = (Meteor.users.find({_id: userId}).fetch());
-        this.setState({loading: false, user: user});
+        extracted.call(this);
     }
 
     componentDidUpdate(prevProps, prevState) {
         if (prevProps !== this.props) {
-            console.log(this.props);
-            let userId = this.props.location.search.replace('?', '');
-            console.log(userId);
-            let user = (Meteor.users.find({_id: userId}).fetch());
-            this.setState({loading: false, user: user});
+            extracted.call(this);
         }
     }
 
