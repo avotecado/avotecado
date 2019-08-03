@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 
-import Header from './components/Header.jsx';
-import Header2 from './components/Header2.jsx';
+import Header from './components/include/Header.jsx';
 import Home from './pages/Home';
 import Politicians from './pages/PoliticiansMain';
 import Parties from './pages/Parties';
 import Votes from './pages/Votes';
 import Login from './pages/Login';
-import Profile from './pages/Profile';
-import Footer from './components/Footer.jsx';
+import Register from './pages/Register';
+import UserSettings from './pages/UserSettings';
+import UserDirectory from './pages/UserDirectory';
+import Footer from './components/include/Footer.jsx';
 import Legal from './pages/Legal';
 
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -24,7 +25,9 @@ class App extends Component {
           <Route exact path='/parties' component={Parties} />
           <Route exact path='/votes' component={Votes} />
           <Route exact path='/login' component={Login} />
-          <Route exact path='/profile' component={Profile} />
+          <Route exact path='/register' component={Register} />
+          <Route exact path='/usersettings' component={UserSettings} />
+          <Route exact path='/userdirectory' component={UserDirectory} />
           <Route exact path='/legal' component={Legal} />
           <Footer />
         </div>

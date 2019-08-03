@@ -23,6 +23,6 @@ body {
   /* background-color: rgb(11,11,11); */
   /* padding: 1em; */
   font-family: 'Fact-Expanded';
-  color: 'black';
+  color: #000;
   margin-left: calc(100vw - 100%);
 }

@@ -4,31 +4,31 @@
       "_id": "NPA",
       "founded": "1937",
       "ideology": "Conservatism",
-      "politicianPosition": "Centre-right"
+      "politicianPosition": "Centre-Right"
     },
     {
       "_id": "Green",
       "founded": "1984",
-      "ideology": "Green politics",
-      "politicianPosition": "Centre-left"
+      "ideology": "Green Politics",
+      "politicianPosition": "Centre-Left"
     },
     {
       "_id": "OneCity",
       "founded": "2014",
-      "ideology": "Social democracy",
-      "politicianPosition": "Centre-left"
+      "ideology": "Social Democracy",
+      "politicianPosition": "Centre-Left"
     },
     {
       "_id": "COPE",
       "founded": "1968",
-      "ideology": "Social democracy",
-      "politicianPosition": "Left-wing"
+      "ideology": "Social Democracy",
+      "politicianPosition": "Left-Wing"
     },
     {
       "_id": "Independent",
       "founded": "-",
-      "ideology": "-",
-      "politicianPosition": "-"
+      "ideology": "Independent Politician",
+      "politicianPosition": "Independent Politician"
     }
   ]
 }
