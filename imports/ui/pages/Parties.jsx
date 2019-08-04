@@ -1,27 +1,30 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Meteor } from 'meteor/meteor';
-import { withTracker } from 'meteor/react-meteor-data';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
+import {Meteor} from 'meteor/meteor';
+import {withTracker} from 'meteor/react-meteor-data';
 
 import PartyCollection from '/imports/api/Party';
 
-import { Container } from '@material-ui/core';
+import {Container} from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import PartiesSelect from "../components/parties/PartiesSelect";
+import PartiesBasicInfo from "../components/parties/PartiesBasicInfo";
 
 export class Parties extends Component {
-  constructor (props) {
-    super(props);
-    this.state = {
-      loading: true,
-      parties: '',
-      politicianArray: []
-    };
-  }
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: true,
+            parties: '',
+            selectedParty: null,
+            politicianArray: []
+        };
+    }
 
     componentDidUpdate(prevProps, prevState) {
         if (prevProps !== this.props && this.state.loading) {
             this.setState({parties: this.props.parties});
-            this.props.parties.forEach((party, index) => {
+            this.props.parties.forEach((party) => {
                 Meteor.call('politicians.findByParty', party._id, (error, politicianResultArray) => {
                     if (error) {
                         console.log(error.reason);
@@ -39,76 +42,59 @@ export class Parties extends Component {
                 });
             });
         }
+        if ((prevProps !== this.props) && (this.props.location !== '')) {
+            let selectedParty = this.props.location.search.replace('?', '');
+            this.setState({selectedParty: selectedParty});
+            console.log(this.state.selectedParty);
+        }
     }
 
-  render () {
-    if (this.state.loading) {
-      return (
-          <div>
-            <Container>
-              Loading...
-            </Container>
-          </div>
-      );
-    } else {
-        let subHeaderStyle = {
-            fontFamily: 'Helvetica Black Extended',
-            fontSize: '2.0em',
-            color: 'white',
-            textAlign: 'center',
-            backgroundColor: 'black'
-        };
-      let parties = this.props.parties;
-      let politicianArray = this.state.politicianArray;
-      return (
-          <div>
-            <Container display='flex' maxWidth='lg'>
-              {
-                parties.map((party, index) => {
-                  return <div key={index} style={{ marginBottom: '1em' }}>
+    render() {
+        if (this.state.loading) {
+            return (
+                <div>
+                    <Container>
+                        Loading...
+                    </Container>
+                </div>
+            );
+        } else {
+            let parties = this.props.parties;
+            let politicianArray = this.state.politicianArray;
+            let selectedPartyId = this.state.selectedParty;
+            let selectedParty = parties.find((party) => { return party._id === selectedPartyId });
+            console.log(parties);
+            console.log(selectedPartyId);
+            if (!selectedPartyId) {
+                return (
                     <div>
-                      <span style={subHeaderStyle}>{party._id}</span> <br />
-                      <span>
-                      <a href={`https://wikipedia.org/wiki/${party.ideology}`}>
-                          <img src='/icons/wiki_w.svg' width='16px' />
-                        {party.ideology}
-                      </a>
-                    </span> <br />
-                      <span>
-                      <a href={`https://wikipedia.org/wiki/${party.politicianPosition}`}>
-                          <img src='/icons/wiki_w.svg' width='16px' />
-                        {party.politicianPosition}
-                      </a>
-                    </span>
+                        <Container>
+                            <PartiesSelect parties={parties}/>
+                        </Container>
                     </div>
-                    <span style={{ fontFamily: 'Fact-ExpandedMedium' }}>Councillors in {party._id}:</span>
-                    <br />
-                    {politicianArray.map(arrayItem => {
-                          return arrayItem.politicians.map((individualPolitician, index) => {
-                            if (arrayItem.party === party._id) {
-                              return (
-                                  <span key={individualPolitician.party + index}>
-                                      <Link to={`/politicians?${individualPolitician._id}`}>
-                                          {individualPolitician.firstname} {individualPolitician.lastname}
-                                      </Link>
-                                      <br />
-                                  </span>
-                              );
-                            }
-                          });
-                        }
-                    )}
-                  </div>;
-                })}
-            </Container>
-          </div>
-      );
-    }}}
+                );
+            } else {
+                return (
+                    <div>
+                        <Container>
+                            <PartiesSelect parties={parties}/>
+                            <PartiesBasicInfo parties={[selectedParty]} politicianArray={politicianArray}/>
+                        </Container>
+                    </div>
+                );
+            }
+        }
+    }
+}
 
 export default withTracker(() => {
-  Meteor.subscribe('Party', {
-    onReady: function () { console.log('onReady'); },
-    onError: function () { console.log('onError'); }
-  });
-  return { parties: PartyCollection.find().fetch() };
+    Meteor.subscribe('Party', {
+        onReady: function () {
+            console.log('onReady');
+        },
+        onError: function () {
+            console.log('onError');
+        }
+    });
+    return {parties: PartyCollection.find().fetch()};
 })(Parties);
