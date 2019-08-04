@@ -11,6 +11,8 @@ import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
+
+
 export default function Home() {
     // const classes = useStyles();
     let subHeaderStyle = {
@@ -41,14 +43,14 @@ export default function Home() {
 
     return (
         <>
-            <Container display = 'flex' maxWidth='lg'>
+            <Container display = 'flex' maxWidth='lg' Height="110%">
                 {/* div style, as per Artsy: backgroundimage will be called here */}
                 <div style={{marginBottom: '2.5em'}}>
                     <Grid container spacing={3}>
                         {/* where HomeMainCard will go */}
                         <Grid item xs={12}>
                             <HomeMainCard/>
-                            <MainCardsController/>
+                            {/* <MainCardsController/> */}
                         </Grid>
                     </Grid>
                 </div>

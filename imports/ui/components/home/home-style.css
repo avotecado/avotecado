@@ -3,6 +3,12 @@
 }
 
 .home-hero-unit{
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
     /* more to add re: positioning */
     transition: opacity fade-duration ease-out;
     opacity: 0;
