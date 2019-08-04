@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {setupArrayForReCharts} from "../../functions/setupArrayForReCharts";
+import {setupArrayForReCharts} from "../../../utils/setupArrayForReCharts";
 import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
 
 function setupRatingDataForChart() {

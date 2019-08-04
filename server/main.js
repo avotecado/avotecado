@@ -62,6 +62,7 @@ Meteor.startup(() => {
         if (options.profile) {
             customizedUser.profile = options.profile;
         }
+        customizedUser.roles = ['normal-user'];
         return customizedUser;
     });
 

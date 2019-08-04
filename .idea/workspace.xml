@@ -2,18 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="87ba5101-4793-42c9-b350-e7fe1406aa45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/api/Comments.js" beforeDir="false" afterPath="$PROJECT_DIR$/imports/api/Comments.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/api/Ratings.js" beforeDir="false" afterPath="$PROJECT_DIR$/imports/api/Ratings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/App.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/include/Footer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/include/Footer.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/include/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/include/Header.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/pages/Login.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/pages/Login.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/pages/PublicProfile.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/pages/PublicProfile.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/pages/Register.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/pages/UserDirectory.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/pages/UserDirectory.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/pages/UserSettings.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/pages/UserSettings.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/ui/components/comments/CommentViewer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/comments/CommentViewer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRatingChart.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRatingChart.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/ui/components/votes/VoteCharts.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/votes/VoteCharts.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/ui/functions/setupArrayForReCharts.js" beforeDir="false" afterPath="$PROJECT_DIR$/imports/utils/setupArrayForReCharts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/main.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -40,10 +33,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx">
+        <entry file="file://$PROJECT_DIR$/server/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="28" column="47" lean-forward="true" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+            <state relative-caret-position="453">
+              <caret line="64" column="47" lean-forward="true" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#37#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/imports/ui/components/votes/VoteCharts.jsx">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -52,37 +57,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/server/main.js">
+        <entry file="file://$PROJECT_DIR$/imports/ui/components/comments/CommentViewer.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="521">
-              <caret line="98" column="30" lean-forward="true" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/api/Comments.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="42" column="17" selection-start-line="42" selection-start-column="17" selection-end-line="42" selection-end-column="17" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/api/Ratings.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-              <folding>
-                <element signature="e#0#37#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="663">
+              <caret line="44" column="83" lean-forward="true" selection-start-line="44" selection-start-column="83" selection-end-line="44" selection-end-column="83" />
             </state>
           </provider>
         </entry>
@@ -118,6 +96,7 @@
       <find>/publicprofile</find>
       <find>/userdirectory</find>
       <find>console.log</find>
+      <find>setupArrayForReCharts</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -126,7 +105,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/imports/api/Party.js" />
         <option value="$PROJECT_DIR$/imports/api/Politicians.js" />
         <option value="$PROJECT_DIR$/imports/ui/pages/LoginWithPassword.jsx" />
         <option value="$PROJECT_DIR$/client/main.html" />
@@ -175,8 +153,9 @@
         <option value="$PROJECT_DIR$/imports/ui/pages/PublicProfile.jsx" />
         <option value="$PROJECT_DIR$/imports/api/Comments.js" />
         <option value="$PROJECT_DIR$/imports/api/Ratings.js" />
-        <option value="$PROJECT_DIR$/server/main.js" />
         <option value="$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx" />
+        <option value="$PROJECT_DIR$/server/main.js" />
+        <option value="$PROJECT_DIR$/imports/ui/components/comments/CommentViewer.jsx" />
       </list>
     </option>
   </component>
@@ -200,6 +179,32 @@
             <path>
               <item name="avotecado" type="b2602c69:ProjectViewProjectNode" />
               <item name="avotecado" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="avotecado" type="b2602c69:ProjectViewProjectNode" />
+              <item name="avotecado" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="avotecado" type="b2602c69:ProjectViewProjectNode" />
+              <item name="avotecado" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="avotecado" type="b2602c69:ProjectViewProjectNode" />
+              <item name="avotecado" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="avotecado" type="b2602c69:ProjectViewProjectNode" />
+              <item name="avotecado" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="comments" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="avotecado" type="b2602c69:ProjectViewProjectNode" />
@@ -236,6 +241,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\cpsc\cpsc436i\avotecado\imports" />
       <recent name="C:\cpsc\cpsc436i\avotecado\imports\ui\components\include" />
       <recent name="C:\cpsc\cpsc436i\avotecado\imports\ui\components\home" />
       <recent name="C:\cpsc\cpsc436i\avotecado\imports\ui\components\votes" />
@@ -265,15 +271,16 @@
       <updated>1564260380026</updated>
       <workItem from="1564260382976" duration="10803000" />
       <workItem from="1564333539570" duration="21096000" />
-      <workItem from="1564591113621" duration="100677000" />
+      <workItem from="1564591113621" duration="102830000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132576000" />
+    <option name="totallyTimeSpent" value="134729000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1426" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11150512" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -444,13 +451,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/comments/CommentViewer.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/react-router-dom/esm/react-router-dom.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="918">
@@ -550,7 +550,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/functions/setupArrayForReCharts.js">
+    <entry file="file://$PROJECT_DIR$/imports/utils/setupArrayForReCharts.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="29" lean-forward="true" selection-start-column="29" selection-end-column="29" />
@@ -581,16 +581,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/votes/VoteCharts.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="55" selection-start-line="8" selection-start-column="55" selection-end-line="8" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -679,16 +669,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/pages/UserSettings.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
-          <caret line="31" column="70" selection-start-line="31" selection-start-column="70" selection-end-line="31" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/App.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -712,7 +692,7 @@
     <entry file="file://$PROJECT_DIR$/imports/api/Ratings.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
-          <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
@@ -741,21 +721,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="28" column="47" lean-forward="true" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+        <state relative-caret-position="249">
+          <caret line="29" column="51" lean-forward="true" selection-start-line="29" selection-start-column="51" selection-end-line="29" selection-end-column="51" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/pages/UserSettings.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="31" column="70" selection-start-line="31" selection-start-column="70" selection-end-line="31" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="98" column="30" lean-forward="true" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
+        <state relative-caret-position="453">
+          <caret line="64" column="47" lean-forward="true" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="47" />
           <folding>
             <element signature="e#0#37#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/votes/VoteCharts.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/comments/CommentViewer.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="663">
+          <caret line="44" column="83" lean-forward="true" selection-start-line="44" selection-start-column="83" selection-end-line="44" selection-end-column="83" />
         </state>
       </provider>
     </entry>
