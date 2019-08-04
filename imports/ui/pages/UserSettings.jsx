@@ -12,6 +12,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import {Container, withStyles} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
+import FormControl from "@material-ui/core/FormControl";
+import InputLabel from "@material-ui/core/InputLabel";
+import Select from "@material-ui/core/Select";
+import MenuItem from "@material-ui/core/MenuItem";
+import Grid from "@material-ui/core/Grid";
 
 const CustomTextField = withStyles({
     root: {
@@ -21,26 +26,28 @@ const CustomTextField = withStyles({
     }
 })(TextField);
 
-const initialState = {
-    password: '',
-    name: '',
-    occupation: '',
-    prefParty: '',
-    politicalLeaning: '',
-    userBio: ''
-};
-
-export default class UserSettings extends React.Component {
+class UserSettings extends React.Component {
     constructor(props) {
         super(props);
-        this.state = initialState;
+        this.state = {password: '', name: '', occupation: '', prefParty: '', politicalLeaning: '', userBio: ''};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentDidUpdate(prevProps, prevState) {
         if (prevProps !== this.props) {
-            console.log(this.props);
+            let user = this.props.user;
+            if (user._id === Meteor.userId()) {
+                this.setState({
+                    name: user.name,
+                    occupation: user.occupation,
+                    prefParty: user.prefParty,
+                    politicalLeaning: user.politicalLeaning,
+                    userBio: user.userBio
+                });
+            } else {
+                this.setState({loading: false, error: true});
+            }
         }
     }
 
@@ -73,19 +80,35 @@ export default class UserSettings extends React.Component {
                     <form onSubmit={this.handleSubmit}>
                         <Container style={{display: 'flex', flexDirection: 'column'}}>
                             <CustomTextField name='name' label='Name' style={{marginBottom: '0.1em'}}
-                                             required autoComplete='name' value={this.state.name}
+                                             autoComplete='name' value={this.state.name}
                                              onChange={this.handleChange}/>
                             <CustomTextField name='occupation' label='Occupation' style={{marginBottom: '0.1em'}}
-                                             required autoComplete='occupation' value={this.state.occupation}
+                                             autoComplete='occupation' value={this.state.occupation}
                                              onChange={this.handleChange}/>
                             <CustomTextField name='politicalLeaning' label='Political Leaning'
                                              style={{marginBottom: '0.1em'}}
-                                             required autoComplete='politicalLeaning'
+                                             autoComplete='politicalLeaning'
                                              value={this.state.politicalLeaning}
                                              onChange={this.handleChange}/>
                             <CustomTextField name='userBio' label='User Bio' style={{marginBottom: '0.1em'}}
-                                             required autoComplete='bio' value={this.state.userBio}
+                                             autoComplete='bio' value={this.state.userBio}
                                              onChange={this.handleChange}/>
+
+                            <FormControl>
+                                <InputLabel>Preferred Party</InputLabel>
+                                <Select
+                                    value={this.state.prefParty}
+                                    onChange={this.handleChange}
+                                    inputProps={{name: 'prefParty', id: 'prefParty'}}>
+                                    <MenuItem value={'None'}>None</MenuItem>
+                                    <MenuItem value={'NPA'}>NPA</MenuItem>
+                                    <MenuItem value={'Green'}>Green</MenuItem>
+                                    <MenuItem value={'OneCity'}>OneCity</MenuItem>
+                                    <MenuItem value={'COPE'}>COPE</MenuItem>
+                                    <MenuItem value={'Independent'}>Independent</MenuItem>
+                                </Select>
+                            </FormControl>
+
                             <Button type='submit' variant='contained' style={{
                                 fontFamily: 'Helvetica Black Extended',
                                 color: 'white',
@@ -104,13 +127,14 @@ export default class UserSettings extends React.Component {
         }
     }
 }
+
 //
-// export default withTracker(() => {
-//     Meteor.subscribe('UsersList', {
-//         onReady: function () {
-//         },
-//         onError: function () {
-//         }
-//     });
-//     return {users: Meteor.users.find({}).fetch()};
-// })(UserSettings);
+export default withTracker(() => {
+    Meteor.subscribe('SingleUser', {
+        onReady: function () {
+        },
+        onError: function () {
+        }
+    });
+    return {user: Meteor.users.find({_id: Meteor.userId()}).fetch()[0]};
+})(UserSettings);

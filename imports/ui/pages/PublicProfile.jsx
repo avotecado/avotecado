@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {withTracker} from "meteor/react-meteor-data";
 import {Meteor} from "meteor/meteor";
+import Container from "@material-ui/core/Container";
 
 function extracted() {
     console.log(this.props);
@@ -42,7 +43,9 @@ class PublicProfile extends Component {
             let user = JSON.stringify(this.state.user);
             return (
                 <div>
-                    {user}
+                    <Container>
+                        {user}
+                    </Container>
                 </div>
             );
         }

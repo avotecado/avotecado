@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
 import Header from './components/include/Header.jsx';
+import Footer from './components/include/Footer.jsx';
+
 import Home from './pages/Home';
 import Politicians from './pages/PoliticiansMain';
 import Parties from './pages/Parties';
@@ -9,8 +11,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import UserSettings from './pages/UserSettings';
 import UserDirectory from './pages/UserDirectory';
-import Footer from './components/include/Footer.jsx';
 import PublicProfile from "./pages/PublicProfile";
+import AdminPanel from "./pages/AdminPanel";
 
 import { BrowserRouter, Route } from 'react-router-dom';
 
@@ -26,9 +28,10 @@ class App extends Component {
           <Route exact path='/votes' component={Votes} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
-          <Route exact path='/usersettings' component={UserSettings} />
-          <Route exact path='/userdirectory' component={UserDirectory} />
-          <Route exact path='/publicprofile' component={PublicProfile} />
+          <Route exact path='/user-settings' component={UserSettings} />
+          <Route exact path='/user-directory' component={UserDirectory} />
+          <Route exact path='/user' component={PublicProfile} />
+          <Route path='/admin' component={AdminPanel} />
           <Footer />
         </div>
       </BrowserRouter>

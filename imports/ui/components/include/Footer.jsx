@@ -11,7 +11,7 @@ export default class Footer extends Component {
         return (
             <>
                 <Container maxWidth='lg' component='div' style={footerStyle}>
-                    <Link to='/userdirectory'>User Directory</Link> <br/>
+                    <Link to='/user-directory'>User Directory</Link> <br/>
                     about / <a href='https://github.com/avotecado/avotecado'>Check us out on GitHub</a>
                     <Typography component='div' style={textMarkStyle}>
                         avotecado

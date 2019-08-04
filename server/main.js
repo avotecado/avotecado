@@ -104,4 +104,20 @@ Meteor.startup(() => {
             }
         });
     });
+
+    Meteor.publish('SingleUser', function () {
+        console.log('publishing SingleUser');
+        return Meteor.users.find({_id: Meteor.userId()}, {
+            fields: {
+                username: 1,
+                name: 1,
+                dob: 1,
+                occupation: 1,
+                prefParty: 1,
+                politicalLeaning: 1,
+                userBio: 1,
+                createdAt: 1
+            }
+        });
+    });
 });

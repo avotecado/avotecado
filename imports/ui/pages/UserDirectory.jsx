@@ -50,7 +50,7 @@ class UserDirectory extends React.Component {
                             return (
                                 <ul key={index}>
                                     <li key={userEntry.username}>
-                                        <NavLink to={'/publicprofile?' + `${userEntry._id}`}>
+                                        <NavLink to={'/user?' + `${userEntry._id}`}>
                                             {userEntry.username}
                                         </NavLink>
                                     </li>
