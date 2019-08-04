@@ -21,17 +21,19 @@ const CustomTextField = withStyles({
     }
 })(TextField);
 
+const initialState = {
+    password: '',
+    name: '',
+    occupation: '',
+    prefParty: '',
+    politicalLeaning: '',
+    userBio: ''
+};
+
 export default class UserSettings extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            password: '',
-            name: '',
-            occupation: '',
-            prefParty: '',
-            politicalLeaning: '',
-            userBio: ''
-        };
+        this.state = initialState;
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -46,8 +48,22 @@ export default class UserSettings extends React.Component {
         this.setState({[e.target.name]: e.target.value});
     }
 
-    handleSubmit() {
-        //
+    handleSubmit(e) {
+        e.preventDefault();
+        let updateObject = {
+            name: this.state.name,
+            occupation: this.state.occupation,
+            prefParty: this.state.prefParty,
+            politicalLeaning: this.state.politicalLeaning,
+            userBio: this.state.userBio
+        };
+        Meteor.call('user.updateUserProfile', updateObject, (err, res) => {
+            if (err) {
+                console.log(err.reason);
+            } else {
+                this.setState(initialState);
+            }
+        })
     }
 
     render() {

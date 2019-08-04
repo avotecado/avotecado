@@ -5,6 +5,7 @@ import Politicians from '/imports/api/Politicians';
 import PartyCollection from '/imports/api/Party';
 import Ratings from '/imports/api/Ratings';
 import VoteCollection from '/imports/api/VoteCollection';
+import {check} from "meteor/check";
 
 /**
  * Refs:
@@ -62,6 +63,30 @@ Meteor.startup(() => {
             customizedUser.profile = options.profile;
         }
         return customizedUser;
+    });
+
+    Meteor.methods({
+        'user.updateUserProfile'(updateObject) {
+            if (!Meteor.userId) {
+                throw new Meteor.Error('not-authorized');
+            }
+            check(updateObject, {
+                name: String,
+                occupation: String,
+                politicalLeaning: String,
+                prefParty: String,
+                userBio: String
+            });
+            Meteor.users.update({_id: Meteor.userId()}, {
+                $set: {
+                    "name": updateObject.name,
+                    "occupation": updateObject.occupation,
+                    "politicalLeaning": updateObject.politicalLeaning,
+                    "prefParty": updateObject.prefParty,
+                    "userBio": updateObject.userBio
+                }
+            });
+        }
     });
 
     Meteor.publish('UsersList', function () {

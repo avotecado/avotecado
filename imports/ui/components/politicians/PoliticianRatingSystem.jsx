@@ -62,7 +62,6 @@ class PoliticianRatingSystem extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let that = this;
         let userRating = {userId: Meteor.userId(), rating: this.state.userRating};
         Meteor.call('ratings.add', this.props.politician._id, userRating, function(err, res) {
             if (err) {
