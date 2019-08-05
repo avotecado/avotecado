@@ -10,6 +10,14 @@ import Grid from '@material-ui/core/Grid';
 import PartiesSelect from "../components/parties/PartiesSelect";
 import PartiesBasicInfo from "../components/parties/PartiesBasicInfo";
 
+function removeDuplicates(politicianArray) {
+    // ref: https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
+    let existsAccumulator = {};
+    return politicianArray.filter(function(partyObject) {
+        return existsAccumulator.hasOwnProperty(partyObject.party) ? false : (existsAccumulator[partyObject.party] = true);
+    });
+}
+
 export class Parties extends Component {
     constructor(props) {
         super(props);
@@ -60,8 +68,12 @@ export class Parties extends Component {
         } else {
             let parties = this.props.parties;
             let politicianArray = this.state.politicianArray;
+            let politicianArrayFiltered = removeDuplicates(politicianArray);
             let selectedPartyId = this.state.selectedParty;
             let selectedParty = parties.find((party) => { return party._id === selectedPartyId });
+
+            console.log(politicianArray);
+
             if (!selectedPartyId) {
                 return (
                     <div>
@@ -75,7 +87,7 @@ export class Parties extends Component {
                     <div>
                         <Container>
                             <PartiesSelect parties={parties}/>
-                            <PartiesBasicInfo parties={[selectedParty]} politicianArray={politicianArray}/>
+                            <PartiesBasicInfo parties={[selectedParty]} politicianArray={politicianArrayFiltered}/>
                         </Container>
                     </div>
                 );
