@@ -18,6 +18,22 @@ function removeDuplicates(politicianArray) {
         return existsAccumulator.hasOwnProperty(partyObject.party) ? false : (existsAccumulator[partyObject.party] = true);
     });
 }
+
+function getVotesForPoliticianArray(that) {
+    Meteor.call('vote.getAll', null, (err, res) => {
+        let politician = that.props.politicianArray;
+        let votesArray = res;
+        let voteByPoliticianObject = {politicianID: politician, votesArray: votesArray};
+        Meteor.call('vote.voteByPolitician', voteByPoliticianObject, (err, res) => {
+            if (err) {
+                console.log(err);
+            } else {
+                that.setState({loading: false, votes: res});
+            }
+        });
+    });
+}
+
 export class Parties extends Component {
     constructor(props) {
         super(props);
@@ -38,10 +54,7 @@ export class Parties extends Component {
                         console.log(error.reason);
                     } else {
                         this.setState({
-                            politicianArray: [...this.state.politicianArray, {
-                                party: party._id,
-                                politicians: politicianResultArray
-                            }]
+                            politicianArray: [...this.state.politicianArray, {party: party._id, politicians: politicianResultArray}]
                         });
                         if (this.state.parties.length === this.state.politicianArray.length) {
                             this.setState({loading: false});
@@ -60,8 +73,8 @@ export class Parties extends Component {
         if (this.state.loading) {
             return (
                 <div>
-                    <Container>
-                        Loading...
+                    <Container maxWidth='lg'>
+                        <PartiesHeaderText/>
                     </Container>
                 </div>
             );

@@ -42,6 +42,7 @@ const linkNotActiveStyle = {
     marginLeft: '2vw',
     marginRight: '2vw'
 };
+
 const linkActiveStyle = {
     fontFamily: 'Helvetica Black Extended',
     fontSize: '1.15em',
@@ -51,6 +52,13 @@ const linkActiveStyle = {
     paddingBottom: '0.75em',
     marginLeft: '2vw',
     marginRight: '2vw'
+};
+
+const headerTextOutline = {
+    fontFamily: 'Helvetica Black Extended',
+    WebkitTextFillColor: 'rgba(255,255,255,0.001)',
+    WebkitTextStrokeWidth: '1.75px',
+    WebkitTextStrokeColor: 'rgb(0, 146, 69)'
 };
 
 class Header extends React.Component {
@@ -88,8 +96,11 @@ class Header extends React.Component {
                         <Toolbar disableGutters>
 
                             <Typography style={classes.title}>
-                                <NavLink to='/' activeStyle={{fontSize: '4em', fontWeight: 'bold', color: 'black', textDecorationLine: 'none'}}>
-                                    avotecado
+                                <NavLink to='/' activeStyle={{fontSize: '2em', fontWeight: 'bold', color: 'black', textDecorationLine: 'none'}}>
+                                    a
+                                    {/*vote*/}
+                                     <span style={headerTextOutline}>vote</span>
+                                    cado
                                 </NavLink>
                             </Typography>
 
@@ -119,7 +130,7 @@ class Header extends React.Component {
                                             aria-controls='primary-search-account-menu'
                                             aria-haspopup='true' color='inherit' style={{color: '#009245'}}
                                         >
-                                            <AccountCircle style={{fontSize: '2em'}}/>
+                                            <AccountCircle style={{fontSize: '1.5em'}}/>
                                         </IconButton>
                                     </Link>
                                 ) : (
@@ -129,7 +140,7 @@ class Header extends React.Component {
                                             aria-controls='primary-search-account-menu'
                                             aria-haspopup='true' color='inherit' style={{color: 'black'}}
                                         >
-                                            <AccountCircle style={{fontSize: '2em'}}/>
+                                            <AccountCircle style={{fontSize: '1.5em'}}/>
                                         </IconButton>
                                     </Link>
                                 )}
