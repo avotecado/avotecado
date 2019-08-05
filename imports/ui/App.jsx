@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Header from './components/include/Header.jsx';
 import Home from './pages/Home';
 import Politicians from './pages/PoliticiansMain';
@@ -13,6 +12,8 @@ import Footer from './components/include/Footer.jsx';
 import Legal from './pages/Legal';
 
 import { BrowserRouter, Route } from 'react-router-dom';
+
+// import TraversyCarousel from './components/home/Carousel/TraversyCarousel';
 
 class App extends Component {
   render () {
@@ -29,6 +30,7 @@ class App extends Component {
           <Route exact path='/usersettings' component={UserSettings} />
           <Route exact path='/userdirectory' component={UserDirectory} />
           <Route exact path='/legal' component={Legal} />
+          {/* <Route exact path='/traversycarousel' component={TraversyCarousel} /> */}
           <Footer />
         </div>
       </BrowserRouter>
