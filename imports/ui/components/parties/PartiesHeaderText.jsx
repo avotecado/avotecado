@@ -17,17 +17,17 @@ const outlinedText = {
     WebkitTextStrokeColor: 'rgb(0, 146, 69)'
 };
 
-export default function PoliticianHeaderText() {
+export default function PartiesHeaderText() {
 
     return (
         <>
             <Container style={containerStyle}>
                 <div>
-                    <span style={filledText}>Elected{' '}</span>
-                    <span style={outlinedText}>Councillors</span>
+                    <span style={filledText}>Incumbent{' '}</span>
+                    <span style={outlinedText}>Parties</span>
                 </div>
                 <span style={{color: 'white', backgroundColor: 'black'}}>
-                    Take a look at your Vancouver City Council members, see how they vote, and maybe leave a comment.
+                    These are the parties your elected councillors belong to.
                 </span>
             </Container>
         </>
