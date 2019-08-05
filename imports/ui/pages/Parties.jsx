@@ -45,7 +45,6 @@ export class Parties extends Component {
         if ((prevProps !== this.props) && (this.props.location !== '')) {
             let selectedParty = this.props.location.search.replace('?', '');
             this.setState({selectedParty: selectedParty});
-            console.log(this.state.selectedParty);
         }
     }
 
@@ -63,8 +62,6 @@ export class Parties extends Component {
             let politicianArray = this.state.politicianArray;
             let selectedPartyId = this.state.selectedParty;
             let selectedParty = parties.find((party) => { return party._id === selectedPartyId });
-            console.log(parties);
-            console.log(selectedPartyId);
             if (!selectedPartyId) {
                 return (
                     <div>
