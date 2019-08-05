@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 import Container from '@material-ui/core/Container';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
+import {NavLink} from "react-router-dom";
 
 export default class PoliticianViewComments extends Component {
     constructor(props) {
@@ -40,7 +41,8 @@ export default class PoliticianViewComments extends Component {
                             <div>
                                 {this.state.commentsArray.map((message, index) => (
                                     <ListItem key={index}>
-                                        <div style={{fontFamily: 'Fact-ExpandedMedium'}}>{message.username}:{' '}</div>
+                                        <div style={{fontFamily: 'Fact-ExpandedMedium'}}>
+                                            <NavLink to={'/user?' + `${message.user}`}>{message.username}</NavLink>:{' '}</div>
                                         {message.message}
                                     </ListItem>
                                 ))}

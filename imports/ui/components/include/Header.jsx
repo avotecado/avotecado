@@ -122,7 +122,7 @@ class Header extends React.Component {
                                 </NavLink>
 
                                 {(this.state.loggedIn) ? (
-                                    <Link to='/usersettings'>
+                                    <Link to='/user-settings'>
                                         <IconButton
                                             aria-label='Account of current user'
                                             aria-controls='primary-search-account-menu'

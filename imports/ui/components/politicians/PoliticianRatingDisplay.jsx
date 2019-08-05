@@ -7,7 +7,11 @@ function calculateRating(ratingArray) {
         for (let i = ratingArrayLength; i-- > 0;) {
             acc += ratingArray.ratings[i].rating
         }
-        return (acc / ratingArrayLength).toFixed(2);
+        let rating = (acc / ratingArrayLength).toFixed(2);
+        return (
+            <>
+                <strong>Average Rating:</strong> {rating} out of 5
+            </>);
     } else {
         return 'No Rating Yet';
     }
@@ -45,9 +49,9 @@ class PoliticianRatingDisplay extends Component {
 
     render() {
         return (
-            <div>
-                Average: {this.state.rating} out of 5
-            </div>
+            <>
+                {this.state.rating}
+            </>
         );
     }
 }

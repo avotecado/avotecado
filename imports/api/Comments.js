@@ -16,7 +16,6 @@ Meteor.methods({
         if (!this.userId) {
             throw new Meteor.Error('not-authorized');
         }
-        console.log('inside comments.add');
         Comments.insert({
             politician: politicianID,
             user: this.userId,
@@ -40,5 +39,8 @@ Meteor.methods({
     'comments.findByID'(politicianID) {
         check(politicianID, String);
         return Comments.find({politician: politicianID}).fetch();
+    },
+    'comments.getAll'() {
+        return Comments.find({}).fetch();
     }
 });

@@ -72,7 +72,7 @@ export class Register extends Component {
 
     render() {
         if (this.state.loggedIn) {
-            return <Redirect to='/usersettings'/>;
+            return <Redirect to='/user-settings'/>;
         } else {
             return (
                 <>

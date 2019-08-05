@@ -15,6 +15,13 @@ class UserDirectory extends React.Component {
         };
     }
 
+    componentDidMount() {
+        if (this.props.users) {
+            this.setState({loading: false, usersList: this.props.users});
+        }
+    }
+
+
     componentDidUpdate(prevProps, prevState) {
         if (prevProps !== this.props) {
             this.setState({
@@ -22,13 +29,18 @@ class UserDirectory extends React.Component {
                 usersList: this.props.users
             });
         }
-        if (prevState !== this.state) {
-            console.log(this.state);
-        }
     }
 
     render() {
-        if (!this.state.loading) {
+        if (this.state.loading) {
+            return (
+                <div>
+                    <Container>
+                        Fetching list of users...
+                    </Container>
+                </div>
+            );
+        } else {
             let usersList = this.state.usersList;
             return (
                 <div>
@@ -36,19 +48,16 @@ class UserDirectory extends React.Component {
                         User directory: <br/>
                         {usersList.map((userEntry, index) => {
                             return (
-                                <ul>
-                                    <li key={index}><NavLink to='/'>{userEntry.username}</NavLink></li>
-                                    <br/>
+                                <ul key={index}>
+                                    <li key={userEntry.username}>
+                                        <NavLink to={'/user?' + `${userEntry._id}`}>
+                                            {userEntry.username}
+                                        </NavLink>
+                                    </li>
                                 </ul>
                             );
                         })}
                     </Container>
-                </div>
-            );
-        } else {
-            return (
-                <div>
-                    Loading...
                 </div>
             );
         }

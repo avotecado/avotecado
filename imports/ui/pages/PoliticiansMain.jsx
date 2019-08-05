@@ -103,8 +103,10 @@ class PoliticiansMain extends Component {
                                     <PoliticianVoteHistory politician={politician}/>
                                 </Grid>
 
+                                <Grid item xs={12} style={{marginBottom: '-0.25em'}}/>
+
                                 <Grid item xs={12}>
-                                    <PoliticianRatingSystem politician={politician._id} />
+                                    <PoliticianRatingSystem politician={politician} />
                                 </Grid>
 
                                 <Grid item xs={12} style={{marginTop: '1em'}}/>

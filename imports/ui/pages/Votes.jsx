@@ -53,10 +53,8 @@ export class Votes extends Component {
 
 export default withTracker(() => {
     Meteor.subscribe('VoteCollection', {
-        onReady: function () {
-        },
-        onError: function () {
-        }
+        onReady: function () {},
+        onError: function () {}
     });
     return {votes: VoteCollection.find().fetch()};
 })(Votes);

@@ -12,7 +12,15 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 
-function ratingForm(buttonStyle) {
+const buttonStyle = {
+    fontFamily: 'Helvetica Black Extended',
+    color: 'white',
+    fontSize: '1.25em',
+    backgroundColor: '#009245',
+    textTransform: 'none'
+};
+
+function ratingForm() {
     return <form onSubmit={this.handleSubmit.bind(this)}>
         <Select value={this.state.userRating}
                 onChange={this.handleChange.bind(this)}
@@ -54,9 +62,8 @@ class PoliticianRatingSystem extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        let that = this;
         let userRating = {userId: Meteor.userId(), rating: this.state.userRating};
-        Meteor.call('ratings.add', this.props.politician, userRating, function(err, res) {
+        Meteor.call('ratings.add', this.props.politician._id, userRating, function(err, res) {
             if (err) {
                 console.log(err.reason);
             } else {
@@ -67,29 +74,30 @@ class PoliticianRatingSystem extends Component {
 
     render() {
         if (this.state.loading) {
-            return (<> Loading </>)
+            return (<> Loading... </>)
         } else {
             let ratingArray = this.props.ratingArray;
-            // console.log(ratingArray);
-            let buttonStyle = {
-                fontFamily: 'Helvetica Black Extended',
-                color: 'white',
-                fontSize: '1.25em',
-                backgroundColor: '#009245',
-                textTransform: 'none'
-            };
+            let subHeaderStyle = { fontFamily: 'Helvetica Black Extended', fontSize: '1.85em', color: 'black', textAlign: 'center', marginBottom: '-0.2em' };
             return (
                 <div>
                     <Grid container spacing={3}>
+                        <span style={subHeaderStyle}>
+                            How do people feel about {this.props.politician.firstname} {this.props.politician.lastname}?
+                        </span>
+                        <Grid item xs={4} style={{display: 'flex', justifyContent: 'center'}}>
+                            <strong>Add something here?</strong>
+                        </Grid>
                         <Grid item xs={4}>
                             <PoliticianRatingChart ratingArray={ratingArray}/>
                         </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={4} style={{display: 'flex', flexDirection:'column', alignItems: 'center'}}>
                             <PoliticianRatingDisplay ratingArray={ratingArray}/>
-                        </Grid>
-                        <Grid item xs={4}>
-                            Why not rate them yourself? <br/>
-                            {Meteor.user() ? ratingForm.call(this, buttonStyle) : <>Login, or make an account first!</>}
+                            <p />
+                            Why not rate them yourself?
+                            {Meteor.user() ?
+                                ratingForm.call(this)
+                                :
+                                <> <p/>Login, or make an account first!</>}
                         </Grid>
                     </Grid>
                 </div>
@@ -106,6 +114,6 @@ export default withTracker((props) => {
         }
     });
     return {
-        ratingArray: Ratings.find({_id: props.politician}).fetch()
+        ratingArray: Ratings.find({_id: props.politician._id}).fetch()
     }
 })(PoliticianRatingSystem);
