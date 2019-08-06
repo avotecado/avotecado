@@ -7,13 +7,12 @@ function extracted() {
     console.log(this.props);
     let userId = this.props.location.search.replace('?', '');
     console.log(userId);
-    let user = (Meteor.users.find({_id: userId}).fetch());
-    this.setState({loading: false, user: user});
     Meteor.call('followed.findByUser', userId, (err,res) => {
         if (err) {
             console.log(err.reason);
         } else {
-            console.log(res);
+            let user = (Meteor.users.find({_id: userId}).fetch());
+            this.setState({loading: false, user: user[0], followed: res});
         }
     });
 }
@@ -40,11 +39,12 @@ class PublicProfile extends Component {
         if (this.state.loading) {
             return (<>Loading...</>);
         } else {
-            let user = JSON.stringify(this.state.user);
+            let userStringified = JSON.stringify(this.state.user);
+            console.log(this.state.user);
             return (
                 <div>
                     <Container>
-                        {user}
+                        {userStringified} <br/>
                     </Container>
                 </div>
             );

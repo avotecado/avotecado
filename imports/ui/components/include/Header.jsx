@@ -1,16 +1,15 @@
 import React from 'react';
 import {Meteor} from 'meteor/meteor';
-
-import {makeStyles} from '@material-ui/core/styles';
+import {withTracker} from "meteor/react-meteor-data";
 import {Link, NavLink} from 'react-router-dom';
+
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import IconButton from '@material-ui/core/IconButton';
-import {withTracker} from "meteor/react-meteor-data";
-import VoteCollection from "../../../api/VoteCollection";
-import {Votes} from "../../pages/Votes";
+
+
 
 const classes = {
     root: {
@@ -43,6 +42,7 @@ const linkNotActiveStyle = {
     marginLeft: '2vw',
     marginRight: '2vw'
 };
+
 const linkActiveStyle = {
     fontFamily: 'Helvetica Black Extended',
     fontSize: '1.15em',
@@ -52,6 +52,13 @@ const linkActiveStyle = {
     paddingBottom: '0.75em',
     marginLeft: '2vw',
     marginRight: '2vw'
+};
+
+const headerTextOutline = {
+    fontFamily: 'Helvetica Black Extended',
+    WebkitTextFillColor: 'rgba(255,255,255,0.001)',
+    WebkitTextStrokeWidth: '1.75px',
+    WebkitTextStrokeColor: 'rgb(0, 146, 69)'
 };
 
 class Header extends React.Component {
@@ -89,15 +96,10 @@ class Header extends React.Component {
                         <Toolbar disableGutters>
 
                             <Typography style={classes.title}>
-                                <NavLink to='/' activeStyle={{
-                                    fontSize: '4em',
-                                    fontWeight: 'bold',
-                                    color: 'black',
-                                    textDecorationLine: 'none'
-                                }}>
+                                <NavLink to='/' activeStyle={{fontSize: '2em', fontWeight: 'bold', color: 'black', textDecorationLine: 'none'}}>
                                     a
-                                    <span>vote</span>
-                                    {/* <span style={{ fontFamily: 'Helvetica Black Extended', WebkitTextFillColor: 'rgba(255,255,255,0.001)', WebkitTextStrokeWidth: '0.1rem', WebkitTextStrokeColor: 'rgb(0, 146, 69)' }}>vote</span>*/}
+                                    {/*vote*/}
+                                     <span style={headerTextOutline}>vote</span>
                                     cado
                                 </NavLink>
                             </Typography>
@@ -128,7 +130,7 @@ class Header extends React.Component {
                                             aria-controls='primary-search-account-menu'
                                             aria-haspopup='true' color='inherit' style={{color: '#009245'}}
                                         >
-                                            <AccountCircle style={{fontSize: '2em'}}/>
+                                            <AccountCircle style={{fontSize: '1.5em'}}/>
                                         </IconButton>
                                     </Link>
                                 ) : (
@@ -138,7 +140,7 @@ class Header extends React.Component {
                                             aria-controls='primary-search-account-menu'
                                             aria-haspopup='true' color='inherit' style={{color: 'black'}}
                                         >
-                                            <AccountCircle style={{fontSize: '2em'}}/>
+                                            <AccountCircle style={{fontSize: '1.5em'}}/>
                                         </IconButton>
                                     </Link>
                                 )}
@@ -151,7 +153,4 @@ class Header extends React.Component {
     }
 }
 
-export default withTracker(() => {
-    return {user: Meteor.user()};
-})
-(Header);
+export default withTracker(() => { return {user: Meteor.user()}; })(Header);
