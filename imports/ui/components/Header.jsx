@@ -12,8 +12,8 @@ import IconButton from '@material-ui/core/IconButton';
 const useStyles = makeStyles(theme => ({
   root: {
     marginTop: '-1em',
-    marginBottom: '6em',
-    height: '2em',
+    marginBottom: '4em',
+    height: '4em',
     flexGrow: 1
   },
   appBar: {

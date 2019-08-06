@@ -13,8 +13,6 @@ import Box from '@material-ui/core/Box';
 import { sizing, minHeight, height } from '@material-ui/system';
 
 
-
-
 export default function Home() {
     // const classes = useStyles();
     let subHeaderStyle = {
@@ -23,25 +21,6 @@ export default function Home() {
         color: 'black',
         textAlign: 'center',
     };
-
-    // return (
-    //     <>
-    //         <Container display='flex' maxWidth='lg'>
-    //             <div style={{marginBottom: '2.5em'}}>
-    //                 <span style={subHeaderStyle}> At a Glance </span>
-    //                 <Grid container spacing={3}>
-    //                     <Grid item xs={6}>
-    //                         <ChartPartyMakeUp/>
-    //                 </Grid>
-    //                 </Grid>
-    //             </div>
-    //             <span style={subHeaderStyle}> Spotlight Politician </span>
-    //             <Grid container spacing={3}>
-    //                 <HomeSpotlight/>
-    //             </Grid>
-    //         </Container>
-    //     </>
-    // );
 
     return (
         <>
@@ -58,7 +37,11 @@ export default function Home() {
 
             <>
                 <Container display='flex' maxWidth='lg'>
-                <div style={{marginBottom: '2.5em'}}>
+                    <span style={subHeaderStyle}> Spotlight Politician </span>
+                    <Grid container spacing={3}>
+                        <HomeSpotlight/>
+                    </Grid>
+                    <div style={{marginBottom: '2.5em'}}>
                         <span style={subHeaderStyle}> At a Glance </span>
                     <Grid container spacing={3}>
                             <Grid item xs={6}>
@@ -66,10 +49,7 @@ export default function Home() {
                         </Grid>
                         </Grid>
                     </div>
-                    <span style={subHeaderStyle}> Spotlight Politician </span>
-                    <Grid container spacing={3}>
-                        <HomeSpotlight/>
-                    </Grid>
+
                 </Container>
             </>
         </>

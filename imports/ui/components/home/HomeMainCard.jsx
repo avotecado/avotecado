@@ -1,26 +1,10 @@
 import React, { Component } from 'react';
-import {Link, NavLink} from 'react-router-dom';
 import {Meteor} from 'meteor/meteor';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import { Button } from '@material-ui/core';
 import {Container} from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
-import Home from "../../pages/Home";
-
-
-import vanImage from '../../../../client/images/vancouverSpecialsKevinLanthier.jpg';
-import politiciansGroup from '../../../../client/images/AvotecadoPoliticians4.png';
-import cityHall from '../../../../client/images/CityHallVancouverArchives1937.jpg';
-import partiesOldCityHall from '../../../../client/images/Vancouver_city_hall_archive.jpg';
-import partiesCityHallTrees from '../../../../client/images/CityHallArchives.jpg';
-import usersDowntownPhoto from '../../../../client/images/aditya-chinchure-DrizqCuAV2o-unsplash.jpg';
-import votesMap from '../../../../client/images/Vancouver_vector_map_Spacing_ca.jpg';
-import votesVancouverSpecial from '../../../../client/images/vancouverSpecialsKevinLanthier2.jpg';
-//TODO: needed or not ? for button ?
-//import './home-style.css';
-
 import HomeHeroButton from './HomeHeroButton';
 
 const homeHeroUnits = [
@@ -88,11 +72,6 @@ const useStyles = {
         backgroundOpacity: 0.25,
         height: '100%',
 
-        //TODO: adjust once dynamically called
-        //signUpMap TODO: change votesMap to signUpMap
-
-        //mixBlendMode: 'screen', 
-        //filter: 'grayscale(100%) brightness(100%) contrast(200%)'
     },
 
     // added from : (https://github.com/mui-org/material-ui/blob/master/docs/src/pages/getting-started/templates/blog/Blog.js)
@@ -107,8 +86,8 @@ const useStyles = {
     },
     
     hhuHeader: {
-        height: '10px',
-        fontSize: '1.25em',
+        height: '0px',
+        fontSize: '1em',
         fontFamily: 'Helvetica Black Extended',
         color: 'black',
         textShadow:  '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
@@ -153,17 +132,10 @@ const useStyles = {
 
     hhuButtonContainer: {
         paddingLeft: '0em',
-        paddingTop: '1.0em',
+        paddingTop: '0.5em',
+        marginTop: '0.4em',
     },
 
-    //TODO: revisit and apply :(https://github.com/mui-org/material-ui/issues/10075)
-    // hhuButton:hover,
-    // hhuButton:active,
-    // hhuButton:focus{
-    //     color: black;
-    //     background: white;
-    // }
-    
     homeHeroUnitControls:{
         textAlign: 'center',
     },
@@ -252,7 +224,7 @@ class HomeMainCard extends Component {
                             style={{
                                 mixBlendMode: 'screen', filter: 'grayscale(100%) brightness(80%) contrast(150%)',
                                 position: 'relative',
-                                height: '450px',
+                                height: '350px',
                                 objectFit: 'cover',
                                 width: '100%'
 
@@ -261,21 +233,20 @@ class HomeMainCard extends Component {
                     />
                 
                     <Grid container spacing={1} alignItems="flex-end"  >
-                    <div style={ { width: '100%', position: 'absolute', height: '450px', display: 'flex' } }>
+                    <div style={ { width: '100%', position: 'absolute', height: '350px', display: 'flex' } }>
                             <Grid item xs={12} className={classes.hhuFrame}>
                                 <Grid container 
                                     direction="column" 
                                     alignItems="flex-start"
                                 >
-                                        <Typography className={classes.hhuHeader} variant="body1" >
+                                        {/* <Typography className={classes.hhuHeader} variant="body1" >
                                             {selectedHeroUnit.header}
-                                        </Typography>
+                                        </Typography> */}
                                         <Typography className={classes.hhuTitle} >avotecado - VANCOUVER </Typography>
                                         <Typography className={classes.hhuSubheading} variant="h4" >
                                             Track your local politicians & see how they voted municpal on matters
                                         </Typography>
                                         <Typography className={classes.hhuActionPrompt} variant="body1">Sign up to get the latest on your local politics</Typography>
-                                    
                                     <Grid item xs={6} className={classes.hhuButtonContainer}>
                                         <HomeHeroButton className={classes.hhuButton}/>
                                     </Grid>
@@ -293,45 +264,4 @@ class HomeMainCard extends Component {
 }
 
 export default withStyles(useStyles)(HomeMainCard);
-
-// class HomeHeroButton extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             //loading: true,
-//             homeHeroUnits: []
-//         };
-//     }
-
-//     componentDidMount() {
-//         console.log(this.props);
-//         this.setState({homeHeroUnits: this.state.homeHeroUnits});
-//         console.log(this.state.homeHeroUnits);
-//     }
-
-//     render(){
-//         console.log(this.state);
-
-//         let buttonTextStyle = {
-//             fontFamily: 'Fact-ExpandedMedium',
-//             fontWeight: 'bold',
-//             fontSize: '1.15em',
-//             color: 'black',
-//             margin: '0.15em'
-//         };
-
-//         return(
-//             <div>
-//                 {this.state.homeHeroUnits.map((homeHeroUnit, index) => (
-//                     <NavLink to={'/' + `${homeHeroUnit.name}`} key={index} style={{textDecorationLine: 'none'}}>
-//                         <button className="hhu-button">
-//                             {homeHeroUnit.buttonText}
-//                         </button>
-//                     </NavLink>
-//                 ))}
-//             </div>
-//             );    
-//     }
-// }
-// export withStyles(useStyles)(HomeHeroButton);
 

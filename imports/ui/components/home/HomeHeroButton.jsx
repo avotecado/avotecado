@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
 import {Link, NavLink} from 'react-router-dom';
-
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
-import { Button } from '@material-ui/core';
-import {Container} from '@material-ui/core';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import './home-style.css';
 
@@ -29,15 +23,8 @@ const useStyles = {
     hhuButtonContainer: {
         paddingLeft: '3.5em',
         paddingTop: '1.20em',
+        marginTop: '1.2em'
     },
-    //TODO: revisit and apply :(https://github.com/mui-org/material-ui/issues/10075)
-    // hhuButton:hover,
-    // hhuButton:active,
-    // hhuButton:focus{
-    //     color: black;
-    //     background: white;
-    // }
-
 }
 
 class HomeHeroButton extends Component {

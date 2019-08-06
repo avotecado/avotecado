@@ -15,7 +15,7 @@ import {Votes} from "../../pages/Votes";
 const classes = {
     root: {
         marginTop: '-1em',
-        marginBottom: '6em',
+        marginBottom: '4em',
         height: '2em',
         flexGrow: 1
     },
