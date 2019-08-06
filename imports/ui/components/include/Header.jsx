@@ -13,8 +13,8 @@ import IconButton from '@material-ui/core/IconButton';
 
 const classes = {
     root: {
-        marginTop: '-0.75em',
-        marginBottom: '6em',
+        marginTop: '-1em',
+        marginBottom: '4em',
         height: '2em',
         flexGrow: 1
     },

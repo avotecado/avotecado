@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import Header from './components/include/Header.jsx';
 import Footer from './components/include/Footer.jsx';
 
@@ -15,6 +14,8 @@ import PublicProfile from "./pages/PublicProfile";
 import AdminPanel from "./pages/AdminPanel";
 
 import { BrowserRouter, Route } from 'react-router-dom';
+
+// import TraversyCarousel from './components/home/Carousel/TraversyCarousel';
 
 class App extends Component {
   render () {
