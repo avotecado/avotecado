@@ -90,10 +90,9 @@ export default class PoliticianMakeAComment extends Component {
     render() {
         let subHeaderStyle = {
             fontFamily: 'Helvetica Black Extended',
-            fontSize: '1.8em',
-            color: 'white',
+            fontSize: '1.85em',
+            color: 'black',
             textAlign: 'center',
-            backgroundColor: 'black',
             marginBottom: '-0.2em'
         };
         let politician = this.state.politician;
@@ -142,9 +141,9 @@ export default class PoliticianMakeAComment extends Component {
                         </Container>
                     </form>
                     <Grid item xs={12}>
-            <span style={subHeaderStyle}>
-              Here's what others have had to say about {politician.firstname} {politician.lastname}.
-            </span>
+                        <span style={subHeaderStyle}>
+                          Here's what others have had to say about {politician.firstname} {politician.lastname}.
+                        </span>
                         <CommentViewer commentsArray={this.state.commentsArray}/>
                     </Grid>
                 </div>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {withStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import {Container} from '@material-ui/core';
@@ -31,14 +31,13 @@ export class Login extends Component {
 
     componentDidMount() {
         if (Meteor.userId()) {
-            this.setState({ loggedIn: true });
+            this.setState({loggedIn: true});
         }
     }
 
 
     handleChange(e) {
         this.setState({[e.target.name]: e.target.value});
-        // console.log(e.target.name, e.target.value, (typeof e.target.value));
     }
 
     handleSubmit(e) {
@@ -48,19 +47,23 @@ export class Login extends Component {
             if (error) {
                 console.log('There was an error:' + error.reason);
             } else {
-                that.setState({ loggedIn: true });
+                that.setState({loggedIn: true});
             }
         });
     }
 
     render() {
         if (this.state.loggedIn) {
-            return <Redirect to='/userprofile'/>;
+            return <Redirect to='/user-settings'/>;
         } else {
             return (
                 <div>
-                    <Container style={{ display: 'flex', flexDirection: 'column' }}>
-                        <form onSubmit={this.handleSubmit}>
+                    <Container maxWidth='xs'>
+                        <form onSubmit={this.handleSubmit} style={{display: 'flex', flexDirection: 'column'}}>
+                            <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>
+                                Login
+                            </span>
+
                             <CustomTextField name='username' label='Username' style={{marginBottom: '0.1em'}}
                                              required autoComplete='username' value={this.state.username}
                                              onChange={this.handleChange}/>
@@ -78,6 +81,15 @@ export class Login extends Component {
                             }}>
                                 Login
                             </Button>
+
+                            <p />
+
+                            <Link
+                                style={{fontFamily: 'Fact-ExpandedMedium', fontSize: '1.25em', color: 'black', textDecorationStyle: 'wavy', textDecorationColor: 'rgb(0,146,69)' }}
+                                to='/register'>
+                                No account? Click here to register.
+                            </Link>
+
                         </form>
                     </Container>
                 </div>

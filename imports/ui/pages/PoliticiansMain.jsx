@@ -10,11 +10,12 @@ import Comments from '../../api/Comments';
 // import Async from 'react-async';
 
 import PoliticianHeaderText from '../components/politicians/PoliticianHeaderText';
+import PoliticianRatingSystem from '../components/politicians/PoliticianRatingSystem';
 import PoliticiansSelect from '../components/politicians/PoliticiansSelect';
 import PoliticiansPic from '../components/politicians/PoliticiansPic';
 import PoliticianFollow from '../components/politicians/PoliticianFollow';
 import PoliticianContact from '../components/politicians/PoliticianContact';
-// import PoliticianVoteHistory from '../components/politicians/PoliticianVoteHistory';
+import PoliticianVoteHistory from '../components/politicians/PoliticianVoteHistory';
 import CommentSystem from '../components/comments/CommentSystem';
 
 import {Container} from '@material-ui/core';
@@ -98,11 +99,22 @@ class PoliticiansMain extends Component {
                                     <PoliticianContact politician={politician}/>
                                 </Grid>
 
+                                <Grid item xs={12}>
+                                    <PoliticianVoteHistory politician={politician}/>
+                                </Grid>
+
+                                <Grid item xs={12} style={{marginBottom: '-0.25em'}}/>
+
+                                <Grid item xs={12}>
+                                    <PoliticianRatingSystem politician={politician} />
+                                </Grid>
+
                                 <Grid item xs={12} style={{marginTop: '1em'}}/>
 
                                 <Grid item xs={12}>
                                     <CommentSystem politician={politician}/>
                                 </Grid>
+
 
                             </Grid>
                         </Container>

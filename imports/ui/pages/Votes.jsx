@@ -6,7 +6,6 @@ import VoteCollection from '/imports/api/VoteCollection';
 
 import VoteTable from '../components/votes/VoteTable';
 
-// import Grid from '@material-ui/core/Grid';
 import {Container} from '@material-ui/core';
 
 export class Votes extends Component {
@@ -54,10 +53,8 @@ export class Votes extends Component {
 
 export default withTracker(() => {
     Meteor.subscribe('VoteCollection', {
-        onReady: function () {
-        },
-        onError: function () {
-        }
+        onReady: function () {},
+        onError: function () {}
     });
     return {votes: VoteCollection.find().fetch()};
 })(Votes);
