@@ -9,6 +9,28 @@ import TextField from '@material-ui/core/TextField';
 import {Container} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
+const subHeaderStyle = {
+    fontFamily: 'Helvetica Black Extended',
+    fontSize: '1.85em',
+    color: 'black',
+    textAlign: 'center',
+    marginBottom: '-0.2em'
+};
+const buttonStyle = {
+    fontFamily: 'Helvetica Black Extended',
+    color: 'white',
+    fontSize: '1.25em',
+    backgroundColor: '#009245',
+    textTransform: 'none'
+};
+const disabledButtonStyle = {
+    fontFamily: 'Helvetica Black Extended',
+    color: 'white',
+    fontSize: '1.25em',
+    backgroundColor: '#828282',
+    textTransform: 'none'
+};
+
 const CustomTextField = withStyles({
     root: {
         '& label.Mui-focused': {fontFamily: 'Fact-ExpandedMedium', color: '#009245'},
@@ -64,11 +86,11 @@ export default class PoliticianMakeAComment extends Component {
 
     clearInputs = () => {
         this.setState({messageInput: ''});
-    }
+    };
 
     handleMessage = (event) => {
         this.setState({messageInput: event.target.value});
-    }
+    };
 
     handleSubmit = (event) => {
         event.preventDefault();
@@ -88,29 +110,8 @@ export default class PoliticianMakeAComment extends Component {
     }
 
     render() {
-        let subHeaderStyle = {
-            fontFamily: 'Helvetica Black Extended',
-            fontSize: '1.85em',
-            color: 'black',
-            textAlign: 'center',
-            marginBottom: '-0.2em'
-        };
         let politician = this.state.politician;
         if (this.state.commentsArray) {
-            let buttonStyle = {
-                fontFamily: 'Helvetica Black Extended',
-                color: 'white',
-                fontSize: '1.25em',
-                backgroundColor: '#009245',
-                textTransform: 'none'
-            };
-            let disabledButtonStyle = {
-                fontFamily: 'Helvetica Black Extended',
-                color: 'white',
-                fontSize: '1.25em',
-                backgroundColor: '#828282',
-                textTransform: 'none'
-            };
             return (
                 <div>
           <span style={subHeaderStyle}>

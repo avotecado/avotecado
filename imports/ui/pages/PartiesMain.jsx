@@ -10,6 +10,7 @@ import Grid from '@material-ui/core/Grid';
 import PartiesSelect from "../components/parties/PartiesSelect";
 import PartiesBasicInfo from "../components/parties/PartiesBasicInfo";
 import PartiesHeaderText from "../components/parties/PartiesHeaderText";
+import PartiesVoteHistory from "../components/parties/PartiesVoteHistory";
 
 function removeDuplicates(politicianArray) {
     // ref: https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
@@ -19,22 +20,11 @@ function removeDuplicates(politicianArray) {
     });
 }
 
-function getVotesForPoliticianArray(that) {
-    Meteor.call('vote.getAll', null, (err, res) => {
-        let politician = that.props.politicianArray;
-        let votesArray = res;
-        let voteByPoliticianObject = {politicianID: politician, votesArray: votesArray};
-        Meteor.call('vote.voteByPolitician', voteByPoliticianObject, (err, res) => {
-            if (err) {
-                console.log(err);
-            } else {
-                that.setState({loading: false, votes: res});
-            }
-        });
-    });
+function filterForParty(selectedParty, politicianArray) {
+    return politicianArray.filter((politician) => { return politician.party === selectedParty });
 }
 
-export class Parties extends Component {
+export class PartiesMain extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -81,11 +71,10 @@ export class Parties extends Component {
         } else {
             let parties = this.props.parties;
             let politicianArray = this.state.politicianArray;
-            let politicianArrayFiltered = removeDuplicates(politicianArray);
+            let politicianArrayFilteredForDoubles = removeDuplicates(politicianArray);
             let selectedPartyId = this.state.selectedParty;
-            let selectedParty = parties.find((party) => { return party._id === selectedPartyId });
-
-            console.log(politicianArray);
+            // console.log(selectedPartyId);
+            // console.log(politicianArray);
 
             if (!selectedPartyId) {
                 return (
@@ -97,12 +86,16 @@ export class Parties extends Component {
                     </div>
                 );
             } else {
+                let selectedParty = parties.find((party) => { return party._id === selectedPartyId });
+                let politicianArrayFilteredForSelectedParty = filterForParty(selectedPartyId, politicianArrayFilteredForDoubles);
+                // console.log(politicianArrayFilteredForSelectedParty);
                 return (
                     <div>
                         <Container maxWidth='lg'>
                             <PartiesHeaderText/>
                             <PartiesSelect parties={parties}/>
-                            <PartiesBasicInfo parties={[selectedParty]} politicianArray={politicianArrayFiltered}/>
+                            <PartiesBasicInfo parties={[selectedParty]} politicianArray={politicianArrayFilteredForDoubles}/>
+                            <PartiesVoteHistory parties={[selectedParty]} politicianArray={politicianArrayFilteredForSelectedParty} />
                         </Container>
                     </div>
                 );
@@ -121,4 +114,4 @@ export default withTracker(() => {
         }
     });
     return {parties: PartyCollection.find().fetch()};
-})(Parties);
+})(PartiesMain);

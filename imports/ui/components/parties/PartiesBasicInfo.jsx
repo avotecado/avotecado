@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Container} from "@material-ui/core";
 import {Link} from "react-router-dom";
+import PartiesVoteHistory from "./PartiesVoteHistory";
 
 const subHeaderStyle = {
     fontFamily: 'Helvetica Black Extended',
@@ -12,6 +13,7 @@ const subHeaderStyle = {
 
 class PartiesBasicInfo extends Component {
     render() {
+        // console.log(this.props.parties);
         return (
             <div>
                 <Container display='flex' maxWidth='lg'>
@@ -21,14 +23,14 @@ class PartiesBasicInfo extends Component {
                                 <div>
                                     <span style={subHeaderStyle}>{party._id}</span> <br />
                                     <span>
-                                      <a href={`https://wikipedia.org/wiki/${party.ideology}`}>
+                                     Party Ideology:  <a href={`https://wikipedia.org/wiki/${party.ideology}`}>
                                           <img src='/icons/wiki_w.svg' width='16px' />
                                           {party.ideology}
                                       </a>
                                   </span>
                                     <br />
                                     <span>
-                                      <a href={`https://wikipedia.org/wiki/${party.politicianPosition}`}>
+                                      Politician Position: <a href={`https://wikipedia.org/wiki/${party.politicianPosition}`}>
                                           <img src='/icons/wiki_w.svg' width='16px' />
                                           {party.politicianPosition}
                                       </a>

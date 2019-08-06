@@ -4,8 +4,8 @@ import Header from './components/include/Header.jsx';
 import Footer from './components/include/Footer.jsx';
 
 import Home from './pages/Home';
-import Politicians from './pages/PoliticiansMain';
-import Parties from './pages/Parties';
+import PoliticiansMain from './pages/PoliticiansMain';
+import PartiesMain from './pages/PartiesMain';
 import Votes from './pages/Votes';
 import Login from './pages/Login';
 import Register from './pages/Register';
@@ -23,8 +23,8 @@ class App extends Component {
         <div style={{ overflowX: 'hidden' }}>
           <Header />
           <Route exact path='/' component={Home} />
-          <Route exact path='/politicians' component={Politicians} />
-          <Route exact path='/parties' component={Parties} />
+          <Route exact path='/politicians' component={PoliticiansMain} />
+          <Route exact path='/parties' component={PartiesMain} />
           <Route exact path='/votes' component={Votes} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />

@@ -42,8 +42,11 @@ export default class PoliticianViewComments extends Component {
                                 {this.state.commentsArray.map((message, index) => (
                                     <ListItem key={index}>
                                         <div style={{fontFamily: 'Fact-ExpandedMedium'}}>
-                                            <NavLink to={'/user?' + `${message.user}`}>{message.username}</NavLink>:{' '}</div>
-                                        {message.message}
+                                            <NavLink to={'/user?' + `${message.user}`}>
+                                                {message.username}
+                                            </NavLink>:{' '}
+                                        </div>
+                                        {' ' + message.message}
                                     </ListItem>
                                 ))}
                             </div>
