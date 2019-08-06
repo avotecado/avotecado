@@ -1,0 +1,79 @@
+import React, { Component } from 'react';
+import {Link, NavLink} from 'react-router-dom';
+
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import { Button } from '@material-ui/core';
+import {Container} from '@material-ui/core';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
+import './home-style.css';
+
+const homeHeroButtons = [
+    {name: 'login', buttonText: 'SIGN UP'},
+    // {name: 'politicians', buttonText: 'EXPLORE'}
+]
+
+const useStyles = {
+
+    hhuButton: {
+        padding: '10px 20px',
+        border: '3px solid black',
+        background: 'transparent',
+        backgroundColor: 'black',
+        color: 'white',
+        fontFamily: 'Fact-ExpandedMedium',
+        fontWeight: 'bold',
+        fontSize: '1.25em'
+    },
+    hhuButtonContainer: {
+        paddingLeft: '3.5em',
+        paddingTop: '1.20em',
+    },
+    //TODO: revisit and apply :(https://github.com/mui-org/material-ui/issues/10075)
+    // hhuButton:hover,
+    // hhuButton:active,
+    // hhuButton:focus{
+    //     color: black;
+    //     background: white;
+    // }
+
+}
+
+class HomeHeroButton extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: true,
+            homeHeroButtons: [],
+        };
+    }
+
+    componentDidMount() {
+        console.log(this.props);
+        this.setState({
+            homeHeroButtons: homeHeroButtons,
+                        });
+        console.log(this.state.homeHeroButtons);
+    }
+
+    render(){
+        console.log(this.state);
+
+
+
+        return(
+            
+            <div>
+                {this.state.homeHeroButtons.map((homeHeroButton, index) => (
+                    <NavLink to={'/' + `${homeHeroButton.name}`} key={index} style={{textDecorationLine: 'none'}}>
+                        <button className="hhu-button">
+                            {homeHeroButton.buttonText}
+                        </button>
+                    </NavLink>
+                ))}
+            </div>
+            );    
+    }
+}
+export default withStyles(useStyles)(HomeHeroButton);
