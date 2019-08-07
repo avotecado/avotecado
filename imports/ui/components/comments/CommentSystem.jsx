@@ -9,6 +9,12 @@ import TextField from '@material-ui/core/TextField';
 import {Container} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 
+const commentInputContainerStyle = {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
+    marginBottom: '3em'
+};
 const subHeaderStyle = {
     fontFamily: 'Helvetica Black Extended',
     fontSize: '1.85em',
@@ -21,13 +27,6 @@ const buttonStyle = {
     color: 'white',
     fontSize: '1.25em',
     backgroundColor: '#009245',
-    textTransform: 'none'
-};
-const disabledButtonStyle = {
-    fontFamily: 'Helvetica Black Extended',
-    color: 'white',
-    fontSize: '1.25em',
-    backgroundColor: '#828282',
     textTransform: 'none'
 };
 
@@ -84,9 +83,33 @@ export default class PoliticianMakeAComment extends Component {
         }
     }
 
-    clearInputs = () => {
-        this.setState({messageInput: ''});
-    };
+    loggedInCommentSystemDisplay(politician) {
+        return (
+            <>
+                <Grid item xs={12}>
+                        <span style={subHeaderStyle}>
+                          Here's what people have said about {politician.firstname} {politician.lastname}.
+                        </span>
+                    <CommentViewer commentsArray={this.state.commentsArray}/>
+                </Grid>
+                <span style={subHeaderStyle}>
+                    Have something to say about {politician.firstname} {politician.lastname}?
+                </span>
+                <form onSubmit={this.handleSubmit}>
+                    <Container style={commentInputContainerStyle}>
+                        <CustomTextField
+                            name='message_Input' fullWidth label='Share your thoughts.'
+                            style={{marginBottom: '0.1em'}}
+                            value={this.state.messageInput} onChange={this.handleMessage}
+                        />
+                        <Button type='submit' variant='contained' style={buttonStyle}>
+                            Post
+                        </Button>
+                    </Container>
+                </form>
+            </>
+        );
+    }
 
     handleMessage = (event) => {
         this.setState({messageInput: event.target.value});
@@ -96,59 +119,36 @@ export default class PoliticianMakeAComment extends Component {
         event.preventDefault();
 
         if (inputValidation(this.state.messageInput)) {
-            this.clearInputs();
+            this.setState({messageInput: ''});
             alert('Message cannot start or end with a blank space.');
         }
         let user = Meteor.userId();
         let username = Meteor.users.findOne(Meteor.userId).username;
         let politicianID = this.props.politician._id;
         let message = this.state.messageInput;
-
-        this.clearInputs();
-        this.setState({commentsArray: [...this.state.commentsArray, {user: user, username: username, message: message}]});
+        this.setState({messageInput: '', commentsArray: [...this.state.commentsArray, {user: user, username: username, message: message}]});
         Meteor.call('comments.add', politicianID, message);
     };
 
     render() {
         let politician = this.state.politician;
         if (this.state.commentsArray) {
+            if (Meteor.user()) {
             return (
-                <div>
-          <span style={subHeaderStyle}>
-            Have something to say about {politician.firstname} {politician.lastname}?
-          </span>
-                    <form onSubmit={this.handleSubmit}>
-                        <Container style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            alignItems: 'flex-end',
-                            marginBottom: '3em'
-                        }}>
-                            <CustomTextField
-                                name='message_Input' fullWidth label='Share your thoughts.'
-                                style={{marginBottom: '0.1em'}}
-                                value={this.state.messageInput} onChange={this.handleMessage}
-                            />
-                            {
-                                Meteor.user() ?
-                                    <Button type='submit' variant='contained' style={buttonStyle}>
-                                        Post
-                                    </Button>
-                                    :
-                                    <Button type='submit' variant='contained' disabled style={disabledButtonStyle}>
-                                        Post
-                                    </Button>
-                            }
-                        </Container>
-                    </form>
-                    <Grid item xs={12}>
+                this.loggedInCommentSystemDisplay(politician)
+            );
+            } else {
+                return (
+                    <>
+                        <Grid item xs={12}>
                         <span style={subHeaderStyle}>
                           Here's what others have had to say about {politician.firstname} {politician.lastname}.
                         </span>
-                        <CommentViewer commentsArray={this.state.commentsArray}/>
-                    </Grid>
-                </div>
-            );
+                            <CommentViewer commentsArray={this.state.commentsArray}/>
+                        </Grid>
+                    </>
+                )
+            }
         } else {
             return (
                 <>
