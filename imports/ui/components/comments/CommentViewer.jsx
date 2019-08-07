@@ -17,19 +17,10 @@ export default class PoliticianViewComments extends Component {
         this.setState({commentsArray: this.props.commentsArray});
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        if (prevState.commentsArray !== this.state.commentsArray) {
-            this.setState({commentsArray: this.state.commentsArray});
+    componentDidUpdate(prevProps) {
+        if (prevProps !== this.props) {
+            this.setState({commentsArray: this.props.commentsArray});
         }
-    }
-
-    static getDerivedStateFromProps(props, state) {
-        if (props.commentsArray !== state.commentsArray) {
-            return {
-                commentsArray: props.commentsArray
-            };
-        }
-        return null;
     }
 
     render() {
@@ -44,9 +35,9 @@ export default class PoliticianViewComments extends Component {
                                         <div style={{fontFamily: 'Fact-ExpandedMedium'}}>
                                             <NavLink to={'/user?' + `${message.user}`}>
                                                 {message.username}
-                                            </NavLink>:{' '}
+                                            </NavLink>:
                                         </div>
-                                        {' ' + message.message}
+                                        {message.message}
                                     </ListItem>
                                 ))}
                             </div>

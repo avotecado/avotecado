@@ -99,13 +99,13 @@ export default class PoliticianMakeAComment extends Component {
             this.clearInputs();
             alert('Message cannot start or end with a blank space.');
         }
-
+        let user = Meteor.userId();
         let username = Meteor.users.findOne(Meteor.userId).username;
         let politicianID = this.props.politician._id;
         let message = this.state.messageInput;
 
         this.clearInputs();
-        this.setState({commentsArray: [...this.state.commentsArray, {username: username, message: message}]});
+        this.setState({commentsArray: [...this.state.commentsArray, {user: user, username: username, message: message}]});
         Meteor.call('comments.add', politicianID, message);
     };
 
