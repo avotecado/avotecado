@@ -24,7 +24,6 @@ export default class PoliticianPic extends Component {
 
     render() {
         if (this.state.politician) {
-            // console.log('polPFP: ', this.state.politician);
             return (
                 <div style={{display: 'flex', backgroundColor: 'rgba(0,146,69, 1)'}}>
                     <img alt='image'

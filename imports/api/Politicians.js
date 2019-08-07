@@ -6,7 +6,6 @@ export default Politicians = new Mongo.Collection('Politicians');
 
 if (Meteor.isServer) {
     Meteor.publish('Politicians', function () {
-        console.log('publishing Politicians');
         return Politicians.find();
     });
 }

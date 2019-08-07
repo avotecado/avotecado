@@ -9,13 +9,11 @@ class PoliticianContact extends Component {
     }
 
     componentDidMount() {
-        // console.log('polContact cdm: ', this.props.politician);
         this.setState({politician: this.props.politician});
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if (prevProps.politician !== this.props.politician) {
-            // console.log('polContact cdu: ', this.props.politician);
             this.setState({politician: this.props.politician});
         }
     }

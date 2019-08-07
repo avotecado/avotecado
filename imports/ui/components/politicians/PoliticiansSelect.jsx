@@ -11,13 +11,11 @@ export default class PoliticiansSelect extends Component {
     }
 
     componentDidMount() {
-        // console.log('polSelect cdm: ', this.props.politiciansArray);
         this.setState({politiciansArray: this.props.politiciansArray});
     }
 
     componentDidUpdate(prevProps, prevState) {
         if (prevProps.politiciansArray !== this.props.politiciansArray) {
-            // console.log('polSelect cdu: ', this.props.politiciansArray);
             this.setState({politiciansArray: this.props.politiciansArray});
         }
     }

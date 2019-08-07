@@ -24,7 +24,7 @@ export class Votes extends Component {
         });
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             this.setState({loading: false, votes: this.props.votes});
         }

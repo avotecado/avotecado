@@ -73,9 +73,6 @@ export class PartiesMain extends Component {
             let politicianArray = this.state.politicianArray;
             let politicianArrayFilteredForDoubles = removeDuplicates(politicianArray);
             let selectedPartyId = this.state.selectedParty;
-            // console.log(selectedPartyId);
-            // console.log(politicianArray);
-
             if (!selectedPartyId) {
                 return (
                     <div>
@@ -88,14 +85,16 @@ export class PartiesMain extends Component {
             } else {
                 let selectedParty = parties.find((party) => { return party._id === selectedPartyId });
                 let politicianArrayFilteredForSelectedParty = filterForParty(selectedPartyId, politicianArrayFilteredForDoubles);
-                // console.log(politicianArrayFilteredForSelectedParty);
                 return (
                     <div>
                         <Container maxWidth='lg'>
                             <PartiesHeaderText/>
                             <PartiesSelect parties={parties}/>
                             <PartiesBasicInfo parties={[selectedParty]} politicianArray={politicianArrayFilteredForDoubles}/>
-                            <PartiesVoteHistory parties={[selectedParty]} politicianArray={politicianArrayFilteredForSelectedParty} />
+                            <PartiesVoteHistory
+                                parties={[selectedParty]}
+                                politicianArray={politicianArrayFilteredForSelectedParty}
+                            />
                         </Container>
                     </div>
                 );

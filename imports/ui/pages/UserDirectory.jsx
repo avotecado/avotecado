@@ -22,7 +22,7 @@ class UserDirectory extends React.Component {
     }
 
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             this.setState({
                 loading: false,

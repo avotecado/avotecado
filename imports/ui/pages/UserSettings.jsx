@@ -34,7 +34,7 @@ class UserSettings extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             let user = this.props.user;
             if (user._id === Meteor.userId()) {
@@ -68,7 +68,7 @@ class UserSettings extends React.Component {
             if (err) {
                 console.log(err.reason);
             } else {
-                this.setState(initialState);
+                console.log(res);
             }
         })
     }

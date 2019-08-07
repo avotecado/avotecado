@@ -40,7 +40,7 @@ class PoliticianRatingDisplay extends Component {
         getRatings.call(this, that);
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
+    componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             let that = this;
             getRatings.call(this, that);

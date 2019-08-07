@@ -6,7 +6,6 @@ export default VoteCollection = new Mongo.Collection('VoteCollection');
 
 if (Meteor.isServer) {
     Meteor.publish('VoteCollection', function followVoteCollections() {
-        console.log('publishing VoteCollections');
         return VoteCollection.find();
     });
 }

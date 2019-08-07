@@ -6,7 +6,6 @@ export default Ratings = new Mongo.Collection('Ratings');
 
 if (Meteor.isServer) {
     Meteor.publish('Ratings', function ratingsPublication() {
-        console.log('publishing Ratings');
         return Ratings.find();
     });
 }
@@ -18,7 +17,6 @@ Meteor.methods({
         if (!this.userId) {
             throw new Meteor.Error('not-authorized');
         }
-        console.log('inside ratings.add');
         Ratings.upsert({_id: politicianID}, {$push: {ratings: userRating}});
 
     },

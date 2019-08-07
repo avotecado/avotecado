@@ -24,7 +24,6 @@ export default class HomeSpotlight extends Component {
                 console.log(err.reason);
             } else {
                 this.setState({politician: res[0]});
-                console.log(this.state);
             }
         });
     }

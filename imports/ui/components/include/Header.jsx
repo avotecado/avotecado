@@ -78,7 +78,7 @@ class Header extends React.Component {
         }
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
+    componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             if (Meteor.user()) {
                 this.setState({loggedIn: true});

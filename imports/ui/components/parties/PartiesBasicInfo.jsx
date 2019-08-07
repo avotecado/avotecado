@@ -13,7 +13,6 @@ const subHeaderStyle = {
 
 class PartiesBasicInfo extends Component {
     render() {
-        // console.log(this.props.parties);
         return (
             <div>
                 <Container display='flex' maxWidth='lg'>

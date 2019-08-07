@@ -91,7 +91,6 @@ Meteor.startup(() => {
     });
 
     Meteor.publish('UsersList', function () {
-        console.log('publishing UsersList');
         return Meteor.users.find({}, {
             fields: {
                 username: 1,
@@ -107,7 +106,6 @@ Meteor.startup(() => {
     });
 
     Meteor.publish('SingleUser', function () {
-        console.log('publishing SingleUser');
         return Meteor.users.find({_id: Meteor.userId()}, {
             fields: {
                 username: 1,

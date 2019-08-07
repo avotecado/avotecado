@@ -17,9 +17,8 @@ const COLUMNS = [
 ];
 
 function getVotesForPolitician(that) {
-    Meteor.call('vote.getAll', null, (err, res) => {
+    Meteor.call('vote.getAll', null, (err, votesArray) => {
         let politician = that.props.politician._id;
-        let votesArray = res;
         let voteByPoliticianObject = {politicianID: politician, votesArray: votesArray};
         Meteor.call('vote.voteByPolitician', voteByPoliticianObject, (err, res) => {
             if (err) {

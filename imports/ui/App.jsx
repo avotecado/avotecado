@@ -9,6 +9,7 @@ import PartiesMain from './pages/PartiesMain';
 import Votes from './pages/Votes';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import UserProfile from "./pages/UserProfile";
 import UserSettings from './pages/UserSettings';
 import UserDirectory from './pages/UserDirectory';
 import PublicProfile from "./pages/PublicProfile";
@@ -28,6 +29,7 @@ class App extends Component {
           <Route exact path='/votes' component={Votes} />
           <Route exact path='/login' component={Login} />
           <Route exact path='/register' component={Register} />
+          <Route exact path='/user-profile' component={UserProfile} />
           <Route exact path='/user-settings' component={UserSettings} />
           <Route exact path='/user-directory' component={UserDirectory} />
           <Route exact path='/user' component={PublicProfile} />

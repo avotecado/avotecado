@@ -14,17 +14,12 @@ export class PoliticianFollow extends Component {
     }
 
     componentDidMount() {
-        // console.log(this.props.politician);
-        // console.log(this.props.followedArray);
         if (this.props.followedArray) {
             this.setState({followedArray: this.props.followedArray, loaded: true});
         }
     }
 
-    componentDidUpdate(prevProps, prevState) {
-    }
-
-    render() {
+        render() {
         if (this.state.loaded) {
             let politician = this.props.politician;
             let followedArray = this.props.followedArray.flatMap(x => (x.following));

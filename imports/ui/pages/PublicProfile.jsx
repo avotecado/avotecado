@@ -4,9 +4,7 @@ import {Meteor} from "meteor/meteor";
 import Container from "@material-ui/core/Container";
 
 function extracted() {
-    console.log(this.props);
     let userId = this.props.location.search.replace('?', '');
-    console.log(userId);
     Meteor.call('followed.findByUser', userId, (err,res) => {
         if (err) {
             console.log(err.reason);
@@ -29,7 +27,7 @@ class PublicProfile extends Component {
         extracted.call(this);
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             extracted.call(this);
         }
@@ -40,7 +38,6 @@ class PublicProfile extends Component {
             return (<>Loading...</>);
         } else {
             let userStringified = JSON.stringify(this.state.user);
-            console.log(this.state.user);
             return (
                 <div>
                     <Container>

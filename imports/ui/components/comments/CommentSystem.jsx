@@ -69,7 +69,7 @@ export default class PoliticianMakeAComment extends Component {
         });
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             let that = this;
             let politician = this.props.politician;
@@ -107,7 +107,7 @@ export default class PoliticianMakeAComment extends Component {
         this.clearInputs();
         this.setState({commentsArray: [...this.state.commentsArray, {username: username, message: message}]});
         Meteor.call('comments.add', politicianID, message);
-    }
+    };
 
     render() {
         let politician = this.state.politician;

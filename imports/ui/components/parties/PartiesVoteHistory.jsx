@@ -11,6 +11,15 @@ const COLUMNS = [
     { title: 'Tags', field: 'tags', cellStyle: {fontFamily: 'Fact-Expanded'}}
 ];
 
+const OPTIONS = {
+    pageSizeOptions: [5, 10, 20, 50, 100],
+    selection: true,
+    filtering: true,
+    sorting: true,
+    exportButton: true,
+    headerStyle: {fontFamily: 'Fact-ExpandedMedium', backgroundColor: '#009245', color: '#FFF'},
+};
+
 function getVotesForPoliticianArray(that) {
     Meteor.call('vote.getAll', null, (err, votesArray) => {
         let politicianArray = that.props.politicianArray[0].politicians;
@@ -42,7 +51,7 @@ class PartiesVoteHistory extends Component {
         getVotesForPoliticianArray.call(this, that);
     }
 
-    componentDidUpdate(prevProps, prevState, snapshot) {
+    componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             this.setState({loading: true});
             let that = this;
@@ -70,14 +79,7 @@ class PartiesVoteHistory extends Component {
                         }
                         data={this.state.votes}
                         columns={COLUMNS}
-                        options={{
-                            pageSizeOptions: [5, 10, 20, 50, 100],
-                            selection: true,
-                            filtering: true,
-                            sorting: true,
-                            exportButton: true,
-                            headerStyle: {fontFamily: 'Fact-ExpandedMedium', backgroundColor: '#009245', color: '#FFF'},
-                        }}
+                        options={OPTIONS}
                         detailPanel={rowData => {
                             let voteResult = [];
                             let length = rowData.votes.length;

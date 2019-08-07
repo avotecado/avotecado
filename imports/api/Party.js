@@ -6,7 +6,6 @@ export default Party = new Mongo.Collection('Party');
 
 if (Meteor.isServer) {
     Meteor.publish('Party', function followPublication() {
-        console.log('publishing Party');
         return Party.find();
     });
 }
