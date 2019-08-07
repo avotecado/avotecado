@@ -113,7 +113,6 @@ export class VoteTable extends Component {
                                         ? 'rgba(0, 146, 69, 0.25)' : '#FFF'
                             })
                     }}
-                    parentChildData={(row, rows) => row.votes === rows.votes}
                     onSelectionChange={(rows) => this.setState({selectedForDataViz: rows})}
                     detailPanel={rowData => {
                         let voteResult = [];

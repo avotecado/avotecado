@@ -44,9 +44,9 @@ Meteor.methods({
         for (let i = votesArray.length; i-- > 0;) {
             let arrayToInsertPoliticianVote = new Array(11);
             let currentVoteArray = votesArray[i].votes;
-            for (let j = politicianIDArray.length; j-- > 0;) {
-                arrayToInsertPoliticianVote[j] = currentVoteArray[j];
-            }
+            politicianIDArray.forEach((id) => {
+                arrayToInsertPoliticianVote[id] = currentVoteArray[id];
+            });
 
             votesArray[i].votes = arrayToInsertPoliticianVote;
         }
