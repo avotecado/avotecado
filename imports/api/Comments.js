@@ -11,13 +11,14 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-    'comments.add'(politicianID, message) {
+    'comments.add'(politicianID, politicianName, message) {
         check(politicianID, String);
         if (!this.userId) {
             throw new Meteor.Error('not-authorized');
         }
         Comments.insert({
             politician: politicianID,
+            politicianName: politicianName,
             user: this.userId,
             username: Meteor.users.findOne(this.userId).username,
             message: message,

@@ -1,71 +1,77 @@
 import React, {Component} from 'react';
 import {Meteor} from "meteor/meteor";
 import {withTracker} from "meteor/react-meteor-data";
+import {Redirect} from "react-router-dom";
+import Container from "@material-ui/core/Container";
+import AdminCommentsSystem from "../components/admin/AdminCommentsSystem";
+
+import Comments from "../../api/Comments";
 
 class AdminPanel extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: true
+            loading: true,
+            comments: [],
+            ratings: [],
+            users: []
         };
     }
 
-    componentDidMount() {
-        if (true) {
-            Meteor.call('comments.getAll', null, (err, res) => {
-                if (err) {
-                    console.log(err.reason);
-                } else {
-                    let comments = res;
-                    Meteor.call('ratings.getAll', null, (err, res) => {
-                        if (err) {
-                            console.log(err.reason);
-                        } else {
-                            let ratings = res;
-                            console.log(comments);
-                            console.log(ratings);
-                            console.log(this.props.users);
-                            this.setState({
-                                loading: false,
-                                comments: comments,
-                                ratings: ratings,
-                                users: this.props.users
-                            });
-                        }
-                    });
-                }
-            });
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (prevProps !== this.props) {
+            console.log(this.props);
+            if (Roles.userIsInRole(Meteor.user(), ['admin'])) {
+                Meteor.call('ratings.getAll', (err, ratings) => {
+                    if (err) {
+                        console.log(err.reason);
+                    } else {
+                        this.setState({
+                            loading: false,
+                            ratings: ratings,
+                            users: this.props.users
+                        });
+                    }
+                });
+            }
         }
     }
 
 
     render() {
-        if (true) {
+        if (Roles.userIsInRole(Meteor.user(), ['admin'])) {
             if (this.state.loading) {
                 return (
                     <>
-                        Loading...
+                        <Container>
+                            Loading...
+                        </Container>
                     </>
                 );
             } else {
+                let comments = this.props.comments;
                 return (
                     <div>
-
+                        <Container>
+                            <AdminCommentsSystem comments={comments}/>
+                        </Container>
                     </div>
                 );
             }
         } else {
-            //
+            return (
+                <>
+                    E
+                </>);
         }
     }
 }
 
 export default withTracker(() => {
-    Meteor.subscribe('UsersList', {
-        onReady: function () {
-        },
-        onError: function () {
-        }
-    });
-    return {users: Meteor.users.find({}).fetch()};
+    Meteor.subscribe('UsersList');
+    Meteor.subscribe('Comments');
+    return {
+        users: Meteor.users.find({}).fetch(),
+        comments: Comments.find().fetch()
+    };
 })(AdminPanel);
