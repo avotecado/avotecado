@@ -2,7 +2,9 @@ import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 
 import MaterialTable from "material-table";
+
 import PoliticianRadarChart from "./PoliticianRadarChart";
+import {OPTIONS} from "../../../utils/tablePropsShared";
 
 const cellStyleRegularText = {fontFamily: 'Fact-Expanded'};
 const cellStyleSmallText = {fontFamily: 'Fact-Expanded', fontSize: '0.65em'};
@@ -15,15 +17,6 @@ const COLUMNS = [
     { title: 'Tags', field: 'tags', cellStyle: cellStyleRegularText },
     { title: 'Date', field: 'voteDate', type: 'date', defaultSort: 'desc', cellStyle: cellStyleSmallText }
 ];
-
-const OPTIONS = {
-    pageSizeOptions: [5, 10, 20, 50, 100],
-    selection: true,
-    filtering: true,
-    sorting: true,
-    exportButton: true,
-    headerStyle: {fontFamily: 'Fact-ExpandedMedium', backgroundColor: '#009245', color: '#FFF'}
-};
 
 class PoliticianVoteHistory extends Component {
     constructor(props) {

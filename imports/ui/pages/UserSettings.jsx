@@ -1,14 +1,9 @@
 import React from 'react';
-import {Redirect} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
-import ListItemText from '@material-ui/core/ListItemText';
 import {Container, withStyles} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -16,7 +11,6 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import Grid from "@material-ui/core/Grid";
 
 const CustomTextField = withStyles({
     root: {
@@ -84,7 +78,7 @@ class UserSettings extends React.Component {
         if (Meteor.userId()) {
             return (
                 <div>
-                    <Container style={{display: 'flex', flexDirection: 'column'}}>
+                    <Container style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
                         <Button onClick={()=>this.handleLogout()} variant='contained' style={{
                             fontFamily: 'Helvetica Black Extended',
                             color: 'white',
@@ -94,6 +88,17 @@ class UserSettings extends React.Component {
                         }}>
                             Logout
                         </Button>
+                        {Roles.userIsInRole(Meteor.user(), ['admin']) ?
+                            <Button component={Link} to='/admin' variant='contained' style={{
+                                fontFamily: 'Helvetica Black Extended',
+                                color: 'white',
+                                fontSize: '1.25em',
+                                backgroundColor: '#dbc000',
+                                textTransform: 'none'
+                            }}>
+                                Admin Panel
+                            </Button>
+                            : null}
                     </Container>
                     <form onSubmit={this.handleSubmit}>
                         <Container style={{display: 'flex', flexDirection: 'column'}}>

@@ -1,6 +1,6 @@
 import React from "react";
 
-export function matchVoteToPoliticianTableDetailPanel(rowData, politician) {
+export function matchVoteToPolitician(rowData, politician) {
     let voteResult = [];
     let length = rowData.votes.length;
     for (let i = 0; i < length; i++) {
