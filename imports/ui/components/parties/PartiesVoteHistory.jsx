@@ -33,6 +33,8 @@ class PartiesVoteHistory extends Component {
     }
 
     componentDidMount() {
+        console.log(this.props.fullPoliticianArray);
+        this.setState({politicians: this.props.politiciansSubscribeArray});
         this.getVotesForPoliticianArray();
     }
 
@@ -53,17 +55,11 @@ class PartiesVoteHistory extends Component {
             let voteByPoliticianObject = {politicianIDArray: politicianIDArray, votesArray: votesArray};
             Meteor.call('vote.voteByArrayOfPolitician', voteByPoliticianObject, (err, voteArrayFiltered) => {
                 if (err) {
-                    console.log(err);
+                    this.setState({error: err.reason});
                 } else {
-                    Meteor.call('politicians.getAll', (err, politicianResultArray)=> {
-                        if (err) {
-                            this.setState({error: err.reason});
-                        } else {
-                            this.setState({
-                                loading: false,
-                                votes: voteArrayFiltered,
-                                politicians: politicianResultArray});
-                        }
+                    this.setState({
+                        loading: false,
+                        votes: voteArrayFiltered
                     });
                 }
             });

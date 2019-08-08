@@ -3,6 +3,7 @@ import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 
 import PartyCollection from '/imports/api/Party';
+import Politicians from '/imports/api/Politicians';
 
 import {Container} from '@material-ui/core';
 import PartiesSelect from "../components/parties/PartiesSelect";
@@ -27,15 +28,21 @@ export class PartiesMain extends Component {
         super(props);
         this.state = {
             loading: true,
-            parties: '',
+            parties: [],
             selectedParty: null,
+            politiciansSubscribeArray: [],
             politicianArray: []
         };
     }
 
     componentDidUpdate(prevProps) {
+        if ((prevProps !== this.props) && (this.props.location !== '')) {
+            let selectedParty = this.props.location.search.replace('?', '');
+            this.setState({selectedParty: selectedParty});
+        }
+
         if (prevProps !== this.props && this.state.loading) {
-            this.setState({parties: this.props.parties});
+            this.setState({parties: this.props.parties, politiciansSubscribeArray: this.props.politicians});
             this.props.parties.forEach((party) => {
                 Meteor.call('politicians.findByParty', party._id, (error, politicianResultArray) => {
                     if (error) {
@@ -50,10 +57,6 @@ export class PartiesMain extends Component {
                     }
                 });
             });
-        }
-        if ((prevProps !== this.props) && (this.props.location !== '')) {
-            let selectedParty = this.props.location.search.replace('?', '');
-            this.setState({selectedParty: selectedParty});
         }
     }
 
@@ -92,6 +95,7 @@ export class PartiesMain extends Component {
                             <PartiesVoteHistory
                                 parties={[selectedParty]}
                                 politicianArray={politicianArrayFilteredForSelectedParty}
+                                politiciansSubscribeArray={this.state.politiciansSubscribeArray}
                             />
                         </Container>
                     </div>
@@ -103,5 +107,9 @@ export class PartiesMain extends Component {
 
 export default withTracker(() => {
     Meteor.subscribe('Party');
-    return {parties: PartyCollection.find().fetch()};
+    Meteor.subscribe('Politicians');
+    return {
+        parties: PartyCollection.find().fetch(),
+        politicians: Politicians.find().fetch()
+    };
 })(PartiesMain);

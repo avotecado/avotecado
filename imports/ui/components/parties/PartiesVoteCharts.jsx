@@ -20,22 +20,6 @@ const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, perc
     );
 };
 
-function setupCharts() {
-    let dataToAggregate = this.props.selectedForDataViz;
-    let count = [];
-    let tagData = [];
-    let voteData = [];
-    dataToAggregate.forEach(entry => {
-        entry.tags.forEach(value => {
-            setupArrayForReCharts(count, value, tagData);
-        });
-        entry.votes.forEach(value => {
-            setupArrayForReCharts(count, value, voteData);
-        });
-    });
-    this.setState({loading: false, tagData: tagData, voteData: voteData});
-}
-
 class PartiesVoteCharts extends Component {
     constructor(props) {
         super(props);
@@ -53,8 +37,24 @@ class PartiesVoteCharts extends Component {
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             this.setState({loading: true});
-            setupCharts.call(this);
+            this.setupCharts();
         }
+    }
+
+    setupCharts() {
+        let dataToAggregate = this.props.selectedForDataViz;
+        let count = [];
+        let tagData = [];
+        let voteData = [];
+        dataToAggregate.forEach(entry => {
+            entry.tags.forEach(value => {
+                setupArrayForReCharts(count, value, tagData);
+            });
+            entry.votes.forEach(value => {
+                setupArrayForReCharts(count, value, voteData);
+            });
+        });
+        this.setState({loading: false, tagData: tagData, voteData: voteData});
     }
 
     render() {
