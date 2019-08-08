@@ -2,15 +2,23 @@ import React, {Component} from 'react';
 import {withTracker} from "meteor/react-meteor-data";
 import {Meteor} from "meteor/meteor";
 import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
 
-function extracted() {
+function getUsersFollowedList() {
     let userId = this.props.location.search.replace('?', '');
-    Meteor.call('followed.findByUser', userId, (err,res) => {
+    Meteor.call('followed.findByUser', userId, (err, followed) => {
         if (err) {
             console.log(err.reason);
         } else {
             let user = (Meteor.users.find({_id: userId}).fetch());
-            this.setState({loading: false, user: user[0], followed: res});
+            this.setState({user: user[0], followed: followed});
+            Meteor.call('comments.findByUser', userId, (err, comments) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    this.setState({loading: false, comments: comments});
+                }
+            });
         }
     });
 }
@@ -19,29 +27,63 @@ class PublicProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            loading: true
+            loading: true,
+            followed: [],
+            comments: []
         }
     }
 
     componentDidMount() {
-        extracted.call(this);
+        getUsersFollowedList.call(this);
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
-            extracted.call(this);
+            getUsersFollowedList.call(this);
         }
     }
 
     render() {
         if (this.state.loading) {
-            return (<>Loading...</>);
+            return (
+                <>
+                    <Container>
+                        Loading...
+                    </Container>
+                </>
+            );
         } else {
-            let userStringified = JSON.stringify(this.state.user);
+            let f = JSON.stringify(this.state.followed);
+            let c = JSON.stringify(this.state.comments);
             return (
                 <div>
-                    <Container>
-                        {userStringified} <br/>
+                    <Container maxWidth='lg'>
+                        <Grid container>
+                            <Grid item xs={6}>
+                                <div style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>{this.state.user.username}</div>
+                                <>Name: {this.state.user.name}</> <br/>
+                                <>Date of Birth: {this.state.user.dob}</> <br/>
+                                <>Occupation: {this.state.user.occupation}</> <br/>
+                                <>Political Leaning: {this.state.user.politicalLeaning}</> <br/>
+                                <>Preferred Local Party: {this.state.user.prefParty}</> <br/>
+                                <>User Bio: {this.state.user.userBio}</> <br/>
+                            </Grid>
+                            <Grid container={true}>
+
+                                    <Grid>
+                                        <div style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>
+                                            Followed:
+                                        </div>
+                                        {f}
+                                    </Grid>
+                                    <Grid>
+                                        <div style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>
+                                            Comments:
+                                        </div>
+                                        {c}
+                                    </Grid>
+                            </Grid>
+                        </Grid>
                     </Container>
                 </div>
             );
@@ -50,11 +92,6 @@ class PublicProfile extends Component {
 }
 
 export default withTracker(() => {
-    Meteor.subscribe('UsersList', {
-        onReady: function () {
-        },
-        onError: function () {
-        }
-    });
+    Meteor.subscribe('UsersList');
     return {users: Meteor.users.find({}).fetch()};
 })(PublicProfile);

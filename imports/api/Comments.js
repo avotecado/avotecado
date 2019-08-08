@@ -39,6 +39,10 @@ Meteor.methods({
         }
         Comments.remove({user: userId});
     },
+    'comments.findByUser'(userId) {
+        check(userId, String);
+        return Comments.find({user: userId}).fetch();
+    },
     'comments.findByID'(politicianID) {
         check(politicianID, String);
         return Comments.find({politician: politicianID}).fetch();
