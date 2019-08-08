@@ -98,7 +98,7 @@ export default class PoliticianMakeAComment extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <Container style={commentInputContainerStyle}>
                         <CustomTextField
-                            name='message_Input' fullWidth label='Share your thoughts.'
+                            required name='message_Input' fullWidth label='Share your thoughts.'
                             style={{marginBottom: '0.1em'}}
                             value={this.state.messageInput} onChange={this.handleMessage}
                         />
@@ -121,6 +121,7 @@ export default class PoliticianMakeAComment extends Component {
         if (inputValidation(this.state.messageInput)) {
             this.setState({messageInput: ''});
             alert('Message cannot start or end with a blank space.');
+            return;
         }
         let user = Meteor.userId();
         let username = Meteor.users.findOne(Meteor.userId).username;
