@@ -32,21 +32,24 @@ class UserSettings extends React.Component {
         this.state = {password: '', name: '', occupation: '', prefParty: '', politicalLeaning: '', userBio: ''};
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleLogout = this.handleLogout.bind(this);
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             let user = this.props.user;
-            if (user._id === Meteor.userId()) {
-                this.setState({
-                    name: user.name,
-                    occupation: user.occupation,
-                    prefParty: user.prefParty,
-                    politicalLeaning: user.politicalLeaning,
-                    userBio: user.userBio
-                });
-            } else {
-                this.setState({loading: false, error: true});
+            if (Meteor.userId()) {
+                if (user._id === Meteor.userId()) {
+                    this.setState({
+                        name: user.name,
+                        occupation: user.occupation,
+                        prefParty: user.prefParty,
+                        politicalLeaning: user.politicalLeaning,
+                        userBio: user.userBio
+                    });
+                } else {
+                    this.setState({loading: false, error: true});
+                }
             }
         }
     }
@@ -73,10 +76,25 @@ class UserSettings extends React.Component {
         })
     }
 
+    handleLogout() {
+        Meteor.logout();
+    }
+
     render() {
         if (Meteor.userId()) {
             return (
                 <div>
+                    <Container style={{display: 'flex', flexDirection: 'column'}}>
+                        <Button onClick={()=>this.handleLogout()} variant='contained' style={{
+                            fontFamily: 'Helvetica Black Extended',
+                            color: 'white',
+                            fontSize: '1.25em',
+                            backgroundColor: '#D15F01',
+                            textTransform: 'none'
+                        }}>
+                            Logout
+                        </Button>
+                    </Container>
                     <form onSubmit={this.handleSubmit}>
                         <Container style={{display: 'flex', flexDirection: 'column'}}>
                             <CustomTextField name='name' label='Name' style={{marginBottom: '0.1em'}}
@@ -128,7 +146,6 @@ class UserSettings extends React.Component {
     }
 }
 
-//
 export default withTracker(() => {
     Meteor.subscribe('SingleUser', {
         onReady: function () {
