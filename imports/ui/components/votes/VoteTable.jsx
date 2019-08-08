@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 
 import VoteCharts from './VoteCharts';
 
-import MUIDataTable from "mui-datatables";
 import MaterialTable from 'material-table';
 import Grid from '@material-ui/core/Grid';
 import {Container} from '@material-ui/core';
@@ -36,55 +35,6 @@ export class VoteTable extends Component {
         this.tableDisplay = this.tableDisplay.bind(this);
         this.visualizationDisplay = this.visualizationDisplay.bind(this);
     }
-
-    // tableDisplay2 = () => {
-    //     let data = this.props.votes;
-    //     let politician = this.props.politicians;
-    //     const COLUMNS2 = [
-    //         {name: '_id', label: 'Vote Number', options: {filter: true, sort: true}},
-    //         {name: 'voteDate', label: 'Date', options: {filter: true, sort: true}},
-    //         {name: 'agendaDescription', label: 'Agenda', options: {filter: true, sort: true}},
-    //         {name: 'decision', label: 'Decision', options: {filter: true, sort: true}},
-    //         {name: 'tags', label: 'Tags', options: {filter: true, sort: true}},
-    //         {name: 'votes', label: 'Votes', options: {display: false}}
-    //     ];
-    //     const OPTIONS = {
-    //         filterType: "dropdown",
-    //         responsive: "scroll",
-    //         expandableRows: true,
-    //         expandableRowsOnClick: true,
-    //         renderExpandableRow: (rowData, rowMeta) => {
-    //             const colSpan = rowData.length + 1;
-    //             let voteResult = [];
-    //             let rowDataVotes = rowData[5];
-    //             let length = rowDataVotes.length;
-    //             for (let i = 0; i < length; i++) {
-    //                 voteResult.push(
-    //                     <span key={i}>
-    //                         {politician[i].firstname} {politician[i].lastname}: {rowDataVotes[i]}
-    //                         <p/>
-    //                     </span>
-    //                 );
-    //             }
-    //             return (
-    //                 <TableRow>
-    //                     <TableCell colSpan={colSpan}>
-    //                         {voteResult}
-    //                     </TableCell>
-    //                 </TableRow>
-    //             );
-    //         }
-    //     };
-    //
-    //   return (
-    //       <MUIDataTable
-    //           title={"Vote History"}
-    //           data={data}
-    //           columns={COLUMNS2}
-    //           options={OPTIONS}
-    //       />
-    //   );
-    // };
 
     tableDisplay() {
         let politician = this.props.politicians;

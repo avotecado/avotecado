@@ -94,6 +94,32 @@ Meteor.startup(() => {
         }
     });
 
+    // ref: https://forums.meteor.com/t/allow-user-to-delete-their-own-account/33307/4
+    Meteor.methods({
+        'selfDelete'() {
+            if (!Meteor.isServer) return;
+            try {
+                Meteor.users.remove(this.userId);
+            } catch (e) {
+                // handle this however you want
+                throw new Meteor.Error('self-delete', 'Failed to remove yourself');
+            }
+        },
+        'adminDeleteUser'(userId) {
+            if (!Meteor.isServer) return;
+            if (!Roles.userIsInRole(Meteor.user(), ['admin'])) {
+                throw new Meteor.Error('not-authorized');
+            }
+            try {
+                Meteor.users.remove(userId);
+            } catch (e) {
+                // handle this however you want
+                throw new Meteor.Error('self-delete', 'Failed to remove yourself');
+            }
+        }
+    });
+
+
     Meteor.publish('AdminUsersList', function () {
         return Meteor.users.find({}, {
             fields: {

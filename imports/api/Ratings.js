@@ -30,5 +30,12 @@ Meteor.methods({
     },
     'ratings.getAll'() {
         return Ratings.find({}).fetch();
+    },
+    'ratings.removeAllByUser'(userId) {
+        if (!Roles.userIsInRole(Meteor.user(), ['admin'])) {
+            throw new Meteor.Error('not-authorized');
+        }
+        check(userId, String);
+        // Ratings.update({'ratings.userId': userId}, {});
     }
 });

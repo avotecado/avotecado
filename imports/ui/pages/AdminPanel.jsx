@@ -3,7 +3,7 @@ import {Meteor} from "meteor/meteor";
 import {withTracker} from "meteor/react-meteor-data";
 import {Redirect} from "react-router-dom";
 import Container from "@material-ui/core/Container";
-import AdminUserTable from "../components/admin/AdminUserTable";
+import AdminUserManagement from "../components/admin/AdminUserManagement";
 import AdminCommentsSystem from "../components/admin/AdminCommentsSystem";
 
 import Comments from "../../api/Comments";
@@ -53,10 +53,10 @@ class AdminPanel extends Component {
                     <div>
                         <Container>
                             <Grid container>
-                                <Grid item xs={4}>
-                                    <AdminUserTable users={this.state.users}/>
+                                <Grid item xs={6}>
+                                    <AdminUserManagement users={this.state.users}/>
                                 </Grid>
-                                <Grid item xs={4}>
+                                <Grid item xs={6}>
                                     <AdminCommentsSystem comments={this.state.comments}/>
                                 </Grid>
                             </Grid>

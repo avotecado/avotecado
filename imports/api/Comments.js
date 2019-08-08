@@ -32,6 +32,13 @@ Meteor.methods({
         }
         Comments.remove(messageID);
     },
+    'comments.removeAllByUser'(userId) {
+        check(userId, String);
+        if (!Roles.userIsInRole(Meteor.user(), ['admin'])) {
+            throw new Meteor.Error('not-authorized');
+        }
+        Comments.remove({user: userId});
+    },
     'comments.findByID'(politicianID) {
         check(politicianID, String);
         return Comments.find({politician: politicianID}).fetch();

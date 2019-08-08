@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
 import Card from '@material-ui/core/Card';
 import {Meteor} from "meteor/meteor";
-import CardContent from '@material-ui/core/CardContent';
-import CardActions from '@material-ui/core/CardActions';
-import CardHeader from '@material-ui/core/CardHeader';
-
-import MaterialTable from "material-table";
-import {Container} from "@material-ui/core";
 
 class AdminCommentsSystem extends Component {
     constructor(props){
@@ -52,20 +46,27 @@ class AdminCommentsSystem extends Component {
             let comments = this.state.comments;
             console.log(comments);
             return (
-                <div>
-                    <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '1.5em', color: 'black'}}> Comments </span>
+                <>
+                    <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '1.5em', color: 'black'}}>
+                        Comments
+                    </span>
+                    <div style={{maxHeight: '35em', overflowY:'auto'}}>
                     {comments.map((comment, index) => {
                             return (
                                 <Card style={{marginBottom: '1em'}} key={index}>
                                     User: {comment.username} <br/>
                                     Message: {comment.message} <br/>
                                     Politician: {comment.politicianName} <br/>
-                                    <span style={{cursor: 'pointer'}} onClick={() => this.deleteMessage(comment._id)}>Delete Message</span><br/>
+                                    <span style={{fontWeight:'bold', color:'red', cursor: 'pointer'}}
+                                          onClick={() => this.deleteMessage(comment._id)}>
+                                        Delete Message
+                                    </span><br/>
                                 </Card>
                             )
                         }
                     )}
-                </div>
+                    </div>
+                </>
             );
         }
     }
