@@ -139,7 +139,11 @@ export default class PoliticianMakeAComment extends Component {
         if (this.state.commentsArray) {
             if (Meteor.user()) {
             return (
-                this.loggedInCommentSystemDisplay(politician)
+                <>
+                    <Grid item xs={12}>
+                        {this.loggedInCommentSystemDisplay(politician)}
+                    </Grid>
+                </>
             );
             } else {
                 return (
