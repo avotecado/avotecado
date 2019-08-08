@@ -91,11 +91,13 @@ class PoliticianRatingSystem extends Component {
                         <span style={subHeaderStyle}>
                             How do people feel about {this.props.politician.firstname} {this.props.politician.lastname}?
                         </span>
-                        <Grid item xs={6}>
+                        <Grid item xs={4} style={{display:"flex", justifyContent:"center"}}>
                             <PoliticianRatingChart ratingArray={ratingArray}/>
                         </Grid>
-                        <Grid item xs={6} style={{display: 'flex', flexDirection:'column', alignItems: 'center'}}>
+                        <Grid item xs={4} style={{display: 'flex', flexDirection:'column', justifyContent: 'center'}}>
                             <PoliticianRatingAverage ratingArray={ratingArray}/>
+                        </Grid>
+                        <Grid item xs={4} style={{display: 'flex', flexDirection:'column', alignItems: 'center'}}>
                             <p />
                             Why not rate them yourself?
                             {Meteor.user() ?

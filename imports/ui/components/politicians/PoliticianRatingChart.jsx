@@ -40,7 +40,7 @@ class PoliticianRatingChart extends Component {
             return ( <> Loading... </> );
         } else {
             if (this.state.ratingData.length === 0) {
-                return ( <> No ratings yet. </> );
+                return ( <> No ratings to display yet. </> );
             }
             else {
                 return (

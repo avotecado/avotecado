@@ -1,5 +1,21 @@
 import React, {Component} from 'react';
 
+function getColor(rating) {
+    switch(Math.floor(rating)) {
+        case 0:
+        case 1:
+            return '#D2222D';
+        case 2:
+            return '#FFBE00';
+        case 3:
+            return '#DBFF6E';
+        case 4:
+            return '#238823';
+        case 5:
+            return '#007000';
+    }
+}
+
 class PoliticianRatingAverage extends Component {
     constructor(props) {
         super(props);
@@ -35,11 +51,15 @@ class PoliticianRatingAverage extends Component {
             }
             let rating = (acc / ratingArrayLength).toFixed(2);
             return (
-                <>
-                    <strong>Average Rating:</strong> {rating} out of 5
-                </>);
+                <div style={{display:"flex", flexDirection:"column", alignItems:"center"}}>
+                    Average Rating:
+                    <span style={{fontFamily:"Helvetica Black Extended", fontSize:"2em", color:getColor(rating)}}>
+                        {rating}
+                    </span>
+                    out of 5
+                </div>);
         } else {
-            return 'No Rating Yet';
+            return 'No ratings to average yet.';
         }
     }
 
