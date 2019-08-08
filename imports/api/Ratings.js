@@ -45,6 +45,6 @@ Meteor.methods({
             throw new Meteor.Error('not-authorized');
         }
         check(userId, String);
-        // Ratings.update({'ratings.userId': userId}, {});
+        Ratings.remove({userId: userId});
     }
 });

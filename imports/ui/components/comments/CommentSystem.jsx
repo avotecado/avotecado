@@ -83,6 +83,30 @@ export default class PoliticianMakeAComment extends Component {
         }
     }
 
+    handleMessage = (event) => {
+        this.setState({messageInput: event.target.value});
+    };
+
+    handleSubmit = (event) => {
+        event.preventDefault();
+
+        if (inputValidation(this.state.messageInput)) {
+            this.setState({messageInput: ''});
+            alert('Message cannot start or end with a blank space.');
+            return;
+        }
+        let user = Meteor.userId();
+        let username = Meteor.users.findOne(Meteor.userId).username;
+        let politicianID = this.props.politician._id;
+        let politicianName = `${this.props.politician.firstname + ' ' + this.props.politician.lastname}`;
+        let message = this.state.messageInput;
+        this.setState({
+            messageInput: '',
+            commentsArray: [...this.state.commentsArray, {user: user, username: username, message: message}]
+        });
+        Meteor.call('comments.add', politicianID, politicianName, message);
+    };
+
     loggedInCommentSystemDisplay(politician) {
         return (
             <>
@@ -110,30 +134,6 @@ export default class PoliticianMakeAComment extends Component {
             </>
         );
     }
-
-    handleMessage = (event) => {
-        this.setState({messageInput: event.target.value});
-    };
-
-    handleSubmit = (event) => {
-        event.preventDefault();
-
-        if (inputValidation(this.state.messageInput)) {
-            this.setState({messageInput: ''});
-            alert('Message cannot start or end with a blank space.');
-            return;
-        }
-        let user = Meteor.userId();
-        let username = Meteor.users.findOne(Meteor.userId).username;
-        let politicianID = this.props.politician._id;
-        let politicianName = `${this.props.politician.firstname + ' ' + this.props.politician.lastname}`;
-        let message = this.state.messageInput;
-        this.setState({
-            messageInput: '',
-            commentsArray: [...this.state.commentsArray, {user: user, username: username, message: message}]
-        });
-        Meteor.call('comments.add', politicianID, politicianName, message);
-    };
 
     render() {
         let politician = this.state.politician;

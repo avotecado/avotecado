@@ -23,12 +23,14 @@ class AdminPanel extends Component {
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps !== this.props){
-            this.setState({
-                users: this.props.users,
-                comments: this.props.comments,
-                ratings: this.props.ratings,
-                loading: false
-            });
+            if (this.props.comments && this.props.ratings) {
+                this.setState({
+                    users: this.props.users,
+                    comments: this.props.comments,
+                    ratings: this.props.ratings,
+                    loading: false
+                });
+            }
         }
     }
 

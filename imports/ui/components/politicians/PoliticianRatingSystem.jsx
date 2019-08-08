@@ -91,7 +91,7 @@ class PoliticianRatingSystem extends Component {
                         <span style={subHeaderStyle}>
                             How do people feel about {this.props.politician.firstname} {this.props.politician.lastname}?
                         </span>
-                        <Grid item xs={4} style={{display:"flex", justifyContent:"center"}}>
+                        <Grid item xs={4} style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
                             <PoliticianRatingChart ratingArray={ratingArray}/>
                         </Grid>
                         <Grid item xs={4} style={{display: 'flex', flexDirection:'column', justifyContent: 'center'}}>
