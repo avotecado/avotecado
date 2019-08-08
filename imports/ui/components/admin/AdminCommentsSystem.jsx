@@ -1,29 +1,21 @@
 import React, {Component} from 'react';
+import Card from '@material-ui/core/Card';
+import {Meteor} from "meteor/meteor";
+import CardContent from '@material-ui/core/CardContent';
+import CardActions from '@material-ui/core/CardActions';
+import CardHeader from '@material-ui/core/CardHeader';
+
 import MaterialTable from "material-table";
-
-
-const COLUMNS = [
-    { title: 'User', field: '_id', defaultSort: 'desc', headerStyle: {padding: '1px'}, cellStyle: {fontFamily: 'Fact-Expanded'} },
-    { title: 'Comment', field: 'message', type: 'date', cellStyle: {fontFamily: 'Fact-Expanded'} },
-    { title: 'Politician Name', field: 'politicianName', cellStyle: {fontFamily: 'Fact-Expanded'} },
-    { title: 'Time', field: 'postedAt', cellStyle: {fontFamily: 'Fact-Expanded'} }
-];
+import {Container} from "@material-ui/core";
 
 class AdminCommentsSystem extends Component {
     constructor(props){
         super(props);
         this.state = {
-            loading: true
-        }
+            comments: []
+        };
+        this.deleteMessage=this.deleteMessage.bind(this);
     }
-
-    componentDidMount() {
-        console.log(this.props);
-        this.setState({
-            comments: this.props.comments
-        });
-    }
-
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps !== this.props){
@@ -34,25 +26,50 @@ class AdminCommentsSystem extends Component {
         }
     }
 
+    deleteMessage(_id) {
+        Meteor.call('comments.remove', _id, (err) => {
+            if (err) {
+                console.log(err);
+            } else {
+                let tempState = this.state.comments;
+                tempState.filter((comment) => { return comment._id!== _id});
+                this.setState({comments: tempState});
+            }
+        });
+
+    }
 
     render() {
+        console.log(this.state.comments);
         if (this.state.loading) {
-            console.log('loading@comments');
             return (
                 <>
-                    {null}
+                    Loading Comments...
                 </>
             );
         }
         else {
+            let comments = this.state.comments;
+            console.log(comments);
             return (
                 <div>
-                    {JSON.stringify(this.state.comments)}
-                    <MaterialTable columns={COLUMNS} data={this.state.comments} />
+                    <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '1.5em', color: 'black'}}> Comments </span>
+                    {comments.map((comment, index) => {
+                            return (
+                                <Card style={{marginBottom: '1em'}} key={index}>
+                                    User: {comment.username} <br/>
+                                    Message: {comment.message} <br/>
+                                    Politician: {comment.politicianName} <br/>
+                                    <span style={{cursor: 'pointer'}} onClick={() => this.deleteMessage(comment._id)}>Delete Message</span><br/>
+                                </Card>
+                            )
+                        }
+                    )}
                 </div>
             );
         }
     }
+
 }
 
 export default AdminCommentsSystem;

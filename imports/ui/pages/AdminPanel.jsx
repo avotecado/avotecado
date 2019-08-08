@@ -3,9 +3,12 @@ import {Meteor} from "meteor/meteor";
 import {withTracker} from "meteor/react-meteor-data";
 import {Redirect} from "react-router-dom";
 import Container from "@material-ui/core/Container";
+import AdminUserTable from "../components/admin/AdminUserTable";
 import AdminCommentsSystem from "../components/admin/AdminCommentsSystem";
 
 import Comments from "../../api/Comments";
+import Ratings from "../../api/Comments";
+import Grid from "@material-ui/core/Grid";
 
 class AdminPanel extends Component {
     constructor(props) {
@@ -19,21 +22,13 @@ class AdminPanel extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if (prevProps !== this.props) {
-            console.log(this.props);
-            if (Roles.userIsInRole(Meteor.user(), ['admin'])) {
-                Meteor.call('ratings.getAll', (err, ratings) => {
-                    if (err) {
-                        console.log(err.reason);
-                    } else {
-                        this.setState({
-                            loading: false,
-                            ratings: ratings,
-                            users: this.props.users
-                        });
-                    }
-                });
-            }
+        if (prevProps !== this.props){
+            this.setState({
+                users: this.props.users,
+                comments: this.props.comments,
+                ratings: this.props.ratings,
+                loading: false
+            });
         }
     }
 
@@ -49,11 +44,22 @@ class AdminPanel extends Component {
                     </>
                 );
             } else {
-                let comments = this.props.comments;
+                // console.log('props.users', this.props.users);
+                console.log('state.comments', this.state.comments);
+                console.log('props.comments', this.props.comments);
+                // console.log('state.ratings', this.state.ratings);
+                // console.log('props.ratings', this.props.ratings);
                 return (
                     <div>
                         <Container>
-                            <AdminCommentsSystem comments={comments}/>
+                            <Grid container>
+                                <Grid item xs={4}>
+                                    <AdminUserTable users={this.state.users}/>
+                                </Grid>
+                                <Grid item xs={4}>
+                                    <AdminCommentsSystem comments={this.state.comments}/>
+                                </Grid>
+                            </Grid>
                         </Container>
                     </div>
                 );
@@ -61,17 +67,22 @@ class AdminPanel extends Component {
         } else {
             return (
                 <>
-                    E
-                </>);
+                    <Container>
+                    You don't belong here.
+                    </Container>
+                </>
+                );
         }
     }
 }
 
 export default withTracker(() => {
-    Meteor.subscribe('UsersList');
+    Meteor.subscribe('AdminUsersList');
     Meteor.subscribe('Comments');
+    Meteor.subscribe('Ratings');
     return {
         users: Meteor.users.find({}).fetch(),
-        comments: Comments.find().fetch()
+        comments: Comments.find().fetch(),
+        ratings: Ratings.find().fetch()
     };
 })(AdminPanel);

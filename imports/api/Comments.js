@@ -27,15 +27,10 @@ Meteor.methods({
     },
     'comments.remove'(messageID) {
         check(messageID, String);
-        if (!this.userId) {
+        if (!Roles.userIsInRole(Meteor.user(), ['admin'])) {
             throw new Meteor.Error('not-authorized');
         }
-        let messageToRemove = Comments.findOne({_id: messageID});
-        if (messageToRemove._id === this.userId) {
-            Comments.remove(messageID);
-        } else {
-            throw new Meteor.Error('not-authorized');
-        }
+        Comments.remove(messageID);
     },
     'comments.findByID'(politicianID) {
         check(politicianID, String);

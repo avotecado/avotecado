@@ -94,6 +94,22 @@ Meteor.startup(() => {
         }
     });
 
+    Meteor.publish('AdminUsersList', function () {
+        return Meteor.users.find({}, {
+            fields: {
+                roles: 1,
+                username: 1,
+                name: 1,
+                dob: 1,
+                occupation: 1,
+                prefParty: 1,
+                politicalLeaning: 1,
+                userBio: 1,
+                createdAt: 1
+            }
+        });
+    });
+
     Meteor.publish('UsersList', function () {
         return Meteor.users.find({}, {
             fields: {
