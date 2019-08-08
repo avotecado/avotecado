@@ -32,7 +32,17 @@ function getVotesForPoliticianArray(that) {
             if (err) {
                 console.log(err);
             } else {
-                that.setState({loading: false, votes: voteArrayFiltered});
+                Meteor.call('politicians.getAll', (err, politicianResultArray)=> {
+                    if (err) {
+                        this.setState({error: err.reason});
+                    } else {
+                        console.log(politicianResultArray);
+                        that.setState({
+                            loading: false,
+                            votes: voteArrayFiltered,
+                            politicians: politicianResultArray});
+                    }
+                });
             }
         });
     });
@@ -67,6 +77,7 @@ class PartiesVoteHistory extends Component {
                 </>
             );
         } else {
+            let politician = this.state.politicians;
             return (
                 <div>
                     <link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'/>
@@ -84,11 +95,12 @@ class PartiesVoteHistory extends Component {
                             let voteResult = [];
                             let length = rowData.votes.length;
                             for (let i = 0; i < length; i++) {
+                                let currentVote = rowData.votes[i];
+                                let politicianName = currentVote ? `${this.state.politicians[i].firstname} ${this.state.politicians[i].lastname + ':'}` : null;
                                 voteResult.push(
                                     <span key={i}>
-                                    {/*{politician[i].firstname} {politician[i].lastname}:*/}
-                                        {rowData.votes[i]}<p/>
-                                </span>
+                                        {politicianName} {rowData.votes[i]}<p/>
+                                    </span>
                                 );
                             }
                             return (
