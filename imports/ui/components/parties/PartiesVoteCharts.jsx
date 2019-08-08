@@ -36,7 +36,7 @@ function setupCharts() {
     this.setState({loading: false, tagData: tagData, voteData: voteData});
 }
 
-class VoteCharts extends Component {
+class PartiesVoteCharts extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -91,4 +91,4 @@ class VoteCharts extends Component {
     }
 }
 
-export default VoteCharts;
+export default PartiesVoteCharts;

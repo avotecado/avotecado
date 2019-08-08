@@ -1,12 +1,10 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 
 import PartyCollection from '/imports/api/Party';
 
 import {Container} from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
 import PartiesSelect from "../components/parties/PartiesSelect";
 import PartiesBasicInfo from "../components/parties/PartiesBasicInfo";
 import PartiesHeaderText from "../components/parties/PartiesHeaderText";
@@ -104,13 +102,6 @@ export class PartiesMain extends Component {
 }
 
 export default withTracker(() => {
-    Meteor.subscribe('Party', {
-        onReady: function () {
-            console.log('onReady');
-        },
-        onError: function () {
-            console.log('onError');
-        }
-    });
+    Meteor.subscribe('Party');
     return {parties: PartyCollection.find().fetch()};
 })(PartiesMain);

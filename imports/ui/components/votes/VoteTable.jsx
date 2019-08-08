@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 
 import VoteCharts from './VoteCharts';
+import {matchVoteToPoliticianTableDetailPanel} from "../../../utils/matchVoteToPoliticianTableDetailPanel";
 
 import MaterialTable from 'material-table';
 import Grid from '@material-ui/core/Grid';
 import {Container} from '@material-ui/core';
-import TableRow from "@material-ui/core/TableRow";
-import TableCell from "@material-ui/core/TableCell";
 
 
 const emptyStyle = {
@@ -65,15 +64,7 @@ export class VoteTable extends Component {
                     }}
                     onSelectionChange={(rows) => this.setState({selectedForDataViz: rows})}
                     detailPanel={rowData => {
-                        let voteResult = [];
-                        let length = rowData.votes.length;
-                        for (let i = 0; i < length; i++) {
-                            voteResult.push(
-                                <span key={i}>
-                                    {politician[i].firstname} {politician[i].lastname}: {rowData.votes[i]}<p/>
-                                </span>
-                            );
-                        }
+                        let voteResult = matchVoteToPoliticianTableDetailPanel(rowData, politician);
                         return (
                             <Container style={{fontFamily: 'Fact-Expanded'}}>
                                 {voteResult}
