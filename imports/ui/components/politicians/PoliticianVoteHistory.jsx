@@ -16,19 +16,14 @@ const COLUMNS = [
     { title: 'Date', field: 'voteDate', type: 'date', defaultSort: 'desc', cellStyle: cellStyleSmallText }
 ];
 
-function getVotesForPolitician(that) {
-    Meteor.call('vote.getAll', null, (err, votesArray) => {
-        let politician = that.props.politician._id;
-        let voteByPoliticianObject = {politicianID: politician, votesArray: votesArray};
-        Meteor.call('vote.voteByPolitician', voteByPoliticianObject, (err, res) => {
-            if (err) {
-                console.log(err);
-            } else {
-                that.setState({loading: false, votes: res});
-            }
-        });
-    });
-}
+const OPTIONS = {
+    pageSizeOptions: [5, 10, 20, 50, 100],
+    selection: true,
+    filtering: true,
+    sorting: true,
+    exportButton: true,
+    headerStyle: {fontFamily: 'Fact-ExpandedMedium', backgroundColor: '#009245', color: '#FFF'}
+};
 
 class PoliticianVoteHistory extends Component {
     constructor(props) {
@@ -41,16 +36,28 @@ class PoliticianVoteHistory extends Component {
 
     componentDidMount() {
         this.setState({loading: true});
-        let that = this;
-        getVotesForPolitician.call(this, that);
+        this.getVotesForPolitician();
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             this.setState({loading: true});
-            let that = this;
-            getVotesForPolitician.call(this, that);
+            this.getVotesForPolitician();
         }
+    }
+
+    getVotesForPolitician() {
+        Meteor.call('vote.getAll', null, (err, votesArray) => {
+            let politician = this.props.politician._id;
+            let voteByPoliticianObject = {politicianID: politician, votesArray: votesArray};
+            Meteor.call('vote.voteByPolitician', voteByPoliticianObject, (err, res) => {
+                if (err) {
+                    console.log(err);
+                } else {
+                    this.setState({loading: false, votes: res});
+                }
+            });
+        });
     }
 
     render() {
@@ -70,14 +77,7 @@ class PoliticianVoteHistory extends Component {
                         }
                         columns={COLUMNS}
                         data={this.state.votes}
-                        options={{
-                            pageSizeOptions: [5, 10, 20, 50, 100],
-                            selection: true,
-                            filtering: true,
-                            sorting: true,
-                            exportButton: true,
-                            headerStyle: {fontFamily: 'Fact-ExpandedMedium', backgroundColor: '#009245', color: '#FFF'}
-                        }}
+                        options={OPTIONS}
                         onSelectionChange={(rows) => this.setState({selectedForDataViz: rows})}
                     />
                 </div>

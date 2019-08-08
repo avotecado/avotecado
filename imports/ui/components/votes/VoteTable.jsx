@@ -25,6 +25,15 @@ const COLUMNS = [
     { title: 'Tags', field: 'tags', cellStyle: {fontFamily: 'Fact-Expanded'}}
 ];
 
+const OPTIONS = {
+    pageSizeOptions: [5, 10, 20, 50, 100],
+    selection: true,
+    filtering: true,
+    sorting: true,
+    exportButton: true,
+    headerStyle: {fontFamily: 'Fact-ExpandedMedium', backgroundColor: '#009245', color: '#FFF'},
+};
+
 export class VoteTable extends Component {
     constructor(props) {
         super(props);
@@ -48,20 +57,7 @@ export class VoteTable extends Component {
                     }
                     columns={COLUMNS}
                     data={this.props.votes}
-                    options={{
-                        pageSizeOptions: [5, 10, 20, 50, 100],
-                        selection: true,
-                        filtering: true,
-                        sorting: true,
-                        exportButton: true,
-                        headerStyle: {fontFamily: 'Fact-ExpandedMedium', backgroundColor: '#009245', color: '#FFF'},
-                        rowStyle: rowData => (
-                            {
-                                backgroundColor:
-                                    (this.state.selectedMoreDetails && this.state.selectedMoreDetails._id === rowData._id)
-                                        ? 'rgba(0, 146, 69, 0.25)' : '#FFF'
-                            })
-                    }}
+                    options={OPTIONS}
                     onSelectionChange={(rows) => this.setState({selectedForDataViz: rows})}
                     detailPanel={rowData => {
                         let voteResult = matchVoteToPoliticianTableDetailPanel(rowData, politician);
