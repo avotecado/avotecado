@@ -19,8 +19,8 @@ const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, perc
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
 
     return (
-        <Text style={{fontFamily: 'Fact-ExpandedMedium', backgroundColor: 'black'}} width='1em' x={x} y={y} fill='white'
-              textAnchor='middle' dominantBaseline='central' scaleToFit angle='90'>
+        <Text style={{fontFamily: 'Fact-ExpandedMedium', backgroundColor: 'black'}} x={x} y={y} fill='white'
+              textAnchor='middle' dominantBaseline='central'>
             {
                 `${name}:` +
                 `${(percent * 100).toFixed(0)}%`

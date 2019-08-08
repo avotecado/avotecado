@@ -3,7 +3,7 @@ import {setupArrayForReCharts} from "../../../utils/setupArrayForReCharts";
 import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
 
 function setupRatingDataForChart() {
-    let ratingArray = this.props.ratingArray[0].ratings;
+    let ratingArray = this.props.ratingArray;
     let ratingData = [];
     let count = [];
     ratingArray.forEach(entry => {
@@ -45,11 +45,11 @@ class PoliticianRatingChart extends Component {
             else {
                 return (
                     <>
-                        <BarChart width={300} height={150} maxBarSize={13}
+                        <BarChart width={300} height={200} maxBarSize={13}
                                   data={this.state.ratingData}>
                             <CartesianGrid strokeDasharray='5 5'/>
                             <XAxis dataKey='name'/>
-                            <YAxis label={{ value: 'Index', angle: -90 }} />
+                            <YAxis allowDecimals={false} label={{ value: 'Index', angle: -90 }} />
                             <Tooltip/>
                             <Legend/>
                             <Bar name='Amount of Given Rating'

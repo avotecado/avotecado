@@ -18,7 +18,6 @@ export default class HomeSpotlight extends Component {
 
     componentDidMount() {
         let politicianID = (Math.floor((Math.random() * 11))).toString();
-        console.log('politicianID: ', politicianID);
         Meteor.call('politicians.findByID', politicianID, (err, res) => {
             if (err) {
                 console.log(err.reason);

@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 
-import PoliticianRatingDisplay from './PoliticianRatingDisplay';
+import PoliticianRatingAverage from './PoliticianRatingAverage';
 import PoliticianRatingChart from "./PoliticianRatingChart";
 
 import Ratings from '../../../api/Ratings';
@@ -50,6 +50,13 @@ class PoliticianRatingSystem extends Component {
         }
     }
 
+    componentDidMount() {
+        if (this.props.ratingArray) {
+            this.setState({loading: false});
+        }
+    }
+
+
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             this.setState({loading: false})
@@ -84,14 +91,11 @@ class PoliticianRatingSystem extends Component {
                         <span style={subHeaderStyle}>
                             How do people feel about {this.props.politician.firstname} {this.props.politician.lastname}?
                         </span>
-                        <Grid item xs={4} style={{display: 'flex', justifyContent: 'center'}}>
-                            <strong>Add something here?</strong>
-                        </Grid>
-                        <Grid item xs={4}>
+                        <Grid item xs={6}>
                             <PoliticianRatingChart ratingArray={ratingArray}/>
                         </Grid>
-                        <Grid item xs={4} style={{display: 'flex', flexDirection:'column', alignItems: 'center'}}>
-                            <PoliticianRatingDisplay ratingArray={ratingArray}/>
+                        <Grid item xs={6} style={{display: 'flex', flexDirection:'column', alignItems: 'center'}}>
+                            <PoliticianRatingAverage ratingArray={ratingArray}/>
                             <p />
                             Why not rate them yourself?
                             {Meteor.user() ?
@@ -107,13 +111,6 @@ class PoliticianRatingSystem extends Component {
 }
 
 export default withTracker((props) => {
-    Meteor.subscribe('Ratings', {
-        onReady: function () {
-        },
-        onError: function () {
-        }
-    });
-    return {
-        ratingArray: Ratings.find({_id: props.politician._id}).fetch()
-    }
+    Meteor.subscribe('Ratings');
+    return {ratingArray: Ratings.find({pid: props.politician._id}).fetch()}
 })(PoliticianRatingSystem);

@@ -13,20 +13,29 @@ if (Meteor.isServer) {
 Meteor.methods({
     'ratings.add'(politicianID, userRating) {
         check(politicianID, String);
+        check(userRating.userId, String);
         check(userRating.rating, Number);
         if (!this.userId) {
             throw new Meteor.Error('not-authorized');
         }
-        Ratings.upsert({_id: politicianID}, {$push: {ratings: userRating}});
-
+        Ratings.upsert({
+                pid: politicianID,
+                userId: userRating.userId
+            },{
+            $set: {
+                pid: politicianID,
+                userId: userRating.userId,
+                rating: userRating.rating
+            }
+        });
     },
     'ratings.findByID'(politicianID) {
         check(politicianID, String);
-        return Ratings.find({_id: politicianID}).fetch();
+        return Ratings.find({pid: politicianID}).fetch();
     },
     'ratings.findNewestByID'(politicianID) {
         check(politicianID, String);
-        return Ratings.find({_id: politicianID}).sort({$natural:1}).limit(4);
+        return Ratings.find({pid: politicianID}).sort({$natural:1}).limit(4);
     },
     'ratings.getAll'() {
         return Ratings.find({}).fetch();
