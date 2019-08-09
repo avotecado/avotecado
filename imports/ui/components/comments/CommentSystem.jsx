@@ -131,7 +131,7 @@ export default class PoliticianMakeAComment extends Component {
                             value={this.state.messageInput} onChange={this.handleMessage}
                             error={this.state.error}
                             helperText={this.state.error}
-                            inputProps={{ maxLength: 150 }}
+                            inputProps={{ maxLength: 140 }}
                         />
                         <Button type='submit' variant='contained' style={buttonStyle}>
                             Post

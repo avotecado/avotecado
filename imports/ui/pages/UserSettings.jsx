@@ -11,6 +11,9 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
+import {validateInput} from "../../utils/validateInput";
+import validator from "validator";
+import {unescapeUser} from "../../utils/unescapeUserInfo";
 
 const buttonStyle = {
     fontFamily: 'Helvetica Black Extended',
@@ -18,6 +21,13 @@ const buttonStyle = {
     fontSize: '1.25em',
     backgroundColor: '#009245',
     textTransform: 'none'
+};
+
+const bottomButtonRowStyle = {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginTop:'1em'
 };
 
 class UserSettings extends React.Component {
@@ -40,17 +50,26 @@ class UserSettings extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props && this.props.parties) {
-            let user = this.props.user;
+            let userFromProps = this.props.user;
             if (Meteor.userId()) {
-                let userId = Meteor.userId();
+                let userObject = {
+                    name: userFromProps.name,
+                    occupation: userFromProps.occupation,
+                    prefParty: userFromProps.prefParty,
+                    politicalLeaning: userFromProps.politicalLeaning,
+                    userBio: userFromProps.userBio
+                };
+
+                let unescapedUser = unescapeUser(userObject);
+
                 this.setState({
                     parties: this.props.parties,
-                    userId: userId,
-                    name: user.name,
-                    occupation: user.occupation,
-                    prefParty: user.prefParty,
-                    politicalLeaning: user.politicalLeaning,
-                    userBio: user.userBio
+                    userId: unescapedUser.userId,
+                    name: unescapedUser.name,
+                    occupation: unescapedUser.occupation,
+                    prefParty: unescapedUser.prefParty,
+                    politicalLeaning: unescapedUser.politicalLeaning,
+                    userBio: unescapedUser.userBio
                 });
             }
         }
@@ -63,17 +82,23 @@ class UserSettings extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         let updateObject = {
-            name: this.state.name,
-            occupation: this.state.occupation,
-            prefParty: this.state.prefParty,
-            politicalLeaning: this.state.politicalLeaning,
-            userBio: this.state.userBio
+            name: validator.escape(this.state.name),
+            occupation: validator.escape(this.state.occupation),
+            prefParty: validator.escape(this.state.prefParty),
+            politicalLeaning: validator.escape(this.state.politicalLeaning),
+            userBio: validator.escape(this.state.userBio)
         };
+        let validate = validateInput(updateObject);
+        if (!validate.isValid) {
+            return this.setState({error: validate.error, success: null});
+        }
         Meteor.call('user.updateUserProfile', updateObject, (err, res) => {
             if (err) {
-                console.log(err.reason);
+                this.setState({ error: err.error, success: null});
             } else {
-                console.log(res);
+                if (res) {
+                    this.setState({success: 'Profile updated!', error: null});
+                }
             }
         })
     }
@@ -105,14 +130,17 @@ class UserSettings extends React.Component {
                                        onChange={this.handleChange}/>
                             <TextField name='occupation' label='Occupation' style={{marginBottom: '0.1em'}}
                                        autoComplete='occupation' value={this.state.occupation}
+                                       inputProps={{ maxLength: 140 }}
                                        onChange={this.handleChange}/>
                             <TextField name='politicalLeaning' label='Political Leaning'
                                        style={{marginBottom: '0.1em'}}
                                        autoComplete='politicalLeaning'
+                                       inputProps={{ maxLength: 140 }}
                                        value={this.state.politicalLeaning}
                                        onChange={this.handleChange}/>
                             <TextField name='userBio' label='User Bio' style={{marginBottom: '0.1em'}}
                                        autoComplete='bio' value={this.state.userBio}
+                                       inputProps={{ maxLength: 140 }}
                                        onChange={this.handleChange}/>
                             <FormControl>
                                 <InputLabel>Preferred Party</InputLabel>
@@ -124,7 +152,13 @@ class UserSettings extends React.Component {
                             </Button>
                         </Container>
                     </form>
-                    <Container style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-around'}}>
+
+                    <div style={{display:"flex", flexDirection:"row", justifyContent:"center"}}>
+                        <span style={{marginTop:'1em', color:'red'}}>{this.state.error}</span>
+                        <span style={{marginTop:'1em', color:'green'}}>{this.state.success}</span>
+                    </div>
+
+                    <Container style={bottomButtonRowStyle}>
                         <Button onClick={() => this.handleLogout()} variant='contained' style={{
                             fontFamily: 'Helvetica Black Extended',
                             color: 'white',

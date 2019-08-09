@@ -14,9 +14,8 @@ import FormControl from "@material-ui/core/FormControl";
 import {routes} from "../../utils/routerPaths";
 import Party from "../../api/Party";
 import Loading from "../../utils/Loading";
+import {validateInput} from "../../utils/validateInput";
 import validator from 'validator';
-
-const dateCheck = new Date(-8640000000000000);
 
 const CustomTextField = withStyles({
     root: {
@@ -65,49 +64,23 @@ class Register extends Component {
         this.setState({[e.target.name]: e.target.value});
     }
 
-    validateInput(userToCreate) {
-        for (const key of Object.keys(userToCreate)) {
-            let value = userToCreate[key];
-            if (value) {
-                switch (key) {
-                    case 'username':
-                    case 'occupation':
-                    case 'prefParty':
-                    case 'politicalLeaning':
-                    case 'userBio':
-                    case 'name': {
-                        if (validator.isAlphanumeric(value)) {
-                            continue;
-                        } else {
-                            return false;
-                        }
-                    }
-                    default:
-                        console.log('default');
-                        break;
-                }
-            }
-        }
-        return true;
-    }
-
     handleSubmit(e) {
         e.preventDefault();
-        let userToCreate = {
-            username: this.state.username.trim(),
-            email: this.state.email.trim(),
-            password: this.state.password,
-            name: this.state.name.trim(),
-            dob: this.state.dob.trim(),
-            occupation: this.state.occupation.trim(),
-            prefParty: this.state.prefParty,
-            politicalLeaning: this.state.politicalLeaning.trim(),
-            userBio: this.state.userBio
+
+        const userToCreate = {
+            username: validator.escape(this.state.username.trim()),
+            email: validator.escape(this.state.email.trim()),
+            password: validator.escape(this.state.password),
+            name: validator.escape(this.state.name.trim()),
+            dob: validator.escape(this.state.dob.trim()),
+            occupation: validator.escape(this.state.occupation.trim())
         };
-        if (!this.validateInput(userToCreate)) {
-            console.log('help');
-            return this.setState({error: 'Validation error'})
+
+        let validate = validateInput(userToCreate);
+        if (!validate.isValid) {
+            return this.setState({error: validate.error});
         }
+
         Accounts.createUser(userToCreate, (error) => {
             if (error) {
                 console.log(error.reason);
@@ -150,7 +123,7 @@ class Register extends Component {
                                         fontSize: '1.25em'
                                     }}> Required: </span>
 
-                                        <CustomTextField name='username' label='Pick a name.'
+                                        <CustomTextField name='username' label='Pick a username.'
                                                          style={{marginBottom: '0.1em'}}
                                                          required autoComplete='username' value={this.state.username}
                                                          onChange={this.handleChange}/>
@@ -184,6 +157,7 @@ class Register extends Component {
                                         <CustomTextField name='occupation' label="What's your occupation?"
                                                          style={{marginBottom: '0.1em'}}
                                                          value={this.state.occupation}
+                                                         inputProps={{ maxLength: 140 }}
                                                          onChange={this.handleChange}/>
 
                                         <FormControl>
@@ -204,6 +178,9 @@ class Register extends Component {
                                     Register
                                 </Button>
                             </form>
+                            <div>
+                                {this.state.error}
+                            </div>
                         </Container>
                     </>
                 );

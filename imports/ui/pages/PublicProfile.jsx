@@ -2,11 +2,10 @@ import React, {Component} from 'react';
 import {withTracker} from "meteor/react-meteor-data";
 import {Meteor} from "meteor/meteor";
 import Loading from "../../utils/Loading";
-
 import CommentViewer from "../components/comments/CommentViewer";
-
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
+import {unescapeUser} from "../../utils/unescapeUserInfo";
 
 function getUsersFollowedList() {
     let userId = this.props.location.search.replace('?', '');
@@ -15,7 +14,8 @@ function getUsersFollowedList() {
             console.log(err.error);
         } else {
             let user = (Meteor.users.find({_id: userId}).fetch());
-            this.setState({user: user[0], followed: followed});
+            let unescapedUser = unescapeUser(user[0]);
+            this.setState({user: unescapedUser, followed: followed});
             Meteor.call('comments.findByUser', userId, (err, comments) => {
                 if (err) {
                     console.log(err.error);
