@@ -5,6 +5,7 @@ import TextField from '@material-ui/core/TextField';
 import {Container} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import {routes} from "../../utils/routerPaths";
+import ErrorSuccessDisplay from "../components/include/errorSuccessDisplay";
 
 const CustomTextField = withStyles({
     root: {
@@ -42,7 +43,7 @@ export class Login extends Component {
         e.preventDefault();
         Meteor.loginWithPassword(this.state.username, this.state.password, function (error) {
             if (error) {
-                console.log('There was an error:' + error.reason);
+                this.setState({error: 'There was an error:' + error.reason});
             } else {
                 that.setState({loggedIn: true});
             }
@@ -86,8 +87,8 @@ export class Login extends Component {
                                 to={routes.register}>
                                 No account? Click here to register.
                             </Link>
-
                         </form>
+                        <ErrorSuccessDisplay error={this.state.error} />
                     </Container>
                 </div>
             );

@@ -8,6 +8,7 @@ import VoteCollection from '/imports/api/VoteCollection';
 import VoteTable from '../components/votes/VoteTable';
 
 import {Container} from '@material-ui/core';
+import ErrorSuccessDisplay from "../components/include/errorSuccessDisplay";
 
 export class Votes extends Component {
     constructor(props) {
@@ -20,8 +21,8 @@ export class Votes extends Component {
     }
 
     componentDidMount() {
-        Meteor.call('politicians.getAll', null, (err, res) => {
-            return err ? console.log(err.error) : this.setState({politicianArray: res});
+        Meteor.call('politicians.getAll', null, (err, politicians) => {
+            return err ? this.setState({error: err.error}) : this.setState({politicianArray: politicians});
         });
     }
 
@@ -37,6 +38,7 @@ export class Votes extends Component {
                 <div>
                     <Container>
                         <VoteTable politicians={this.state.politicianArray} votes={this.props.votes}/>
+                        <ErrorSuccessDisplay error={this.state.error} />
                     </Container>
                 </div>
             );

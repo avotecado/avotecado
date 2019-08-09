@@ -12,6 +12,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Loading from "../../../utils/Loading";
+import ErrorSuccessDisplay from "../include/errorSuccessDisplay";
 
 const buttonStyle = {
     fontFamily: 'Helvetica Black Extended',
@@ -73,9 +74,7 @@ class PoliticianRatingSystem extends Component {
         let userRating = {userId: Meteor.userId(), rating: this.state.userRating};
         Meteor.call('ratings.add', this.props.politician._id, userRating, function(err, res) {
             if (err) {
-                console.log(err.error);
-            } else {
-                console.log(res);
+                this.setState({error: err.error});
             }
         })
     };
@@ -105,6 +104,8 @@ class PoliticianRatingSystem extends Component {
                                 ratingForm.call(this)
                                 :
                                 <> <p/>Login, or make an account first!</>}
+                            <ErrorSuccessDisplay error={this.state.error} />
+
                         </Grid>
                     </Grid>
                 </div>

@@ -40,11 +40,6 @@ class AdminPanel extends Component {
             if (this.state.loading) {
                 return (<Loading/>);
             } else {
-                // console.log('props.users', this.props.users);
-                console.log('state.comments', this.state.comments);
-                console.log('props.comments', this.props.comments);
-                // console.log('state.ratings', this.state.ratings);
-                // console.log('props.ratings', this.props.ratings);
                 return (
                     <div>
                         <Container>

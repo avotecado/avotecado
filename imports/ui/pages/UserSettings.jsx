@@ -11,9 +11,8 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import {userValidation, unescapeUser, escapeUser} from "../../utils/userValidation";
-import validator from "validator";
-import {check} from "meteor/check";
+import {userValidation, unescapeUser} from "../../utils/userValidation";
+import ErrorSuccessDisplay from "../components/include/errorSuccessDisplay";
 
 const buttonStyle = {
     fontFamily: 'Helvetica Black Extended',
@@ -96,8 +95,6 @@ class UserSettings extends React.Component {
             return this.setState({error: validate.error, success: null});
         }
 
-        console.log(updateObject);
-
         Meteor.call('user.updateUserProfile', updateObject, (err, res) => {
             if (err) {
                 this.setState({ error: err.reason, success: null});
@@ -161,10 +158,7 @@ class UserSettings extends React.Component {
                         </Container>
                     </form>
 
-                    <div style={{display:"flex", flexDirection:"row", justifyContent:"center"}}>
-                        <span style={{marginTop:'1em', color:'red'}}>{this.state.error}</span>
-                        <span style={{marginTop:'1em', color:'green'}}>{this.state.success}</span>
-                    </div>
+                    <ErrorSuccessDisplay error={this.state.error} success={this.state.success} />
 
                     <Container style={bottomButtonRowStyle}>
                         <Button onClick={() => this.handleLogout()} variant='contained' style={{

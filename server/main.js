@@ -6,7 +6,6 @@ import PartyCollection from '/imports/api/Party';
 import Ratings from '/imports/api/Ratings';
 import VoteCollection from '/imports/api/VoteCollection';
 import {check} from "meteor/check";
-import validator from "validator";
 
 /**
  * Refs:
@@ -83,14 +82,12 @@ Meteor.startup(() => {
 
         if (user.username === 'admin') {
             customizedUser.roles = ['admin'];
-            console.log('hello');
         }
         return customizedUser;
     });
 
     Meteor.methods({
         'user.updateUserProfile'(updateObject) {
-            console.log(updateObject);
             if (!Meteor.userId) {
                 throw new Meteor.Error('not-authorized');
             }
@@ -103,7 +100,6 @@ Meteor.startup(() => {
             }
 
             if (Object.keys(updateObject).length === 0 && updateObject.constructor === Object) {
-                console.log(true);
                 updateObject = {name: '', occupation: '', politicalLeaning: '', prefParty: '', userBio: ''}
             }
 
@@ -126,7 +122,6 @@ Meteor.startup(() => {
             try {
                 Meteor.users.remove(this.userId);
             } catch (e) {
-                // handle this however you want
                 throw new Meteor.Error('self-delete', 'Failed to remove yourself');
             }
         },

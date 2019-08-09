@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
-
 import CommentViewer from './CommentViewer';
-
 import Grid from '@material-ui/core/Grid';
 import {withStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import {Container} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Loading from "../../../utils/Loading";
+import ErrorSuccessDisplay from "../include/errorSuccessDisplay";
 
 const commentInputContainerStyle = {
     display: 'flex',
@@ -54,7 +53,7 @@ export default class PoliticianMakeAComment extends Component {
         let that = this;
         Meteor.call('comments.findByID', this.props.politician._id, function (err, res) {
             if (err) {
-                console.log(err.error);
+                this.setState({error: err.error});
             } else {
                 that.setState({commentsArray: res});
             }
@@ -68,7 +67,7 @@ export default class PoliticianMakeAComment extends Component {
             this.setState({politician: politician, commentsArray: []});
             Meteor.call('comments.findByID', this.props.politician._id, function (err, res) {
                 if (err) {
-                    console.log(err.error);
+                    this.setState({error: err.error});
                 } else {
                     that.setState({commentsArray: res});
                 }
@@ -151,6 +150,7 @@ export default class PoliticianMakeAComment extends Component {
                     <Grid item xs={12}>
                         {this.loggedInCommentSystemDisplay(politician)}
                     </Grid>
+                    <ErrorSuccessDisplay error={this.state.error} />
                 </>
             );
             } else {

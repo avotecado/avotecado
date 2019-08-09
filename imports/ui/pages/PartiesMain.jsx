@@ -10,6 +10,7 @@ import PartiesSelect from "../components/parties/PartiesSelect";
 import PartiesBasicInfo from "../components/parties/PartiesBasicInfo";
 import PartiesHeaderText from "../components/parties/PartiesHeaderText";
 import PartiesVoteHistory from "../components/parties/PartiesVoteHistory";
+import ErrorSuccessDisplay from "../components/include/errorSuccessDisplay";
 
 function removeDuplicates(politicianArray) {
     // ref: https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
@@ -46,7 +47,7 @@ export class PartiesMain extends Component {
             this.props.parties.forEach((party) => {
                 Meteor.call('politicians.findByParty', party._id, (error, politicianResultArray) => {
                     if (error) {
-                        console.log(error.reason);
+                        this.setState({error: error.reason});
                     } else {
                         this.setState({
                             politicianArray: [...this.state.politicianArray, {party: party._id, politicians: politicianResultArray}]
@@ -80,6 +81,7 @@ export class PartiesMain extends Component {
                         <Container maxWidth='lg'>
                             <PartiesHeaderText/>
                             <PartiesSelect parties={parties}/>
+                            <ErrorSuccessDisplay error={this.state.error} />
                         </Container>
                     </div>
                 );
@@ -97,6 +99,7 @@ export class PartiesMain extends Component {
                                 politicianArray={politicianArrayFilteredForSelectedParty}
                                 politiciansSubscribeArray={this.state.politiciansSubscribeArray}
                             />
+                            <ErrorSuccessDisplay error={this.state.error} />
                         </Container>
                     </div>
                 );

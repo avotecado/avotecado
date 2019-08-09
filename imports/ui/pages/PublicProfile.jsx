@@ -6,6 +6,7 @@ import CommentViewer from "../components/comments/CommentViewer";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import {unescapeUser} from "../../utils/userValidation";
+import ErrorSuccessDisplay from "../components/include/errorSuccessDisplay";
 
 class PublicProfile extends Component {
     constructor(props) {
@@ -31,13 +32,13 @@ class PublicProfile extends Component {
         let userId = this.props.location.search.replace('?', '');
         Meteor.call('followed.findByUser', userId, (err, followed) => {
             if (err) {
-                console.log(err.error);
+                this.setState({error: err.error});
             } else {
                 let unescapedUser = unescapeUser((Meteor.users.find({_id: userId}).fetch())[0]);
                 this.setState({user: unescapedUser, followed: followed});
                 Meteor.call('comments.findByUser', userId, (err, comments) => {
                     if (err) {
-                        console.log(err.error);
+                        this.setState({error: err.error});
                     } else {
                         this.setState({loading: false, comments: comments});
                     }
@@ -81,6 +82,7 @@ class PublicProfile extends Component {
                                     </Grid>
                             </Grid>
                         </Grid>
+                        <ErrorSuccessDisplay error={this.state.error} />
                     </Container>
                 </div>
             );

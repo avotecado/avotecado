@@ -21,7 +21,7 @@ Meteor.methods({
         check(politicianID, String);
         check(message, String);
 
-        if (message.length <= 0) { throw new Meteor.Error('malformed-message'); }
+        if (message.length <= 0 || message.length > 140) { throw new Meteor.Error('malformed-message'); }
 
         Comments.insert({
             politician: politicianID,

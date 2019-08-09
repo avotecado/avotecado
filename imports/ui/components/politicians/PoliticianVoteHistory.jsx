@@ -6,6 +6,7 @@ import MaterialTable from "material-table";
 import PoliticianRadarChart from "./PoliticianRadarChart";
 import {OPTIONS} from "../../../utils/tablePropsShared";
 import Loading from "../../../utils/Loading";
+import ErrorSuccessDisplay from "../include/errorSuccessDisplay";
 
 const cellStyleRegularText = {fontFamily: 'Fact-Expanded'};
 const cellStyleSmallText = {fontFamily: 'Fact-Expanded', fontSize: '0.65em'};
@@ -44,11 +45,11 @@ class PoliticianVoteHistory extends Component {
         Meteor.call('vote.getAll', null, (err, votesArray) => {
             let politician = this.props.politician._id;
             let voteByPoliticianObject = {politicianID: politician, votesArray: votesArray};
-            Meteor.call('vote.voteByPolitician', voteByPoliticianObject, (err, res) => {
+            Meteor.call('vote.voteByPolitician', voteByPoliticianObject, (err, votes) => {
                 if (err) {
-                    console.log(err.error);
+                    this.setState({error: err.error});
                 } else {
-                    this.setState({loading: false, votes: res});
+                    this.setState({loading: false, votes: votes});
                 }
             });
         });
@@ -74,6 +75,7 @@ class PoliticianVoteHistory extends Component {
                         options={OPTIONS}
                         onSelectionChange={(rows) => this.setState({selectedForDataViz: rows})}
                     />
+                    <ErrorSuccessDisplay error={this.state.error} />
                 </div>
             );
         }

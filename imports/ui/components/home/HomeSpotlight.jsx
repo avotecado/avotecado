@@ -8,6 +8,7 @@ import CommentSystem from '../comments/CommentSystem';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Loading from "../../../utils/Loading";
+import ErrorSuccessDisplay from "../include/errorSuccessDisplay";
 
 export default class HomeSpotlight extends Component {
     constructor(props) {
@@ -19,11 +20,11 @@ export default class HomeSpotlight extends Component {
 
     componentDidMount() {
         let politicianID = (Math.floor((Math.random() * 11))).toString();
-        Meteor.call('politicians.findByID', politicianID, (err, res) => {
+        Meteor.call('politicians.findByID', politicianID, (err, politician) => {
             if (err) {
-                console.log(err.error);
+                this.setState({error: err.error});
             } else {
-                this.setState({politician: res[0]});
+                this.setState({politician: politician[0]});
             }
         });
     }
@@ -48,6 +49,7 @@ export default class HomeSpotlight extends Component {
                     <Grid item xs={6} style={contactStyle}>
                         <CommentSystem politician={politician}/>
                     </Grid>
+                    <ErrorSuccessDisplay error={this.state.error} />
                 </>
             );
         } else {

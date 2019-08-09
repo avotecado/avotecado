@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {NavLink} from "react-router-dom";
 import {routes} from "../../../utils/routerPaths";
+import ErrorSuccessDisplay from "../include/errorSuccessDisplay";
 
 class AdminUserManagement extends Component {
     constructor(props){
@@ -11,7 +12,6 @@ class AdminUserManagement extends Component {
 
     deleteUser(userId) {
         this.setState({error: null});
-        console.log(userId);
         Meteor.call('comments.removeAllByUser', userId, (err) => {
             if (err) {
                 this.setState({error: err.error});
@@ -54,9 +54,7 @@ class AdminUserManagement extends Component {
                     );
                 })}
                 </div>
-                <div>
-                    {this.state.error}
-                </div>
+                <ErrorSuccessDisplay error={this.state.error} />
             </div>
         );
     }

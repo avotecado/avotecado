@@ -16,6 +16,7 @@ import Party from "../../api/Party";
 import Loading from "../../utils/Loading";
 import {userValidation} from "../../utils/userValidation";
 import validator from 'validator';
+import ErrorSuccessDisplay from "../components/include/errorSuccessDisplay";
 
 const CustomTextField = withStyles({
     root: {
@@ -83,7 +84,7 @@ class Register extends Component {
 
         Accounts.createUser(userToCreate, (error) => {
             if (error) {
-                console.log(error.reason);
+                this.setState({error: error.reason});
             } else {
                 this.setState({loggedIn: true});
             }
@@ -178,9 +179,7 @@ class Register extends Component {
                                     Register
                                 </Button>
                             </form>
-                            <div>
-                                {this.state.error}
-                            </div>
+                            <ErrorSuccessDisplay error={this.state.error} />
                         </Container>
                     </>
                 );
