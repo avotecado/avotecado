@@ -1,12 +1,9 @@
 import React from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import {routes} from "../../utils/routerPaths";
-
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
-
 import Party from '../../api/Party';
-
 import {Container} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
@@ -85,14 +82,14 @@ class UserSettings extends React.Component {
         Meteor.logout();
     }
 
-    perfPartyMenu() {
+    prefPartyMenu() {
         return <Select
             value={this.state.prefParty}
             onChange={this.handleChange}
             inputProps={{name: 'prefParty', id: 'prefParty'}}>
             <MenuItem value={'None'}>None</MenuItem>
             {this.state.parties.map(party => {
-                return ( <MenuItem value={party._id} key={party._id}> {party._id} </MenuItem> );
+                return (<MenuItem value={party._id} key={party._id}> {party._id} </MenuItem>);
             })}
         </Select>;
     }
@@ -119,7 +116,7 @@ class UserSettings extends React.Component {
                                        onChange={this.handleChange}/>
                             <FormControl>
                                 <InputLabel>Preferred Party</InputLabel>
-                                {this.perfPartyMenu()}
+                                {this.prefPartyMenu()}
                             </FormControl>
 
                             <Button type='submit' variant='contained' style={buttonStyle}>

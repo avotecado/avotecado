@@ -8,6 +8,7 @@ import AdminCommentsSystem from "../components/admin/AdminCommentsSystem";
 import Comments from "../../api/Comments";
 import Ratings from "../../api/Comments";
 import Grid from "@material-ui/core/Grid";
+import Loading from "../../utils/Loading";
 
 class AdminPanel extends Component {
     constructor(props) {
@@ -37,13 +38,7 @@ class AdminPanel extends Component {
     render() {
         if (Roles.userIsInRole(Meteor.user(), ['admin'])) {
             if (this.state.loading) {
-                return (
-                    <>
-                        <Container>
-                            Loading...
-                        </Container>
-                    </>
-                );
+                return (<Loading/>);
             } else {
                 // console.log('props.users', this.props.users);
                 console.log('state.comments', this.state.comments);

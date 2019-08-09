@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart,} from 'recharts';
+import Loading from "../../../utils/Loading";
 
 const voteOptionsArray = ['In Favour', 'In Opposition', 'Absent', 'Abstain', 'No Vote', 'Declared Conflict'];
 
@@ -54,7 +55,7 @@ class PoliticianRadarChart extends Component {
 
     render() {
         if (this.state.loading) {
-            return (<> Loading... </>);
+            return (<Loading/>);
         } else {
             return (
                 <div>

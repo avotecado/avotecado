@@ -6,6 +6,7 @@ import {COLUMNS, OPTIONS} from "../../../utils/tablePropsShared";
 
 import MaterialTable from "material-table";
 import {Container} from "@material-ui/core";
+import Loading from "../../../utils/Loading";
 
 
 class PartiesVoteHistory extends Component {
@@ -20,7 +21,6 @@ class PartiesVoteHistory extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.fullPoliticianArray);
         this.setState({politicians: this.props.politiciansSubscribeArray});
         this.getVotesForPoliticianArray();
     }
@@ -81,11 +81,7 @@ class PartiesVoteHistory extends Component {
 
     render() {
         if (this.state.loading) {
-            return (
-                <>
-                    Loading...
-                </>
-            );
+            return (<Loading/>);
         } else {
             return (
                 <div>

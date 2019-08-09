@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {withTracker} from "meteor/react-meteor-data";
 import {Meteor} from "meteor/meteor";
+import Loading from "../../utils/Loading";
 
 import CommentViewer from "../components/comments/CommentViewer";
 
@@ -48,13 +49,7 @@ class PublicProfile extends Component {
 
     render() {
         if (this.state.loading) {
-            return (
-                <>
-                    <Container>
-                        Loading...
-                    </Container>
-                </>
-            );
+            return (<Loading/>);
         } else {
             let f = JSON.stringify(this.state.followed);
             return (

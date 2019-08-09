@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {setupArrayForReCharts} from "../../../utils/setupArrayForReCharts";
 import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
+import Loading from "../../../utils/Loading";
 
 function setupRatingDataForChart() {
     let ratingArray = this.props.ratingArray;
@@ -37,7 +38,7 @@ class PoliticianRatingChart extends Component {
 
     render() {
         if (this.state.loading) {
-            return ( <> Loading... </> );
+            return ( <Loading/> );
         } else {
             if (this.state.ratingData.length === 0) {
                 return ( <> No ratings to display yet. </> );

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 
 import Button from '@material-ui/core/Button';
+import Loading from "../../../utils/Loading";
 
 export class PoliticianFollow extends Component {
     constructor(props) {
@@ -52,11 +53,7 @@ export class PoliticianFollow extends Component {
                 );
             }
         } else {
-            return (
-                <div>
-                    Loading...
-                </div>
-            );
+            return (<Loading/>);
         }
     }
 }

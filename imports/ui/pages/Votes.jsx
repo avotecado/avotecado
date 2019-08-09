@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
+import Loading from "../../utils/Loading";
 
 import VoteCollection from '/imports/api/VoteCollection';
 
@@ -40,13 +41,7 @@ export class Votes extends Component {
                 </div>
             );
         } else {
-            return (
-                <div>
-                    <Container>
-                        Loading...
-                    </Container>
-                </div>
-            );
+            return (<Loading/>);
         }
     }
 }

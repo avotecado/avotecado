@@ -7,6 +7,7 @@ import CommentSystem from '../comments/CommentSystem';
 
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
+import Loading from "../../../utils/Loading";
 
 export default class HomeSpotlight extends Component {
     constructor(props) {
@@ -50,7 +51,7 @@ export default class HomeSpotlight extends Component {
                 </>
             );
         } else {
-            return (<> Loading... </>);
+            return (<Loading/>);
         }
     }
 }

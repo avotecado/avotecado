@@ -5,6 +5,7 @@ import MaterialTable from "material-table";
 
 import PoliticianRadarChart from "./PoliticianRadarChart";
 import {OPTIONS} from "../../../utils/tablePropsShared";
+import Loading from "../../../utils/Loading";
 
 const cellStyleRegularText = {fontFamily: 'Fact-Expanded'};
 const cellStyleSmallText = {fontFamily: 'Fact-Expanded', fontSize: '0.65em'};
@@ -55,7 +56,7 @@ class PoliticianVoteHistory extends Component {
 
     render() {
         if (this.state.loading) {
-            return (<> Loading... </>);
+            return (<Loading/>);
         } else {
             return (
                 <div>

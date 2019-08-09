@@ -8,6 +8,7 @@ import {withStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import {Container} from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+import Loading from "../../../utils/Loading";
 
 const commentInputContainerStyle = {
     display: 'flex',
@@ -161,11 +162,7 @@ export default class PoliticianMakeAComment extends Component {
                 )
             }
         } else {
-            return (
-                <>
-                    Loading...
-                </>
-            );
+            return (<Loading/>);
         }
     }
 }

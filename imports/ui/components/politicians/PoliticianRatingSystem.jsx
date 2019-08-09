@@ -11,6 +11,7 @@ import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
+import Loading from "../../../utils/Loading";
 
 const buttonStyle = {
     fontFamily: 'Helvetica Black Extended',
@@ -81,7 +82,7 @@ class PoliticianRatingSystem extends Component {
 
     render() {
         if (this.state.loading) {
-            return (<> Loading... </>)
+            return (<Loading/>)
         } else {
             let ratingArray = this.props.ratingArray;
             let subHeaderStyle = { fontFamily: 'Helvetica Black Extended', fontSize: '1.85em', color: 'black', textAlign: 'center', marginBottom: '-0.2em' };
