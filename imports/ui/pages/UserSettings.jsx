@@ -63,7 +63,7 @@ class UserSettings extends React.Component {
         };
         Meteor.call('user.updateUserProfile', updateObject, (err, res) => {
             if (err) {
-                console.log(err.reason);
+                console.log(err.error);
             } else {
                 console.log(res);
             }

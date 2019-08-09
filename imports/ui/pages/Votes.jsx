@@ -20,7 +20,7 @@ export class Votes extends Component {
 
     componentDidMount() {
         Meteor.call('politicians.getAll', null, (err, res) => {
-            return err ? console.log(err.reason) : this.setState({politicianArray: res});
+            return err ? console.log(err.error) : this.setState({politicianArray: res});
         });
     }
 

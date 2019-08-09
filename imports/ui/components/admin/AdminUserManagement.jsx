@@ -14,15 +14,15 @@ class AdminUserManagement extends Component {
         console.log(userId);
         Meteor.call('comments.removeAllByUser', userId, (err) => {
             if (err) {
-                console.log(err);
+                console.log(err.error);
             } else {
                 Meteor.call('ratings.removeAllByUser', userId, (err) => {
                     if (err) {
-                        console.log(err);
+                        console.log(err.error);
                     } else {
                         Meteor.call('adminDeleteUser',userId, (err) => {
                             if (err) {
-                                console.log(err);
+                                console.log(err.error);
                             }
                         });
                     }

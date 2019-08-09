@@ -72,7 +72,7 @@ class PoliticianRatingSystem extends Component {
         let userRating = {userId: Meteor.userId(), rating: this.state.userRating};
         Meteor.call('ratings.add', this.props.politician._id, userRating, function(err, res) {
             if (err) {
-                console.log(err.reason);
+                console.log(err.error);
             } else {
                 console.log(res);
             }

@@ -8,13 +8,13 @@ function getUsersFollowedList() {
     let userId = this.props.location.search.replace('?', '');
     Meteor.call('followed.findByUser', userId, (err, followed) => {
         if (err) {
-            console.log(err.reason);
+            console.log(err.error);
         } else {
             let user = (Meteor.users.find({_id: userId}).fetch());
             this.setState({user: user[0], followed: followed});
             Meteor.call('comments.findByUser', userId, (err, comments) => {
                 if (err) {
-                    console.log(err);
+                    console.log(err.error);
                 } else {
                     this.setState({loading: false, comments: comments});
                 }

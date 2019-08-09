@@ -45,7 +45,7 @@ class PoliticianVoteHistory extends Component {
             let voteByPoliticianObject = {politicianID: politician, votesArray: votesArray};
             Meteor.call('vote.voteByPolitician', voteByPoliticianObject, (err, res) => {
                 if (err) {
-                    console.log(err);
+                    console.log(err.error);
                 } else {
                     this.setState({loading: false, votes: res});
                 }

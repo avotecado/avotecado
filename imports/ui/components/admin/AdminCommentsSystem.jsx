@@ -23,7 +23,7 @@ class AdminCommentsSystem extends Component {
     deleteMessage(_id) {
         Meteor.call('comments.remove', _id, (err) => {
             if (err) {
-                console.log(err);
+                console.log(err.error);
             } else {
                 let tempState = this.state.comments;
                 tempState.filter((comment) => { return comment._id!== _id});

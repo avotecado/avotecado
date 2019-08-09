@@ -53,7 +53,7 @@ export default class PoliticianMakeAComment extends Component {
         let that = this;
         Meteor.call('comments.findByID', this.props.politician._id, function (err, res) {
             if (err) {
-                console.log(err.reason);
+                console.log(err.error);
             } else {
                 that.setState({commentsArray: res});
             }
@@ -67,7 +67,7 @@ export default class PoliticianMakeAComment extends Component {
             this.setState({politician: politician, commentsArray: []});
             Meteor.call('comments.findByID', this.props.politician._id, function (err, res) {
                 if (err) {
-                    console.log(err.reason);
+                    console.log(err.error);
                 } else {
                     that.setState({commentsArray: res});
                 }
@@ -96,7 +96,7 @@ export default class PoliticianMakeAComment extends Component {
 
         Meteor.call('comments.add', politicianID, politicianName, messageToSend, (err) => {
             if (err) {
-                this.setState({error: err.reason});
+                this.setState({error: err.error, messageInput: ''});
             } else {
                 this.setState({
                     error: null,
