@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Loading from "../../../utils/Loading";
 import Card from "@material-ui/core/Card";
 import CardContent from '@material-ui/core/CardContent';
+import ErrorSuccessDisplay from "../include/errorSuccessDisplay";
 
 class UserFollowedDisplay extends Component {
     constructor(props){
@@ -17,10 +18,8 @@ class UserFollowedDisplay extends Component {
         if (followed.length) {
             Meteor.call('politicians.findByMultipleId', followed[0].following, (err, politicians) => {
                 if (err) {
-                    console.log(err);
                     this.setState({error: err.error});
                 } else {
-                    console.log(politicians);
                     this.setState({politicians: politicians, loading: false});
                 }
             })
@@ -35,6 +34,7 @@ class UserFollowedDisplay extends Component {
             return(
                 <div style={{height:"15em"}}>
                     <Loading/>
+                    <ErrorSuccessDisplay error={this.state.error}/>
                 </div>
             );
         } else {
