@@ -22,6 +22,7 @@
     "react-dom": "^16.8.6",
     "react-material-ui-form-validator": "^2.0.9",
     "react-router-dom": "^5.0.1",
+    "react-twitter-embed": "^2.0.8",
     "recharts": "^1.6.2",
     "simpl-schema": "^1.5.5",
     "validator": "^11.1.0"

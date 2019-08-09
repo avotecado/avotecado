@@ -16,9 +16,7 @@ import CommentSystem from '../components/comments/CommentSystem';
 
 import {Container} from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-
-// import { PoliticianContext } from '../context/PoliticianContext';
-// import Async from 'react-async';
+import {TwitterTimelineEmbed} from "react-twitter-embed";
 
 const profilePictureStyle = {display: 'flex', alignItems: 'center', flexFlow: 'column wrap'};
 const contactStyle = {display: 'flex', justifyContent: 'center', flexFlow: 'column wrap'};
@@ -69,6 +67,21 @@ class PoliticiansMain extends Component {
                                 </Container>
                             </Grid>
                         </Grid>
+
+                        <Container maxWidth='md' style={{display: 'flex', MarginTop: '1.25em'}}>
+                            <Grid item xs={12} style={{marginTop: '1em'}}>
+                                <TwitterTimelineEmbed
+                                    sourceType="list"
+                                    ownerScreenName="avotecado"
+                                    slug="avotecado-vancouver1"
+                                    options={{height: 800, conversation: 'none', linkColor: "009245", align: 'center'}}
+                                    theme="light"
+                                    borderColor="#009245"
+                                    linkColor="#009245"
+                                />
+                            </Grid>
+                        </Container>
+
                     </Container>
                 </>
             );
