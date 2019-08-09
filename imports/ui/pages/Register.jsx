@@ -10,12 +10,13 @@ import Button from '@material-ui/core/Button';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-
 import FormControl from "@material-ui/core/FormControl";
 import {routes} from "../../utils/routerPaths";
 import Party from "../../api/Party";
-
 import Loading from "../../utils/Loading";
+import validator from 'validator';
+
+const dateCheck = new Date(-8640000000000000);
 
 const CustomTextField = withStyles({
     root: {
@@ -64,19 +65,49 @@ class Register extends Component {
         this.setState({[e.target.name]: e.target.value});
     }
 
+    validateInput(userToCreate) {
+        for (const key of Object.keys(userToCreate)) {
+            let value = userToCreate[key];
+            if (value) {
+                switch (key) {
+                    case 'username':
+                    case 'occupation':
+                    case 'prefParty':
+                    case 'politicalLeaning':
+                    case 'userBio':
+                    case 'name': {
+                        if (validator.isAlphanumeric(value)) {
+                            continue;
+                        } else {
+                            return false;
+                        }
+                    }
+                    default:
+                        console.log('default');
+                        break;
+                }
+            }
+        }
+        return true;
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         let userToCreate = {
-            username: this.state.username,
-            email: this.state.email,
+            username: this.state.username.trim(),
+            email: this.state.email.trim(),
             password: this.state.password,
-            name: this.state.name,
-            dob: this.state.dob,
-            occupation: this.state.occupation,
+            name: this.state.name.trim(),
+            dob: this.state.dob.trim(),
+            occupation: this.state.occupation.trim(),
             prefParty: this.state.prefParty,
-            politicalLeaning: this.state.politicalLeaning,
+            politicalLeaning: this.state.politicalLeaning.trim(),
             userBio: this.state.userBio
         };
+        if (!this.validateInput(userToCreate)) {
+            console.log('help');
+            return this.setState({error: 'Validation error'})
+        }
         Accounts.createUser(userToCreate, (error) => {
             if (error) {
                 console.log(error.reason);

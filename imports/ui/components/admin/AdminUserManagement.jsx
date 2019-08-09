@@ -5,25 +5,24 @@ import {routes} from "../../../utils/routerPaths";
 class AdminUserManagement extends Component {
     constructor(props){
         super(props);
-        this.state = {
-
-        };
+        this.state = {error: null};
         this.deleteUser = this.deleteUser.bind(this);
     }
 
     deleteUser(userId) {
+        this.setState({error: null});
         console.log(userId);
         Meteor.call('comments.removeAllByUser', userId, (err) => {
             if (err) {
-                console.log(err.error);
+                this.setState({error: err.error});
             } else {
                 Meteor.call('ratings.removeAllByUser', userId, (err) => {
                     if (err) {
-                        console.log(err.error);
+                        this.setState({error: err.error});
                     } else {
                         Meteor.call('adminDeleteUser',userId, (err) => {
                             if (err) {
-                                console.log(err.error);
+                                this.setState({error: err.error});
                             }
                         });
                     }
@@ -54,6 +53,9 @@ class AdminUserManagement extends Component {
                         </ul>
                     );
                 })}
+                </div>
+                <div>
+                    {this.state.error}
                 </div>
             </div>
         );

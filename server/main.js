@@ -51,6 +51,11 @@ Meteor.startup(() => {
     });
 
     Accounts.onCreateUser((options, user) => {
+
+        if (!(/^[A-Za-z0-9-\--\_]+$/.test(user.username))) {
+            throw new Meteor.Error('malformed-username')
+        }
+
         const customizedUser = Object.assign({
             name: options.name,
             dob: options.dob,
@@ -124,6 +129,7 @@ Meteor.startup(() => {
         return Meteor.users.find({}, {
             fields: {
                 roles: 1,
+                emails:1,
                 username: 1,
                 name: 1,
                 dob: 1,

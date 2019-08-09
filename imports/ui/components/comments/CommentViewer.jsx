@@ -20,7 +20,6 @@ export default class CommentViewer extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
         this.setState({commentsArray: this.props.commentsArray});
     }
 

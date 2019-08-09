@@ -11,7 +11,7 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-    'comments.add'(politicianID, politicianName, messageToSend) {
+    'comments.add'(politicianID, politicianName, messageToSend, postedAt) {
         if (!this.userId) {
             throw new Meteor.Error('not-authorized');
         }
@@ -29,7 +29,7 @@ Meteor.methods({
             user: this.userId,
             username: Meteor.users.findOne(this.userId).username,
             message: message,
-            postedAt: new Date()
+            postedAt: postedAt
         });
     },
     'comments.remove'(messageID) {

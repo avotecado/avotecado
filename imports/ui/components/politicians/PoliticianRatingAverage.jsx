@@ -13,6 +13,8 @@ function getColor(rating) {
             return '#238823';
         case 5:
             return '#007000';
+        default:
+            return 'black';
     }
 }
 

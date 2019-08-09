@@ -94,15 +94,16 @@ export default class PoliticianMakeAComment extends Component {
         let username = Meteor.users.findOne(Meteor.userId).username;
         let politicianID = this.props.politician._id;
         let politicianName = `${this.props.politician.firstname + ' ' + this.props.politician.lastname}`;
+        let postedAt = new Date();
 
-        Meteor.call('comments.add', politicianID, politicianName, messageToSend, (err) => {
+        Meteor.call('comments.add', politicianID, politicianName, messageToSend, postedAt, (err) => {
             if (err) {
                 this.setState({error: err.error, messageInput: ''});
             } else {
                 this.setState({
                     error: null,
                     messageInput: '',
-                    commentsArray: [...this.state.commentsArray, {user: user, username: username, message: messageToSend}]
+                    commentsArray: [...this.state.commentsArray, {user: user, username: username, message: messageToSend, postedAt: postedAt}]
                 });
             }
         });
@@ -123,11 +124,14 @@ export default class PoliticianMakeAComment extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <Container style={commentInputContainerStyle}>
                         <CustomTextField
-                            required name='message_Input' fullWidth label='Share your thoughts.'
+                            required name='message_Input'
+                            fullWidth
+                            label='Share your thoughts.'
                             style={{marginBottom: '0.1em'}}
                             value={this.state.messageInput} onChange={this.handleMessage}
                             error={this.state.error}
                             helperText={this.state.error}
+                            inputProps={{ maxLength: 150 }}
                         />
                         <Button type='submit' variant='contained' style={buttonStyle}>
                             Post
