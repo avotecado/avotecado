@@ -37,14 +37,6 @@ const CustomTextField = withStyles({
     }
 })(TextField);
 
-function inputValidation(inputStr) {
-    if ((inputStr.length === 1)) {
-        return (inputStr.charAt(0) === ' ') ? 1 : 0;
-    } else {
-        return ((inputStr.charAt(0) === ' ') || (inputStr.charAt(inputStr.length - 1) === ' ')) ? 1 : 0;
-    }
-}
-
 export default class PoliticianMakeAComment extends Component {
     constructor(props) {
         super(props);
@@ -90,21 +82,29 @@ export default class PoliticianMakeAComment extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-        if (inputValidation(this.state.messageInput)) {
-            this.setState({messageInput: ''});
-            alert('Message cannot start or end with a blank space.');
+        let messageToSend = this.state.messageInput.trim();
+
+        if (messageToSend.length === 0) {
+            this.setState({messageInput:'', error: 'Message cannot be blank.'});
             return;
         }
+
         let user = Meteor.userId();
         let username = Meteor.users.findOne(Meteor.userId).username;
         let politicianID = this.props.politician._id;
         let politicianName = `${this.props.politician.firstname + ' ' + this.props.politician.lastname}`;
-        let message = this.state.messageInput;
-        this.setState({
-            messageInput: '',
-            commentsArray: [...this.state.commentsArray, {user: user, username: username, message: message}]
+
+        Meteor.call('comments.add', politicianID, politicianName, messageToSend, (err) => {
+            if (err) {
+                this.setState({error: err.reason});
+            } else {
+                this.setState({
+                    error: null,
+                    messageInput: '',
+                    commentsArray: [...this.state.commentsArray, {user: user, username: username, message: messageToSend}]
+                });
+            }
         });
-        Meteor.call('comments.add', politicianID, politicianName, message);
     };
 
     loggedInCommentSystemDisplay(politician) {
@@ -125,6 +125,8 @@ export default class PoliticianMakeAComment extends Component {
                             required name='message_Input' fullWidth label='Share your thoughts.'
                             style={{marginBottom: '0.1em'}}
                             value={this.state.messageInput} onChange={this.handleMessage}
+                            error={this.state.error}
+                            helperText={this.state.error}
                         />
                         <Button type='submit' variant='contained' style={buttonStyle}>
                             Post

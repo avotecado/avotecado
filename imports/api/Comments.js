@@ -11,25 +11,17 @@ if (Meteor.isServer) {
 }
 
 Meteor.methods({
-    'comments.add'(politicianID, politicianName, message) {
+    'comments.add'(politicianID, politicianName, messageToSend) {
         if (!this.userId) {
             throw new Meteor.Error('not-authorized');
         }
 
+        let message = messageToSend.trim();
+
         check(politicianID, String);
         check(message, String);
 
-        function inputValidation(message) {
-            if ((message.length === 1)) {
-                return (message.charAt(0) === ' ') ? 1 : 0;
-            } else {
-                return ((message.charAt(0) === ' ') || (message.charAt(message.length - 1) === ' ')) ? 1 : 0;
-            }
-        }
-
-        if (inputValidation(message)) {
-            throw new Meteor.Error('malformed message');
-        }
+        if (message.length <= 0) { throw new Meteor.Error('malformed-message'); }
 
         Comments.insert({
             politician: politicianID,
