@@ -5,27 +5,7 @@ import Loading from "../../utils/Loading";
 import CommentViewer from "../components/comments/CommentViewer";
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
-import {unescapeUser} from "../../utils/unescapeUserInfo";
-
-function getUsersFollowedList() {
-    let userId = this.props.location.search.replace('?', '');
-    Meteor.call('followed.findByUser', userId, (err, followed) => {
-        if (err) {
-            console.log(err.error);
-        } else {
-            let user = (Meteor.users.find({_id: userId}).fetch());
-            let unescapedUser = unescapeUser(user[0]);
-            this.setState({user: unescapedUser, followed: followed});
-            Meteor.call('comments.findByUser', userId, (err, comments) => {
-                if (err) {
-                    console.log(err.error);
-                } else {
-                    this.setState({loading: false, comments: comments});
-                }
-            });
-        }
-    });
-}
+import {unescapeUser} from "../../utils/userValidation";
 
 class PublicProfile extends Component {
     constructor(props) {
@@ -38,13 +18,32 @@ class PublicProfile extends Component {
     }
 
     componentDidMount() {
-        getUsersFollowedList.call(this);
+        this.setupUserData();
     }
 
     componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
-            getUsersFollowedList.call(this);
+            this.setupUserData();
         }
+    }
+
+    setupUserData() {
+        let userId = this.props.location.search.replace('?', '');
+        Meteor.call('followed.findByUser', userId, (err, followed) => {
+            if (err) {
+                console.log(err.error);
+            } else {
+                let unescapedUser = unescapeUser((Meteor.users.find({_id: userId}).fetch())[0]);
+                this.setState({user: unescapedUser, followed: followed});
+                Meteor.call('comments.findByUser', userId, (err, comments) => {
+                    if (err) {
+                        console.log(err.error);
+                    } else {
+                        this.setState({loading: false, comments: comments});
+                    }
+                });
+            }
+        });
     }
 
     render() {
@@ -57,13 +56,15 @@ class PublicProfile extends Component {
                     <Container maxWidth='lg'>
                         <Grid container>
                             <Grid item xs={6}>
-                                <div style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>{this.state.user.username}</div>
-                                <>Name: {this.state.user.name}</> <br/>
-                                <>Date of Birth: {this.state.user.dob}</> <br/>
-                                <>Occupation: {this.state.user.occupation}</> <br/>
-                                <>Political Leaning: {this.state.user.politicalLeaning}</> <br/>
-                                <>Preferred Local Party: {this.state.user.prefParty}</> <br/>
-                                <>User Bio: {this.state.user.userBio}</> <br/>
+                                <div style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>
+                                    {this.state.user.username}
+                                </div>
+                                    <>Name: {this.state.user.name}</> <br/>
+                                    <>Date of Birth: {this.state.user.dob}</> <br/>
+                                    <>Occupation: {this.state.user.occupation}</> <br/>
+                                    <>Political Leaning: {this.state.user.politicalLeaning}</> <br/>
+                                    <>Preferred Local Party: {this.state.user.prefParty}</> <br/>
+                                    <>User Bio: {this.state.user.userBio}</> <br/>
                             </Grid>
                             <Grid container style={{display: 'flex', flexDirection:'column'}}>
                                     <Grid>

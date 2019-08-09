@@ -6,6 +6,7 @@ import PartyCollection from '/imports/api/Party';
 import Ratings from '/imports/api/Ratings';
 import VoteCollection from '/imports/api/VoteCollection';
 import {check} from "meteor/check";
+import validator from "validator";
 
 /**
  * Refs:
@@ -51,9 +52,18 @@ Meteor.startup(() => {
     });
 
     Accounts.onCreateUser((options, user) => {
-
-        if (!(/^[A-Za-z0-9-\--\_]+$/.test(user.username))) {
+        let alphaNumericRegex = /^[0-9A-Z]+$/i;
+        if (!(alphaNumericRegex.test(user.username))) {
             throw new Meteor.Error('malformed-username')
+        }
+
+        for (const key of Object.keys(options)) {
+            let value = options[key];
+            if (value && key !== 'password') {
+                if (value.length > 140) {
+                    throw new Meteor.Error('too-long-error');
+                }
+            }
         }
 
         const customizedUser = Object.assign({
@@ -64,10 +74,13 @@ Meteor.startup(() => {
             politicalLeaning: options.politicalLeaning,
             userBio: options.userBio
         }, user);
+
         if (options.profile) {
             customizedUser.profile = options.profile;
         }
+
         customizedUser.roles = ['normal-user'];
+
         if (user.username === 'admin') {
             customizedUser.roles = ['admin'];
             console.log('hello');
@@ -77,16 +90,23 @@ Meteor.startup(() => {
 
     Meteor.methods({
         'user.updateUserProfile'(updateObject) {
+            console.log(updateObject);
             if (!Meteor.userId) {
                 throw new Meteor.Error('not-authorized');
             }
-            check(updateObject, {
-                name: String,
-                occupation: String,
-                politicalLeaning: String,
-                prefParty: String,
-                userBio: String
-            });
+
+            for (const key of Object.keys(updateObject)) {
+                let value = updateObject[key];
+                if (value) {
+                    check(value, String);
+                }
+            }
+
+            if (Object.keys(updateObject).length === 0 && updateObject.constructor === Object) {
+                console.log(true);
+                updateObject = {name: '', occupation: '', politicalLeaning: '', prefParty: '', userBio: ''}
+            }
+
             return Meteor.users.update({_id: Meteor.userId()}, {
                 $set: {
                     "name": updateObject.name,

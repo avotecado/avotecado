@@ -1,6 +1,32 @@
 import validator from "validator";
 
-export function validateInput(userObject) {
+export function escapeUser(userObject) {
+    for (const key of Object.keys(userObject)) {
+        let value = userObject[key];
+        if (value) {
+            if (!Array.isArray(value) && !(value instanceof Date)) {
+                userObject[key] = validator.escape(value);
+            }
+        }
+    }
+    console.log(userObject);
+    return userObject;
+}
+
+export function unescapeUser(userObject) {
+    let exportUser = {};
+    for (const key of Object.keys(userObject)) {
+        let value = userObject[key];
+        if (value) {
+            if (!Array.isArray(value) && !(value instanceof Date)) {
+                exportUser[key] = validator.unescape(value);
+            }
+        }
+    }
+    return exportUser;
+}
+
+export function userValidation(userObject) {
     for (const key of Object.keys(userObject)) {
         let value = userObject[key];
         if (value) {

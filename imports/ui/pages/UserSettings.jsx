@@ -11,9 +11,9 @@ import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-import {validateInput} from "../../utils/validateInput";
+import {userValidation, unescapeUser, escapeUser} from "../../utils/userValidation";
 import validator from "validator";
-import {unescapeUser} from "../../utils/unescapeUserInfo";
+import {check} from "meteor/check";
 
 const buttonStyle = {
     fontFamily: 'Helvetica Black Extended',
@@ -52,6 +52,7 @@ class UserSettings extends React.Component {
         if (prevProps !== this.props && this.props.parties) {
             let userFromProps = this.props.user;
             if (Meteor.userId()) {
+                let userId = Meteor.userId();
                 let userObject = {
                     name: userFromProps.name,
                     occupation: userFromProps.occupation,
@@ -64,7 +65,7 @@ class UserSettings extends React.Component {
 
                 this.setState({
                     parties: this.props.parties,
-                    userId: unescapedUser.userId,
+                    userId: userId,
                     name: unescapedUser.name,
                     occupation: unescapedUser.occupation,
                     prefParty: unescapedUser.prefParty,
@@ -82,19 +83,24 @@ class UserSettings extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         let updateObject = {
-            name: validator.escape(this.state.name),
-            occupation: validator.escape(this.state.occupation),
-            prefParty: validator.escape(this.state.prefParty),
-            politicalLeaning: validator.escape(this.state.politicalLeaning),
-            userBio: validator.escape(this.state.userBio)
+            name: this.state.name,
+            occupation: this.state.occupation,
+            prefParty: this.state.prefParty,
+            politicalLeaning: this.state.politicalLeaning,
+            userBio: this.state.userBio
         };
-        let validate = validateInput(updateObject);
+
+        let validate = userValidation(updateObject);
+
         if (!validate.isValid) {
             return this.setState({error: validate.error, success: null});
         }
+
+        console.log(updateObject);
+
         Meteor.call('user.updateUserProfile', updateObject, (err, res) => {
             if (err) {
-                this.setState({ error: err.error, success: null});
+                this.setState({ error: err.reason, success: null});
             } else {
                 if (res) {
                     this.setState({success: 'Profile updated!', error: null});
@@ -125,6 +131,7 @@ class UserSettings extends React.Component {
                 <div>
                     <form onSubmit={this.handleSubmit}>
                         <Container style={{display: 'flex', flexDirection: 'column'}}>
+
                             <TextField name='name' label='Name' style={{marginBottom: '0.1em'}}
                                        autoComplete='name' value={this.state.name}
                                        onChange={this.handleChange}/>
@@ -142,6 +149,7 @@ class UserSettings extends React.Component {
                                        autoComplete='bio' value={this.state.userBio}
                                        inputProps={{ maxLength: 140 }}
                                        onChange={this.handleChange}/>
+
                             <FormControl>
                                 <InputLabel>Preferred Party</InputLabel>
                                 {this.prefPartyMenu()}

@@ -14,7 +14,7 @@ import FormControl from "@material-ui/core/FormControl";
 import {routes} from "../../utils/routerPaths";
 import Party from "../../api/Party";
 import Loading from "../../utils/Loading";
-import {validateInput} from "../../utils/validateInput";
+import {userValidation} from "../../utils/userValidation";
 import validator from 'validator';
 
 const CustomTextField = withStyles({
@@ -76,7 +76,7 @@ class Register extends Component {
             occupation: validator.escape(this.state.occupation.trim())
         };
 
-        let validate = validateInput(userToCreate);
+        let validate = userValidation(userToCreate);
         if (!validate.isValid) {
             return this.setState({error: validate.error});
         }
