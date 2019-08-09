@@ -89,18 +89,18 @@ export class Register extends Component {
                                         fontSize: '1.25em'
                                     }}> Required: </span>
 
-                                    <CustomTextField name='username' label='Pick a name. (REQUIRED!)'
+                                    <CustomTextField name='username' label='Pick a name.'
                                                      style={{marginBottom: '0.1em'}}
                                                      required autoComplete='username' value={this.state.username}
                                                      onChange={this.handleChange}/>
 
-                                    <CustomTextField name='password' label='Pick a password. (REQUIRED!)'
+                                    <CustomTextField name='password' label='Pick a password.'
                                                      type='password' style={{marginBottom: '0.1em'}}
                                                      required autoComplete='current-password'
                                                      value={this.state.password}
                                                      onChange={this.handleChange}/>
 
-                                    <CustomTextField name='email' label='Input your email. (REQUIRED!)' type='email'
+                                    <CustomTextField name='email' label='Input your email.' type='email'
                                                      style={{marginBottom: '0.1em'}}
                                                      required autoComplete='email' value={this.state.email}
                                                      onChange={this.handleChange}/>

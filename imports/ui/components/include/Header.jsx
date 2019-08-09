@@ -11,7 +11,6 @@ import IconButton from '@material-ui/core/IconButton';
 import {routes} from "../../../utils/routerPaths";
 
 
-
 const classes = {
     root: {
         marginTop: '-0.75em',

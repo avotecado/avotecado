@@ -1,5 +1,5 @@
 import React, {PureComponent} from 'react';
-import {PieChart, Pie, Sector, Cell, Text} from 'recharts';
+import {Cell, Pie, PieChart, Text} from 'recharts';
 
 const data = [
     {name: 'NPA', value: 5},

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 import Header from './components/include/Header.jsx';
 import Footer from './components/include/Footer.jsx';
@@ -14,7 +14,7 @@ import UserDirectory from './pages/UserDirectory';
 import PublicProfile from "./pages/PublicProfile";
 import AdminPanel from "./pages/AdminPanel";
 
-import { BrowserRouter, Route } from 'react-router-dom';
+import {BrowserRouter, Route} from 'react-router-dom';
 
 import {routes} from "../utils/routerPaths";
 

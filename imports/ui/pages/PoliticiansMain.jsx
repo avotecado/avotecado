@@ -5,10 +5,6 @@ import {withTracker} from 'meteor/react-meteor-data';
 import Politicians from '../../api/Politicians';
 import Followed from '../../api/Followed';
 import Comments from '../../api/Comments';
-
-// import { PoliticianContext } from '../context/PoliticianContext';
-// import Async from 'react-async';
-
 import PoliticianHeaderText from '../components/politicians/PoliticianHeaderText';
 import PoliticianRatingSystem from '../components/politicians/PoliticianRatingSystem';
 import PoliticiansSelect from '../components/politicians/PoliticiansSelect';
@@ -20,6 +16,9 @@ import CommentSystem from '../components/comments/CommentSystem';
 
 import {Container} from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+
+// import { PoliticianContext } from '../context/PoliticianContext';
+// import Async from 'react-async';
 
 const profilePictureStyle = {display: 'flex', alignItems: 'center', flexFlow: 'column wrap'};
 const contactStyle = {display: 'flex', justifyContent: 'center', flexFlow: 'column wrap'};

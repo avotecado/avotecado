@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BarChart, Bar, PieChart, Pie, Sector, Cell, Text, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from 'recharts';
+import {Bar, BarChart, CartesianGrid, Cell, Legend, Pie, PieChart, Text, Tooltip, XAxis, YAxis} from 'recharts';
 import {setupArrayForReCharts} from "../../../utils/setupArrayForReCharts";
 
 const RADIAN = Math.PI / 180;
