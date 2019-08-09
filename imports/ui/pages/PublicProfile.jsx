@@ -7,6 +7,7 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import {unescapeUser} from "../../utils/userValidation";
 import ErrorSuccessDisplay from "../components/include/errorSuccessDisplay";
+import UserFollowedDisplay from "../components/users/UserFollowedDisplay";
 
 class PublicProfile extends Component {
     constructor(props) {
@@ -51,7 +52,6 @@ class PublicProfile extends Component {
         if (this.state.loading) {
             return (<Loading/>);
         } else {
-            let f = JSON.stringify(this.state.followed);
             return (
                 <div>
                     <Container maxWidth='lg'>
@@ -72,7 +72,7 @@ class PublicProfile extends Component {
                                         <div style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>
                                             Followed:
                                         </div>
-                                        {f}
+                                        <UserFollowedDisplay followed={this.state.followed} />
                                     </Grid>
                                     <Grid>
                                         <div style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>

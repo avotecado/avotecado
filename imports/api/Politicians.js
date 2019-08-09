@@ -14,9 +14,6 @@ Meteor.methods({
     'politicians.getAll'() {
         return Politicians.find({}).fetch();
     },
-    'politicians.getParties'() {
-        return Politicians.rawCollection().distinct('party');
-    },
     'politicians.findByParty'(party) {
         check(party, String);
         return Politicians.find({party: party}).fetch();
@@ -24,5 +21,8 @@ Meteor.methods({
     'politicians.findByID'(politicianID) {
         check(politicianID, String);
         return Politicians.find({_id: politicianID}).fetch();
+    },
+    'politicians.findByMultipleId'(politicianIdArray) {
+        return Politicians.find({_id: {$in: politicianIdArray}}).fetch()
     }
 });

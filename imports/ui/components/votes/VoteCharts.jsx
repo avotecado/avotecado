@@ -62,20 +62,25 @@ class VoteCharts extends Component {
             let tagData = this.state.tagData;
             let voteData = this.state.voteData;
             return (
-                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
-                    <PieChart width={400} height={400}>
-                        <Pie data={tagData}
-                             animationDuration={800} cx={'50%'} cy={'50%'} outerRadius={170}
-                             fill='black' dataKey='value' nameKey='name' labelLine={false}
-                             label={renderCustomizedLabel}>
-                            {
-                                tagData.map((entry, index) => <Cell key={`cell-${index}`} fill='rgb(0, 146, 69)'/>)
-                            }
-                        </Pie>
-                    </PieChart>
+                <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', marginBottom:'1em'}}>
+                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                        <PieChart width={400} height={400}>
+                            <Pie data={tagData}
+                                 animationDuration={800} cx={'50%'} cy={'50%'} outerRadius={170}
+                                 fill='black' dataKey='value' nameKey='name' labelLine={false}
+                                 label={renderCustomizedLabel}>
+                                {
+                                    tagData.map((entry, index) => <Cell key={`cell-${index}`} fill='rgb(0, 146, 69)'/>)
+                                }
+                            </Pie>
+                        </PieChart>
+                        <span style={{marginTop:'-1em'}}>
+                            Vote Tag Make Up
+                        </span>
+                    </div>
                     <BarChart data={voteData}
-                              width={500} height={300}
-                              margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+                              width={600} height={300}
+                              margin={{top: 5, right: 30, left: 30, bottom: 5}}>
                         <CartesianGrid strokeDasharray='3 3'/>
                         <XAxis dataKey='name'/>
                         <YAxis/>

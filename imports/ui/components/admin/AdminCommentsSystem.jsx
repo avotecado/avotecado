@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Card from '@material-ui/core/Card';
 import {Meteor} from "meteor/meteor";
 import ErrorSuccessDisplay from "../include/errorSuccessDisplay";
+import CardContent from '@material-ui/core/CardContent';
 
 class AdminCommentsSystem extends Component {
     constructor(props){
@@ -53,13 +54,15 @@ class AdminCommentsSystem extends Component {
                         {comments.map((comment, index) => {
                             return (
                                 <Card style={{marginBottom: '1em'}} key={index}>
-                                    User: {comment.username} <br/>
-                                    Message: {comment.message} <br/>
-                                    Politician: {comment.politicianName} <br/>
-                                    <span style={{fontWeight:'bold', color:'red', cursor: 'pointer'}}
-                                          onClick={() => this.deleteMessage(comment._id)}>
-                                        Delete Message
-                                    </span><br/>
+                                    <CardContent>
+                                        User: {comment.username} <br/>
+                                        Message: {comment.message} <br/>
+                                        Politician: {comment.politicianName} <br/>
+                                        <span style={{fontWeight:'bold', color:'red', cursor: 'pointer'}}
+                                              onClick={() => this.deleteMessage(comment._id)}>
+                                            Delete Message
+                                        </span><br/>
+                                    </CardContent>
                                 </Card>
                             )
                         }

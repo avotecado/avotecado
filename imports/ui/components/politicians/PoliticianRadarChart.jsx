@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart,} from 'recharts';
 import Loading from "../../../utils/Loading";
+import Grid from '@material-ui/core/Grid';
 
 const voteOptionsArray = ['In Favour', 'In Opposition', 'Absent', 'Abstain', 'No Vote', 'Declared Conflict'];
 
@@ -59,18 +60,30 @@ class PoliticianRadarChart extends Component {
         } else {
             return (
                 <div>
-                    <RadarChart data={this.state.data}
-                                cx={300} cy={250} outerRadius={150} width={500} height={500}>
-                        <PolarGrid/>
-                        <PolarAngleAxis dataKey="tag"/>
-                        <PolarRadiusAxis/>
-                        <Radar name="In Favor" dataKey="inFavour" stroke="green" fill="green" fillOpacity={0.4}/>
-                        <Radar name="In Opposition" dataKey="inOpposition" stroke="red" fill="red" fillOpacity={0.4}/>
-                        <Radar name="Declared Conflict" dataKey="declaredConflict" stroke="yellow" fill="yellow" fillOpacity={0.4}/>
-                        <Radar name="No Vote" dataKey="noVote" stroke="black" fill="black" fillOpacity={0.4}/>
-                        <Radar name="Abstain" dataKey="abstain" stroke="grey" fill="grey" fillOpacity={0.4}/>
-                        <Radar name="Absent" dataKey="absent" stroke="blue" fill="blue" fillOpacity={0.4}/>
-                    </RadarChart>
+                    <Grid container>
+                        <Grid item xs={6}>
+                            <RadarChart data={this.state.data}
+                                        cx={250} cy={250} outerRadius={140} width={500} height={500}>
+                                <PolarGrid/>
+                                <PolarAngleAxis dataKey="tag"/>
+                                <PolarRadiusAxis/>
+                                <Radar name="In Favor" dataKey="inFavour" stroke="green" fill="green" fillOpacity={0.4}/>
+                                <Radar name="In Opposition" dataKey="inOpposition" stroke="red" fill="red" fillOpacity={0.4}/>
+                                <Radar name="Declared Conflict" dataKey="declaredConflict" stroke="yellow" fill="yellow" fillOpacity={0.4}/>
+                                <Radar name="No Vote" dataKey="noVote" stroke="black" fill="black" fillOpacity={0.4}/>
+                                <Radar name="Abstain" dataKey="abstain" stroke="grey" fill="grey" fillOpacity={0.4}/>
+                                <Radar name="Absent" dataKey="absent" stroke="blue" fill="blue" fillOpacity={0.4}/>
+                            </RadarChart>
+                        </Grid>
+                        <Grid item xs={6} style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems:"center"}}>
+                            <div>Green: In Favor</div>
+                            <div>Red: In Opposition</div>
+                            <div>Yellow: Declared Conflict</div>
+                            <div>Black: No Vote</div>
+                            <div>Grey: Abstain</div>
+                            <div>Blue: Absent</div>
+                        </Grid>
+                    </Grid>
                 </div>
             );
         }

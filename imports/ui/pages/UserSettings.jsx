@@ -161,15 +161,6 @@ class UserSettings extends React.Component {
                     <ErrorSuccessDisplay error={this.state.error} success={this.state.success} />
 
                     <Container style={bottomButtonRowStyle}>
-                        <Button onClick={() => this.handleLogout()} variant='contained' style={{
-                            fontFamily: 'Helvetica Black Extended',
-                            color: 'white',
-                            fontSize: '1.25em',
-                            backgroundColor: '#D15F01',
-                            textTransform: 'none'
-                        }}>
-                            Logout
-                        </Button>
                         <Button component={Link} to={`${routes.user}` + '?' + this.state.userId} variant='contained'
                                 style={buttonStyle}>
                             Profile
@@ -185,6 +176,15 @@ class UserSettings extends React.Component {
                                 Admin Panel
                             </Button>
                             : null}
+                        <Button onClick={() => this.handleLogout()} variant='contained' style={{
+                            fontFamily: 'Helvetica Black Extended',
+                            color: 'white',
+                            fontSize: '1.25em',
+                            backgroundColor: '#D15F01',
+                            textTransform: 'none'
+                        }}>
+                            Logout
+                        </Button>
                     </Container>
                 </div>
             );

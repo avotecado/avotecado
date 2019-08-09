@@ -144,7 +144,7 @@ Meteor.startup(() => {
         return Meteor.users.find({}, {
             fields: {
                 roles: 1,
-                emails:1,
+                emails: 1,
                 username: 1,
                 name: 1,
                 dob: 1,

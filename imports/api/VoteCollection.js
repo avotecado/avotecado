@@ -28,13 +28,6 @@ Meteor.methods({
         return votesArray;
     },
     'vote.voteByArrayOfPolitician'(voteByPoliticianObject) {
-        /**
-         * loop through politician IDs [0, 1, 2, 3, 4, ..]
-         * and then for each politicianID, get their vote from currentVoteArray
-         * insert it into arrayToInsertPoliticianVote
-         * then once done with all politicians, replace votesArray[i].votes with arrayToInsert
-         */
-
         let politicianIDArray = voteByPoliticianObject.politicianIDArray;
         let votesArray = voteByPoliticianObject.votesArray;
         for (let i = politicianIDArray.length; i-- > 0;) {

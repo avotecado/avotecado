@@ -6,7 +6,9 @@ import ErrorSuccessDisplay from "../include/errorSuccessDisplay";
 class AdminUserManagement extends Component {
     constructor(props){
         super(props);
-        this.state = {error: null};
+        this.state = {
+            error: null
+        };
         this.deleteUser = this.deleteUser.bind(this);
     }
 
@@ -42,12 +44,14 @@ class AdminUserManagement extends Component {
                 {usersList.map((userEntry, index) => {
                     return (
                         <ul key={index}>
-                            <li key={userEntry.username}>
-                                <NavLink to={`${routes.user}`+ '?' + `${userEntry._id}`}>
+                            <li key={userEntry.username} style={{display: "flex", flexDirection:"column"}}>
+                                <NavLink to={`${routes.user}`+ '?' + `${userEntry._id}`}
+                                         style={{maxWidth:"fit-content"}} >
                                     {userEntry.username}
                                 </NavLink>
-                                <span onClick={() => {this.deleteUser(userEntry._id)}}>
-                                    Delete user.
+                                <span style={{fontWeight:'bold', color:'red', cursor: 'pointer', maxWidth:"fit-content"}}
+                                      onClick={() => {this.deleteUser(userEntry._id)}}>
+                                    Delete User
                                 </span>
                             </li>
                         </ul>
