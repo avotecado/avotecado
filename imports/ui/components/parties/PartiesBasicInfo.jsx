@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Container} from "@material-ui/core";
 import {Link} from "react-router-dom";
-import PartiesVoteHistory from "./PartiesVoteHistory";
 
 const subHeaderStyle = {
     fontFamily: 'Helvetica Black Extended',

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Meteor} from "meteor/meteor";
 import {withTracker} from "meteor/react-meteor-data";
-import {Redirect} from "react-router-dom";
 import Container from "@material-ui/core/Container";
 import AdminUserManagement from "../components/admin/AdminUserManagement";
 import AdminCommentsSystem from "../components/admin/AdminCommentsSystem";

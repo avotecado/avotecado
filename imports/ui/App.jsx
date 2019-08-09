@@ -16,6 +16,8 @@ import AdminPanel from "./pages/AdminPanel";
 
 import { BrowserRouter, Route } from 'react-router-dom';
 
+import {routes} from "../utils/routerPaths";
+
 class App extends Component {
   render () {
     return (
@@ -23,15 +25,15 @@ class App extends Component {
         <div style={{ overflowX: 'hidden' }}>
           <Header />
           <Route exact path='/' component={Home} />
-          <Route exact path='/politicians' component={PoliticiansMain} />
-          <Route exact path='/parties' component={PartiesMain} />
-          <Route exact path='/votes' component={Votes} />
-          <Route exact path='/login' component={Login} />
-          <Route exact path='/register' component={Register} />
-          <Route exact path='/user-settings' component={UserSettings} />
-          <Route exact path='/user-directory' component={UserDirectory} />
-          <Route exact path='/user' component={PublicProfile} />
-          <Route path='/admin' component={AdminPanel} />
+          <Route exact path={routes.politicians} component={PoliticiansMain} />
+          <Route exact path={routes.parties} component={PartiesMain} />
+          <Route exact path={routes.votes} component={Votes} />
+          <Route exact path={routes.login} component={Login} />
+          <Route exact path={routes.register} component={Register} />
+          <Route exact path={routes.userSettings} component={UserSettings} />
+          <Route exact path={routes.userDir} component={UserDirectory} />
+          <Route exact path={routes.user} component={PublicProfile} />
+          <Route exact path={routes.admin} component={AdminPanel} />
           <Footer />
         </div>
       </BrowserRouter>

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {NavLink} from "react-router-dom";
+import {routes} from "../../../utils/routerPaths";
 
 class AdminUserManagement extends Component {
     constructor(props){
@@ -43,7 +44,7 @@ class AdminUserManagement extends Component {
                     return (
                         <ul key={index}>
                             <li key={userEntry.username}>
-                                <NavLink to={'/user?' + `${userEntry._id}`}>
+                                <NavLink to={`${routes.user}`+ '?' + `${userEntry._id}`}>
                                     {userEntry.username}
                                 </NavLink>
                                 <span onClick={() => {this.deleteUser(userEntry._id)}}>

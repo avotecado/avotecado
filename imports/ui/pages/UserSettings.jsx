@@ -4,21 +4,13 @@ import {Link, Redirect} from 'react-router-dom';
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 
-import {Container, withStyles} from "@material-ui/core";
+import {Container} from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import FormControl from "@material-ui/core/FormControl";
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
-
-const CustomTextField = withStyles({
-    root: {
-        '& label.Mui-focused': {fontFamily: 'Fact-ExpandedMedium', color: '#009245'},
-        '& .MuiInput-underline:before': {borderBottomColor: 'black'},
-        '& .MuiInput-underline:after': {borderBottomColor: '#009245'}
-    }
-})(TextField);
 
 class UserSettings extends React.Component {
     constructor(props) {
@@ -41,8 +33,6 @@ class UserSettings extends React.Component {
                         politicalLeaning: user.politicalLeaning,
                         userBio: user.userBio
                     });
-                } else {
-                    this.setState({loading: false, error: true});
                 }
             }
         }
@@ -63,7 +53,7 @@ class UserSettings extends React.Component {
         };
         Meteor.call('user.updateUserProfile', updateObject, (err, res) => {
             if (err) {
-                console.log(err.error);
+                console.log(err.reason);
             } else {
                 console.log(res);
             }
@@ -102,21 +92,20 @@ class UserSettings extends React.Component {
                     </Container>
                     <form onSubmit={this.handleSubmit}>
                         <Container style={{display: 'flex', flexDirection: 'column'}}>
-                            <CustomTextField name='name' label='Name' style={{marginBottom: '0.1em'}}
+                            <TextField name='name' label='Name' style={{marginBottom: '0.1em'}}
                                              autoComplete='name' value={this.state.name}
                                              onChange={this.handleChange}/>
-                            <CustomTextField name='occupation' label='Occupation' style={{marginBottom: '0.1em'}}
+                            <TextField name='occupation' label='Occupation' style={{marginBottom: '0.1em'}}
                                              autoComplete='occupation' value={this.state.occupation}
                                              onChange={this.handleChange}/>
-                            <CustomTextField name='politicalLeaning' label='Political Leaning'
+                            <TextField name='politicalLeaning' label='Political Leaning'
                                              style={{marginBottom: '0.1em'}}
                                              autoComplete='politicalLeaning'
                                              value={this.state.politicalLeaning}
                                              onChange={this.handleChange}/>
-                            <CustomTextField name='userBio' label='User Bio' style={{marginBottom: '0.1em'}}
+                            <TextField name='userBio' label='User Bio' style={{marginBottom: '0.1em'}}
                                              autoComplete='bio' value={this.state.userBio}
                                              onChange={this.handleChange}/>
-
                             <FormControl>
                                 <InputLabel>Preferred Party</InputLabel>
                                 <Select

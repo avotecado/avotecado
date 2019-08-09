@@ -3,11 +3,8 @@ import {Link, Redirect} from 'react-router-dom';
 import {withStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import {Container} from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
+import {routes} from "../../utils/routerPaths";
 
 const CustomTextField = withStyles({
     root: {
@@ -54,7 +51,7 @@ export class Login extends Component {
 
     render() {
         if (this.state.loggedIn) {
-            return <Redirect to='/user-settings'/>;
+            return <Redirect to={routes.userSettings}/>;
         } else {
             return (
                 <div>
@@ -86,7 +83,7 @@ export class Login extends Component {
 
                             <Link
                                 style={{fontFamily: 'Fact-ExpandedMedium', fontSize: '1.25em', color: 'black', textDecorationStyle: 'wavy', textDecorationColor: 'rgb(0,146,69)' }}
-                                to='/register'>
+                                to={routes.register}>
                                 No account? Click here to register.
                             </Link>
 

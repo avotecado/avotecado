@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import {routes} from "../../../utils/routerPaths";
 
 export default class PoliticiansSelect extends Component {
     constructor(props) {
@@ -35,7 +36,7 @@ export default class PoliticiansSelect extends Component {
         return (
             <div style={{display: 'flex', flexFlow: 'row wrap', justifyContent: 'center'}}>
                 {this.state.politiciansArray.map((politician, index) => (
-                    <NavLink to={'/politicians?' + index} key={index} style={{textDecorationLine: 'none'}}>
+                    <NavLink to={`${routes.politicians}`+ '?' + index} key={index} style={{textDecorationLine: 'none'}}>
                         <Button variant='outlined' style={buttonTextStyle}>
                             {politician.firstname} {politician.lastname}
                         </Button>

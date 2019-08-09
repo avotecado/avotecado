@@ -8,6 +8,7 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import IconButton from '@material-ui/core/IconButton';
+import {routes} from "../../../utils/routerPaths";
 
 
 
@@ -105,26 +106,26 @@ class Header extends React.Component {
                             </Typography>
 
                             <span style={classes.links}>
-                                <NavLink to='/politicians'
+                                <NavLink to={routes.politicians}
                                          style={linkNotActiveStyle}
                                          activeStyle={linkActiveStyle}>
                                     politicians
                                 </NavLink>
 
-                                <NavLink to='/parties'
+                                <NavLink to={routes.parties}
                                          style={linkNotActiveStyle}
                                          activeStyle={linkActiveStyle}>
                                     parties
                                 </NavLink>
 
-                                <NavLink to='/votes'
+                                <NavLink to={routes.votes}
                                          style={linkNotActiveStyle}
                                          activeStyle={linkActiveStyle}>
                                     votes
                                 </NavLink>
 
                                 {(this.state.loggedIn) ? (
-                                    <Link to='/user-settings'>
+                                    <Link to={routes.userSettings}>
                                         <IconButton
                                             aria-label='Account of current user'
                                             aria-controls='primary-search-account-menu'
@@ -134,7 +135,7 @@ class Header extends React.Component {
                                         </IconButton>
                                     </Link>
                                 ) : (
-                                    <Link to='/login'>
+                                    <Link to={routes.login}>
                                         <IconButton
                                             aria-label='Account of current user'
                                             aria-controls='primary-search-account-menu'

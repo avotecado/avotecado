@@ -82,7 +82,7 @@ Meteor.startup(() => {
                 prefParty: String,
                 userBio: String
             });
-            Meteor.users.update({_id: Meteor.userId()}, {
+            return Meteor.users.update({_id: Meteor.userId()}, {
                 $set: {
                     "name": updateObject.name,
                     "occupation": updateObject.occupation,

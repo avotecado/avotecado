@@ -1,5 +1,6 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
+import {routes} from "../../utils/routerPaths";
 
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
@@ -50,7 +51,7 @@ class UserDirectory extends React.Component {
                             return (
                                 <ul key={index}>
                                     <li key={userEntry.username}>
-                                        <NavLink to={'/user?' + `${userEntry._id}`}>
+                                        <NavLink to={`${routes.user}` + '?' + `${userEntry._id}`}>
                                             {userEntry.username}
                                         </NavLink>
                                     </li>

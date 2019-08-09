@@ -11,6 +11,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
 
 import FormControl from "@material-ui/core/FormControl";
+import {routes} from "../../utils/routerPaths";
 
 const CustomTextField = withStyles({
     root: {
@@ -72,7 +73,7 @@ export class Register extends Component {
 
     render() {
         if (this.state.loggedIn) {
-            return <Redirect to='/user-settings'/>;
+            return <Redirect to={routes.userSettings}/>;
         } else {
             return (
                 <>

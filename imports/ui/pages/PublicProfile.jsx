@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import {withTracker} from "meteor/react-meteor-data";
 import {Meteor} from "meteor/meteor";
+
+import CommentViewer from "../components/comments/CommentViewer";
+
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 
@@ -54,7 +57,6 @@ class PublicProfile extends Component {
             );
         } else {
             let f = JSON.stringify(this.state.followed);
-            let c = JSON.stringify(this.state.comments);
             return (
                 <div>
                     <Container maxWidth='lg'>
@@ -68,8 +70,7 @@ class PublicProfile extends Component {
                                 <>Preferred Local Party: {this.state.user.prefParty}</> <br/>
                                 <>User Bio: {this.state.user.userBio}</> <br/>
                             </Grid>
-                            <Grid container={true}>
-
+                            <Grid container style={{display: 'flex', flexDirection:'column'}}>
                                     <Grid>
                                         <div style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>
                                             Followed:
@@ -80,7 +81,7 @@ class PublicProfile extends Component {
                                         <div style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>
                                             Comments:
                                         </div>
-                                        {c}
+                                        <CommentViewer commentsArray={this.state.comments} userProfile={true}/>
                                     </Grid>
                             </Grid>
                         </Grid>
