@@ -6,7 +6,6 @@ import {withStyles} from '@material-ui/core/styles';
 import HomeHeroButton from './HomeHeroButton';
 import {useStylesHomeMainCard} from "./HomeMainCardStyles";
 
-
 class HomeMainCard extends Component {
     constructor(props) {
         super(props);

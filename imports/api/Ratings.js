@@ -29,17 +29,6 @@ Meteor.methods({
             }
         });
     },
-    'ratings.findByID'(politicianID) {
-        check(politicianID, String);
-        return Ratings.find({pid: politicianID}).fetch();
-    },
-    'ratings.findNewestByID'(politicianID) {
-        check(politicianID, String);
-        return Ratings.find({pid: politicianID}).sort({$natural:1}).limit(4);
-    },
-    'ratings.getAll'() {
-        return Ratings.find({}).fetch();
-    },
     'ratings.removeAllByUser'(userId) {
         if (!Roles.userIsInRole(Meteor.user(), ['admin'])) {
             throw new Meteor.Error('not-authorized');

@@ -13,6 +13,7 @@ const buttonStyle = {
     backgroundColor: '#009245',
     textTransform: 'none'
 };
+
 class HomeHeroButton extends Component {
     constructor(props) {
         super(props);
@@ -21,6 +22,7 @@ class HomeHeroButton extends Component {
             homeHeroButtons: [],
         };
     }
+
     componentDidMount() {
         if (Meteor.user()) {
             this.setState({loggedIn: true});
@@ -65,4 +67,6 @@ class HomeHeroButton extends Component {
     }
 }
 
-export default withTracker(() => { return {user: Meteor.user()}; })(HomeHeroButton);
+export default withTracker(() => {
+    return {user: Meteor.user()};
+})(HomeHeroButton);

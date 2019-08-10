@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
-
 import PartyCollection from '/imports/api/Party';
 import Politicians from '/imports/api/Politicians';
-
 import {Container} from '@material-ui/core';
 import PartiesSelect from "../components/parties/PartiesSelect";
 import PartiesBasicInfo from "../components/parties/PartiesBasicInfo";

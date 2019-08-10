@@ -97,5 +97,6 @@ export const useStylesHomeMainCard = {
         width: '100%',
         position: 'absolute',
         height: '350px',
-        display: 'flex'}
+        display: 'flex'
+    }
 };

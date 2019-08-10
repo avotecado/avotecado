@@ -2,7 +2,6 @@ import React from 'react';
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from "meteor/react-meteor-data";
 import {Link, NavLink} from 'react-router-dom';
-
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
@@ -96,10 +95,15 @@ class Header extends React.Component {
                         <Toolbar disableGutters>
 
                             <Typography style={classes.title}>
-                                <NavLink to='/' activeStyle={{fontSize: '2em', fontWeight: 'bold', color: 'black', textDecorationLine: 'none'}}>
+                                <NavLink to='/' activeStyle={{
+                                    fontSize: '2em',
+                                    fontWeight: 'bold',
+                                    color: 'black',
+                                    textDecorationLine: 'none'
+                                }}>
                                     a
                                     {/*vote*/}
-                                     <span style={headerTextOutline}>vote</span>
+                                    <span style={headerTextOutline}>vote</span>
                                     cado
                                 </NavLink>
                             </Typography>
@@ -153,4 +157,6 @@ class Header extends React.Component {
     }
 }
 
-export default withTracker(() => { return {user: Meteor.user()}; })(Header);
+export default withTracker(() => {
+    return {user: Meteor.user()};
+})(Header);

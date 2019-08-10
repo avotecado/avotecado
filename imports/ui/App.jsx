@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-
 import Header from './components/include/Header.jsx';
 import Footer from './components/include/Footer.jsx';
-
 import Home from './pages/Home';
 import PoliticiansMain from './pages/PoliticiansMain';
 import PartiesMain from './pages/PartiesMain';

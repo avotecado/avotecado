@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
-
 import PoliticianRatingAverage from './PoliticianRatingAverage';
 import PoliticianRatingChart from "./PoliticianRatingChart";
-
 import Ratings from '../../../api/Ratings';
-
 import Select from "@material-ui/core/Select";
 import MenuItem from "@material-ui/core/MenuItem";
 import Grid from "@material-ui/core/Grid";

@@ -1,10 +1,8 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
 import {routes} from "../../utils/routerPaths";
-
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
-
 import Container from '@material-ui/core/Container';
 
 class UserDirectory extends React.Component {

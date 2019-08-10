@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
-
 import Politicians from '../../api/Politicians';
 import Followed from '../../api/Followed';
 import Comments from '../../api/Comments';
@@ -13,7 +12,6 @@ import PoliticianFollow from '../components/politicians/PoliticianFollow';
 import PoliticianContact from '../components/politicians/PoliticianContact';
 import PoliticianVoteHistory from '../components/politicians/PoliticianVoteHistory';
 import CommentSystem from '../components/comments/CommentSystem';
-
 import {Container} from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import {TwitterTimelineEmbed} from "react-twitter-embed";

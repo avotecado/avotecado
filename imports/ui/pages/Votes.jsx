@@ -2,11 +2,8 @@ import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 import Loading from "../../utils/Loading";
-
 import VoteCollection from '/imports/api/VoteCollection';
-
 import VoteTable from '../components/votes/VoteTable';
-
 import {Container} from '@material-ui/core';
 import ErrorSuccessDisplay from "../components/include/errorSuccessDisplay";
 
