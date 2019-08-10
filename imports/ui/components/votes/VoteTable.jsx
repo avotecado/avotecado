@@ -51,7 +51,7 @@ export class VoteTable extends Component {
                                 <p>This was a <strong>{rowData.meetingType}</strong> meeting.</p>
                                 <ul>
                                     <li>Meeting agenda: <a href={links[0]}>{links[0]}</a></li>
-                                    <li>Meeting agenda: <a href={links[1]}>{links[1]}</a></li>
+                                    <li>Meeting minutes: <a href={links[1]}>{links[1]}</a></li>
                                 </ul>
                                 {voteResult}
                             </Container>

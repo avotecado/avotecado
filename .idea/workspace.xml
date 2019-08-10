@@ -4,15 +4,10 @@
     <bookmark url="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianContact.jsx" line="49" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87ba5101-4793-42c9-b350-e7fe1406aa45" name="Default Changelist" comment="remove yyyy mm dd">
-      <change afterPath="$PROJECT_DIR$/imports/utils/createLinks.jsx" afterDir="false" />
+    <list default="true" id="87ba5101-4793-42c9-b350-e7fe1406aa45" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/home/HomeMainCard.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/home/HomeMainCard.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/home/HomeMainCardStyles.js" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/home/HomeMainCardStyles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/users/UserFollowedDisplay.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/users/UserFollowedDisplay.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/pages/Register.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/styles.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/styles.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -49,8 +44,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="47" column="45" lean-forward="true" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
+            <state relative-caret-position="442">
+              <caret line="53" column="95" lean-forward="true" selection-start-line="53" selection-start-column="95" selection-end-line="53" selection-end-column="95" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -61,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/ui/pages/Register.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
+            <state relative-caret-position="340">
+              <caret line="108" column="67" selection-start-line="108" selection-start-column="67" selection-end-line="108" selection-end-column="67" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -71,10 +66,13 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/imports/ui/styles.jsx">
+        <entry file="file://$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
+            <state relative-caret-position="358">
+              <caret line="24" selection-start-line="24" selection-end-line="24" />
+              <folding>
+                <element signature="e#0#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -91,8 +89,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>switch</find>
-      <find>`$</find>
       <find>escape</find>
       <find>console.log</find>
       <find>this.state.error</find>
@@ -121,6 +117,8 @@
       <find>What's your</find>
       <find>1.25em</find>
       <find>fontFamily: 'Fact-ExpandedMedium', fontSize: '1.25em'</find>
+      <find>fontFamily: 'Helvetica Black Extended', fontSize: '1.25em'</find>
+      <find>{display: 'flex', flexDirection: 'column'}</find>
     </findStrings>
     <replaceStrings>
       <replace>console.log(err.error)</replace>
@@ -153,7 +151,6 @@
         <option value="$PROJECT_DIR$/imports/api/Comments.js" />
         <option value="$PROJECT_DIR$/imports/ui/components/include/errorSuccessDisplay.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/pages/PartiesMain.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/pages/Votes.jsx" />
         <option value="$PROJECT_DIR$/server/main.js" />
         <option value="$PROJECT_DIR$/imports/api/VoteCollection.js" />
@@ -181,10 +178,11 @@
         <option value="$PROJECT_DIR$/imports/ui/pages/UserSettings.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/home/HomeMainCardStyles.js" />
         <option value="$PROJECT_DIR$/imports/ui/components/home/HomeMainCard.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/users/UserFollowedDisplay.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/styles.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/pages/Register.jsx" />
         <option value="$PROJECT_DIR$/imports/utils/createLinks.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/styles.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/users/UserFollowedDisplay.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx" />
       </list>
     </option>
@@ -368,7 +366,7 @@
       <workItem from="1565213188115" duration="1975000" />
       <workItem from="1565227098033" duration="92185000" />
       <workItem from="1565368572384" duration="85000" />
-      <workItem from="1565391575776" duration="15182000" />
+      <workItem from="1565391575776" duration="15609000" />
     </task>
     <task id="LOCAL-00001" summary="working on parties">
       <created>1565130111069</created>
@@ -594,11 +592,25 @@
       <option name="project" value="LOCAL" />
       <updated>1565405787238</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="styl;e stuff, incorporated jason's detail panel link and changed the text format for it a little">
+      <created>1565407140842</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1565407140842</updated>
+    </task>
+    <task id="LOCAL-00034" summary="style stuff">
+      <created>1565407281352</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1565407281352</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="300129000" />
+    <option name="totallyTimeSpent" value="300556000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1426" extended-state="6" />
@@ -673,8 +685,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="refactor polVoteHistory method, OPTIONS (voteTable.jsx as well)" />
-    <MESSAGE value="moved partyVoteTable politician db load out to partiesMain" />
     <MESSAGE value="admin panel link: role check on user-settings page, extracted COLUMNS/OPTIONS into own file, renamed very long util" />
     <MESSAGE value="changed how rating system works -- only 1 per user now" />
     <MESSAGE value="changed some stuff on politician rating" />
@@ -698,7 +708,9 @@
     <MESSAGE value="it's actually YYYY MM DD" />
     <MESSAGE value="fixed 'select' bug, actually textfield" />
     <MESSAGE value="remove yyyy mm dd" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove yyyy mm dd" />
+    <MESSAGE value="styl;e stuff, incorporated jason's detail panel link and changed the text format for it a little" />
+    <MESSAGE value="style stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="style stuff" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/imports/ui/pages/Votes.jsx">
@@ -749,16 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221510">
           <caret line="13105" column="22" lean-forward="true" selection-start-line="13105" selection-start-column="22" selection-end-line="13105" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="649">
-          <caret line="52" column="50" selection-start-line="52" selection-start-column="50" selection-end-line="52" selection-end-column="50" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1090,23 +1092,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/styles.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/pages/Register.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="115" lean-forward="true" selection-start-line="115" selection-end-line="115" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/utils/createLinks.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -1124,10 +1109,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/styles.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/pages/Register.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="108" column="67" selection-start-line="108" selection-start-column="67" selection-end-line="108" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="47" column="45" lean-forward="true" selection-start-line="47" selection-start-column="45" selection-end-line="47" selection-end-column="45" />
+        <state relative-caret-position="442">
+          <caret line="53" column="95" lean-forward="true" selection-start-line="53" selection-start-column="95" selection-end-line="53" selection-end-column="95" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
