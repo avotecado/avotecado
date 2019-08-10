@@ -110,11 +110,15 @@ class UserSettings extends React.Component {
         Meteor.logout();
     }
 
+    getValue(stateVariable) {
+        return stateVariable ? stateVariable : '';
+    }
+
     prefPartyMenu() {
         return <Select
-            value={this.state.prefParty}
+            value={this.getValue(this.state.prefParty)}
             onChange={this.handleChange}
-            inputProps={{name: 'prefParty', id: 'prefParty'}}>
+            inputProps={{name: 'prefParty'}}>
             <MenuItem value={'None'}>None</MenuItem>
             {this.state.parties.map(party => {
                 return (<MenuItem value={party._id} key={party._id}> {party._id} </MenuItem>);
@@ -130,20 +134,20 @@ class UserSettings extends React.Component {
                         <Container style={{display: 'flex', flexDirection: 'column'}}>
 
                             <TextField name='name' label='Name' style={{marginBottom: '0.1em'}}
-                                       autoComplete='name' value={this.state.name}
+                                       autoComplete='name' value={this.getValue(this.state.name)}
                                        onChange={this.handleChange}/>
                             <TextField name='occupation' label='Occupation' style={{marginBottom: '0.1em'}}
-                                       autoComplete='occupation' value={this.state.occupation}
+                                       autoComplete='occupation' value={this.getValue(this.state.occupation)}
                                        inputProps={{ maxLength: 140 }}
                                        onChange={this.handleChange}/>
                             <TextField name='politicalLeaning' label='Political Leaning'
                                        style={{marginBottom: '0.1em'}}
                                        autoComplete='politicalLeaning'
                                        inputProps={{ maxLength: 140 }}
-                                       value={this.state.politicalLeaning}
+                                       value={this.getValue(this.state.politicalLeaning)}
                                        onChange={this.handleChange}/>
                             <TextField name='userBio' label='User Bio' style={{marginBottom: '0.1em'}}
-                                       autoComplete='bio' value={this.state.userBio}
+                                       autoComplete='bio' value={this.getValue(this.state.userBio)}
                                        inputProps={{ maxLength: 140 }}
                                        onChange={this.handleChange}/>
 

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
 import {Redirect} from 'react-router-dom';
-import {withStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import {Container} from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
@@ -17,15 +16,7 @@ import Loading from "../../utils/Loading";
 import {userValidation} from "../../utils/userValidation";
 import validator from 'validator';
 import ErrorSuccessDisplay from "../components/include/errorSuccessDisplay";
-import {helveticaBlackExtended_2em} from "../styles";
-
-const CustomTextField = withStyles({
-    root: {
-        '& label.Mui-focused': {fontFamily: 'Fact-ExpandedMedium', color: '#009245'},
-        '& .MuiInput-underline:before': {borderBottomColor: 'black'},
-        '& .MuiInput-underline:after': {borderBottomColor: '#009245'}
-    }
-})(TextField);
+import {helveticaBlackExtended_1p25em, helveticaBlackExtended_2em} from "../styles";
 
 class Register extends Component {
     constructor(props) {
@@ -120,43 +111,41 @@ class Register extends Component {
                             </span>
                                 <Grid container spacing={2}>
                                     <Grid item xs style={{display: 'flex', flexDirection: 'column'}}>
-                                    <span style={{
-                                        fontFamily: 'Fact-ExpandedMedium',
-                                        fontSize: '1.25em'
-                                    }}> Required: </span>
+                                    <span style={helveticaBlackExtended_1p25em}>
+                                        Required: </span>
 
-                                        <CustomTextField name='username' label='Pick a username.'
+                                        <TextField name='username' label='Pick a username.'
                                                          style={{marginBottom: '0.1em'}}
                                                          required autoComplete='username' value={this.state.username}
                                                          onChange={this.handleChange}/>
 
-                                        <CustomTextField name='password' label='Pick a password.'
+                                        <TextField name='password' label='Pick a password.'
                                                          type='password' style={{marginBottom: '0.1em'}}
                                                          required autoComplete='current-password'
                                                          value={this.state.password}
                                                          onChange={this.handleChange}/>
 
-                                        <CustomTextField name='email' label='Input your email.' type='email'
+                                        <TextField name='email' label='Input your email.' type='email'
                                                          style={{marginBottom: '0.1em'}}
                                                          required autoComplete='email' value={this.state.email}
                                                          onChange={this.handleChange}/>
 
-                                        <span style={{fontFamily: 'Fact-ExpandedMedium', fontSize: '1.25em'}}>
+                                        <span style={helveticaBlackExtended_1p25em}>
                                         Optional:
                                     </span>
 
-                                        <CustomTextField name='name' label="What's your name?"
+                                        <TextField name='name' label="What's your name?"
                                                          style={{marginBottom: '0.1em'}}
                                                          value={this.state.name}
                                                          onChange={this.handleChange}/>
 
-                                        <CustomTextField id='date' name='dob'
-                                                         label="What's your birth date? (YYYY/MM/DD)"
+                                        <TextField id='date' name='dob'
+                                                         label="What's your birth date?"
                                                          type='date' style={{marginBottom: '0.1em'}}
                                                          defaultValue='1818-05-05' InputLabelProps={{shrink: true}}
                                                          onChange={this.handleChange}/>
 
-                                        <CustomTextField name='occupation' label="What's your occupation?"
+                                        <TextField name='occupation' label="What's your occupation?"
                                                          style={{marginBottom: '0.1em'}}
                                                          value={this.state.occupation}
                                                          inputProps={{ maxLength: 140 }}
