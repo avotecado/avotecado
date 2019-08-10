@@ -3,6 +3,7 @@ import Card from '@material-ui/core/Card';
 import {Meteor} from "meteor/meteor";
 import ErrorSuccessDisplay from "../include/errorSuccessDisplay";
 import CardContent from '@material-ui/core/CardContent';
+import {helveticaBlackExtended_1p5em} from "../../styles";
 
 class AdminCommentsSystem extends Component {
     constructor(props){
@@ -47,7 +48,7 @@ class AdminCommentsSystem extends Component {
             let comments = this.state.comments;
             return (
                 <>
-                    <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '1.5em', color: 'black'}}>
+                    <span style={helveticaBlackExtended_1p5em}>
                         Comments
                     </span>
                     <div style={{maxHeight: '35em', overflowY:'auto'}}>

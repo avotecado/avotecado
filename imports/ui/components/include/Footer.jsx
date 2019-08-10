@@ -13,7 +13,7 @@ export default class Footer extends Component {
             <>
                 <Container maxWidth='lg' component='div' style={footerStyle}>
                     <Link to={routes.userDir}>User Directory</Link> <br/>
-                    about / <a href='https://github.com/avotecado/avotecado'>Check us out on GitHub</a>
+                    <a href='https://github.com/avotecado/avotecado'>Check us out on GitHub</a>
                     <Typography component='div' style={textMarkStyle}>
                         avotecado
                     </Typography>

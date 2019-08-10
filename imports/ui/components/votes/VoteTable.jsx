@@ -7,6 +7,7 @@ import {COLUMNS, OPTIONS} from "../../../utils/tablePropsShared";
 import MaterialTable from 'material-table';
 import Grid from '@material-ui/core/Grid';
 import {Container} from '@material-ui/core';
+import {helveticaBlackExtended_1p5em} from "../../styles";
 
 
 const emptyStyle = {
@@ -35,7 +36,7 @@ export class VoteTable extends Component {
                 <MaterialTable
                     elevation='0'
                     title={
-                        <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '1.5em', color: 'black'}}>
+                        <span style={helveticaBlackExtended_1p5em}>
                             Vote History
                         </span>
                     }

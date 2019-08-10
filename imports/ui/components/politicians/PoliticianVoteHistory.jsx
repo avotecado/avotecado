@@ -5,6 +5,7 @@ import PoliticianRadarChart from "./PoliticianRadarChart";
 import {OPTIONS_noSelect} from "../../../utils/tablePropsShared";
 import Loading from "../../../utils/Loading";
 import ErrorSuccessDisplay from "../include/errorSuccessDisplay";
+import {helveticaBlackExtended_1p5em} from "../../styles";
 
 const cellStyleRegularText = {fontFamily: 'Fact-Expanded'};
 const cellStyleSmallText = {fontFamily: 'Fact-Expanded', fontSize: '0.65em'};
@@ -64,7 +65,7 @@ class PoliticianVoteHistory extends Component {
                     <MaterialTable
                         elevation='0'
                         title={
-                            <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '1.5em', color: 'black'}}>
+                            <span style={helveticaBlackExtended_1p5em}>
                                 Vote History of {this.props.politician.firstname} {this.props.politician.lastname}
                             </span>
                         }

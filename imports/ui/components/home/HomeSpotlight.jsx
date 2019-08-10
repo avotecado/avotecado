@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Loading from "../../../utils/Loading";
 import ErrorSuccessDisplay from "../include/errorSuccessDisplay";
+import {helveticaBlackExtended_2em} from "../../styles";
 
 export default class HomeSpotlight extends Component {
     constructor(props) {
@@ -30,7 +31,6 @@ export default class HomeSpotlight extends Component {
     }
 
     render() {
-        let subHeaderStyle = {fontFamily: 'Helvetica Black Extended', fontSize: '2.0em'};
         let contactStyle = {display: 'flex', alignItems: 'center', justifyContent: 'center', flexFlow: 'column wrap'};
         let politicianLinkStyle = {color: 'black', textDecorationColor: 'rgb(0, 146, 69)', textDecorationStyle: 'wavy'};
 
@@ -41,7 +41,7 @@ export default class HomeSpotlight extends Component {
                     <Grid item xs={6} style={contactStyle}>
                         <PoliticiansPFP politician={politician}/>
                         <Link to={`/politicians?${politician._id}`} style={politicianLinkStyle}>
-                            <Typography align='center' style={subHeaderStyle}>
+                            <Typography align='center' style={helveticaBlackExtended_2em}>
                                 {politician.firstname} {politician.lastname}
                             </Typography>
                         </Link>

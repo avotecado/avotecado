@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {NavLink} from "react-router-dom";
 import {routes} from "../../../utils/routerPaths";
 import ErrorSuccessDisplay from "../include/errorSuccessDisplay";
+import {helveticaBlackExtended_1p5em} from "../../styles";
 
 class AdminUserManagement extends Component {
     constructor(props){
@@ -37,7 +38,7 @@ class AdminUserManagement extends Component {
         let usersList = this.props.users;
         return (
             <div>
-                <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '1.5em', color: 'black'}}>
+                <span style={helveticaBlackExtended_1p5em}>
                     Users
                 </span>
                 <div style={{maxHeight: '35em', overflowY:'auto'}}>
