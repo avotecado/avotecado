@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {helveticaBlackExtended_2em} from "../../styles";
+import { withStyles } from '@material-ui/styles';
+import { useStylesPoliticians } from './PoliticiansStyles';
 
 const nameStyle = { color: 'white', backgroundColor: 'black' };
 const councilTitleSpanStyle = { fontFamily: 'Fact-Expanded', fontSize: '0.65em' };
@@ -29,19 +31,20 @@ class PoliticianContact extends Component {
     }
 
     render() {
+        const {classes} = this.props;
         if (this.state.politician) {
             return (
                 <>
                     <div style={helveticaBlackExtended_2em}>
-                        <span style={nameStyle}>
+                        <span className={classes.nameStyle}>
                             {this.state.politician.firstname} {this.state.politician.lastname}
                         </span>
-                        <div style={councilTitleSpanStyle}>
-                            <a href={this.state.politician.profileURL} style={councilTitleURLStyle}>
+                        <div className={classes.councilTitleSpanStyle}>
+                            <a href={this.state.politician.profileURL} className={classes.councilTitleURLStyle}>
                                 {this.state.politician.title}
                             </a>
                         </div>
-                        <div style={partyTextStyle}>
+                        <div className={classes.partyTextStyle}>
                             {this.state.politician.party}
                         </div>
                     </div>
@@ -66,4 +69,4 @@ class PoliticianContact extends Component {
     }
 }
 
-export default PoliticianContact;
+export default withStyles(useStylesPoliticians)(PoliticianContact);

@@ -11,7 +11,7 @@ const renderCustomizedLabel = ({cx, cy, midAngle, innerRadius, outerRadius, perc
 
     return (
         <Text style={{fontFamily: 'Fact-ExpandedMedium', backgroundColor: 'black'}} x={x} y={y} fill='white'
-              textAnchor='middle' dominantBaseline='central'>
+            textAnchor='middle' dominantBaseline='central'>
             {
                 `${name}:` +
                 `${(percent * 100).toFixed(0)}%`
@@ -65,17 +65,17 @@ class PartiesVoteCharts extends Component {
                 <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}>
                     <PieChart width={400} height={400}>
                         <Pie data={tagData}
-                             animationDuration={800} cx={'50%'} cy={'50%'} outerRadius={170}
-                             fill='black' dataKey='value' nameKey='name' labelLine={false}
-                             label={renderCustomizedLabel}>
+                            animationDuration={800} cx={'50%'} cy={'50%'} outerRadius={170}
+                            fill='black' dataKey='value' nameKey='name' labelLine={false}
+                            label={renderCustomizedLabel}>
                             {
                                 tagData.map((entry, index) => <Cell key={`cell-${index}`} fill='rgb(0, 146, 69)'/>)
                             }
                         </Pie>
                     </PieChart>
                     <BarChart data={voteData}
-                              width={500} height={300}
-                              margin={{top: 5, right: 30, left: 20, bottom: 5}}>
+                            width={500} height={300}
+                            margin={{top: 5, right: 30, left: 20, bottom: 5}}>
                         <CartesianGrid strokeDasharray='3 3'/>
                         <XAxis dataKey='name'/>
                         <YAxis/>
