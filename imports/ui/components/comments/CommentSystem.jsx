@@ -113,7 +113,7 @@ export default class PoliticianMakeAComment extends Component {
             <>
                 <Grid item xs={12}>
                         <span style={subHeaderStyle}>
-                          Here's what people have said about {politician.firstname} {politician.lastname}.
+                            Here's what people have said about {politician.firstname} {politician.lastname}.
                         </span>
                     <CommentViewer commentsArray={this.state.commentsArray}/>
                 </Grid>
@@ -158,7 +158,7 @@ export default class PoliticianMakeAComment extends Component {
                     <>
                         <Grid item xs={12}>
                         <span style={subHeaderStyle}>
-                          Here's what others have had to say about {politician.firstname} {politician.lastname}.
+                            Here's what others have had to say about {politician.firstname} {politician.lastname}.
                         </span>
                             <CommentViewer commentsArray={this.state.commentsArray}/>
                         </Grid>
