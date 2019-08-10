@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Meteor} from "meteor/meteor";
 import {matchVoteToPolitician} from "../../../utils/matchVoteToPolitician";
-import {COLUMNS, OPTIONS} from "../../../utils/tablePropsShared";
+import {COLUMNS, OPTIONS_noSelect} from "../../../utils/tablePropsShared";
 
 
 import MaterialTable from "material-table";
@@ -66,7 +66,7 @@ class PartiesVoteHistory extends Component {
                 }
                 data={this.state.votes}
                 columns={COLUMNS}
-                options={OPTIONS}
+                options={OPTIONS_noSelect}
                 onSelectionChange={(rows) => this.setState({selectedForDataViz: rows})}
                 detailPanel={rowData => {
                     let voteResult = matchVoteToPolitician(rowData, politician);
