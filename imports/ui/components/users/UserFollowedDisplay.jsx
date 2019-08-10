@@ -7,6 +7,7 @@ import {routes} from "../../../utils/routerPaths";
 import {Link} from "react-router-dom";
 import PoliticianPic from "../politicians/PoliticianPic";
 import Container from "@material-ui/core/Container";
+import {helveticaBlackExtended_1p25em} from "../../styles";
 
 const cardContentStyle = {
     display: 'flex',
@@ -92,7 +93,7 @@ class UserFollowedDisplay extends Component {
             } else {
                 return (
                     <div style={{display: 'flex', flexDirection: 'row', height: '20em'}}>
-                        <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '1.25em'}}>
+                        <span style={helveticaBlackExtended_1p25em}>
                             No followed politicians.
                         </span>
                     </div>
