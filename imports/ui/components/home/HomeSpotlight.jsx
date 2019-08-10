@@ -34,9 +34,6 @@ class HomeSpotlight extends Component {
 
     render() {
         const {classes} = this.props;
-        console.log(this.props);
-        //let contactStyle = {display: 'flex', alignItems: 'center', justifyContent: 'center', flexFlow: 'column wrap'};
-        //let politicianLinkStyle = {color: 'black', textDecorationColor: 'rgb(0, 146, 69)', textDecorationStyle: 'wavy'};
 
         if (this.state.politician) {
             let politician = this.state.politician;
