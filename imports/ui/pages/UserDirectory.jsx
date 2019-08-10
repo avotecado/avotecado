@@ -1,9 +1,8 @@
 import React from 'react';
 import {NavLink} from 'react-router-dom';
-
+import {routes} from "../../utils/routerPaths";
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
-
 import Container from '@material-ui/core/Container';
 
 class UserDirectory extends React.Component {
@@ -15,20 +14,32 @@ class UserDirectory extends React.Component {
         };
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidMount() {
+        if (this.props.users) {
+            this.setState({loading: false, usersList: this.props.users});
+        }
+    }
+
+
+    componentDidUpdate(prevProps) {
         if (prevProps !== this.props) {
             this.setState({
                 loading: false,
                 usersList: this.props.users
             });
         }
-        if (prevState !== this.state) {
-            console.log(this.state);
-        }
     }
 
     render() {
-        if (!this.state.loading) {
+        if (this.state.loading) {
+            return (
+                <div>
+                    <Container>
+                        Fetching list of users...
+                    </Container>
+                </div>
+            );
+        } else {
             let usersList = this.state.usersList;
             return (
                 <div>
@@ -36,19 +47,16 @@ class UserDirectory extends React.Component {
                         User directory: <br/>
                         {usersList.map((userEntry, index) => {
                             return (
-                                <ul>
-                                    <li key={index}><NavLink to='/'>{userEntry.username}</NavLink></li>
-                                    <br/>
+                                <ul key={index}>
+                                    <li key={userEntry.username}>
+                                        <NavLink to={`${routes.user}` + '?' + `${userEntry._id}`}>
+                                            {userEntry.username}
+                                        </NavLink>
+                                    </li>
                                 </ul>
                             );
                         })}
                     </Container>
-                </div>
-            );
-        } else {
-            return (
-                <div>
-                    Loading...
                 </div>
             );
         }

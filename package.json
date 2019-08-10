@@ -17,14 +17,15 @@
     "material-table": "^1.40.1",
     "material-ui": "^1.0.0-beta.47",
     "meteor-node-stubs": "^0.4.1",
-    "mui-datatables": "^2.6.4",
     "react": "^16.8.6",
     "react-async": "^7.0.3",
     "react-dom": "^16.8.6",
     "react-material-ui-form-validator": "^2.0.9",
     "react-router-dom": "^5.0.1",
+    "react-twitter-embed": "^2.0.8",
     "recharts": "^1.6.2",
-    "simpl-schema": "^1.5.5"
+    "simpl-schema": "^1.5.5",
+    "validator": "^11.1.0"
   },
   "meteor": {
     "mainModule": {

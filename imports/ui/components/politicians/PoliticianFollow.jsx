@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 
 import Button from '@material-ui/core/Button';
+import Loading from "../../../utils/Loading";
 
 export class PoliticianFollow extends Component {
     constructor(props) {
@@ -14,17 +15,12 @@ export class PoliticianFollow extends Component {
     }
 
     componentDidMount() {
-        // console.log(this.props.politician);
-        // console.log(this.props.followedArray);
         if (this.props.followedArray) {
             this.setState({followedArray: this.props.followedArray, loaded: true});
         }
     }
 
-    componentDidUpdate(prevProps, prevState) {
-    }
-
-    render() {
+        render() {
         if (this.state.loaded) {
             let politician = this.props.politician;
             let followedArray = this.props.followedArray.flatMap(x => (x.following));
@@ -57,11 +53,7 @@ export class PoliticianFollow extends Component {
                 );
             }
         } else {
-            return (
-                <div>
-                    Loading...
-                </div>
-            );
+            return (<Loading/>);
         }
     }
 }

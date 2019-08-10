@@ -1,24 +1,23 @@
 import React, {Component} from 'react';
 import {Meteor} from 'meteor/meteor';
 import {withTracker} from 'meteor/react-meteor-data';
-
 import Politicians from '../../api/Politicians';
 import Followed from '../../api/Followed';
 import Comments from '../../api/Comments';
-
-// import { PoliticianContext } from '../context/PoliticianContext';
-// import Async from 'react-async';
-
 import PoliticianHeaderText from '../components/politicians/PoliticianHeaderText';
-import PoliticiansSelect from '../components/politicians/PoliticiansSelect';
-import PoliticiansPic from '../components/politicians/PoliticiansPic';
+import PoliticianRatingSystem from '../components/politicians/PoliticianRatingSystem';
+import PoliticianSelect from '../components/politicians/PoliticianSelect';
+import PoliticiansPic from '../components/politicians/PoliticianPic';
 import PoliticianFollow from '../components/politicians/PoliticianFollow';
 import PoliticianContact from '../components/politicians/PoliticianContact';
-// import PoliticianVoteHistory from '../components/politicians/PoliticianVoteHistory';
+import PoliticianVoteHistory from '../components/politicians/PoliticianVoteHistory';
 import CommentSystem from '../components/comments/CommentSystem';
-
 import {Container} from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
+import {TwitterTimelineEmbed} from "react-twitter-embed";
+
+const profilePictureStyle = {display: 'flex', alignItems: 'center', flexFlow: 'column wrap'};
+const contactStyle = {display: 'flex', justifyContent: 'center', flexFlow: 'column wrap'};
 
 class PoliticiansMain extends Component {
     constructor(props) {
@@ -30,7 +29,7 @@ class PoliticiansMain extends Component {
         };
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
         if (prevProps.politiciansArray !== this.props.politiciansArray) {
             this.setState({politiciansArray: this.props.politiciansArray});
         }
@@ -44,8 +43,6 @@ class PoliticiansMain extends Component {
     }
 
     render() {
-        let PFPStyle = {display: 'flex', alignItems: 'center', flexFlow: 'column wrap'};
-        let contactStyle = {display: 'flex', justifyContent: 'center', flexFlow: 'column wrap'};
         let politiciansArray = this.props.politiciansArray;
         let followedArray = this.props.followedArray;
         let selectedPolitician = this.state.selectedPolitician;
@@ -64,51 +61,74 @@ class PoliticiansMain extends Component {
                             </Grid>
                             <Grid item xs={12}>
                                 <Container maxWidth='md' style={{display: 'flex', flexFlow: 'row wrap'}}>
-                                    <PoliticiansSelect politiciansArray={politiciansArray}/>
+                                    <PoliticianSelect politiciansArray={politiciansArray}/>
                                 </Container>
                             </Grid>
                         </Grid>
+
+                        <Container maxWidth='md' style={{display: 'flex', MarginTop: '1.25em'}}>
+                            <Grid item xs={12} style={{marginTop: '1em'}}>
+                                <TwitterTimelineEmbed
+                                    sourceType="list"
+                                    ownerScreenName="avotecado"
+                                    slug="avotecado-vancouver1"
+                                    options={{height: 800, conversation: 'none', linkColor: "009245", align: 'center'}}
+                                    theme="light"
+                                    borderColor="#009245"
+                                    linkColor="#009245"
+                                />
+                            </Grid>
+                        </Container>
+
                     </Container>
                 </>
             );
         } else {
-            if (this.state.followedArray) {
-                return (
-                    <>
-                        <Container display='flex' maxWidth='lg' style={{marginTop: '0em'}}>
-                            <Grid container spacing={3}>
+            return (
+                <>
+                    <Container display='flex' maxWidth='lg' style={{marginTop: '0em'}}>
+                        <Grid container spacing={3}>
 
-                                <Grid item xs={12}>
-                                    <PoliticianHeaderText/>
-                                </Grid>
-
-                                <Grid item xs={12}>
-                                    <Container maxWidth='md'>
-                                        <PoliticiansSelect politiciansArray={politiciansArray}/>
-                                    </Container>
-                                </Grid>
-                                <Grid item xs={6} style={PFPStyle}>
-                                    <PoliticiansPic politician={politician}/>
-                                    {Meteor.user() && this.props.followedArray ?
-                                        <PoliticianFollow politician={politician} followedArray={followedArray}
-                                                          userID={userID}/> : null}
-                                </Grid>
-
-                                <Grid item xs={6} style={contactStyle}>
-                                    <PoliticianContact politician={politician}/>
-                                </Grid>
-
-                                <Grid item xs={12} style={{marginTop: '1em'}}/>
-
-                                <Grid item xs={12}>
-                                    <CommentSystem politician={politician}/>
-                                </Grid>
-
+                            <Grid item xs={12}>
+                                <PoliticianHeaderText/>
                             </Grid>
-                        </Container>
-                    </>
-                );
-            }
+
+                            <Grid item xs={12}>
+                                <Container maxWidth='md'>
+                                    <PoliticianSelect politiciansArray={politiciansArray}/>
+                                </Container>
+                            </Grid>
+                            <Grid item xs={6} style={profilePictureStyle}>
+                                <PoliticiansPic politician={politician}/>
+                                {Meteor.user() && this.props.followedArray ?
+                                    <PoliticianFollow politician={politician} followedArray={followedArray}
+                                                      userID={userID}/> : null}
+                            </Grid>
+
+                            <Grid item xs={6} style={contactStyle}>
+                                <PoliticianContact politician={politician}/>
+                            </Grid>
+
+                            <Grid item xs={12}>
+                                <PoliticianVoteHistory politician={politician}/>
+                            </Grid>
+
+                            <Grid item xs={12} style={{marginBottom: '-0.25em'}}/>
+
+                            <Grid item xs={12}>
+                                <PoliticianRatingSystem politician={politician}/>
+                            </Grid>
+
+                            <Grid item xs={12} style={{marginTop: '1em'}}/>
+
+                            <Grid item xs={12}>
+                                <CommentSystem politician={politician}/>
+                            </Grid>
+
+                        </Grid>
+                    </Container>
+                </>
+            );
         }
     }
 }

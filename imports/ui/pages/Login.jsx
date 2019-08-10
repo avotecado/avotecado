@@ -1,13 +1,11 @@
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {withStyles} from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import {Container} from '@material-ui/core';
-import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
-import InputLabel from '@material-ui/core/InputLabel';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
+import {routes} from "../../utils/routerPaths";
+import ErrorSuccessDisplay from "../components/include/errorSuccessDisplay";
 
 const CustomTextField = withStyles({
     root: {
@@ -31,36 +29,38 @@ export class Login extends Component {
 
     componentDidMount() {
         if (Meteor.userId()) {
-            this.setState({ loggedIn: true });
+            this.setState({loggedIn: true});
         }
     }
 
 
     handleChange(e) {
         this.setState({[e.target.name]: e.target.value});
-        // console.log(e.target.name, e.target.value, (typeof e.target.value));
     }
 
     handleSubmit(e) {
-        let that = this;
         e.preventDefault();
-        Meteor.loginWithPassword(this.state.username, this.state.password, function (error) {
+        Meteor.loginWithPassword(this.state.username, this.state.password, (error) => {
             if (error) {
-                console.log('There was an error:' + error.reason);
+                this.setState({error: 'There was an error: ' + error.reason});
             } else {
-                that.setState({ loggedIn: true });
+                this.setState({loggedIn: true});
             }
         });
     }
 
     render() {
         if (this.state.loggedIn) {
-            return <Redirect to='/userprofile'/>;
+            return <Redirect to={routes.userSettings}/>;
         } else {
             return (
                 <div>
-                    <Container style={{ display: 'flex', flexDirection: 'column' }}>
-                        <form onSubmit={this.handleSubmit}>
+                    <Container maxWidth='xs'>
+                        <form onSubmit={this.handleSubmit} style={{display: 'flex', flexDirection: 'column'}}>
+                            <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>
+                                Login
+                            </span>
+
                             <CustomTextField name='username' label='Username' style={{marginBottom: '0.1em'}}
                                              required autoComplete='username' value={this.state.username}
                                              onChange={this.handleChange}/>
@@ -78,7 +78,16 @@ export class Login extends Component {
                             }}>
                                 Login
                             </Button>
+
+                            <p />
+
+                            <Link
+                                style={{fontFamily: 'Fact-ExpandedMedium', fontSize: '1.25em', color: 'black', textDecorationStyle: 'wavy', textDecorationColor: 'rgb(0,146,69)' }}
+                                to={routes.register}>
+                                No account? Click here to register.
+                            </Link>
                         </form>
+                        <ErrorSuccessDisplay error={this.state.error} />
                     </Container>
                 </div>
             );

@@ -1,0 +1,87 @@
+:root {
+    --fade-duration: 0.2s;
+}
+
+.home-hero-unit{
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    /* more to add re: positioning */
+    transition: opacity fade-duration ease-out;
+    opacity: 0;
+    z-index: 0;
+}
+
+.hhu-frame{
+    text-decoration: none;
+
+}
+
+.hhu-header{
+    font-size: 21px;
+    line-height: 1;
+}
+
+.hhu-title{
+    display: inline-block;
+    font-size: 80px;
+}
+
+.hhu-subheading{
+    font-size: 40px;
+}
+
+.hhu-action-prompt{
+    font-size: 18px;
+}
+
+.hhu-button{
+    padding: 10px 20px;
+    border: 3px solid black;
+    background: transparent;
+    /* background-color: rgba(0,146,69, 1); */
+    font-family: Fact-ExpandedMedium;
+    font-size: 1em;
+    /* color: white; */
+    color:  black;
+    backdrop-filter: grayscale(100%) brightness(80%) contrast(150%);
+}
+.hhu-button:hover,
+.hhu-button:active,
+.hhu-button:focus{
+    color: white;
+    background:black;
+    /* background: white; */
+}
+
+.home-hero-unit-controls{
+    text-align: center;
+}
+
+.home-hero-unit-dots{
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.home-hero-unit-dots li{
+    background-color: gray;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    }
+
+.home-hero-unit-dots .hhud-active,
+.home-hero-unit-dots li:hover,
+.home-hero-unit-dots li:focus,
+.home-hero-unit-dots li:active {
+    background: #000;
+}
+
+.home-hero-unit-dots li:last-child {
+    margin-right: 0;
+}
