@@ -1,32 +1,18 @@
-import React, { Component } from 'react';
-import {Link, NavLink} from 'react-router-dom';
-import { withStyles, makeStyles } from '@material-ui/core/styles';
+import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom';
 import './home-style.css';
+import {withTracker} from "meteor/react-meteor-data";
+import {Meteor} from "meteor/meteor";
+import {routes} from "../../../utils/routerPaths";
+import Button from "@material-ui/core/Button";
 
-const homeHeroButtons = [
-    {name: 'login', buttonText: 'SIGN UP'},
-    // {name: 'politicians', buttonText: 'EXPLORE'}
-]
-
-const useStyles = {
-
-    hhuButton: {
-        padding: '10px 20px',
-        border: '3px solid black',
-        background: 'transparent',
-        backgroundColor: 'black',
-        color: 'white',
-        fontFamily: 'Fact-ExpandedMedium',
-        fontWeight: 'bold',
-        fontSize: '1.25em'
-    },
-    hhuButtonContainer: {
-        paddingLeft: '3.5em',
-        paddingTop: '1.20em',
-        marginTop: '1.2em'
-    },
-}
-
+const buttonStyle = {
+    fontFamily: 'Helvetica Black Extended',
+    color: 'white',
+    fontSize: '1.25em',
+    backgroundColor: '#009245',
+    textTransform: 'none'
+};
 class HomeHeroButton extends Component {
     constructor(props) {
         super(props);
@@ -35,26 +21,48 @@ class HomeHeroButton extends Component {
             homeHeroButtons: [],
         };
     }
-
     componentDidMount() {
-        this.setState({
-            homeHeroButtons: homeHeroButtons,
-                        });
+        if (Meteor.user()) {
+            this.setState({loggedIn: true});
+        } else {
+            this.setState({loggedIn: false});
+
+        }
     }
 
-    render(){
-        return(
-            
-            <div>
-                {this.state.homeHeroButtons.map((homeHeroButton, index) => (
-                    <NavLink to={'/' + `${homeHeroButton.name}`} key={index} style={{textDecorationLine: 'none'}}>
-                        <button className="hhu-button">
-                            {homeHeroButton.buttonText}
-                        </button>
+    componentDidUpdate(prevProps) {
+        if (prevProps !== this.props) {
+            if (Meteor.user()) {
+                this.setState({loggedIn: true});
+            } else {
+                this.setState({loggedIn: false});
+            }
+        }
+    }
+
+    render() {
+        if (this.state.loggedIn) {
+            return (
+                <div>
+                    <NavLink to={routes.politicians} style={{textDecorationLine: 'none'}}>
+                        <Button type='submit' variant='contained' style={buttonStyle}>
+                            Check out your councillors!
+                        </Button>
                     </NavLink>
-                ))}
-            </div>
-            );    
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <NavLink to={routes.register} style={{textDecorationLine: 'none'}}>
+                        <Button type='submit' variant='contained' style={buttonStyle}>
+                            Register
+                        </Button>
+                    </NavLink>
+                </div>
+            );
+        }
     }
 }
-export default withStyles(useStyles)(HomeHeroButton);
+
+export default withTracker(() => { return {user: Meteor.user()}; })(HomeHeroButton);

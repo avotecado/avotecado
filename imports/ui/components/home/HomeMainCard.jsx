@@ -28,9 +28,6 @@ class HomeMainCard extends Component {
                                 <Typography className={classes.hhuSubheading} variant="h4">
                                     Track your local politicians & see how they voted municipal on matters
                                 </Typography>
-                                <Typography className={classes.hhuActionPrompt} variant="body1">
-                                    Sign up to get the latest on your local politics
-                                </Typography>
                                 <Grid item xs={6} className={classes.hhuButtonContainer}>
                                     <HomeHeroButton className={classes.hhuButton}/>
                                 </Grid>
