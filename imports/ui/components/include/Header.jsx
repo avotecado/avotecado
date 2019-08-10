@@ -118,8 +118,8 @@ class Header extends React.Component {
                                 </NavLink>
 
                                 <NavLink to={routes.votes}
-                                         style={linkNotActiveStyle}
-                                         activeStyle={linkActiveStyle}>
+                                        style={linkNotActiveStyle}
+                                        activeStyle={linkActiveStyle}>
                                     votes
                                 </NavLink>
 

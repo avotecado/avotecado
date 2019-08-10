@@ -14,18 +14,18 @@ class PartiesBasicInfo extends Component {
                                 <div>
                                     <span style={helveticaBlackExtended_2em}>{party._id}</span> <br />
                                     <span>
-                                     Party Ideology:  <a href={`https://wikipedia.org/wiki/${party.ideology}`}>
-                                          <img src='/icons/wiki_w.svg' width='16px' />
-                                          {party.ideology}
-                                      </a>
-                                  </span>
+                                    Party Ideology:  <a href={`https://wikipedia.org/wiki/${party.ideology}`}>
+                                        <img src='/icons/wiki_w.svg' width='16px' />
+                                        {party.ideology}
+                                    </a>
+                                </span>
                                     <br />
                                     <span>
-                                      Politician Position: <a href={`https://wikipedia.org/wiki/${party.politicianPosition}`}>
-                                          <img src='/icons/wiki_w.svg' width='16px' />
-                                          {party.politicianPosition}
-                                      </a>
-                                  </span>
+                                    Politician Position: <a href={`https://wikipedia.org/wiki/${party.politicianPosition}`}>
+                                        <img src='/icons/wiki_w.svg' width='16px' />
+                                        {party.politicianPosition}
+                                    </a>
+                                </span>
                                 </div>
                                 <span style={{ fontFamily: 'Fact-ExpandedMedium' }}>Councillors in {party._id}:</span>
                                 <br />
@@ -34,11 +34,11 @@ class PartiesBasicInfo extends Component {
                                             if (arrayItem.party === party._id) {
                                                 return (
                                                     <span key={individualPolitician.party + index}>
-                                                      <Link to={`/politicians?${individualPolitician._id}`}>
-                                                          {individualPolitician.firstname} {individualPolitician.lastname}
-                                                      </Link>
-                                                      <br/>
-                                                  </span>
+                                                    <Link to={`/politicians?${individualPolitician._id}`}>
+                                                        {individualPolitician.firstname} {individualPolitician.lastname}
+                                                    </Link>
+                                                    <br/>
+                                                </span>
                                                 );
                                             }
                                         });
