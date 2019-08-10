@@ -17,14 +17,14 @@ class HomeMainCard extends Component {
         return (
             <Paper className={classes.homeHeroUnit}>
                 <img alt='image'
-                     style={{
-                         mixBlendMode: 'screen', filter: 'grayscale(100%) brightness(80%) contrast(150%)',
-                         position: 'relative',
-                         height: '350px',
-                         objectFit: 'cover',
-                         width: '100%'
-                     }}
-                     src={'photos/homeHeroImages/vancouverSpecialsKevinLanthier.jpg'}
+                    style={{
+                        mixBlendMode: 'screen', filter: 'grayscale(100%) brightness(80%) contrast(150%)',
+                        position: 'relative',
+                        height: '350px',
+                        objectFit: 'cover',
+                        width: '100%'
+                    }}
+                    src={'photos/homeHeroImages/vancouverSpecialsKevinLanthier.jpg'}
                 />
                 <Grid container spacing={1} alignItems="flex-end">
                     <div style={{width: '100%', position: 'absolute', height: '350px', display: 'flex'}}>

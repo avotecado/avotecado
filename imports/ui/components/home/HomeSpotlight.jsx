@@ -10,8 +10,10 @@ import Grid from '@material-ui/core/Grid';
 import Loading from "../../../utils/Loading";
 import ErrorSuccessDisplay from "../include/errorSuccessDisplay";
 import {helveticaBlackExtended_2em} from "../../styles";
+import {useStylesHomeSpotlight} from './homeSpotlightStyles';
+import { withStyles } from '@material-ui/styles';
 
-export default class HomeSpotlight extends Component {
+class HomeSpotlight extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -31,22 +33,24 @@ export default class HomeSpotlight extends Component {
     }
 
     render() {
-        let contactStyle = {display: 'flex', alignItems: 'center', justifyContent: 'center', flexFlow: 'column wrap'};
-        let politicianLinkStyle = {color: 'black', textDecorationColor: 'rgb(0, 146, 69)', textDecorationStyle: 'wavy'};
+        const {classes} = this.props;
+        console.log(this.props);
+        //let contactStyle = {display: 'flex', alignItems: 'center', justifyContent: 'center', flexFlow: 'column wrap'};
+        //let politicianLinkStyle = {color: 'black', textDecorationColor: 'rgb(0, 146, 69)', textDecorationStyle: 'wavy'};
 
         if (this.state.politician) {
             let politician = this.state.politician;
             return (
                 <>
-                    <Grid item xs={6} style={contactStyle}>
+                    <Grid item xs={6} className={classes.contactStyle}>
                         <PoliticiansPFP politician={politician}/>
-                        <Link to={`/politicians?${politician._id}`} style={politicianLinkStyle}>
+                        <Link to={`/politicians?${politician._id}`} className={classes.politicianLinkStyle}>
                             <Typography align='center' style={helveticaBlackExtended_2em}>
                                 {politician.firstname} {politician.lastname}
                             </Typography>
                         </Link>
                     </Grid>
-                    <Grid item xs={6} style={contactStyle}>
+                    <Grid item xs={6} className={classes.contactStyle}>
                         <CommentSystem politician={politician}/>
                     </Grid>
                     <ErrorSuccessDisplay error={this.state.error} />
@@ -57,3 +61,5 @@ export default class HomeSpotlight extends Component {
         }
     }
 }
+
+export default withStyles(useStylesHomeSpotlight)(HomeSpotlight);
