@@ -151,7 +151,7 @@ class Register extends Component {
                                                          onChange={this.handleChange}/>
 
                                         <CustomTextField id='date' name='dob'
-                                                         label="What's your birth date? (YYYY/MM/DD)"
+                                                         label="What's your birth date?"
                                                          type='date' style={{marginBottom: '0.1em'}}
                                                          defaultValue='1818-05-05' InputLabelProps={{shrink: true}}
                                                          onChange={this.handleChange}/>
