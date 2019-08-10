@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart,} from 'recharts';
 import Loading from "../../../utils/Loading";
 import Grid from '@material-ui/core/Grid';
+import VoteDescriptionDialog from "../../../utils/VoteDescriptionDialog";
 
 const voteOptionsArray = ['In Favour', 'In Opposition', 'Absent', 'Abstain', 'No Vote', 'Declared Conflict'];
 
@@ -75,13 +76,19 @@ class PoliticianRadarChart extends Component {
                                 <Radar name="Absent" dataKey="absent" stroke="blue" fill="blue" fillOpacity={0.4}/>
                             </RadarChart>
                         </Grid>
-                        <Grid item xs={6} style={{display:"flex", flexDirection:"column", justifyContent: "center", alignItems:"center"}}>
-                            <div>Green: In Favor</div>
-                            <div>Red: In Opposition</div>
-                            <div>Yellow: Declared Conflict</div>
-                            <div>Black: No Vote</div>
-                            <div>Grey: Abstain</div>
-                            <div>Blue: Absent</div>
+                        <Grid item xs={6} style={{display:"flex", alignItems: "center"}}>
+                            <Grid item xs={6}>
+                                This radar chart visualizes a politician's voting habits.
+                            </Grid>
+                            <Grid item xs={6}>
+                                Green: In Favor<br/>
+                                Red: In Opposition<br/>
+                                Yellow: Declared Conflict<br/>
+                                Black: No Vote<br/>
+                                Grey: Abstain<br/>
+                                Blue: Absent<br/>
+                                <VoteDescriptionDialog/>
+                            </Grid>
                         </Grid>
                     </Grid>
                 </div>

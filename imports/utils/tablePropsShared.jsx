@@ -48,3 +48,16 @@ export const OPTIONS = {
         color: '#FFF'
     },
 };
+
+export const OPTIONS_noSelect = {
+    pageSizeOptions: [5, 10, 20, 50, 100],
+    selection: false,
+    filtering: true,
+    sorting: true,
+    exportButton: true,
+    headerStyle: {
+        fontFamily: 'Fact-ExpandedMedium',
+        backgroundColor: '#009245',
+        color: '#FFF'
+    },
+};

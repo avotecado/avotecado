@@ -16,7 +16,7 @@
     },
     "secondary": {
       "light": "rgba(126, 211, 33, 1)",
-      "main": "rgba(0, 146, 69, 1)",
+      "main": "#00de69",
       "dark": "rgba(0, 111, 53, 1)",
       "contrastText": "#fff"
     },

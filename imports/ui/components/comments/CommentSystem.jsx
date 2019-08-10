@@ -50,12 +50,11 @@ export default class PoliticianMakeAComment extends Component {
 
     componentDidMount() {
         this.setState({politician: this.props.politician});
-        let that = this;
-        Meteor.call('comments.findByID', this.props.politician._id, function (err, res) {
+        Meteor.call('comments.findByID', this.props.politician._id, (err, res) => {
             if (err) {
                 this.setState({error: err.error});
             } else {
-                that.setState({commentsArray: res});
+                this.setState({commentsArray: res});
             }
         });
     }
@@ -65,11 +64,11 @@ export default class PoliticianMakeAComment extends Component {
             let that = this;
             let politician = this.props.politician;
             this.setState({politician: politician, commentsArray: []});
-            Meteor.call('comments.findByID', this.props.politician._id, function (err, res) {
+            Meteor.call('comments.findByID', this.props.politician._id, (err, res) => {
                 if (err) {
                     this.setState({error: err.error});
                 } else {
-                    that.setState({commentsArray: res});
+                    this.setState({commentsArray: res});
                 }
             });
         }

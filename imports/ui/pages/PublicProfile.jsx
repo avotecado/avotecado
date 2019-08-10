@@ -68,7 +68,7 @@ class PublicProfile extends Component {
                                     <>User Bio: {this.state.user.userBio}</> <br/>
                             </Grid>
                             <Grid container style={{display: 'flex', flexDirection:'column'}}>
-                                    <Grid>
+                                    <Grid style={{marginTop:'1em'}}>
                                         <div style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>
                                             Followed:
                                         </div>

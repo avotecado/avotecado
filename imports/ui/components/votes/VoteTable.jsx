@@ -10,12 +10,12 @@ import {Container} from '@material-ui/core';
 
 
 const emptyStyle = {
-    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems:'center',
+    height: '14em',
     fontFamily: 'Helvetica Black Extended',
     fontSize: '2em',
-    backgroundColor: 'black',
-    color: 'white',
-    textAlign: 'center'
 };
 
 export class VoteTable extends Component {

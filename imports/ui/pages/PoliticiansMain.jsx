@@ -7,8 +7,8 @@ import Followed from '../../api/Followed';
 import Comments from '../../api/Comments';
 import PoliticianHeaderText from '../components/politicians/PoliticianHeaderText';
 import PoliticianRatingSystem from '../components/politicians/PoliticianRatingSystem';
-import PoliticiansSelect from '../components/politicians/PoliticiansSelect';
-import PoliticiansPic from '../components/politicians/PoliticiansPic';
+import PoliticianSelect from '../components/politicians/PoliticianSelect';
+import PoliticiansPic from '../components/politicians/PoliticianPic';
 import PoliticianFollow from '../components/politicians/PoliticianFollow';
 import PoliticianContact from '../components/politicians/PoliticianContact';
 import PoliticianVoteHistory from '../components/politicians/PoliticianVoteHistory';
@@ -63,7 +63,7 @@ class PoliticiansMain extends Component {
                             </Grid>
                             <Grid item xs={12}>
                                 <Container maxWidth='md' style={{display: 'flex', flexFlow: 'row wrap'}}>
-                                    <PoliticiansSelect politiciansArray={politiciansArray}/>
+                                    <PoliticianSelect politiciansArray={politiciansArray}/>
                                 </Container>
                             </Grid>
                         </Grid>
@@ -97,7 +97,7 @@ class PoliticiansMain extends Component {
 
                             <Grid item xs={12}>
                                 <Container maxWidth='md'>
-                                    <PoliticiansSelect politiciansArray={politiciansArray}/>
+                                    <PoliticianSelect politiciansArray={politiciansArray}/>
                                 </Container>
                             </Grid>
                             <Grid item xs={6} style={profilePictureStyle}>

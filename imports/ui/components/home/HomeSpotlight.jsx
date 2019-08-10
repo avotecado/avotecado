@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {Meteor} from 'meteor/meteor';
 
-import PoliticiansPFP from '../politicians/PoliticiansPic';
+import PoliticiansPFP from '../politicians/PoliticianPic';
 import CommentSystem from '../comments/CommentSystem';
 
 import Typography from '@material-ui/core/Typography';
