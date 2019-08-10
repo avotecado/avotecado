@@ -21,16 +21,25 @@ class AdminPanel extends Component {
         };
     }
 
+    componentDidMount() {
+        this.setupState();
+    }
+
+
+    setupState() {
+        if (this.props.comments && this.props.ratings) {
+            this.setState({
+                users: this.props.users,
+                comments: this.props.comments,
+                ratings: this.props.ratings,
+                loading: false
+            });
+        }
+    }
+
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps !== this.props){
-            if (this.props.comments && this.props.ratings) {
-                this.setState({
-                    users: this.props.users,
-                    comments: this.props.comments,
-                    ratings: this.props.ratings,
-                    loading: false
-                });
-            }
+            this.setupState();
         }
     }
 

@@ -4,9 +4,8 @@
     <bookmark url="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianContact.jsx" line="49" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="87ba5101-4793-42c9-b350-e7fe1406aa45" name="Default Changelist" comment="">
+    <list default="true" id="87ba5101-4793-42c9-b350-e7fe1406aa45" name="Default Changelist" comment="fixed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -41,7 +40,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="442">
@@ -65,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="459">
+              <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -182,8 +181,8 @@
         <option value="$PROJECT_DIR$/imports/utils/createLinks.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/styles.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/users/UserFollowedDisplay.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx" />
       </list>
     </option>
   </component>
@@ -366,7 +365,7 @@
       <workItem from="1565213188115" duration="1975000" />
       <workItem from="1565227098033" duration="92185000" />
       <workItem from="1565368572384" duration="85000" />
-      <workItem from="1565391575776" duration="15609000" />
+      <workItem from="1565391575776" duration="15984000" />
     </task>
     <task id="LOCAL-00001" summary="working on parties">
       <created>1565130111069</created>
@@ -606,11 +605,18 @@
       <option name="project" value="LOCAL" />
       <updated>1565407281352</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="meeting minutes typo">
+      <created>1565407494833</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1565407494833</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="300556000" />
+    <option name="totallyTimeSpent" value="300931000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1426" extended-state="6" />
@@ -685,7 +691,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="admin panel link: role check on user-settings page, extracted COLUMNS/OPTIONS into own file, renamed very long util" />
     <MESSAGE value="changed how rating system works -- only 1 per user now" />
     <MESSAGE value="changed some stuff on politician rating" />
     <MESSAGE value="fixed comment validate client, need server now" />
@@ -710,7 +715,8 @@
     <MESSAGE value="remove yyyy mm dd" />
     <MESSAGE value="styl;e stuff, incorporated jason's detail panel link and changed the text format for it a little" />
     <MESSAGE value="style stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="style stuff" />
+    <MESSAGE value="meeting minutes typo" />
+    <option name="LAST_COMMIT_MESSAGE" value="meeting minutes typo" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/imports/ui/pages/Votes.jsx">
@@ -1126,20 +1132,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx">
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="442">
+          <caret line="53" column="95" lean-forward="true" selection-start-line="53" selection-start-column="95" selection-end-line="53" selection-end-column="95" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx">
+    <entry file="file://$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="53" column="95" lean-forward="true" selection-start-line="53" selection-start-column="95" selection-end-line="53" selection-end-column="95" />
+        <state relative-caret-position="459">
+          <caret line="32" column="46" selection-start-line="32" selection-start-column="46" selection-end-line="32" selection-end-column="46" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
