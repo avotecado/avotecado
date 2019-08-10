@@ -84,4 +84,18 @@ export const useStylesHomeMainCard = {
         borderRadius: '8px',
         display: 'inline-block',
     },
+
+    imgStyle: {
+        mixBlendMode: 'screen', filter: 'grayscale(100%) brightness(80%) contrast(150%)',
+        position: 'relative',
+        height: '350px',
+        objectFit: 'cover',
+        width: '100%'
+    },
+
+    divMain: {
+        width: '100%',
+        position: 'absolute',
+        height: '350px',
+        display: 'flex'}
 };

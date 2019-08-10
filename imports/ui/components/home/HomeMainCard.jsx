@@ -17,22 +17,16 @@ class HomeMainCard extends Component {
         return (
             <Paper className={classes.homeHeroUnit}>
                 <img alt='image'
-                     style={{
-                         mixBlendMode: 'screen', filter: 'grayscale(100%) brightness(80%) contrast(150%)',
-                         position: 'relative',
-                         height: '350px',
-                         objectFit: 'cover',
-                         width: '100%'
-                     }}
+                     className={classes.imgStyle}
                      src={'photos/homeHeroImages/vancouverSpecialsKevinLanthier.jpg'}
                 />
                 <Grid container spacing={1} alignItems="flex-end">
-                    <div style={{width: '100%', position: 'absolute', height: '350px', display: 'flex'}}>
+                    <div className={classes.divMain}>
                         <Grid item xs={12} className={classes.hhuFrame}>
                             <Grid container direction="column" alignItems="flex-start">
-                                <Typography className={classes.hhuTitle}>avotecado - VANCOUVER </Typography>
+                                <Typography className={classes.hhuTitle}>avotecado</Typography>
                                 <Typography className={classes.hhuSubheading} variant="h4">
-                                    Track your local politicians & see how they voted municpal on matters
+                                    Track your local politicians & see how they voted municipal on matters
                                 </Typography>
                                 <Typography className={classes.hhuActionPrompt} variant="body1">
                                     Sign up to get the latest on your local politics

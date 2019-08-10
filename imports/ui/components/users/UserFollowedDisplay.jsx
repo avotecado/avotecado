@@ -92,7 +92,7 @@ class UserFollowedDisplay extends Component {
             } else {
                 return (
                     <div style={{display: 'flex', flexDirection: 'row', height: '20em'}}>
-                        <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '1.25em', color: 'black'}}>
+                        <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '1.25em'}}>
                             No followed politicians.
                         </span>
                     </div>

@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
-
 import VoteCharts from './VoteCharts';
 import {matchVoteToPolitician} from "../../../utils/matchVoteToPolitician";
 import {COLUMNS, OPTIONS} from "../../../utils/tablePropsShared";
-
 import MaterialTable from 'material-table';
 import Grid from '@material-ui/core/Grid';
 import {Container} from '@material-ui/core';
 import {helveticaBlackExtended_1p5em} from "../../styles";
+import {createLinks} from "../../../utils/createLinks";
 
 
 const emptyStyle = {
@@ -46,8 +45,14 @@ export class VoteTable extends Component {
                     onSelectionChange={(rows) => this.setState({selectedForDataViz: rows})}
                     detailPanel={rowData => {
                         let voteResult = matchVoteToPolitician(rowData, politician);
+                        let links = createLinks(rowData);
                         return (
                             <Container style={{fontFamily: 'Fact-Expanded'}}>
+                                <p>This was a <strong>{rowData.meetingType}</strong> meeting.</p>
+                                <ul>
+                                    <li>Meeting agenda: <a href={links[0]}>{links[0]}</a></li>
+                                    <li>Meeting agenda: <a href={links[1]}>{links[1]}</a></li>
+                                </ul>
                                 {voteResult}
                             </Container>
                         );
