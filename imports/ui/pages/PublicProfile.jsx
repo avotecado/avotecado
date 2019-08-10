@@ -8,6 +8,7 @@ import Grid from "@material-ui/core/Grid";
 import {unescapeUser} from "../../utils/userValidation";
 import ErrorSuccessDisplay from "../components/include/errorSuccessDisplay";
 import UserFollowedDisplay from "../components/users/UserFollowedDisplay";
+import {helveticaBlackExtended_2em} from "../styles";
 
 class PublicProfile extends Component {
     constructor(props) {
@@ -57,7 +58,7 @@ class PublicProfile extends Component {
                     <Container maxWidth='lg'>
                         <Grid container>
                             <Grid item xs={6}>
-                                <div style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>
+                                <div style={helveticaBlackExtended_2em}>
                                     {this.state.user.username}
                                 </div>
                                     <>Name: {this.state.user.name}</> <br/>
@@ -68,14 +69,14 @@ class PublicProfile extends Component {
                                     <>User Bio: {this.state.user.userBio}</> <br/>
                             </Grid>
                             <Grid container style={{display: 'flex', flexDirection:'column'}}>
-                                    <Grid>
-                                        <div style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>
+                                    <Grid style={{marginTop:'1em'}}>
+                                        <div style={helveticaBlackExtended_2em}>
                                             Followed:
                                         </div>
                                         <UserFollowedDisplay followed={this.state.followed} />
                                     </Grid>
                                     <Grid>
-                                        <div style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>
+                                        <div style={helveticaBlackExtended_2em}>
                                             Comments:
                                         </div>
                                         <CommentViewer commentsArray={this.state.comments} userProfile={true}/>

@@ -7,6 +7,7 @@ import {COLUMNS, OPTIONS} from "../../../utils/tablePropsShared";
 import MaterialTable from "material-table";
 import {Container} from "@material-ui/core";
 import Loading from "../../../utils/Loading";
+import {helveticaBlackExtended_1p5em} from "../../styles";
 
 
 class PartiesVoteHistory extends Component {
@@ -59,7 +60,7 @@ class PartiesVoteHistory extends Component {
             <MaterialTable
                 elevation={0}
                 title={
-                    <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '1.5em', color: 'black'}}>
+                    <span style={helveticaBlackExtended_1p5em}>
                             Vote History
                         </span>
                 }

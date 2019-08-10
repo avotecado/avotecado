@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
+import {helveticaBlackExtended_2em} from "../../styles";
 
-const headerDivStyle = { fontFamily: 'Helvetica Black Extended', fontSize: '2em', fontWeight: 'bold' };
 const nameStyle = { color: 'white', backgroundColor: 'black' };
 const councilTitleSpanStyle = { fontFamily: 'Fact-Expanded', fontSize: '0.65em' };
 const councilTitleURLStyle = { color: 'black', textDecorationColor: 'rgb(0, 146, 69)', textDecorationStyle: 'wavy' };
@@ -32,7 +32,7 @@ class PoliticianContact extends Component {
         if (this.state.politician) {
             return (
                 <>
-                    <div style={headerDivStyle}>
+                    <div style={helveticaBlackExtended_2em}>
                         <span style={nameStyle}>
                             {this.state.politician.firstname} {this.state.politician.lastname}
                         </span>

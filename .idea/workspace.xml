@@ -5,47 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="87ba5101-4793-42c9-b350-e7fe1406aa45" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/imports/ui/components/home/HomeHeroButton.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imports/ui/components/home/HomeMainCard.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/imports/ui/components/home/home-style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/02_NewVancouverSpecials_KevinLanthier.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/AvotecadoPoliticians.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/AvotecadoPoliticians.psd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/AvotecadoPoliticians3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/AvotecadoPoliticians4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/AvotecadoPoliticiansMiddle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/AvotecadoPoliticiansMiddleGroup2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/CityHallArchives.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/CityHallVanArchivesBehindTree.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/CityHallVancouverArchives1937.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/CoV_BlockOutlines_coloured_separatedNeighbourhoods_puzzle_1500.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/CoV_anaglyph_3d_d1_1200.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/VancouverTouristTransitMap_KN_20141105.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/Vancouver_city_hall_archive.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/Vancouver_vector_map_Spacing_ca.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/aditya-chinchure-DrizqCuAV2o-unsplash.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/blocks_fig_ground_Spacing.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/tumblr_plyp1eYW051tamwlro1_1280.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/vancouver-map-590x590.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/vancouverSpecialsKevinLanthier.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/photos/homeHeroImages/vancouver_vector.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/pages/Home.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/pages/Home.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imports/ui/pages/PoliticiansMain.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/pages/PoliticiansMain.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/photos/circle/Adriane-Carr.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/photos/circle/Christine-Boyle.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/photos/circle/Colleen-Hardwick.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/photos/circle/Jean-Swanson.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/photos/circle/Kennedy-Stewart.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/photos/circle/Lisa-Dominato.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/photos/circle/Melissa-De Genova.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/photos/circle/Michael-Wiebe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/photos/circle/Pete-Fry.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/photos/circle/Rebecca-Bligh.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/photos/circle/Sarah-Kirby-Yung.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/photos/wireframe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/imports/ui/pages/Register.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/imports/ui/pages/Register.jsx" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -59,10 +20,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/imports/ui/pages/PoliticiansMain.jsx">
+        <entry file="file://$PROJECT_DIR$/imports/ui/pages/Register.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="67" column="35" lean-forward="true" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
+            <state relative-caret-position="340">
+              <caret line="153" column="99" selection-start-line="153" selection-start-column="99" selection-end-line="153" selection-end-column="99" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -82,23 +43,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>_id</find>
-      <find>.name</find>
-      <find>name</find>
-      <find>helvetica</find>
-      <find>console.log(err.reason)</find>
-      <find>location</find>
-      <find>{'/</find>
-      <find>+'?</find>
-      <find>overflow</find>
-      <find>='/</find>
-      <find>='/po</find>
-      <find>'/user-settings'</find>
-      <find>'/admin'</find>
-      <find>={</find>
-      <find>routes</find>
-      <find>to='</find>
-      <find>placehol</find>
       <find>Loading...</find>
       <find>preparedness</find>
       <find>switch</find>
@@ -112,6 +56,23 @@
       <find>politicians.getParties</find>
       <find>politicians.getAll</find>
       <find>politicians.findByID</find>
+      <find>Fact-E</find>
+      <find>YYY</find>
+      <find>, function</find>
+      <find>{fontFamily: 'Helvetica Black Extended', fontSize: '1.5em', color: 'black'}</find>
+      <find>` +</find>
+      <find>pfp</find>
+      <find>fontFamily: 'Helveti</find>
+      <find>146</find>
+      <find>row wrap</find>
+      <find>{fontFamily: 'Helvetica Black Extended', fontSize: '1.5em', color: 'black'</find>
+      <find>fontFamily: 'Helvetica Black Extended'</find>
+      <find>fontSize: '2</find>
+      <find>'2.0</find>
+      <find>sub</find>
+      <find>helvetica black extended</find>
+      <find>about /</find>
+      <find>What's your</find>
     </findStrings>
     <replaceStrings>
       <replace>console.log(err.error)</replace>
@@ -126,26 +87,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/imports/ui/components/home/ChartPartyMakeUp.jsx" />
-        <option value="$PROJECT_DIR$/imports/utils/setupArrayForReCharts.js" />
-        <option value="$PROJECT_DIR$/private/ratings.json" />
-        <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRatingDisplay.jsx" />
-        <option value="$PROJECT_DIR$/imports/api/Ratings.js" />
-        <option value="$PROJECT_DIR$/imports/utils/routerPaths.js" />
-        <option value="$PROJECT_DIR$/imports/ui/App.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/pages/UserDirectory.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/parties/PartiesSelect.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticiansSelect.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/include/Footer.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/include/Header.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/parties/PartiesBasicInfo.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/pages/Register.css" />
         <option value="$PROJECT_DIR$/imports/api/Party.js" />
         <option value="$PROJECT_DIR$/imports/api/Followed.js" />
         <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianFollow.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRatingChart.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/include/Loading.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/parties/PartiesVoteHistory.jsx" />
         <option value="$PROJECT_DIR$/private/votingHistoryData.json" />
         <option value="$PROJECT_DIR$/imports/ui/components/comments/CommentViewer.jsx" />
         <option value="$PROJECT_DIR$/client/main.css" />
@@ -155,34 +105,45 @@
         <option value="$PROJECT_DIR$/imports/utils/userValidation.js" />
         <option value="$PROJECT_DIR$/imports/api/Comments.js" />
         <option value="$PROJECT_DIR$/imports/ui/components/include/errorSuccessDisplay.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/home/HomeSpotlight.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/pages/PartiesMain.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/pages/Register.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/pages/AdminPanel.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/comments/CommentSystem.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/pages/Login.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianVoteHistory.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/pages/Votes.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRatingSystem.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRadarChart.jsx" />
-        <option value="$PROJECT_DIR$/imports/startup/theme.json" />
-        <option value="$PROJECT_DIR$/imports/ui/components/votes/VoteCharts.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/pages/UserSettings.jsx" />
         <option value="$PROJECT_DIR$/server/main.js" />
         <option value="$PROJECT_DIR$/imports/api/VoteCollection.js" />
         <option value="$PROJECT_DIR$/imports/api/Politicians.js" />
+        <option value="$PROJECT_DIR$/imports/ui/pages/PoliticiansMain.jsx" />
+        <option value="$PROJECT_DIR$/imports/startup/theme.json" />
+        <option value="$PROJECT_DIR$/imports/ui/components/votes/VoteCharts.jsx" />
+        <option value="$PROJECT_DIR$/imports/utils/VoteDescriptionDialog.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/pages/Login.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/comments/CommentSystem.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRatingSystem.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRadarChart.jsx" />
+        <option value="$PROJECT_DIR$/imports/utils/tablePropsShared.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticiansPic.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/users/UserFollowedDisplay.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/admin/AdminCommentsSystem.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/components/admin/AdminUserManagement.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/parties/PartiesVoteHistory.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianVoteHistory.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/styles.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/pages/PublicProfile.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/components/users/UserFollowedDisplay.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/parties/PartiesBasicInfo.jsx" />
         <option value="$PROJECT_DIR$/imports/ui/pages/Home.jsx" />
-        <option value="$PROJECT_DIR$/imports/ui/pages/PoliticiansMain.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/home/HomeSpotlight.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/politicians/PoliticianContact.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/include/Footer.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/components/home/HomeMainCardStyles.js" />
+        <option value="$PROJECT_DIR$/imports/ui/components/home/HomeMainCard.jsx" />
+        <option value="$PROJECT_DIR$/imports/ui/pages/Register.jsx" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="849" />
+    <option name="y" value="-2" />
     <option name="width" value="1294" />
     <option name="height" value="1417" />
   </component>
@@ -209,6 +170,12 @@
               <item name="avotecado_merge" type="b2602c69:ProjectViewProjectNode" />
               <item name="avotecado_merge" type="462c0819:PsiDirectoryNode" />
               <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="startup" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="avotecado_merge" type="b2602c69:ProjectViewProjectNode" />
+              <item name="avotecado_merge" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -216,18 +183,20 @@
               <item name="avotecado_merge" type="462c0819:PsiDirectoryNode" />
               <item name="imports" type="462c0819:PsiDirectoryNode" />
               <item name="ui" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="avotecado_merge" type="b2602c69:ProjectViewProjectNode" />
               <item name="avotecado_merge" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="imports" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="components" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="avotecado_merge" type="b2602c69:ProjectViewProjectNode" />
               <item name="avotecado_merge" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="photos" type="462c0819:PsiDirectoryNode" />
+              <item name="private" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -262,11 +231,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\cpsc\cpsc436i\avotecado_merge\imports\utils" />
+      <recent name="C:\cpsc\cpsc436i\avotecado_merge\imports\ui\components\include" />
       <recent name="C:\cpsc\cpsc436i\avotecado\imports\utils" />
       <recent name="C:\cpsc\cpsc436i\avotecado\imports" />
       <recent name="C:\cpsc\cpsc436i\avotecado\imports\ui\components\include" />
-      <recent name="C:\cpsc\cpsc436i\avotecado\imports\ui\components\home" />
-      <recent name="C:\cpsc\cpsc436i\avotecado\imports\ui\components\votes" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -330,7 +299,7 @@
       <workItem from="1565213188115" duration="1975000" />
       <workItem from="1565227098033" duration="92185000" />
       <workItem from="1565368572384" duration="85000" />
-      <workItem from="1565391575776" duration="1096000" />
+      <workItem from="1565391575776" duration="10992000" />
     </task>
     <task id="LOCAL-00001" summary="working on parties">
       <created>1565130111069</created>
@@ -507,11 +476,39 @@
       <option name="project" value="LOCAL" />
       <updated>1565366687037</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="merged mike's homepage + twitter embed by hand">
+      <created>1565392704713</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1565392704714</updated>
+    </task>
+    <task id="LOCAL-00027" summary="follow display, radar chart, select boxes politician vote table, votes visualize height, login catch, explain vote/dec dialogue">
+      <created>1565399766552</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1565399766552</updated>
+    </task>
+    <task id="LOCAL-00028" summary="extracting styles">
+      <created>1565402250435</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1565402250435</updated>
+    </task>
+    <task id="LOCAL-00029" summary="added DD MM YYYY">
+      <created>1565402497501</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1565402497501</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="286043000" />
+    <option name="totallyTimeSpent" value="295939000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="2576" height="1426" extended-state="6" />
@@ -528,16 +525,16 @@
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="5" />
       <window_info anchor="bottom" id="Docker" order="6" show_stripe_button="false" />
-      <window_info anchor="bottom" x="267" y="372" width="965" height="630" id="Version Control" order="7" sideWeight="0.4527027" visible="true" weight="0.21268368" />
+      <window_info anchor="bottom" x="267" y="372" width="965" height="630" id="Version Control" order="7" sideWeight="0.4527027" weight="0.21268368" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.28762805" side_tool="true" weight="0.10827533" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.45219818" weight="0.19158879" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.45190778" visible="true" weight="0.19102861" />
       <window_info anchor="bottom" id="Duplicates" order="10" weight="0.32946634" />
       <window_info anchor="bottom" id="Inspection Results" order="11" sideWeight="0.49960256" weight="0.24903326" />
-      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.5472973" side_tool="true" visible="true" weight="0.21268368" />
+      <window_info anchor="bottom" id="Run" order="12" sideWeight="0.5480922" side_tool="true" visible="true" weight="0.19102861" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Debug" order="3" visible="true" weight="0.081478536" />
+      <window_info anchor="right" id="Debug" order="3" visible="true" weight="0.21621622" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,10 +583,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="working on parties" />
-    <MESSAGE value="comment delete finally done, admin dash 30% complete, next step is updating (permissions)/deleting users" />
-    <MESSAGE value="admin dash like 80% complete, just need to get rating removal working" />
-    <MESSAGE value="finally added logout button lol" />
     <MESSAGE value="admin panel needs styling; public profile needs styling/pagination" />
     <MESSAGE value="added names to parties vote history" />
     <MESSAGE value="refactored partiesVoteHistory, refactored matchVoteToPolitician out, starting to figure out partiesVoteCharts" />
@@ -611,122 +604,13 @@
     <MESSAGE value="my god, serverside user.Update done lol" />
     <MESSAGE value="refactored err/res msg display into own comp, added server cmnt &gt; 140" />
     <MESSAGE value="followed rendering done, just need to add info" />
-    <option name="LAST_COMMIT_MESSAGE" value="followed rendering done, just need to add info" />
+    <MESSAGE value="merged mike's homepage + twitter embed by hand" />
+    <MESSAGE value="follow display, radar chart, select boxes politician vote table, votes visualize height, login catch, explain vote/dec dialogue" />
+    <MESSAGE value="extracting styles" />
+    <MESSAGE value="added DD MM YYYY" />
+    <option name="LAST_COMMIT_MESSAGE" value="added DD MM YYYY" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/parties/PartiesBasicInfo.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/parties/PartiesHeaderText.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="31" lean-forward="true" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/parties/PartiesSelect.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="30" column="42" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/parties/PartiesVoteCharts.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianContact.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianHeaderText.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="58" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticiansPic.jsx">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticiansSelect.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="39" column="59" lean-forward="true" selection-start-line="39" selection-start-column="59" selection-end-line="39" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="43" column="34" lean-forward="true" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/pages/Login.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="46" lean-forward="true" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/pages/UserDirectory.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="51" column="48" lean-forward="true" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/pages/Register.css" />
-    <entry file="file://$PROJECT_DIR$/imports/ui/AccountsUIWrapper.js" />
-    <entry file="file://$PROJECT_DIR$/imports/startup/accounts-config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/api/Followed.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="e#0#37#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/api/Party.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -741,16 +625,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianVoteHistory.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="23" column="21" lean-forward="true" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -833,16 +707,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/imports/utils/unescapeUserInfo.js" />
-    <entry file="file://$PROJECT_DIR$/imports/ui/pages/Register.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="76" column="70" lean-forward="true" selection-start-line="76" selection-start-column="70" selection-end-line="76" selection-end-column="70" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/components/comments/CommentSystem.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1997">
@@ -860,16 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/home/HomeSpotlight.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/utils/userValidation.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -877,33 +731,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
           <caret line="31" column="34" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRadarChart.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
-          <caret line="64" column="46" selection-start-line="64" selection-start-column="46" selection-end-line="64" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/startup/theme.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="36" lean-forward="true" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/votes/VoteCharts.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="82" column="66" selection-start-line="82" selection-start-column="66" selection-end-line="82" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -957,46 +784,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/admin/AdminCommentsSystem.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="55" column="66" selection-start-line="55" selection-start-column="66" selection-end-line="55" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/admin/AdminUserManagement.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="782">
-          <caret line="49" column="36" selection-start-line="49" selection-start-column="36" selection-end-line="49" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/components/users/UserFollowedDisplay.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="36" column="67" lean-forward="true" selection-start-line="36" selection-start-column="67" selection-end-line="36" selection-end-column="67" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/imports/ui/pages/PublicProfile.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="38" column="69" selection-start-line="38" selection-start-column="69" selection-end-line="38" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/imports/api/VoteCollection.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -1034,10 +821,226 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/imports/startup/accounts-config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/startup/theme.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/votes/VoteCharts.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="39" column="13" lean-forward="true" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/votes/VoteTable.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/pages/Login.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="48" column="11" lean-forward="true" selection-start-line="48" selection-start-column="11" selection-end-line="48" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/utils/VoteDescriptionDialog.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="44" column="59" selection-start-line="44" selection-start-column="59" selection-end-line="44" selection-end-column="59" />
+          <folding>
+            <element signature="e#862#888#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/imports/ui/pages/PoliticiansMain.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="67" column="35" lean-forward="true" selection-start-line="67" selection-start-column="35" selection-end-line="67" selection-end-column="35" />
+        <state relative-caret-position="255">
+          <caret line="81" column="35" lean-forward="true" selection-start-line="81" selection-start-column="35" selection-end-line="81" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianRadarChart.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="698">
+          <caret line="83" column="38" selection-start-line="83" selection-start-column="38" selection-end-line="83" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/utils/tablePropsShared.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="681">
+          <caret line="51" column="29" selection-start-line="51" selection-start-column="13" selection-end-line="51" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianVoteHistory.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="58" column="16" lean-forward="true" selection-start-line="58" selection-start-column="16" selection-end-line="58" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/utils/routerPaths.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianPic.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="21" lean-forward="true" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/private/politicianData.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/admin/AdminUserManagement.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="39" lean-forward="true" selection-start-column="39" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/admin/AdminCommentsSystem.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="579">
+          <caret line="50" column="56" selection-start-line="50" selection-start-column="56" selection-end-line="50" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/users/UserFollowedDisplay.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="45" lean-forward="true" selection-start-line="28" selection-start-column="45" selection-end-line="28" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/parties/PartiesBasicInfo.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="629">
+          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/include/Footer.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="15" column="20" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/home/HomeMainCardStyles.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="38" lean-forward="true" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/home/HomeMainCard.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/politicians/PoliticianContact.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/components/home/HomeSpotlight.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/styles.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/pages/PublicProfile.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/imports/ui/pages/Register.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="153" column="99" selection-start-line="153" selection-start-column="99" selection-end-line="153" selection-end-column="99" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>

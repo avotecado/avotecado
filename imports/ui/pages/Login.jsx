@@ -39,13 +39,12 @@ export class Login extends Component {
     }
 
     handleSubmit(e) {
-        let that = this;
         e.preventDefault();
-        Meteor.loginWithPassword(this.state.username, this.state.password, function (error) {
+        Meteor.loginWithPassword(this.state.username, this.state.password, (error) => {
             if (error) {
-                this.setState({error: 'There was an error:' + error.reason});
+                this.setState({error: 'There was an error: ' + error.reason});
             } else {
-                that.setState({loggedIn: true});
+                this.setState({loggedIn: true});
             }
         });
     }

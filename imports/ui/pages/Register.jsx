@@ -17,6 +17,7 @@ import Loading from "../../utils/Loading";
 import {userValidation} from "../../utils/userValidation";
 import validator from 'validator';
 import ErrorSuccessDisplay from "../components/include/errorSuccessDisplay";
+import {helveticaBlackExtended_2em} from "../styles";
 
 const CustomTextField = withStyles({
     root: {
@@ -114,7 +115,7 @@ class Register extends Component {
                     <>
                         <Container>
                             <form onSubmit={this.handleSubmit.bind(this)}>
-                            <span style={{fontFamily: 'Helvetica Black Extended', fontSize: '2em'}}>
+                            <span style={helveticaBlackExtended_2em}>
                                 Register an account
                             </span>
                                 <Grid container spacing={2}>
@@ -150,7 +151,7 @@ class Register extends Component {
                                                          onChange={this.handleChange}/>
 
                                         <CustomTextField id='date' name='dob'
-                                                         label="What's your birth date? (YYY-MM-DD)"
+                                                         label="What's your birth date? (YYYY/MM/DD)"
                                                          type='date' style={{marginBottom: '0.1em'}}
                                                          defaultValue='1818-05-05' InputLabelProps={{shrink: true}}
                                                          onChange={this.handleChange}/>

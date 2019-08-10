@@ -1,26 +1,12 @@
 import React from 'react';
-
 import ChartPartyMakeUp from '../components/home/ChartPartyMakeUp';
 import HomeSpotlight from '../components/home/HomeSpotlight';
-
 import HomeMainCard from '../components/home/HomeMainCard';
-
-import {makeStyles} from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
 import Paper from '@material-ui/core/Paper';
-import {sizing, minHeight, height} from '@material-ui/system';
 import {TwitterTimelineEmbed} from 'react-twitter-embed';
-
-
-const subHeaderStyle = {
-    fontFamily: 'Helvetica Black Extended',
-    fontSize: '2.0em',
-    color: 'black',
-    textAlign: 'center',
-};
+import {helveticaBlackExtended_2em} from "../styles";
 
 export default function Home() {
     return (
@@ -37,14 +23,14 @@ export default function Home() {
 
 
             <Container display='flex' maxWidth='lg'>
-                <span style={subHeaderStyle}> Spotlight Politician </span>
+                <span style={helveticaBlackExtended_2em}> Spotlight Politician </span>
                 <Grid container spacing={3}>
                     <HomeSpotlight/>
                 </Grid>
                 <Paper>
                     <Grid container spacing={3} style={{padding: '1em', display: 'flex', alignItems:'center'}}>
                         <Grid item xs={6}>
-                            <span style={subHeaderStyle}> At a Glance </span>
+                            <span style={helveticaBlackExtended_2em}> At a Glance </span>
                             <div style={{fontFamily: 'Fact-ExpandedMedium'}}>
                                 <span>Percentage of council seats held by parties</span>
                             </div>

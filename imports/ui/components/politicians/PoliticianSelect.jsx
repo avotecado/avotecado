@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import {routes} from "../../../utils/routerPaths";
 
-export default class PoliticiansSelect extends Component {
+export default class PoliticianSelect extends Component {
     constructor(props) {
         super(props);
         this.state = {

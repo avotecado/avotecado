@@ -1,14 +1,7 @@
 import React, {Component} from 'react';
 import {Container} from "@material-ui/core";
 import {Link} from "react-router-dom";
-
-const subHeaderStyle = {
-    fontFamily: 'Helvetica Black Extended',
-    fontSize: '2.0em',
-    color: 'white',
-    textAlign: 'center',
-    backgroundColor: 'black'
-};
+import {helveticaBlackExtended_2em} from "../../styles";
 
 class PartiesBasicInfo extends Component {
     render() {
@@ -19,7 +12,7 @@ class PartiesBasicInfo extends Component {
                         this.props.parties.map((party, index) => {
                             return <div key={index} style={{ marginBottom: '1em' }}>
                                 <div>
-                                    <span style={subHeaderStyle}>{party._id}</span> <br />
+                                    <span style={helveticaBlackExtended_2em}>{party._id}</span> <br />
                                     <span>
                                      Party Ideology:  <a href={`https://wikipedia.org/wiki/${party.ideology}`}>
                                           <img src='/icons/wiki_w.svg' width='16px' />
