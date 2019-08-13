@@ -25,7 +25,7 @@ class HomeMainCard extends Component {
                             <Grid container direction="column" alignItems="flex-start">
                                 <Typography className={classes.hhuTitle}>avotecado</Typography>
                                 <Typography className={classes.hhuSubheading} variant="h4">
-                                    Track your local politicians & see how they voted municipal on matters
+                                    Track your local politicians & see how they voted on municipal matters
                                 </Typography>
                                 <Grid item xs={6} className={classes.hhuButtonContainer}>
                                     <HomeHeroButton className={classes.hhuButton}/>
