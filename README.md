@@ -1,192 +1,208 @@
-avotecado
-===
-## Quick Summary:
+# avotecado
+View the project at: <https://avotecado.herokuapp.com/>
+
 Avotecado is a web application that helps residents keep track of municipal politics.
 
 Using Avotecado’s political aggregation toolkit, users can follow elected officials, track how they vote on issues, and uncover voting patterns that can get lost in the daily news cycle.
 
 The goal is to foster engagement beyond election cycles by making political data accessible, easy to understand, and free of spin.
 
----
+# Table of Contents
+* [Documentation / Final Project](#Documentation--Final-Project)
+  * [Rubric 3: Basic Contribution Requirements](#Rubric-3-Basic-Contribution-Requirements)
+  * [Rubric 4: Basic Functionality Requirements](#Rubric-4-Basic-Functionality-Requirements)
+    * [The problems we wanted to tackle:](#The-problems-we-wanted-to-tackle)
+      * [1. *Tracking politicians is difficult once they get elected.*](#1-Tracking-politicians-is-difficult-once-they-get-elected)
+      * [2. *Legislation/Votes are also difficult to track.*](#2-LegislationVotes-are-also-difficult-to-track)
+      * [3. *Why municipal politics?*](#3-Why-municipal-politics)
+    * [Our Results](#Our-Results)
+    * [Original Goals / Goal Status](#Original-Goals--Goal-Status)
+        * [1. *Councilor profiles with individual voting history*](#Councilor-profiles-with-individual-voting-history)
+        * [2. *Twitter feeds for each politician*](#Twitter-feeds-for-each-politician)
+        * [3. *Aggregate voting history*](#Aggregate-voting-history)
+        * [4. *Ability for users to vote on issues*](#Ability-for-users-to-vote-on-issues)
+        * [5. *Ability to search/filter for specific Bills*](#Ability-to-searchfilter-for-specific-Bills)
+        * [6. *App is responsive*](#App-is-responsive)
+        * [7. *Automatic web scraping of new data into the database*](#Automatic-web-scraping-of-new-data-into-the-database)
+        * [8. *Interactive graphics to display results*](#Interactive-graphics-to-display-results)
+        * [9. *Bills tagged with a category for filtering and collation*](#Bills-tagged-with-a-category-for-filtering-and-collation)
+  * [Rubric 5: Challenges, Learning, and Future Directions](#Rubric-5-Challenges-Learning-and-Future-Directions)
+    * [Challenges / Learning](#Challenges--Learning)
+      * [Challenge 1: *Aesthetic and Code/File Structure Issues.*](#Challenge-1-Aesthetic-and-CodeFile-Structure-Issues)
+      * [Challenge 2: *'External' Issues.*](#Challenge-2-External-Issues)
+      * [Challenge 3: *Data Issues.*](#Challenge-3-Data-Issues)
+    * [Future Direction](#Future-Direction)
+  * [Rubric 6: Initiative and additional contributions](#Rubric-6-Initiative-and-additional-contributions)
+* [References](#References)
+    * [Data / Source Material](#Data--Source-Material)
+    * [Data Visualiztion](#Data-Visualiztion)
+    * [Front/Back End & Data Integration](#frontback-end--data-integration)
+    * [Significant libraries & API](#significant-libraries--api)
+    * [Deployment](#Deployment)
 
-## Table of Contents
-* [Project Requirements](#Project-Requirements--avotecado)
-    * [Who is it for?](#Who-is-it-for)
-    * [What will it do?](#What-will-it-do-What-“human-activity”-will-it-support)
-    * [What type of data will it store?](#What-type-of-data-will-it-store)
-    * [What will users be able to do with this data?](#What-will-users-be-able-to-do-with-this-data)
-    * [What is some additional functionality you can add/remove based on time constraints?](#What-is-some-additional-functionality-you-can-addremove-based-on-time-constraints)
-    * [Project task requirements](#Project-task-requirements)
-        * [3-5 minimal requirements (will definitely complete)](#3-5-minimal-requirements-will-definitely-complete)
-        * [3-7 “standard” requirements (will most likely complete)](#3-7-%E2%80%9Cstandard%E2%80%9D-requirements-will-most-likely-complete)
-        * [2-3 stretch requirements (hope to complete 1!)](#2-3-stretch-requirements-hope-to-complete-1)
-        * [Pick 2 of your minimal requirements and break each of them down into ~2-5 smaller tasks](#Pick-2-of-your-minimal-requirements-and-break-each-of-them-down-into-2-5-smaller-tasks)
-    * [Prototype sketches](#Prototype-sketches)
-* [Approach](#approach--avotecado)
-    * [PURPOSE](#PURPOSE)
-    * [USER-Centered Design](#USER-Centered-Design)
-    * [Problem-Solving Orientation](#Problem-Solving-Orientation)
+# Documentation / Final Project 
+## Rubric 3: Basic Contribution Requirements
+Mike developed the original concept for the project, worked on the project design, background research on the subject, worked on frontend (home page), and the twitter integration for the site.
 
-----
+Jason set up the initial project, handled the data; pulled and formatted the councilors and vote history data to JSON from [the CoV's open data catalogue](https://data.vancouver.ca/datacatalogue/council-voting-record.htm), and setup the ‘tagging’ process for vote entries. He also handled deployment.
 
-## Project Requirements @ avotecado
-### Who is it for?
-avotecado is for people in a certain geographic location who want to learn more about local politics. In our demo case, it'll be for Vancouverites who want to learn about Vancouver politics.
+Shabab acted as team manager, did aesthetic-related stuff, the majority of the programming, helped out with data design.
 
-### What will it do? (What "human activity" will it support?)
-Keep track of political issues/votes (pieces of legislation or other decisions that get voted on) --- within a specific level of government (municipal, provincial, federal)
+Everyone contributed to the overall project design, direction in meetings, documentation, and implementation in general.
 
-### What type of data will it store?
-* Politicians\Elected Officials:
-    * Bio
-    * Contact Information
-    * Their voting record: Legislation/Votes voted on / will vote on
-    * Party affiliation
-* Users
-    * Profile
-        * Username
-        * Email
-        * Password
-    * Entities the user follows
-        * i.e. issues, politicians, bills/votes
-* Votes/Legislation
-* Summary of bills
-    * Official Text - that will be voted on
-    * Link to minutes / official government page
-   * Tags
-   * User votes (What the people think)
-   * Dictionary/Glossary for relevant keywords - breakdown hard to understand jargon.
+## Rubric 4: Basic Functionality Requirements
 
-### What will users be able to do with this data?
-* Politician Data:
-    * View vote history in visual form (graphics, etc)
-    * Follow the politicians
-    * (Potentially) view politician social media feeds
-* User Data:
-    * Modify their profile
-        * Email
-        * Password
-        * Delete account
-* Vote/Legislation Data:
-    * Search tags
-    * Vote on votes
-
-### What is some additional functionality you can add/remove based on time constraints?
-* Web scraping
-* Graphics to display results - in interactive ways
-
-### Project task requirements
-#### 3-5 minimal requirements (will definitely complete)
-1. Vote history information is loaded into database
-2. Profile page for each councillor, with contact data
-3. Councillor profile page has their recent voting history
-4. Vote history page by date, with all councillor votes
-
-#### 3-7 "standard" requirements (will most likely complete)
-1. Councilor profile page has photo & twitter feed
-2. User Profiles
-3. Users can vote anonymously on Bills
-4. Follow feature
-    * Ability to follow politicians
-5. Ability to search/filter for specific Bills
-6. App is responsive - displays well on smaller screens such as phones
-
-#### 2-3 stretch requirements (hope to complete 1!)
-1. Automatic web scraping of new data into the database
-2. Interactive graphics to display results
-3. Bills tagged with a category for filtering and collation
-
-#### Pick 2 of your minimal requirements and break each of them down into ~2-5 smaller tasks:
-* Profile page for councilor
-    * Standardized profile page with data taken from the database
-    * Info about each politician can be shown by selecting from a list
-    * Formatted/organized in a usable and logical manner -- divided into sections
-* Councilor profile page has voting history
-    * Recent votes for a single politician formatted into a single collection by date
-    * Include overall results of the vote compared with chosen politician
-    * Eventually include category indicators for each of the vote items
-    * Dates etc are links to related information, such as all votes from a particular date
-
-### Prototype sketches
-
-#### Flowchart
-![](https://raw.githubusercontent.com/avotecado/avotecado/old-master/project-info/AvoteCado%20Flow%20Chart.png)
-
-Prototype "sketch" flow chart of designer and user conceptual models.
-
-----
-
-#### Landing page
-![](https://raw.githubusercontent.com/avotecado/avotecado/old-master/project-info/landing2.jpg)
-![](https://raw.githubusercontent.com/avotecado/avotecado/old-master/project-info/landing_desktop_.png)
-
-The current idea is to have an initial page that asks the user for their location and then proceeds into a selection page. The selection page is either the most recent city votes, a politician selection page, or a party selection page. The default 'home' can be selected by the user.
-
-The appearance will be very similar in both mobile and desktop forms.
-
-*(There is a mention of a dark mode, which would be nice to eventually implement.)*
-
-----
-
-#### Selection Page
-![](https://raw.githubusercontent.com/avotecado/avotecado/old-master/project-info/politician_party_select.jpg)
-
-As per the flow chart, we will go into some sort of selection page (either for party, politician, or vote records). We will likely be able to sort by alphabetical or most recent (for vote records, at least). This will be the same basic idea for party / politician selection.
-
-----
-
-#### Politician Profile Voting Record Page 
-
-![](https://raw.githubusercontent.com/avotecado/avotecado/old-master/project-info/politician_profile.jpg)
-![](https://raw.githubusercontent.com/avotecado/avotecado/old-master/project-info/profile_desktop.png)
-![](https://raw.githubusercontent.com/avotecado/avotecado/old-master/project-info/Sketch1.jpg)
-
-Various (similar) styles of politician profile pages. Both have overall similar layouts with the tabbed (and collapisble) information organization. The second has a quick access to other politicians. 
-
-The voting record page will also have a very similar appearance, and potentially interaction style on both mobile and desktop.
+### The problems we wanted to tackle:
+With Avotecado, we had quite a few goals (some lofty) that we wanted to tackle. They all centered around making politics accessible for the lay person. We explain the general idea in the following 3 sub sections, then we reflect on our progress in the [section after](#Our-Results), and finally talk about [the specific goals and their statuses](#Original-Goals--Goal-Status).
 
 
-----
+#### 1. *Tracking politicians is difficult once they get elected.*
 
-#### User Profile
+For the average voter, following the news is the best way to “track” what elected officials are doing & saying (often not the same thing). We want to help users track the day-to-day decisions politicians make & provide tools that allow users to see patterns in voting behaviour (if and when they exist).
 
-![](https://raw.githubusercontent.com/avotecado/avotecado/old-master/project-info/user_profile.jpg)
+* There isn’t a technologically convenient way for voters/people to simply pull up a track record of the items described above. 
+* We wanted to give users statistics on elected officials, with a level of ease that resembles sports stats/checking the weather/following stocks.
 
-While a 'stretch goal', it was something that was fun to think about. The layout is somewhat based on current social media styles in which the user has a follow list (but not a followers list!) that consists of issues/politicians, possibly parties as well. 
+#### 2. *Legislation/Votes are also difficult to track.*
+* It is difficult to parse through the legal language that comes with legislation and their pathways to becoming law are difficult to follow.
+    * We wanted to present these items to average voters in ways that are easily understood, both qualitatively and quantitatively.
+* Is there a way to provide voters with some of the data elected officials use to make their decisions, so that they can have their own informed opinions on those matters **or** at least judge for themselves how well politicians follow their mandates?
+* We wanted to develop a consistent set of metrics easily viewed in the app. These metrics were to show the following, in a quick manner:
+  * The information politicians were going to use to base their voting decisions on: for example: staff reports and community forums
+  * Voting patterns: voting with party / ideological bias when voting on issues
+  * Impact of vote on City - individual, neighbourhood, and city-wide levels for instance
 
-----
+#### *3. Why municipal politics?*
+* **High degree of apathy**: Municipal politics has some of the lowest percentages of political participation (vs. provincial or federal).
+* **Party Discipline**: The parliamentary form of provincial and federal politics leads to politicians almost always voting along party lines. Municipal politics offers an opportunity to see what types of issues cause politicians to vote against party lines.
 
-approach @ avotecado
-===
-## PURPOSE
-1. To help think through the project with user-centered approach
-2. Have a space that allows us to think short-term (realistic scope for project) and long-term: are there ways for us to make a useable, innovative app that could have use in real-life (more specifically - can we bake this long-term perspective into the project as we work on it for class?).
+### Our Results
+We were able to create an app that allows users to track municipal politicians and built a searchable record of all the votes the recently elected Vancouver City council made since November 2018 - with some added features (user profiles, voting records organized by party for instance).
+
+We think this project established a useful base on which to expand. We implemented functionality that addressed problems 1 and 2 (from above) at a foundational level, but found implementing political analysis as we first intended beyond our reach.
+
+Generating the political analysis from the data we aggregated turned out to be a significantly more complex problem that we hope to work on in the future. We speak about this in greater detail in the following section and in the [Future Direction section](#Future-Direction).
 
 
-## USER-Centered Design
-* Build from Task examples - http://hcibib.org/tcuid/ - A link that explains this better than I can
-    * **Tasks**: what are the core Tasks your design will support ?
-    * **Task Examples** - have a few “imagined” real users and think through why they would want the app we are designing.
-    * **Conceptual Models**: 
-        * See this example(in reference folder) https://drive.google.com/open?id=1Tf0dOoQ_aBMM8zUG3FAPm8qax-c-CUBkYcqX7ShLo-o
+### Original Goals / Goal Status
+Our plans changed quite a bit, though we did meet our minimal goals, most of our standard requirements and some of our stretch goals. We’ll discuss each goal, point by point.
 
-## Problem-Solving Orientation
-### 1. It is difficult to track what politicians are doing
-For the average voter, following the news is the best way that we can “track” what elected officials are doing and what they are saying (often not the same thing) & to “track” the decisions (bills/votes) they are making & maybe more.
-* There isn’t a technologically convenient way for voters/people to simply pull up a track record of the items described above.
-    * We want to give users STATS on elected officials --- with a level of ease that resembles Sports stats/checking the weather/following stocks.
+##### 1. *Councilor profiles with individual voting history*
+* Status: *Met*
+* This was pretty simple once we got the "overall history" going.
 
-### 2. Legislation/Votes are also difficult to track
-* It is difficult to parse through the jargon filled language that comes with legislation/bill/votes given their legal framework.
-* Can we present these items in an easily digestible, non-biased (***qualitatively*** and ***quantitatively***) way?
-* Is there a way to provide voters with the some of the data the elected offcials are using to make their decisions, so that they can also have informed opinions on those matters or at least judge for themselves how effectively the politicians are following their mandates?
-* Is there a way to develop a consistent set of basic metrics that are easily viewed in an app that can give app users an at glance way to view:
-    * The data informing the need to pass a certain vote.
-    * The data that will be used to judge the effectiveness/impact of a bill/vote.
-    * *FINANCIAL*: total cost / percentage of budget this will cost / cost per resident.
-    * *ACCOUNTABILITY / IMPACT*: when will the vote’s actions take effect?
-    * What metrics is the government going to use to measure effectiveness / impact?
+##### 2. *Twitter feeds for each politician*
+* Status: *Somewhat met*
+* We were unaware of the long waits that twitter had for their API access, as well as their very stringent application process. We ended up going with a library that allowed us to instead embed an aggregated twitter list that contains the accounts of Vancouver City Council members.
 
-### 3. Why municipal first?
-* **High degree of apathy**: This level of government has the lowest percentages of people voting (vs. provincial or federal).
-* **Party Discipline**: Due to the pariliamentary-style (whipped votes) of provincial and federal politics, elected officials tend to vote with their party - thus tracking bills and polticians at these levels of government may require a different set of metrics to track how well polticians reflect their ridings views vs. following the party.
+##### 3. *Aggregate voting history*
+* Status: *Met*
+* This originally applied to *everyone's* (aggregate) vote history, but then it was extended to party vote history as well. Both of these were completed.
+
+##### 4. *Ability for users to vote on issues*
+* Status: *Dropped due to project design change*
+* This was something we discussed as a standard requirement. However, to us, it actually ended up being outside of the scope of our data set as we wanted it to be for *future* bills. We quickly realized that proposed bills and voted on bills often do not share any identifying information, and if we were to link them together, it would take an incredible amount of manual labour, or a more sophisticated form of automation.
+* We replaced this functionality with the ability for users to comment on and rate the councilors, rather than the bills.
+
+##### 5. *Ability to search/filter for specific Bills*
+* Status: *Met*
+* This is handled in the data table.
+
+##### 6. *App is responsive *
+* Status: *Unmet*
+* This (specifically Material-UI) was one of our main issues… so much so, that it actually caused us to re-write the project after the 3rd sprint. Unfortunately, time constraints did not allow for better app responsiveness. On desktop and tablet, it will load fine. However, in smaller screen resolutions, there are issues that could/should have been solved by proper responsive design.
+
+##### 7. *Automatic web scraping of new data into the database*
+* Status: *Unmet*
+* We started to work out the process to aquire, format, and tag new data, and began development, but currently this functionality remains incomplete.
+
+##### 8. *Interactive graphics to display results*
+* Status: *Met*
+* This was actually quite easy once we had our data set up.
+
+##### 9. *Bills tagged with a category for filtering and collation*
+* Status: *Met*
+* Similar to above, this became more obvious in its execution as we figured out the vote data.
+
+## Rubric 5: Challenges, Learning, and Future Directions
+### Challenges / Learning
+#### Challenge 1. *Aesthetic and Code/File Structure Issues.*
+A great deal of challenges came in the form of styling. The [App Is Responsive](#App-is-responsive) goal lays out the issue somewhat. To explain further, our initial design was made in Adobe XD and when we tried to bring that design to life, we quickly realized we (at the time) had no where near enough skill with CSS/React to make it happen. We instead used a poorly modified Material-UI base theme; it was quite unmotivating, inspiring no progress and overall dreadful to look at.
+
+This "version" had an incorrect (and a little less organized) file structure as well.
+
+After term 1 finished, an aesthetic re-design was implemented. While this re-design took up a big chunk of time, we did get better with Material-UI/React during this process (but, of course, there is still lots to learn); we had a chance to restructure the code layout/file directories. Essentially, we revamped the project.
+
+#### Challenge 2. *'External' Issues.*
+We could not account, nor compensate, for unexpected external events that took time away from the project, our team had at least one person busy, and not being able to commit as much time, in both the first and second half of the term.
+
+#### Challenge 3. *Data Issues.*
+*Preface:* This was more so a challenge of political data analysis than one of app building, insofar as class requirements were concerned.
+
+Our voting data functionality is fully implemented. However, our analysis of political data did not reach as far as we hoped when drafting our original goals.
+
+We generated data visualizations based on the data we were able to gather from City Hall's dataset. This meant each vote only contained a brief description for a vote, providing little contextual information.
+
+We eventually had a realization that votes for/against something didn’t necessarily mean anything consistent, so doing analysis or charting on that data was not entirely feasible. For example, one vote categorized as environment might mean something entirely different than the next. Nevertheless, we did find the data gave us useful information to show **how** councilors voted (at a high-level) alongside analysis of data that showed **what** council was voting on. 
+
+A future iteration would try to generate data based on the details of each issue being voted on. This would require data scraping functionality to scour each set of meeting minutes and staff reports (both currently in highly variated PDF format) and pull relevant data. Finally, this data would be presented to users in a way that was contextual and meaningful - text and data visualization.
+
+We had some functionality that auto-generated links back to associated pages on the City Hall website for each issue, but some data inconsistencies resulted in broken links so the functionality was removed until it could be perfected.
+
+### Future Direction
+
+**Currently**: a user can get raw voting record data and conduct a preliminary analysis. For the future, we aim to provide more functionality for deeper, context-based analysis that works with the details of each vote (financial cost of yes vote or no vote, other impacts on city (social and cultural), number of housing units approved/lost, and so on). 
+
+**Future Iterations of Avotecado will:**
+
+*Improve Analysis / Help users see patterns:*
+* We would like to integrate non-biased data analysis, in order for us to provide users with the ability to see how a particular vote connects to other votes and a broader context in-general (such as the examples just listed).
+
+*More Data Visualization:*
+* We’re still just learning a lot about the related technologies, such as data visualization, and in regards to that, we feel in the future we could (and *should*) improve the dataviz aspects of the project.
+
+*Automate Analysis:*
+* We’d like to do automated analysis as well; items like meeting minutes, summaries, etc. For example, we've been considering how to connect future meeting agenda items with past meeting minutes, and have some ideas, but the data is not really connected in an apparent way. (ie. Motions don't get a voteId until they've been voted on.)
+
+*Scale to other Cities:*
+* Something we discussed every now and then is scaling to other cities. This was *kind* of a stretch goal, but would require further investigation into data sources of other cities. We did however try to consider such expansion in our data and app design.
+
+## Rubric 6: Initiative and additional contributions
+* Regarding going "above and beyond simply incorporating each learned technology," I think this was a more difficult and iffy aspect. I (SK) had my hands full with the re-design. I think our use of data/data display was neat however.
+* Perhaps a minor point, but we tested deployment on a personal server as well and compared the speed differences with our Heroku deployment. The result was that Heroku was marginally faster.
+
+# References
+
+### Data / Source Material
+* [City of Vancouver's open data catalogue](https://data.vancouver.ca/datacatalogue/council-voting-record.htm) 
+    * Council voting records
+* [City of Vancouver's election results](https://data.vancouver.ca/datacatalogue/municipalElectionResults.htm)
+* [Open Parliament](https://openparliament.ca)
+    * Inspiration for the project - political tracking site for federal politics - demonstrates how an open and extensive dataset allows for lots of content, but with limited-to-none political analysis.
+
+### Data Visualiztion
+* https://stackoverflow.com/questions/9229645/remove-duplicate-values-from-js-array
+    * `pages/PartiesMain.jsx, removeDuplicates()` references this stackoverflow post, granted it’s a bit modified from that.
+    * `utils/setupArrayForReCharts.js` also references the same stackoverflow post. Specifically for the `(count[value] || 0) + 1` line; I thought it was a nice and clever way of seeing if something existed or not.
+
+### Front/Back End & Data Integration
+* Material-UI Docs.
+    * `utils/VoteDescriptionDialog.jsx`: this file uses a somewhat modified version of a Material-UI example modal. 
+* https://joshtronic.com/2016/02/14/how-to-capitalize-the-first-letter-in-a-string-in-javascript/
+    * `utils/userValidation.js`: I had a bit of a brain lapse where I forgot how to convert the first letter of a string to capital, and thus I used this as a reference.
+* https://guide.meteor.com/react.html#using-withTracker
+    * `withTracker` usage 
+* [validator.js](https://github.com/validatorjs/validator.js)
+    * `server.js`: I used one of their specific regex strings (` /^[0-9A-Z]+$/i`) when my own wasn't completely working; the `/i` is something I missed on my own attempt and so this helped fix my errors.
+* Home page - main image:
+    *  http://kevinlanthier.com/the-special/
+
+### Significant libraries & API
+  * `recharts`
+  * `material-table`
+  * [Twitter - Embedded Lists](https://developer.twitter.com/en/docs/twitter-for-websites/timelines/overview.html)
+    * [React Twitter Embed Component](https://www.npmjs.com/package/react-twitter-embed)
+
+### Deployment
+* https://medium.com/@leonardykris/how-to-run-a-meteor-js-application-on-heroku-in-10-steps-7aceb12de234
+    * helpful in figuring out the steps needed for deployment
